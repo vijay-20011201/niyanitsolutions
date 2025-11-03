@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(30, 58, 138, 0.85)),
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.2), transparent),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.2), transparent),
+                linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        /* Animated grid lines */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridScroll 20s linear infinite;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Floating monitoring icons */
+        .monitoring-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .monitor-icon {
+            position: absolute;
+            font-size: 70px;
+            opacity: 0.1;
+            animation: monitorFloat 18s ease-in-out infinite;
+        }
+
+        .mon-1 { top: 15%; right: 12%; animation-delay: 0s; }
+        .mon-2 { top: 35%; right: 8%; animation-delay: 3s; font-size: 60px; }
+        .mon-3 { bottom: 25%; right: 18%; animation-delay: 6s; font-size: 80px; }
+        .mon-4 { top: 55%; right: 5%; animation-delay: 9s; font-size: 65px; }
+        .mon-5 { bottom: 40%; right: 25%; animation-delay: 12s; font-size: 55px; }
+
+        @keyframes monitorFloat {
+            0%, 100% { 
+                transform: translateY(0) translateX(0) rotate(0deg); 
+                opacity: 0.1; 
+            }
+            25% { 
+                transform: translateY(-50px) translateX(-25px) rotate(10deg); 
+                opacity: 0.15; 
+            }
+            50% { 
+                transform: translateY(-100px) translateX(25px) rotate(-10deg); 
+                opacity: 0.2; 
+            }
+            75% { 
+                transform: translateY(-50px) translateX(-15px) rotate(5deg); 
+                opacity: 0.15; 
+            }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            line-height: 1.05;
+            text-shadow: 5px 7px 15px rgba(0, 0, 0, 0.6);
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.7rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3.5rem;
+            line-height: 1.8;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1.5rem 5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1e40af 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 70px;
+            font-weight: 900;
+            font-size: 1.35rem;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -200%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.8s;
+        }
+
+        .hero-btn:hover::before {
+            left: 200%;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 25px 60px rgba(59, 130, 246, 0.8);
+        }
+
+        /* ============================================
+           SECTION 1: PROACTIVE MONITORING
+        ============================================ */
+        .section-monitoring {
+            padding: 8rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 3.8rem;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+        }
+
+        .section-description {
+            font-size: 1.35rem;
+            color: #475569;
+            line-height: 2.1;
+            margin-bottom: 3.5rem;
+        }
+
+        .monitoring-image {
+            text-align: center;
+            font-size: 400px;
+            filter: drop-shadow(0 30px 70px rgba(59, 130, 246, 0.35));
+            animation: dashboardPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes dashboardPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(2deg); }
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 2.8rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            transition: all 0.4s ease;
+            border-left: 5px solid transparent;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item:hover {
+            transform: translateX(20px);
+            border-left-color: #3b82f6;
+            box-shadow: 0 15px 45px rgba(59, 130, 246, 0.2);
+            background: white;
+        }
+
+        .feature-item .feat-icon {
+            font-size: 3.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .feature-item p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTION 2: AUTOMATED MAINTENANCE
+        ============================================ */
+        .section-automation {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #F5FAFF 0%, #EFF6FF 100%);
+            position: relative;
+        }
+
+        .section-automation::before {
+            content: '⚙️';
+            position: absolute;
+            font-size: 280px;
+            top: 10%;
+            left: 3%;
+            opacity: 0.025;
+            animation: rotateGear 30s linear infinite;
+        }
+
+        @keyframes rotateGear {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.8rem;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .section-header p {
+            font-size: 1.35rem;
+            color: #475569;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 2.1;
+        }
+
+        .automation-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3.5rem;
+        }
+
+        .auto-card {
+            background: white;
+            padding: 4.5rem 3.5rem;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 3px solid transparent;
+            overflow: hidden;
+        }
+
+        .auto-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .auto-card:hover::before {
+            opacity: 1;
+        }
+
+        .auto-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 122, 204, 0.3), 0 25px 70px rgba(59, 130, 246, 0.25);
+            border-color: #3b82f6;
+        }
+
+        .auto-card .card-icon {
+            font-size: 6rem;
+            margin-bottom: 2.5rem;
+            display: block;
+            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auto-card:hover .card-icon {
+            transform: scale(1.3) rotateY(360deg);
+        }
+
+        .auto-card h3 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auto-card p {
+            font-size: 1.15rem;
+            color: #64748b;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           SECTION 3: CENTRALIZED DASHBOARD
+        ============================================ */
+        .section-dashboard {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .dashboard-image {
+            text-align: center;
+            font-size: 420px;
+            filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.15));
+            animation: chartFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes chartFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-40px) rotate(2deg); }
+        }
+
+        .dashboard-content .dashboard-features {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .dashboard-feature {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 3rem;
+            border-radius: 22px;
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .dashboard-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+
+        .dashboard-feature:hover {
+            transform: translateX(-15px);
+            box-shadow: 0 15px 45px rgba(59, 130, 246, 0.2);
+            background: white;
+        }
+
+        .dashboard-feature:hover::before {
+            transform: scaleY(1);
+        }
+
+        .dashboard-feature .dash-icon {
+            font-size: 4rem;
+            flex-shrink: 0;
+        }
+
+        .dashboard-feature h4 {
+            font-size: 1.7rem;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+        }
+
+        .dashboard-feature p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           SECTION 4: REMOTE SUPPORT
+        ============================================ */
+        .section-remote {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-remote::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -250px;
+            left: -250px;
+            animation: remotePulse 12s ease-in-out infinite;
+        }
+
+        @keyframes remotePulse {
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.3); opacity: 0.25; }
+        }
+
+        .remote-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .remote-image {
+            text-align: center;
+            font-size: 400px;
+            filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.2));
+            animation: techFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes techFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-35px) scale(1.05); }
+        }
+
+        .remote-content .remote-features {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .remote-feature {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 2.8rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .remote-feature:hover {
+            background: white;
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 15px 45px rgba(59, 130, 246, 0.25);
+            border-color: #3b82f6;
+        }
+
+        .remote-feature .remote-icon {
+            font-size: 3.5rem;
+            flex-shrink: 0;
+        }
+
+        .remote-feature h4 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .remote-feature p {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .remote-btn {
+            display: inline-block;
+            padding: 1.4rem 4.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .remote-btn:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 18px 50px rgba(59, 130, 246, 0.6);
+        }
+
+        /* ============================================
+           SECTION 5: WHY CHOOSE US
+        ============================================ */
+        .section-why {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .why-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .why-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 55px rgba(59, 130, 246, 0.25);
+            border-color: #3b82f6;
+            background: white;
+        }
+
+        .why-card .why-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .why-card h4 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .why-card p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title,
+            .section-header h2 {
+                font-size: 2.8rem;
+            }
+
+            .two-column,
+            .dashboard-layout,
+            .remote-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .monitoring-image,
+            .dashboard-image,
+            .remote-image {
+                font-size: 280px;
+            }
+
+            .automation-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .dashboard-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="monitoring-elements">
+            <span class="monitor-icon mon-1">📊</span>
+            <span class="monitor-icon mon-2">💻</span>
+            <span class="monitor-icon mon-3">📈</span>
+            <span class="monitor-icon mon-4">🖥️</span>
+            <span class="monitor-icon mon-5">⚙️</span>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Monitor, Manage, and Maintain — Remotely</h1>
+                <p>Optimize performance, reduce downtime, and gain full visibility across your infrastructure with our RMM Tools.</p>
+                <a href="#monitoring" class="hero-btn">Explore Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: PROACTIVE MONITORING
+    ============================================ -->
+    <section class="section-monitoring" id="monitoring">
+        <div class="container">
+            <div class="two-column">
+                <div class="monitoring-image">
+                    📊
+                </div>
+                <div>
+                    <h2 class="section-title">⚙️ Proactive Device & Network Monitoring</h2>
+                    <p class="section-description">Stay ahead of issues with real-time monitoring of endpoints, servers, and network devices. Our RMM platform detects anomalies, tracks performance, and sends instant alerts before downtime occurs.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feat-icon">🕐</span>
+                            <div>
+                                <h4>24/7 System Health Tracking</h4>
+                                <p>Continuous monitoring of all systems with instant anomaly detection and automated response protocols.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feat-icon">📈</span>
+                            <div>
+                                <h4>CPU, Memory & Bandwidth Monitoring</h4>
+                                <p>Real-time performance metrics tracking with historical data analysis for capacity planning.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feat-icon">🚨</span>
+                            <div>
+                                <h4>Automated Alerts & Notifications</h4>
+                                <p>Intelligent alert system with customizable thresholds and multi-channel notifications.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feat-icon">🖥️</span>
+                            <div>
+                                <h4>Dashboard-Based Visibility</h4>
+                                <p>Comprehensive overview of all devices, networks, and services from a single unified interface.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: AUTOMATED MAINTENANCE
+    ============================================ -->
+    <section class="section-automation">
+        <div class="container">
+            <div class="section-header">
+                <h2>🤖 Automated Maintenance & Patch Management</h2>
+                <p>Automate repetitive IT tasks and software updates with intelligent RMM automation scripts. Reduce manual effort, increase consistency, and ensure every endpoint is always up-to-date.</p>
+            </div>
+
+            <div class="automation-cards">
+                <div class="auto-card">
+                    <span class="card-icon">🔄</span>
+                    <h3>Patch Deployment</h3>
+                    <p>Automatically install OS and software patches across all endpoints with scheduling and rollback capabilities for maximum reliability.</p>
+                </div>
+
+                <div class="auto-card">
+                    <span class="card-icon">🧹</span>
+                    <h3>System Cleanup</h3>
+                    <p>Schedule periodic cleanup and optimization tasks to maintain peak system performance and free up valuable storage space.</p>
+                </div>
+
+                <div class="auto-card">
+                    <span class="card-icon">⚡</span>
+                    <h3>Automation Scripts</h3>
+                    <p>Custom rule-based task execution with intelligent workflows to automate complex IT operations and maintenance routines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: CENTRALIZED DASHBOARD
+    ============================================ -->
+    <section class="section-dashboard">
+        <div class="container">
+            <div class="dashboard-layout">
+                <div class="dashboard-content">
+                    <h2 class="section-title">📊 Centralized Dashboard & Reporting</h2>
+                    <p class="section-description">Our centralized RMM dashboard gives a complete view of your entire IT environment — enabling faster insights, simplified workflows, and data-driven decision-making.</p>
+                    
+                    <div class="dashboard-features">
+                        <div class="dashboard-feature">
+                            <span class="dash-icon">📺</span>
+                            <div>
+                                <h4>Live System Overview</h4>
+                                <p>Real-time dashboards displaying critical metrics, health status, and performance indicators across your entire infrastructure.</p>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-feature">
+                            <span class="dash-icon">📄</span>
+                            <div>
+                                <h4>Automated Report Generation</h4>
+                                <p>Scheduled reports with customizable templates, delivered directly to stakeholders via email or dashboard access.</p>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-feature">
+                            <span class="dash-icon">📊</span>
+                            <div>
+                                <h4>Historical Performance Tracking</h4>
+                                <p>Long-term trend analysis and performance tracking to identify patterns and optimize resource allocation.</p>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-feature">
+                            <span class="dash-icon">✅</span>
+                            <div>
+                                <h4>SLA-Based Reporting</h4>
+                                <p>Comprehensive SLA compliance tracking with automated client reporting and performance metrics documentation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-image">
+                    📈
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: REMOTE SUPPORT
+    ============================================ -->
+    <section class="section-remote">
+        <div class="container">
+            <div class="remote-layout">
+                <div class="remote-image">
+                    👨‍💻
+                </div>
+                <div class="remote-content">
+                    <h2 class="section-title">🧠 Remote Support & Incident Management</h2>
+                    <p class="section-description">Our RMM platform includes secure remote access tools that enable technicians to resolve issues instantly — without interrupting end users.</p>
+                    
+                    <div class="remote-features">
+                        <div class="remote-feature">
+                            <span class="remote-icon">🔒</span>
+                            <div>
+                                <h4>Secure Encrypted Sessions</h4>
+                                <p>Military-grade encryption for all remote connections with audit trails and compliance logging.</p>
+                            </div>
+                        </div>
+
+                        <div class="remote-feature">
+                            <span class="remote-icon">⚡</span>
+                            <div>
+                                <h4>Real-Time Troubleshooting</h4>
+                                <p>Instant diagnosis and resolution with remote desktop, command line, and file transfer capabilities.</p>
+                            </div>
+                        </div>
+
+                        <div class="remote-feature">
+                            <span class="remote-icon">🔄</span>
+                            <div>
+                                <h4>Remote Reboot & Control</h4>
+                                <p>Full remote control capabilities including system restart, service management, and configuration changes.</p>
+                            </div>
+                        </div>
+
+                        <div class="remote-feature">
+                            <span class="remote-icon">🎫</span>
+                            <div>
+                                <h4>Ticketing System Integration</h4>
+                                <p>Seamless integration with ITSM platforms for complete incident tracking and resolution documentation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#demo" class="remote-btn">Request Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: WHY CHOOSE US
+    ============================================ -->
+    <section class="section-why">
+        <div class="container">
+            <div class="section-header">
+                <h2>💼 Why Choose Our RMM Tools</h2>
+                <p>Discover the advantages that make our Remote Monitoring and Management solution the preferred choice for growing businesses and IT service providers.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <span class="why-icon">👁️</span>
+                    <h4>100% Visibility</h4>
+                    <p>Complete monitoring across all assets with real-time insights and comprehensive reporting capabilities.</p>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">⚡</span>
+                    <h4>Automated Efficiency</h4>
+                    <p>Reduce manual overhead by 80% with intelligent automation and streamlined IT operations.</p>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">🚀</span>
+                    <h4>Faster Response</h4>
+                    <p>Instant issue detection and fix with proactive monitoring and automated remediation workflows.</p>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">📈</span>
+                    <h4>Scalable Solutions</h4>
+                    <p>Designed for growing businesses with flexible licensing and enterprise-grade infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

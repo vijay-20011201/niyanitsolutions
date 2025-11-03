@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==================== GLOBAL RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ==================== HERO SECTION WITH VIDEO BACKGROUND ==================== */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.75));
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+        }
+
+        /* ==================== MONITORING SECTION WITH GRADIENT ==================== */
+        .monitoring-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-icon {
+            font-size: 60px;
+            color: #1976d2;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: #1565c0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: #424242;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-card i {
+            font-size: 45px;
+            color: #1976d2;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #1565c0;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #616161;
+            line-height: 1.7;
+        }
+
+        /* ==================== THREAT DETECTION SECTION WITH FIXED BACKGROUND ==================== */
+        .threat-section {
+            padding: 100px 20px;
+            background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .threat-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(211, 47, 47, 0.9), rgba(183, 28, 28, 0.85));
+            z-index: 1;
+        }
+
+        .threat-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .threat-section .section-title,
+        .threat-section .section-description {
+            color: white;
+        }
+
+        .threat-section .section-icon {
+            color: #ffcdd2;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #ffcdd2;
+            font-weight: 500;
+        }
+
+        /* ==================== FIRMWARE SECTION WITH IMAGE CARDS ==================== */
+        .firmware-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+        }
+
+        .firmware-section .section-icon {
+            color: #f57c00;
+        }
+
+        .firmware-section .section-title {
+            color: #e65100;
+        }
+
+        .image-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .image-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+        }
+
+        .image-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .image-card-content {
+            padding: 25px;
+        }
+
+        .image-card-content h3 {
+            font-size: 1.4rem;
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+
+        .image-card-content p {
+            color: #616161;
+            line-height: 1.7;
+        }
+
+        /* ==================== 24/7 SUPPORT SECTION WITH ANIMATED GRADIENT ==================== */
+        .support-section {
+            padding: 100px 20px;
+            background: linear-gradient(-45deg, #c8e6c9, #a5d6a7, #81c784, #66bb6a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .support-section .section-icon {
+            color: #2e7d32;
+        }
+
+        .support-section .section-title {
+            color: #1b5e20;
+        }
+
+        .support-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .support-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .support-text p {
+            font-size: 1.15rem;
+            color: #1b5e20;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .support-features {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .support-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .support-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(10px);
+        }
+
+        .support-item i {
+            font-size: 35px;
+            color: #2e7d32;
+        }
+
+        .support-item-text h4 {
+            font-size: 1.2rem;
+            color: #1b5e20;
+            margin-bottom: 5px;
+        }
+
+        .support-item-text p {
+            color: #424242;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ==================== CALL TO ACTION SECTION ==================== */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #283593, #1a237e);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .support-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="https://cdn.coverr.co/videos/coverr-digital-security-lock-animation-5044/1080p.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-icon">🔥</div>
+            <h1 class="hero-title">Advanced Firewall Management for Robust Network Security</h1>
+            <p class="hero-subtitle">Comprehensive protection, monitoring, and optimization for your IT infrastructure</p>
+            <a href="#contact" class="cta-button">Get Protected Now</a>
+        </div>
+    </section>
+
+    <!-- ==================== MONITORING & CONFIGURATION SECTION ==================== -->
+    <section class="monitoring-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">🔐</div>
+                <h2 class="section-title">Comprehensive Firewall Monitoring & Configuration</h2>
+                <p class="section-description">
+                    At Niyan IT Solutions, we provide end-to-end firewall maintenance and management services to ensure your network stays secure, compliant, and high-performing. Our experts handle firewall configuration, rule optimization, access control, and traffic monitoring to protect your systems from unauthorized access and cyber threats.
+                </p>
+                <p class="section-description" style="margin-top: 15px;">
+                    We tailor each configuration to meet your organization's unique security requirements — balancing protection and performance.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-cog"></i>
+                    <h3>Custom Configuration</h3>
+                    <p>Tailored firewall rules and policies designed specifically for your business needs and security requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Access Control</h3>
+                    <p>Robust access control mechanisms to ensure only authorized users and devices can access your network resources.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Traffic Monitoring</h3>
+                    <p>Real-time monitoring of network traffic to identify patterns, anomalies, and potential security threats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== THREAT DETECTION SECTION ==================== -->
+    <section class="threat-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">🧱</div>
+                <h2 class="section-title">Threat Detection and Prevention</h2>
+                <p class="section-description">
+                    Our team proactively monitors network traffic to identify suspicious activities, intrusion attempts, and potential vulnerabilities. Using next-generation firewall (NGFW) technologies, we provide real-time threat detection, content filtering, and malware protection to stop attacks before they occur.
+                </p>
+                <p class="section-description" style="margin-top: 15px;">
+                    We also conduct regular vulnerability assessments and security audits to ensure your firewall remains effective against emerging threats.
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Active Monitoring</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Threat Prevention</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">&lt;5min</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Protected Networks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FIRMWARE & OPTIMIZATION SECTION ==================== -->
+    <section class="firmware-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">⚙️</div>
+                <h2 class="section-title">Firmware Updates and Policy Optimization</h2>
+                <p class="section-description">
+                    Firewalls need regular maintenance to remain reliable. We manage firmware updates, security patching, and policy refinement to enhance performance and protect against evolving risks. Our optimization process involves reviewing and fine-tuning access rules, bandwidth control, and NAT configurations for maximum efficiency.
+                </p>
+                <p class="section-description" style="margin-top: 15px;">
+                    Through continuous monitoring, we ensure your firewall operates seamlessly — with no performance bottlenecks or outdated rules.
+                </p>
+            </div>
+
+            <div class="image-card-grid">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600" alt="Firmware Updates" class="image-card-img">
+                    <div class="image-card-content">
+                        <h3>Regular Updates</h3>
+                        <p>Scheduled firmware updates and security patches to keep your firewall protected against the latest threats and vulnerabilities.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="Policy Optimization" class="image-card-img">
+                    <div class="image-card-content">
+                        <h3>Policy Refinement</h3>
+                        <p>Continuous review and optimization of firewall rules to eliminate redundancies and improve network performance.</p>
+                    </div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Performance Monitoring" class="image-card-img">
+                    <div class="image-card-content">
+                        <h3>Performance Tuning</h3>
+                        <p>Advanced bandwidth management and NAT configuration to ensure optimal network speed and reliability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 24/7 SUPPORT SECTION ==================== -->
+    <section class="support-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">🕓</div>
+                <h2 class="section-title">24/7 Firewall Support and Reporting</h2>
+                <p class="section-description">
+                    Our 24/7 firewall support team ensures rapid response to any network security incidents. We offer remote troubleshooting, backup configuration management, and detailed reporting to keep your organization informed and protected.
+                </p>
+            </div>
+
+            <div class="support-content">
+                <div class="support-text">
+                    <p>
+                        With Niyan IT Solutions, you gain a security partner dedicated to maintaining constant vigilance, proactive defense, and complete peace of mind for your IT infrastructure.
+                    </p>
+                    <p>
+                        Our expert team is always available to address your concerns, provide technical guidance, and ensure your network remains secure around the clock.
+                    </p>
+                </div>
+
+                <div class="support-features">
+                    <div class="support-item">
+                        <i class="fas fa-headset"></i>
+                        <div class="support-item-text">
+                            <h4>Instant Support</h4>
+                            <p>Get immediate assistance from our expert security team anytime, anywhere.</p>
+                        </div>
+                    </div>
+                    <div class="support-item">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="support-item-text">
+                            <h4>Detailed Reporting</h4>
+                            <p>Comprehensive security reports and analytics delivered to your dashboard.</p>
+                        </div>
+                    </div>
+                    <div class="support-item">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div class="support-item-text">
+                            <h4>Backup Management</h4>
+                            <p>Automated configuration backups to ensure quick recovery when needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CALL TO ACTION ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Secure Your Network?</h2>
+            <p>Let Niyan IT Solutions protect your business with enterprise-grade firewall management.</p>
+            <a href="#contact" class="cta-button">Contact Us Today</a>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

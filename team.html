@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        /* ============================================
+           CONTAINER & LAYOUT
+           ============================================ */
+        .container {
+            max-width: 100%;
+            margin: 0;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        /* ============================================
+           HEADER SECTION
+           ============================================ */
+        .header {
+            min-height: 75vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+             display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           CONTENT SECTIONS
+           ============================================ */
+        .content-wrapper {
+            padding: 80px 40px;
+            background: #f8f9fa;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ============================================
+           LEADERSHIP & PROFESSIONALS CARDS
+           ============================================ */
+        .team-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 70px;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .team-card:hover .card-icon {
+            animation: rotate-icon 0.6s ease;
+        }
+
+        @keyframes rotate-icon {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .card-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.4s ease;
+        }
+
+        .team-card:hover .card-title::after {
+            width: 100%;
+        }
+
+        .card-content {
+            font-size: 17px;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        /* ============================================
+           EXPERTISE SECTION WITH CARDS
+           ============================================ */
+        .expertise-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 80px 40px;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-icon {
+            font-size: 70px;
+            display: block;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-bottom: 50px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .expertise-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            text-align: center;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-12px) rotate(2deg);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+            border-left-color: #fcb69f;
+        }
+
+        .expertise-icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .expertise-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 5px solid #fcb69f;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            color: #444;
+            line-height: 1.9;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           CULTURE SECTION WITH INTERACTIVE CARDS
+           ============================================ */
+        .culture-section {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 80px 40px;
+            border-radius: 0;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-bottom: 50px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .culture-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 45px 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(168, 237, 234, 0.3);
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+
+        .culture-card:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .culture-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .culture-icon {
+            font-size: 60px;
+            margin-bottom: 25px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .culture-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           SCROLL TO TOP BUTTON
+           ============================================ */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            .header {
+                padding: 80px 20px 60px;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .page-subtitle {
+                font-size: 16px;
+            }
+
+            .content-wrapper {
+                padding: 60px 20px;
+            }
+
+            .team-cards-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .expertise-grid,
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .expertise-section,
+            .culture-section {
+                padding: 60px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 28px;
+            }
+
+            .card-title {
+                font-size: 26px;
+            }
+
+            .team-card {
+                padding: 35px 25px;
+            }
+
+            .section-description {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+
+    <!-- ============================================
+         MAIN CONTAINER
+         ============================================ -->
+    <div class="container">
+        
+        <!-- ============================================
+             HEADER SECTION
+             ============================================ -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="page-title">Meet the Experts Behind Niyan IT Solutions</h1>
+                <p class="page-subtitle">
+                    Our team is made up of passionate engineers, designers, and strategists who bring creativity and technical expertise together to build powerful digital solutions.
+                </p>
+            </div>
+        </header>
+
+        <!-- ============================================
+             MAIN CONTENT WRAPPER
+             ============================================ -->
+        <main class="content-wrapper">
+            
+            <!-- ============================================
+                 LEADERSHIP & PROFESSIONALS CARDS SECTION
+                 ============================================ -->
+            <section class="section">
+                <div class="team-cards-container">
+                    
+                    <!-- Leadership Team Card -->
+                    <div class="team-card">
+                        <span class="card-icon">👔</span>
+                        <h2 class="card-title">Leadership Team</h2>
+                        <p class="card-content">
+                            Our leadership brings years of industry experience and visionary thinking that guides Niyan IT Solutions toward innovation and growth.
+                        </p>
+                    </div>
+                    
+                    <!-- Skilled Professionals Card -->
+                    <div class="team-card">
+                        <span class="card-icon">💼</span>
+                        <h2 class="card-title">Skilled Professionals</h2>
+                        <p class="card-content">
+                            We take pride in our multidisciplinary team of professionals specialized in software development, cloud computing, digital marketing, and IT consulting — all working together to help clients stay ahead in the digital era.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ============================================
+             OUR EXPERTISE SECTION WITH CARDS
+             ============================================ -->
+        <section class="section expertise-section">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2 class="section-title">Our Expertise</h2>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <span class="expertise-icon">💻</span>
+                    <h3 class="expertise-title">Software Engineering</h3>
+                </div>
+                <div class="expertise-card">
+                    <span class="expertise-icon">🔒</span>
+                    <h3 class="expertise-title">Cybersecurity</h3>
+                </div>
+                <div class="expertise-card">
+                    <span class="expertise-icon">🎨</span>
+                    <h3 class="expertise-title">UI/UX Design</h3>
+                </div>
+                <div class="expertise-card">
+                    <span class="expertise-icon">☁️</span>
+                    <h3 class="expertise-title">Cloud Architecture</h3>
+                </div>
+                <div class="expertise-card">
+                    <span class="expertise-icon">📱</span>
+                    <h3 class="expertise-title">Digital Marketing</h3>
+                </div>
+                <div class="expertise-card">
+                    <span class="expertise-icon">🏗️</span>
+                    <h3 class="expertise-title">IT Infrastructure</h3>
+                </div>
+            </div>
+
+            <div class="section-description">
+                <p>
+                    At Niyan IT Solutions, our strength lies in our diverse expertise. Our team brings together professionals skilled in software engineering, IT infrastructure, cybersecurity, UI/UX design, cloud architecture, and digital marketing — ensuring every project is handled with precision and innovation.
+                </p>
+                <p style="margin-top: 15px;">
+                    Each team member is dedicated to delivering excellence through continuous learning and adapting to the latest technologies. Together, we create solutions that meet real-world challenges and deliver measurable results for our clients.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================
+             CULTURE OF COLLABORATION SECTION
+             ============================================ -->
+        <section class="section culture-section">
+            <div class="section-header">
+                <span class="section-icon">💬</span>
+                <h2 class="section-title">Culture of Collaboration</h2>
+            </div>
+
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <span class="culture-icon">🤝</span>
+                    <div class="culture-value">Teamwork</div>
+                </div>
+                <div class="culture-card">
+                    <span class="culture-icon">🎯</span>
+                    <div class="culture-value">Innovation</div>
+                </div>
+                <div class="culture-card">
+                    <span class="culture-icon">🌟</span>
+                    <div class="culture-value">Excellence</div>
+                </div>
+                <div class="culture-card">
+                    <span class="culture-icon">🌈</span>
+                    <div class="culture-value">Diversity</div>
+                </div>
+            </div>
+
+            <div class="section-description">
+                <p>
+                    We believe that great results come from great teamwork. At Niyan IT Solutions, collaboration is at the heart of our culture — where creativity meets strategy, and ideas turn into impactful solutions.
+                </p>
+                <p style="margin-top: 15px;">
+                    Our work environment encourages open communication, mutual respect, and shared success. We celebrate diversity, innovation, and a commitment to growth — ensuring every member of our team feels valued and empowered to make a difference.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================
+         SCROLL TO TOP BUTTON
+         ============================================ -->
+    <div class="scroll-top" id="scrollTop">
+        ↑
+    </div>
+
+    <!-- Footer (Loaded from footer.html) -->
+    <div id="footer"></div>
+
+    <!-- ============================================
+         JAVASCRIPT FOR INTERACTIVITY
+         ============================================ -->
+    <script>
+        // Get the scroll-to-top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Load header
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            })
+            .catch(error => console.log('Header loading error:', error));
+
+        // Load footer
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            })
+            .catch(error => console.log('Footer loading error:', error));
+    </script>
+</body>
+</html>

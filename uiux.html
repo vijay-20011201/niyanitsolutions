@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== RESET & GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(165deg, #ffffff 0%, #F7F4FF 50%, #EDE9FE 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(196, 181, 253, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -100px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            left: 10%;
+            animation: pulse 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1) translateY(0);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: scale(1.1) translateY(-20px);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 24px;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 540px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 42px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            color: white;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #a78bfa 0%, #0ea5e9 100%);
+            transition: left 0.4s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #8b5cf6;
+            border: 2px solid #8b5cf6;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.1);
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .btn-secondary:hover::before {
+            left: 0;
+        }
+
+        .btn-secondary span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .btn-secondary:hover span {
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+            border-color: transparent;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInScale 1.2s ease;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 40px 80px rgba(139, 92, 246, 0.25);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.6s ease;
+        }
+
+        .hero-visual:hover img {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* ==================== WHAT WE DO SECTION ==================== */
+        .what-we-do-section {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.15);
+            border-color: #8b5cf6;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 2.2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .feature-card:hover .card-icon {
+            transform: rotateY(360deg) scale(1.1);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #1a202c;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== DESIGN PROCESS SECTION ==================== */
+        .process-section {
+            padding: 120px 0;
+            background: linear-gradient(165deg, #F7F4FF 0%, #EDE9FE 100%);
+            position: relative;
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-top: 70px;
+        }
+
+        .process-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .process-card:nth-child(1) { animation-delay: 0.1s; }
+        .process-card:nth-child(2) { animation-delay: 0.2s; }
+        .process-card:nth-child(3) { animation-delay: 0.3s; }
+        .process-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.2);
+        }
+
+        .process-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .process-card:hover .process-number {
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .process-card h3 {
+            font-size: 1.4rem;
+            color: #1a202c;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .process-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== DESIGN PRINCIPLES SECTION ==================== */
+        .principles-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .principles-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-top: 70px;
+        }
+
+        .principles-text {
+            font-size: 1.2rem;
+            color: #4a5568;
+            line-height: 1.9;
+        }
+
+        .principles-text h3 {
+            font-size: 1.8rem;
+            color: #1a202c;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .principle-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(165deg, #F7F4FF 0%, #EDE9FE 100%);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .principle-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .principle-icon {
+            font-size: 3rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .principle-item h4 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        /* ==================== TOOLS SECTION ==================== */
+        .tools-section {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 70px;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: scale(1.1);
+            border-color: #8b5cf6;
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .tool-card .tool-icon {
+            font-size: 3.5rem;
+            margin-bottom: 12px;
+        }
+
+        .tool-card h4 {
+            font-size: 1.1rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        /* ==================== WHY CHOOSE SECTION ==================== */
+        .why-choose-section {
+            padding: 120px 0;
+            background: linear-gradient(165deg, #F7F4FF 0%, #ffffff 100%);
+        }
+
+        .features-list {
+            max-width: 900px;
+            margin: 70px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(139, 92, 246, 0.2);
+        }
+
+        .feature-item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item-text h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .feature-item-text p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ==================== FINAL CTA SECTION ==================== */
+        .final-cta-section {
+            padding: 140px 0;
+            background: linear-gradient(135deg, #EDE9FE 0%, #F7F4FF 50%, #ffffff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            left: -100px;
+            animation: pulse 7s ease-in-out infinite;
+        }
+
+        .final-cta-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            right: -100px;
+            animation: pulse 5s ease-in-out infinite reverse;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-content h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-content p {
+            font-size: 1.4rem;
+            color: #4a5568;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .principles-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .section-header h2,
+            .cta-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cards-grid,
+            .process-timeline,
+            .tools-grid,
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Crafting Seamless <span>User Experiences</span></h1>
+                    <p>We design interfaces that are beautiful, intuitive, and result-driven.</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary"><span>Explore Our Work</span></a>
+                        <a href="#contact" class="btn btn-secondary"><span>Start Your Project</span></a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop" alt="UI/UX Design Process" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHAT WE DO SECTION ==================== -->
+    <section class="what-we-do-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Empowering Digital Interactions</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="card-icon">🔍</div>
+                    <h3>User Research & Analysis</h3>
+                    <p>Understanding user behavior and needs through comprehensive research and data analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">✏️</div>
+                    <h3>Wireframing & Prototyping</h3>
+                    <p>Visualizing layouts before full design to ensure optimal structure and user flow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">🎨</div>
+                    <h3>User Interface Design</h3>
+                    <p>Creating clean, modern, and consistent visuals that delight users.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">✅</div>
+                    <h3>Usability Testing</h3>
+                    <p>Ensuring intuitive and frustration-free navigation through rigorous testing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DESIGN PROCESS SECTION ==================== -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Human-Centered Approach</h2>
+                <p>A systematic process that puts users at the heart of every design decision</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Discover</h3>
+                    <p>Gather insights and define goals through stakeholder interviews and user research.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>Design</h3>
+                    <p>Create wireframes, color palettes, and prototypes that bring your vision to life.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Develop</h3>
+                    <p>Implement interactive and responsive elements with pixel-perfect precision.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">4</div>
+                    <h3>Test & Refine</h3>
+                    <p>Improve based on user feedback and analytics for optimal performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DESIGN PRINCIPLES SECTION ==================== -->
+    <section class="principles-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Driven by Clarity, Simplicity, and Impact</h2>
+            </div>
+            <div class="principles-content">
+                <div class="principles-text">
+                    <h3>Our Design Philosophy</h3>
+                    <p>We create designs that connect emotionally while being easy to use. Every color, font, and interaction is chosen with purpose — to enhance usability and brand identity. Our approach balances aesthetics with functionality, ensuring your users have delightful experiences at every touchpoint.</p>
+                </div>
+                <div class="principles-grid">
+                    <div class="principle-item">
+                        <span class="principle-icon">💎</span>
+                        <h4>Clarity</h4>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-icon">🔄</span>
+                        <h4>Consistency</h4>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-icon">♿</span>
+                        <h4>Accessibility</h4>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-icon">❤️</span>
+                        <h4>Emotion</h4>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-icon">⚡</span>
+                        <h4>Speed</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOLS SECTION ==================== -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Design Tools That Power Creativity</h2>
+                <p>Industry-leading tools for exceptional design outcomes</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🎭</div>
+                    <h4>Figma</h4>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">💠</div>
+                    <h4>Adobe XD</h4>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">💎</div>
+                    <h4>Sketch</h4>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🔮</div>
+                    <h4>InVision</h4>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">📐</div>
+                    <h4>Zeplin</h4>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🖼️</div>
+                    <h4>Photoshop</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE SECTION ==================== -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Niyan IT Solutions</h2>
+                <p>Excellence in every pixel, empathy in every interaction</p>
+            </div>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-item-icon">🧠</div>
+                    <div class="feature-item-text">
+                        <h4>User-First Design Thinking</h4>
+                        <p>We prioritize user needs and behaviors in every design decision.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-item-icon">⚡</div>
+                    <div class="feature-item-text">
+                        <h4>Performance & Accessibility</h4>
+                        <p>Fast-loading, accessible designs that work for everyone.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-item-icon">🤝</div>
+                    <div class="feature-item-text">
+                        <h4>Seamless Collaboration</h4>
+                        <p>Perfect harmony between design and development teams.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-item-icon">📊</div>
+                    <div class="feature-item-text">
+                        <h4>Measurable Business Outcomes</h4>
+                        <p>Designs that drive conversions and achieve your goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA SECTION ==================== -->
+    <section id="contact" class="final-cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Let's Design Something Amazing Together</h2>
+                <p>Let's create user experiences that inspire and convert.</p>
+                <a href="#" class="btn btn-primary"><span>Contact Our UI/UX Experts</span></a>
+            </div>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

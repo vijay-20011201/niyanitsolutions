@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            background: linear-gradient(135deg, #f8fbff 0%, #e9f3ff 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 120, 212, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: heroFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, -30px) scale(1.05); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #0078d4;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #505050;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1.1rem 3rem;
+            background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.3);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 120, 212, 0.4);
+            background: linear-gradient(135deg, #005a9e 0%, #004578 100%);
+        }
+
+        .hero-illustration {
+            text-align: center;
+            font-size: 300px;
+            filter: drop-shadow(0 15px 35px rgba(0, 120, 212, 0.15));
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        /* ============================================
+           SECTION 1: SETUP & MIGRATION SERVICES
+        ============================================ */
+        .section-migration {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #0078d4;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(0, 120, 212, 0.15);
+            border-left-width: 6px;
+        }
+
+        .feature-box h4 {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-box h4::before {
+            content: '✓';
+            color: #0078d4;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .feature-box p {
+            font-size: 0.95rem;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .section-image {
+            text-align: center;
+            font-size: 280px;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ============================================
+           SECTION 2: ADMINISTRATION & USER MANAGEMENT
+        ============================================ */
+        .section-admin {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .admin-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 45px rgba(0, 120, 212, 0.2);
+            border-top-color: #0078d4;
+        }
+
+        .admin-card .card-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .admin-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .admin-card h3 {
+            font-size: 1.6rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .admin-card p {
+            font-size: 1rem;
+            color: #718096;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTION 3: SECURITY & COMPLIANCE
+        ============================================ */
+        .section-security {
+            padding: 6rem 2rem;
+            background: #eef5ff;
+            position: relative;
+        }
+
+        .section-security::before {
+            content: '🔐';
+            position: absolute;
+            font-size: 200px;
+            top: 5%;
+            right: 5%;
+            opacity: 0.03;
+        }
+
+        .security-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .security-image {
+            text-align: center;
+            font-size: 320px;
+            filter: drop-shadow(0 15px 40px rgba(0, 120, 212, 0.15));
+        }
+
+        .security-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .security-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .security-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 25px rgba(0, 120, 212, 0.15);
+        }
+
+        .security-item .item-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .security-item h4 {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .security-item p {
+            font-size: 1rem;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           SECTION 4: SUPPORT & MAINTENANCE
+        ============================================ */
+        .section-support {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-support::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+        }
+
+        .support-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-image {
+            text-align: center;
+            font-size: 300px;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.2));
+        }
+
+        .support-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .support-content > p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .support-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        .highlight-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .highlight-item h4::before {
+            content: '●';
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .highlight-item p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .support-btn {
+            display: inline-block;
+            padding: 1.1rem 3rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .support-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: #f0f0f0;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-container,
+            .two-column,
+            .security-content,
+            .support-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title,
+            .section-header h2,
+            .support-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-illustration,
+            .section-image,
+            .security-image,
+            .support-image {
+                font-size: 180px;
+            }
+
+            .cards-row {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .support-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .support-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Empower Your Business with Microsoft 365</h1>
+                <p>Streamline collaboration, productivity, and communication with our end-to-end Office 365 solutions.</p>
+                <a href="#migration" class="hero-btn">Get Started</a>
+            </div>
+            <div class="hero-illustration">
+                📊
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: SETUP & MIGRATION SERVICES
+    ============================================ -->
+    <section class="section-migration" id="migration">
+        <div class="container">
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">🧩 Setup & Migration Services</h2>
+                    <p class="section-subtitle">Moving to Microsoft 365 has never been easier. Our experts handle migration from legacy mail systems like Exchange, Zimbra, or G Suite, ensuring no downtime or data loss.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-box">
+                            <h4>Smooth Migration</h4>
+                            <p>Complete mailbox & data migration with zero disruption</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>Domain Setup</h4>
+                            <p>Full DNS configuration and domain verification</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>Zero Downtime</h4>
+                            <p>Seamless transitions without service interruptions</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>Data Integrity</h4>
+                            <p>Secure data transfer with complete integrity checks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-image">
+                    🔄
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: ADMINISTRATION & USER MANAGEMENT
+    ============================================ -->
+    <section class="section-admin">
+        <div class="container">
+            <div class="section-header">
+                <h2>⚙️ Administration & User Management</h2>
+                <p>Simplify management with a centralized admin dashboard for all your users and services.</p>
+            </div>
+
+            <div class="cards-row">
+                <div class="admin-card">
+                    <span class="card-icon">👤</span>
+                    <h3>User Account Control</h3>
+                    <p>Create, remove, and manage accounts with ease. Complete control over user profiles and permissions.</p>
+                </div>
+
+                <div class="admin-card">
+                    <span class="card-icon">🎫</span>
+                    <h3>License Management</h3>
+                    <p>Optimize and allocate Office 365 licenses efficiently. Track usage and reduce costs.</p>
+                </div>
+
+                <div class="admin-card">
+                    <span class="card-icon">🔑</span>
+                    <h3>Access Security</h3>
+                    <p>Enforce password policies and multi-factor authentication to protect your organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: SECURITY & COMPLIANCE
+    ============================================ -->
+    <section class="section-security">
+        <div class="container">
+            <div class="security-content">
+                <div class="security-image">
+                    🛡️
+                </div>
+                <div>
+                    <h2 class="section-title">🔐 Security & Compliance</h2>
+                    <p class="section-subtitle">Protect business data with enterprise-grade security and compliance features built into Microsoft 365.</p>
+                    
+                    <div class="security-features">
+                        <div class="security-item">
+                            <span class="item-icon">⚔️</span>
+                            <div>
+                                <h4>Advanced Threat Protection</h4>
+                                <p>Real-time protection against malware, phishing, and ransomware attacks.</p>
+                            </div>
+                        </div>
+
+                        <div class="security-item">
+                            <span class="item-icon">🔒</span>
+                            <div>
+                                <h4>Email Encryption & Spam Filtering</h4>
+                                <p>End-to-end encryption and intelligent spam detection to keep inboxes clean.</p>
+                            </div>
+                        </div>
+
+                        <div class="security-item">
+                            <span class="item-icon">🚫</span>
+                            <div>
+                                <h4>Data Loss Prevention (DLP)</h4>
+                                <p>Prevent sensitive information from leaving your organization accidentally.</p>
+                            </div>
+                        </div>
+
+                        <div class="security-item">
+                            <span class="item-icon">✅</span>
+                            <div>
+                                <h4>Compliance Standards</h4>
+                                <p>Full compliance with GDPR, ISO, SOC, and HIPAA regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: SUPPORT & MAINTENANCE
+    ============================================ -->
+    <section class="section-support">
+        <div class="container">
+            <div class="support-layout">
+                <div class="support-image">
+                    🎧
+                </div>
+                <div class="support-content">
+                    <h2>🤝 Support & Maintenance</h2>
+                    <p>We offer 24/7 support and proactive maintenance to ensure your Office 365 services run flawlessly.</p>
+                    
+                    <div class="support-highlights">
+                        <div class="highlight-item">
+                            <h4>Technical Support</h4>
+                            <p>Dedicated support team available round the clock</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>Issue Resolution</h4>
+                            <p>Quick fixes for mail delivery and sync problems</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>Health Monitoring</h4>
+                            <p>Periodic system checks and performance optimization</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>Backup & Restore</h4>
+                            <p>Data backup and recovery assistance when needed</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="support-btn">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+
+</body>
+</html>

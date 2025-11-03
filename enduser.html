@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* ==================== HERO SECTION WITH ANIMATED GRADIENT BACKGROUND ==================== */
+        .hero-support {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating particles */
+        .hero-support::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle, rgba(255,255,255,0.3) 2px, transparent 2px),
+                radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+            background-size: 100px 100px, 50px 50px;
+            background-position: 0 0, 25px 25px;
+            animation: particleFloat 20s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        /* Animated waves */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,10 600,50 T1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            animation: waveMove 10s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            opacity: 0.5;
+            animation: waveMove 15s linear infinite reverse;
+        }
+
+        @keyframes waveMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 1200px 0; }
+        }
+
+        .hero-support-content {
+            max-width: 1300px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 50px;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .hero-text h1 {
+            font-size: 62px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-text h1 .highlight {
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            text-shadow: none;
+        }
+
+        .hero-text p {
+            font-size: 21px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(15px);
+            padding: 25px 20px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 38px;
+            font-weight: 800;
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary, .btn-hero-secondary {
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 17px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+        .btn-hero-primary {
+            background: white;
+            color: #e73c7e;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+        }
+
+        .btn-hero-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-hero-secondary:hover {
+            background: white;
+            color: #23a6d5;
+        }
+
+        /* Hero Visual - Support Illustration */
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .support-illustration {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .main-icon {
+            font-size: 150px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: white;
+            padding: 18px 22px;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+
+        .floating-badge:nth-child(2) {
+            top: 8%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-badge:nth-child(3) {
+            bottom: 12%;
+            left: 5%;
+            animation-delay: 1.5s;
+        }
+
+        .floating-badge:nth-child(4) {
+            top: 45%;
+            right: -3%;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        .badge-icon {
+            font-size: 28px;
+        }
+
+        .badge-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        /* ==================== COMPREHENSIVE ASSISTANCE SECTION WITH LIGHT BACKGROUND ==================== */
+        .assistance-section {
+            padding: 120px 20px;
+            background: 
+                linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(250,250,252,0.98) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23fafafa" width="1200" height="800"/><g opacity="0.03"><circle cx="100" cy="100" r="80" fill="%23ee7752"/><circle cx="1000" cy="200" r="120" fill="%2323a6d5"/><circle cx="300" cy="650" r="100" fill="%2323d5ab"/><circle cx="900" cy="600" r="90" fill="%23e73c7e"/></g></svg>');
+            background-size: cover;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, #ee7752 0%, #e73c7e 100%);
+            color: white;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(231, 60, 126, 0.3);
+        }
+
+        .section-header h2 {
+            font-size: 52px;
+            color: #2c3e50;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .section-header p {
+            font-size: 20px;
+            color: #5a6c7d;
+            line-height: 1.9;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .assistance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .assistance-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .assistance-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ee7752 0%, #e73c7e 50%, #23a6d5 100%);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .assistance-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .assistance-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 65px rgba(231, 60, 126, 0.2);
+            border-color: rgba(231, 60, 126, 0.2);
+        }
+
+        .card-icon-wrapper {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ffeef3 0%, #fff0f8 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            margin-bottom: 28px;
+            transition: all 0.4s ease;
+        }
+
+        .assistance-card:hover .card-icon-wrapper {
+            background: linear-gradient(135deg, #ee7752 0%, #e73c7e 100%);
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 12px 35px rgba(231, 60, 126, 0.4);
+        }
+
+        .assistance-card h3 {
+            font-size: 26px;
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .assistance-card p {
+            font-size: 16px;
+            color: #5a6c7d;
+            line-height: 1.9;
+        }
+
+        /* ==================== REMOTE & ONSITE SUPPORT SECTION WITH FIXED BACKGROUND IMAGE ==================== */
+        .remote-support-section {
+            padding: 140px 20px;
+            background: 
+                linear-gradient(135deg, rgba(35, 166, 213, 0.95) 0%, rgba(35, 213, 171, 0.95) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%2323a6d5" width="1920" height="1080"/><g opacity="0.1"><rect x="100" y="100" width="400" height="300" fill="white" rx="20"/><circle cx="800" cy="400" r="150" fill="white"/><rect x="1200" y="200" width="500" height="400" fill="white" rx="25"/><rect x="300" y="600" width="350" height="250" fill="white" rx="15"/><circle cx="1400" cy="800" r="120" fill="white"/></g></svg>');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+
+        .remote-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .remote-text h2 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .remote-text p {
+            font-size: 19px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        .support-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .option-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: all 0.3s ease;
+        }
+
+        .option-box:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .option-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .option-box h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .option-box p {
+            font-size: 14px;
+            margin: 0;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Remote Visual with Computer Illustration */
+        .remote-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .laptop-device {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 450px;
+            height: 300px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+            border: 10px solid #1a252f;
+            border-bottom: none;
+        }
+
+        .laptop-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #23a6d5 0%, #23d5ab 100%);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screen-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .laptop-base {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 15px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 0 0 10px 10px;
+        }
+
+        .connection-lines {
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            width: 200px;
+            height: 200px;
+        }
+
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: rgba(255,255,255,0.4);
+            animation: lineGrow 2s ease-in-out infinite;
+        }
+
+        .line:nth-child(1) {
+            top: 0;
+            left: 0;
+            transform: rotate(45deg);
+        }
+
+        .line:nth-child(2) {
+            top: 50px;
+            left: 50px;
+            transform: rotate(-45deg);
+            animation-delay: 0.5s;
+        }
+
+        @keyframes lineGrow {
+            0%, 100% { height: 100px; opacity: 0.4; }
+            50% { height: 150px; opacity: 0.8; }
+        }
+
+        /* ==================== SECURITY MANAGEMENT SECTION ==================== */
+        .security-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #fff5f7 0%, #f0f9ff 100%);
+            position: relative;
+        }
+
+        .security-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .security-text h2 {
+            font-size: 52px;
+            color: #2c3e50;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .security-text p {
+            font-size: 19px;
+            color: #5a6c7d;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        .security-features {
+            display: grid;
+            gap: 20px;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .security-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 40px rgba(231, 60, 126, 0.15);
+        }
+
+        .security-item-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #ee7752 0%, #e73c7e 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .security-item-content h4 {
+            font-size: 19px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .security-item-content p {
+            font-size: 15px;
+            color: #5a6c7d;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* Security Visual */
+        .security-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .shield-main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 320px;
+            background: linear-gradient(135deg, #ee7752 0%, #e73c7e 100%);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            box-shadow: 0 30px 80px rgba(231, 60, 126, 0.4);
+            animation: shieldPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes shieldPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .shield-icon-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 110px;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        .security-orbit {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            animation: orbit 8s linear infinite;
+        }
+
+        .security-orbit:nth-child(3) {
+            animation-delay: -2s;
+        }
+
+        .security-orbit:nth-child(4) {
+            animation-delay: -4s;
+        }
+
+        .security-orbit:nth-child(5) {
+            animation-delay: -6s;
+        }
+
+        @keyframes orbit {
+            0% {
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+            25% {
+                top: 50%;
+                left: 90%;
+                transform: translate(-50%, -50%);
+            }
+            50% {
+                top: 90%;
+                left: 50%;
+                transform: translate(-50%, -100%);
+            }
+            75% {
+                top: 50%;
+                left: 10%;
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* ==================== 24/7 HELPDESK SECTION WITH ANIMATED BACKGROUND ==================== */
+        .helpdesk-section {
+            padding: 120px 20px;
+            background: 
+                linear-gradient(135deg, rgba(238, 119, 82, 0.95) 0%, rgba(231, 60, 126, 0.95) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="white" opacity="0.3"/></pattern></defs><rect fill="%23ee7752" width="1920" height="1080"/><rect fill="url(%23dots)" width="1920" height="1080"/></svg>');
+            background-size: cover;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .helpdesk-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: floatBlob1 15s ease-in-out infinite;
+        }
+
+        @keyframes floatBlob1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-80px, 80px); }
+        }
+
+        .helpdesk-section::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: floatBlob2 18s ease-in-out infinite;
+        }
+
+        @keyframes floatBlob2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(100px, -100px); }
+        }
+
+        .helpdesk-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .helpdesk-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .helpdesk-header h2 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .helpdesk-header p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.9;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .helpdesk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .helpdesk-card {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+
+        .helpdesk-card:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-12px);
+            border-color: rgba(255,255,255,0.4);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+        }
+
+        .helpdesk-icon {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin: 0 auto 25px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+        }
+
+        .helpdesk-card h3 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .helpdesk-card p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-icon-large {
+            font-size: 90px;
+            margin-bottom: 30px;
+            display: block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .cta-content h2 {
+            font-size: 48px;
+            color: #2c3e50;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .cta-content p {
+            font-size: 20px;
+            color: #5a6c7d;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-primary, .btn-cta-secondary {
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 17px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+        .btn-cta-primary {
+            background: linear-gradient(135deg, #ee7752 0%, #e73c7e 100%);
+            color: white;
+            box-shadow: 0 10px 35px rgba(231, 60, 126, 0.3);
+        }
+
+        .btn-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(231, 60, 126, 0.4);
+        }
+
+        .btn-cta-secondary {
+            background: white;
+            color: #e73c7e;
+            border: 2px solid #e73c7e;
+        }
+
+        .btn-cta-secondary:hover {
+            background: #e73c7e;
+            color: white;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1200px) {
+            .hero-support-content,
+            .remote-content,
+            .security-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .remote-visual,
+            .security-visual {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .section-header h2,
+            .remote-text h2,
+            .security-text h2,
+            .helpdesk-header h2 {
+                font-size: 36px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .support-options {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-hero-primary,
+            .btn-hero-secondary,
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .assistance-card,
+            .helpdesk-card {
+                padding: 35px 25px;
+            }
+
+            .main-icon {
+                font-size: 100px;
+            }
+
+            .laptop-device {
+                width: 350px;
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-support">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        
+        <div class="hero-support-content">
+            <div class="hero-text">
+                <span class="hero-badge">
+                    <span>🎯</span>
+                    Expert IT Assistance
+                </span>
+                <h1>Empowering Users with <span class="highlight">Reliable IT Assistance</span> and Faster Issue Resolution</h1>
+                <p>Comprehensive end-user support services designed to keep your employees productive and your IT systems running seamlessly.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">&lt;15min</span>
+                        <span class="stat-label">Avg Response Time</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">First Call Resolution</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support Available</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-hero-primary">Get Support Now</a>
+                    <a href="#services" class="btn-hero-secondary">Explore Services</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="support-illustration">
+                    <div class="main-icon">🎧</div>
+                    <div class="floating-badge">
+                        <span class="badge-icon">⚡</span>
+                        <span class="badge-text">Fast Response</span>
+                    </div>
+                    <div class="floating-badge">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-text">Issue Resolved</span>
+                    </div>
+                    <div class="floating-badge">
+                        <span class="badge-icon">👨‍💻</span>
+                        <span class="badge-text">Expert Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COMPREHENSIVE ASSISTANCE SECTION ==================== -->
+    <section class="assistance-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <span>🧩</span>
+                    Complete Support
+                </span>
+                <h2>Comprehensive End User Assistance</h2>
+                <p>At Niyan IT Solutions, we provide comprehensive end user support services designed to keep your employees productive and your IT systems running seamlessly.</p>
+            </div>
+
+            <div class="assistance-grid">
+                <div class="assistance-card">
+                    <div class="card-icon-wrapper">
+                        <span>💻</span>
+                    </div>
+                    <h3>Hardware Support</h3>
+                    <p>Complete hardware troubleshooting, maintenance, and replacement services to keep all devices running optimally.</p>
+                </div>
+
+                <div class="assistance-card">
+                    <div class="card-icon-wrapper">
+                        <span>📦</span>
+                    </div>
+                    <h3>Software Installation</h3>
+                    <p>Expert software deployment, configuration, and updates ensuring smooth application performance across your organization.</p>
+                </div>
+
+                <div class="assistance-card">
+                    <div class="card-icon-wrapper">
+                        <span>🔧</span>
+                    </div>
+                    <h3>Troubleshooting</h3>
+                    <p>Fast diagnosis and resolution of technical issues minimizing downtime and maximizing productivity.</p>
+                </div>
+
+                <div class="assistance-card">
+                    <div class="card-icon-wrapper">
+                        <span>👤</span>
+                    </div>
+                    <h3>User Management</h3>
+                    <p>Complete user account setup, permissions management, and access control administration.</p>
+                </div>
+
+                <div class="assistance-card">
+                    <div class="card-icon-wrapper">
+                        <span>⚙️</span>
+                    </div>
+                    <h3>System Optimization</h3>
+                    <p>Performance tuning and optimization services ensuring maximum efficiency of all systems.</p>
+                </div>
+
+                <div class="assistance-card">
+                    <div class="card-icon-wrapper">
+                        <span>🖨️</span>
+                    </div>
+                    <h3>Peripheral Setup</h3>
+                    <p>Professional installation and configuration of printers, scanners, and other peripheral devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REMOTE & ONSITE SUPPORT SECTION ==================== -->
+    <section class="remote-support-section">
+        <div class="remote-content">
+            <div class="remote-text">
+                <h2>⚙️ Remote and Onsite Technical Support</h2>
+                <p>We understand that every business has different support requirements. That's why we offer both remote and onsite support options to address issues quickly and effectively.</p>
+                <p>Our helpdesk team uses secure remote access tools to diagnose and fix problems instantly, while our onsite engineers handle more complex issues requiring hands-on expertise.</p>
+
+                <div class="support-options">
+                    <div class="option-box">
+                        <span class="option-icon">🌐</span>
+                        <h4>Remote Support</h4>
+                        <p>Instant access and quick resolution via secure remote tools</p>
+                    </div>
+                    <div class="option-box">
+                        <span class="option-icon">🚗</span>
+                        <h4>Onsite Support</h4>
+                        <p>On-location assistance for complex hardware and network issues</p>
+                    </div>
+                    <div class="option-box">
+                        <span class="option-icon">🔄</span>
+                        <h4>Hybrid Model</h4>
+                        <p>Flexible combination of remote and onsite services</p>
+                    </div>
+                    <div class="option-box">
+                        <span class="option-icon">⏱️</span>
+                        <h4>Same-Day Service</h4>
+                        <p>Priority response for critical business issues</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="remote-visual">
+                <div class="laptop-device">
+                    <div class="laptop-screen">
+                        <div class="screen-content">💻</div>
+                    </div>
+                </div>
+                <div class="laptop-base"></div>
+                <div class="connection-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECURITY MANAGEMENT SECTION ==================== -->
+    <section class="security-section">
+        <div class="container">
+            <div class="security-content">
+                <div class="security-text">
+                    <h2>🔒 User Account, Access & Security Management</h2>
+                    <p>User security and data integrity are crucial for every organization. We manage user accounts, access controls, email configurations, and endpoint protection to maintain a secure environment.</p>
+                    <p>Our team ensures users have the right permissions, devices are regularly updated, and data privacy standards are maintained at all times.</p>
+
+                    <div class="security-features">
+                        <div class="security-item">
+                            <div class="security-item-icon">🔐</div>
+                            <div class="security-item-content">
+                                <h4>Access Control Management</h4>
+                                <p>Role-based permissions and identity management for secure access</p>
+                            </div>
+                        </div>
+
+                        <div class="security-item">
+                            <div class="security-item-icon">🛡️</div>
+                            <div class="security-item-content">
+                                <h4>Endpoint Protection</h4>
+                                <p>Advanced antivirus, malware protection, and device security</p>
+                            </div>
+                        </div>
+
+                        <div class="security-item">
+                            <div class="security-item-icon">📧</div>
+                            <div class="security-item-content">
+                                <h4>Email Configuration</h4>
+                                <p>Secure email setup with spam filtering and encryption</p>
+                            </div>
+                        </div>
+
+                        <div class="security-item">
+                            <div class="security-item-icon">🔑</div>
+                            <div class="security-item-content">
+                                <h4>Multi-Factor Authentication</h4>
+                                <p>Enhanced security with MFA implementation and management</p>
+                            </div>
+                        </div>
+
+                        <div class="security-item">
+                            <div class="security-item-icon">📋</div>
+                            <div class="security-item-content">
+                                <h4>Security Awareness</h4>
+                                <p>User training and best practices for cybersecurity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="security-visual">
+                    <div class="shield-main"></div>
+                    <div class="shield-icon-center">🛡️</div>
+                    <div class="security-orbit">🔐</div>
+                    <div class="security-orbit">🔑</div>
+                    <div class="security-orbit">🔒</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 24/7 HELPDESK SECTION ==================== -->
+    <section class="helpdesk-section">
+        <div class="helpdesk-content">
+            <div class="helpdesk-header">
+                <h2>🕓 24/7 Helpdesk & Continuous Improvement</h2>
+                <p>Our 24/7 helpdesk is always available to support your users with any technical challenge — ensuring quick response times and high first-call resolution rates.</p>
+            </div>
+
+            <div class="helpdesk-grid">
+                <div class="helpdesk-card">
+                    <div class="helpdesk-icon">📞</div>
+                    <h3>Always Available</h3>
+                    <p>Round-the-clock support ensuring your team is never left without assistance.</p>
+                    <ul class="feature-list">
+                        <li>24/7 phone support</li>
+                        <li>Email ticketing system</li>
+                        <li>Live chat assistance</li>
+                        <li>Emergency escalation</li>
+                    </ul>
+                </div>
+
+                <div class="helpdesk-card">
+                    <div class="helpdesk-icon">⚡</div>
+                    <h3>Fast Resolution</h3>
+                    <p>High first-call resolution rates with expert technicians ready to help.</p>
+                    <ul class="feature-list">
+                        <li>Average 15min response</li>
+                        <li>95% first-call resolution</li>
+                        <li>Priority ticket handling</li>
+                        <li>Real-time status updates</li>
+                    </ul>
+                </div>
+
+                <div class="helpdesk-card">
+                    <div class="helpdesk-icon">📊</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>Data-driven approach to enhance service quality and user satisfaction.</p>
+                    <ul class="feature-list">
+                        <li>Performance metrics tracking</li>
+                        <li>User feedback collection</li>
+                        <li>Service optimization</li>
+                        <li>Quality assurance reviews</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <span class="cta-icon-large">🤝</span>
+            <h2>Experience Seamless IT Support Today</h2>
+            <p>Let our expert team handle your IT challenges so your employees can focus on what they do best. Get started with reliable, professional end-user support.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-cta-primary">Get Started Now</a>
+                <a href="#plans" class="btn-cta-secondary">View Support Plans</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

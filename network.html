@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===================================
+           GLOBAL RESET & BASE STYLES
+        =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            overflow-x: hidden;
+            background: #0f0f1e;
+        }
+
+        /* ===================================
+           HERO SECTION WITH MATRIX RAIN EFFECT
+        =================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+        }
+
+        /* Animated Network Grid Background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Glowing Particles */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80') center/cover;
+            opacity: 0.08;
+            animation: slowZoom 25s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.15) rotate(2deg); }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+            animation: heroFadeIn 1.5s ease;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00f5ff, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.5)); }
+            50% { filter: drop-shadow(0 0 25px rgba(0, 245, 255, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #a0d8f1;
+            animation: fadeInDelay 2s ease;
+        }
+
+        @keyframes fadeInDelay {
+            0% { opacity: 0; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #00f5ff, #0099ff);
+            color: #0a0e27;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s;
+            box-shadow: 0 10px 40px rgba(0, 245, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-cta:hover::before {
+            left: 100%;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(0, 245, 255, 0.6);
+        }
+
+        /* Network Connection Lines Animation */
+        .network-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .network-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.5), transparent);
+            height: 2px;
+            animation: lineMove 4s linear infinite;
+        }
+
+        .network-line:nth-child(1) { top: 20%; width: 40%; left: -40%; animation-delay: 0s; }
+        .network-line:nth-child(2) { top: 50%; width: 60%; left: -60%; animation-delay: 1.5s; }
+        .network-line:nth-child(3) { top: 80%; width: 50%; left: -50%; animation-delay: 3s; }
+
+        @keyframes lineMove {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* ===================================
+           SECTION 1: NETWORK MONITORING (CYAN GRADIENT THEME)
+        =================================== */
+        .section-1 {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #0d1b2a 100%);
+            padding: 120px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1920&q=80') center/cover;
+            opacity: 0.04;
+            z-index: 0;
+        }
+
+        /* Animated Circuit Pattern */
+        .section-1::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: orbitSlow 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes orbitSlow {
+            0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-icon {
+            font-size: 4.5rem;
+            background: linear-gradient(135deg, #00f5ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #00f5ff;
+            font-weight: 700;
+        }
+
+        .section-intro {
+            font-size: 1.2rem;
+            color: #a0d8f1;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.05), rgba(0, 153, 255, 0.05));
+            border: 2px solid rgba(0, 245, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .feature-box:hover::before {
+            left: 100%;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            border-color: #00f5ff;
+            box-shadow: 0 20px 60px rgba(0, 245, 255, 0.3);
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(0, 153, 255, 0.1));
+        }
+
+        .feature-box i {
+            font-size: 3.5rem;
+            color: #00f5ff;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-box h3 {
+            font-size: 1.6rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-box p {
+            color: #8bb4c9;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ===================================
+           SECTION 2: PREVENTIVE MAINTENANCE (FIXED PURPLE THEME)
+        =================================== */
+        .section-2 {
+            background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80') center/cover fixed;
+            padding: 120px 5%;
+            position: relative;
+            color: #fff;
+        }
+
+        .section-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(88, 28, 135, 0.92), rgba(139, 69, 255, 0.92));
+            z-index: 0;
+        }
+
+        /* Hexagon Pattern Overlay */
+        .section-2::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255, 255, 255, 0.03) 40px, rgba(255, 255, 255, 0.03) 80px),
+                repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(255, 255, 255, 0.03) 40px, rgba(255, 255, 255, 0.03) 80px),
+                repeating-linear-gradient(120deg, transparent, transparent 40px, rgba(255, 255, 255, 0.03) 40px, rgba(255, 255, 255, 0.03) 80px);
+            z-index: 0;
+        }
+
+        .section-2 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-2 h2 {
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .maintenance-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .maintenance-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .maintenance-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .maintenance-card:hover::before {
+            opacity: 1;
+        }
+
+        .maintenance-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 70px rgba(139, 69, 255, 0.5);
+        }
+
+        .maintenance-card i {
+            font-size: 4rem;
+            color: #fbbf24;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease infinite;
+        }
+
+        .maintenance-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+
+        .maintenance-card p {
+            color: #e0e7ff;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        /* ===================================
+           SECTION 3: SECURITY (DARK GREEN MATRIX THEME)
+        =================================== */
+        .section-3 {
+            background: #0a1612;
+            padding: 120px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Matrix Rain Effect */
+        .section-3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(transparent 90%, rgba(16, 185, 129, 0.1) 90%),
+                linear-gradient(90deg, transparent 90%, rgba(16, 185, 129, 0.1) 90%);
+            background-size: 30px 30px;
+            animation: matrixScroll 15s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes matrixScroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 30px 30px; }
+        }
+
+        .section-3::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 50%);
+            animation: rotateGlow 30s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .section-3 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-3 h2 {
+            color: #10b981;
+        }
+
+        .section-3 .section-intro {
+            color: #6ee7b7;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .security-item {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.05));
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .security-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #10b981, #059669, #10b981);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.8; }
+        }
+
+        .security-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 70px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.1));
+        }
+
+        .security-item:hover::before {
+            opacity: 1;
+        }
+
+        .security-item i {
+            font-size: 4rem;
+            color: #10b981;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .security-item h3 {
+            font-size: 1.7rem;
+            color: #34d399;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .security-item p {
+            color: #a7f3d0;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ===================================
+           SECTION 4: 24/7 SUPPORT (FIXED ORANGE GRADIENT)
+        =================================== */
+        .section-4 {
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80') center/cover fixed;
+            padding: 120px 5%;
+            position: relative;
+            color: #fff;
+        }
+
+        .section-4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.93), rgba(249, 115, 22, 0.93));
+            z-index: 0;
+        }
+
+        /* Animated Pulse Rings */
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: pulseRing 4s ease-out infinite;
+            z-index: 0;
+        }
+
+        .pulse-ring:nth-child(2) { animation-delay: 1s; }
+        .pulse-ring:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes pulseRing {
+            0% {
+                width: 100px;
+                height: 100px;
+                opacity: 1;
+            }
+            100% {
+                width: 800px;
+                height: 800px;
+                opacity: 0;
+            }
+        }
+
+        .section-4 .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .section-4 h2 {
+            color: #fff;
+            font-size: 3.2rem;
+        }
+
+        .support-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .support-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .support-box::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.5s;
+        }
+
+        .support-box:hover::before {
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+        }
+
+        .support-box:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 30px 80px rgba(234, 88, 12, 0.6);
+        }
+
+        .support-box i {
+            font-size: 4.5rem;
+            color: #fde047;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-box p {
+            color: #fed7aa;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-message {
+            margin-top: 5rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .final-message h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #fde047;
+        }
+
+        .final-message p {
+            font-size: 1.3rem;
+            color: #fff;
+            line-height: 1.9;
+        }
+
+        /* ===================================
+           RESPONSIVE DESIGN
+        =================================== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .features-grid,
+            .maintenance-cards,
+            .security-grid,
+            .support-features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-1,
+            .section-2,
+            .section-3,
+            .section-4 {
+                padding: 80px 5%;
+            }
+
+            .feature-box,
+            .maintenance-card,
+            .security-item,
+            .support-box {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    
+    <!-- ===================================
+         HERO SECTION WITH NETWORK ANIMATION
+    =================================== -->
+    <section class="hero">
+        <div class="network-lines">
+            <div class="network-line"></div>
+            <div class="network-line"></div>
+            <div class="network-line"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Ensuring Reliable and Secure Network Connectivity</h1>
+            <p>Professional network maintenance solutions that keep your business connected and protected 24/7</p>
+            <a href="#contact" class="hero-cta">Optimize Your Network</a>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SECTION 1: END-TO-END NETWORK MONITORING
+    =================================== -->
+    <section class="section-1">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h2>End-to-End Network Monitoring & Optimization</h2>
+                <p class="section-intro">At Niyan IT Solutions, we provide comprehensive network maintenance services that ensure your IT infrastructure runs seamlessly and efficiently. Our experts continuously monitor network performance, bandwidth usage, and connectivity to detect and resolve issues before they impact operations.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Performance Monitoring</h3>
+                    <p>Real-time tracking of network speed, latency, and throughput to ensure optimal performance at all times.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Bandwidth Optimization</h3>
+                    <p>Advanced tools to analyze and optimize bandwidth usage, reducing congestion and improving efficiency.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-signal"></i>
+                    <h3>Connectivity Assurance</h3>
+                    <p>Continuous monitoring to maintain stable connections and eliminate unexpected downtime.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-server"></i>
+                    <h3>Infrastructure Health</h3>
+                    <p>Comprehensive diagnostics to keep your entire network infrastructure in peak condition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SECTION 2: PREVENTIVE MAINTENANCE
+    =================================== -->
+    <section class="section-2">
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring"></div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2>Preventive Maintenance & Performance Tuning</h2>
+                <p class="section-intro">Our preventive maintenance strategy focuses on minimizing disruptions through regular audits, firmware updates, and performance assessments. We identify potential bottlenecks, security loopholes, and hardware inefficiencies to keep your network in top condition.</p>
+            </div>
+
+            <div class="maintenance-cards">
+                <div class="maintenance-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Regular Network Audits</h3>
+                    <p>Comprehensive assessments to identify vulnerabilities and optimization opportunities before they become critical issues.</p>
+                </div>
+                <div class="maintenance-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Firmware Updates</h3>
+                    <p>Timely application of the latest firmware versions to ensure security, stability, and access to new features.</p>
+                </div>
+                <div class="maintenance-card">
+                    <i class="fas fa-sliders-h"></i>
+                    <h3>Performance Tuning</h3>
+                    <p>Fine-tuning network configurations to eliminate bottlenecks and maximize efficiency across all systems.</p>
+                </div>
+                <div class="maintenance-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>Real-Time Diagnostics</h3>
+                    <p>Advanced diagnostic tools that provide instant insights into network health and performance metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SECTION 3: NETWORK SECURITY & THREAT MANAGEMENT
+    =================================== -->
+    <section class="section-3">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2>Network Security & Threat Management</h2>
+                <p class="section-intro">Security is a key part of our network maintenance approach. We implement comprehensive security measures to protect your organization from cyber threats and unauthorized access.</p>
+            </div>
+
+            <div class="security-grid">
+                <div class="security-item">
+                    <i class="fas fa-fire"></i>
+                    <h3>Firewall Management</h3>
+                    <p>Advanced firewall configurations and monitoring to block unauthorized access and protect your network perimeter.</p>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Intrusion Detection</h3>
+                    <p>Real-time IDS monitoring to identify and respond to suspicious activities and potential security breaches.</p>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-key"></i>
+                    <h3>Secure VPN Configuration</h3>
+                    <p>Protected remote access solutions that ensure encrypted connections for your distributed workforce.</p>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-bug"></i>
+                    <h3>Vulnerability Scanning</h3>
+                    <p>Regular security assessments to identify and remediate potential vulnerabilities before exploitation.</p>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-download"></i>
+                    <h3>Patch Management</h3>
+                    <p>Systematic deployment of security patches to keep all network devices protected from known threats.</p>
+                </div>
+                <div class="security-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>Network Access Control</h3>
+                    <p>Comprehensive NAC solutions to manage and restrict network access based on security policies and compliance requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SECTION 4: 24/7 SUPPORT AND RAPID RESPONSE
+    =================================== -->
+    <section class="section-4">
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring"></div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h2>24/7 Support and Rapid Response</h2>
+                <p class="section-intro">We understand that network issues can occur anytime. That's why Niyan IT Solutions provides round-the-clock support and remote monitoring to ensure quick response and resolution.</p>
+            </div>
+
+            <div class="support-features">
+                <div class="support-box">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Remote Monitoring</h3>
+                    <p>Continuous surveillance of your network infrastructure with instant alerts for any anomalies or performance issues.</p>
+                </div>
+                <div class="support-box">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Rapid Response Team</h3>
+                    <p>Certified technicians ready to address and resolve issues quickly, minimizing impact on your operations.</p>
+                </div>
+                <div class="support-box">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>LAN/WAN Troubleshooting</h3>
+                    <p>Expert diagnosis and resolution of local and wide area network connectivity and performance issues.</p>
+                </div>
+                <div class="support-box">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Router & Switch Config</h3>
+                    <p>Professional configuration and optimization of network hardware for maximum efficiency and reliability.</p>
+                </div>
+                <div class="support-box">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Remote Assistance</h3>
+                    <p>Secure remote access capabilities for immediate troubleshooting without the need for onsite visits.</p>
+                </div>
+                <div class="support-box">
+                    <i class="fas fa-user-cog"></i>
+                    <h3>Onsite Support</h3>
+                    <p>When needed, our expert technicians provide hands-on support for complex network issues and installations.</p>
+                </div>
+            </div>
+
+            <div class="final-message">
+                <h3>Your Network, Our Priority</h3>
+                <p>With our proactive maintenance and expert support, you can rest assured that your network infrastructure is always stable, secure, and optimized for performance. Let Niyan IT Solutions handle your network complexities while you focus on growing your business.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

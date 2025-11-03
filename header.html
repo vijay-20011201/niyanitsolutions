@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        nav {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            padding: 0;
+            position: fixed; /* optional, keeps header always visible */
+            top: 0;
+            left: 0;
+            right: 0;
+            /*position: relative;*/
+            z-index: 1000;
+            margin: 0;
+            
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 20px 20px 20px 0;
+            margin-right: 30px;
+            white-space: nowrap;
+        }
+        .logo img {
+           height: 75px;           /* adjust as needed */
+           width: auto;            /* keeps aspect ratio */
+           display: block;         /* removes bottom gap */
+        }
+
+        .logo a {
+           text-decoration: none;
+           display: inline-block;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 5px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .cta-button {
+            margin-left: auto;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 20px 18px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .nav-link.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.15);
+        }
+
+        .arrow {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover > .nav-link .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 280px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 12px 0;
+            margin-top: 5px;
+        }
+
+        .nav-item:hover > .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            position: relative;
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .dropdown-link:hover {
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+            color: #667eea;
+            padding-left: 25px;
+        }
+
+        /* Nested Dropdown (Right Side) */
+        .dropdown-nested {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: white;
+            min-width: 260px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-10px);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 12px 0;
+            margin-left: 5px;
+        }
+
+        .dropdown-item:hover > .dropdown-nested {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Mega Menu for Capabilities */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            width: 1000px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 25px;
+            margin-top: 5px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .nav-item:hover > .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-column {
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(102, 126, 234, 0.02);
+        }
+
+        .mega-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .mega-item {
+            display: block;
+            padding: 8px 10px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .mega-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding-left: 15px;
+        }
+
+        .sub-mega-item {
+            display: block;
+            padding: 6px 10px 6px 20px;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+
+        .sub-mega-item:hover {
+            background: rgba(102, 126, 234, 0.08);
+            color: #667eea;
+            padding-left: 25px;
+        }
+
+        /* Icons */
+        .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+        /* Highlight Effects */
+        .dropdown-link::before,
+        .mega-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            transition: height 0.3s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .dropdown-link:hover::before,
+        .mega-item:hover::before {
+            height: 70%;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .mega-menu {
+                width: 800px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+
+            .cta-button {
+                margin: 15px 0;
+                width: calc(100% - 40px);
+                text-align: center;
+            }
+
+            .mega-menu {
+                width: 100%;
+                grid-template-columns: 1fr;
+                position: static;
+                transform: none;
+            }
+
+            .dropdown,
+            .dropdown-nested {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                transform: none;
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="index.html">
+    <img src="logo.png" alt="Niyan IT Solutions Logo">
+  </a></div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <li><a href="index.html" class="active">Home</a></li>
+                </li>
+                 
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        About Company
+                        <span class="arrow">▼</span>
+                    </a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a href="whowe.html" class="dropdown-link">Who We Are</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="Mission.html" class="dropdown-link">Mission & Vision</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="team.html" class="dropdown-link">Our Team</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="values.html" class="dropdown-link">Our Values</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="whychoose.html" class="dropdown-link">Why Choose Us</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Capabilities
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <div class="mega-title">🖥️ IT Infrastructure & Support</div>
+                            <a href="desktop.html" class="sub-mega-item">Desktop Support</a>
+                            <a href="network.html" class="sub-mega-item">Network Maintenance</a>
+                            <a href="server.html" class="sub-mega-item">Server Maintenance</a>
+                            <a href="firewall.html" class="sub-mega-item">Firewall Maintenance</a>
+                            <a href="cloud.html" class="sub-mega-item">Cloud Maintenance</a>
+                            <a href="enduser.html" class="sub-mega-item">End User Support</a>
+
+                            <div class="mega-title" style="margin-top: 20px;">📧 Email Solutions</div>
+                            <a href="office365.html" class="sub-mega-item">Office 365</a>
+                            <a href="googleworkspace.html" class="sub-mega-item">Google Workspace</a>
+                            <a href="email.html" class="sub-mega-item">Email Support</a>
+                        </div>
+
+                        <div class="mega-column">
+                            <div class="mega-title">🌐 Web Services</div>
+                            <a href="webdesign.html" class="mega-item">Website Design</a>
+                            <a href="uiux.html" class="sub-mega-item">UI/UX Design</a>
+                            <a href="webdesignsupport.html" class="sub-mega-item">Website Designing Support</a>
+                            
+                            <a href="weddev.html" class="mega-item" style="margin-top: 10px;">Web Development</a>
+                            <a href="#" class="sub-mega-item">School Management</a>
+                            <a href="#" class="sub-mega-item">Hospital Management</a>
+                            <a href="#" class="sub-mega-item">Ecommerce Application</a>
+                            <a href="#" class="sub-mega-item">Tourism Management</a>
+                            <a href="#" class="sub-mega-item">Real Estate Management</a>
+                            <a href="#" class="sub-mega-item">LMS Management</a>
+                            <a href="#" class="sub-mega-item">Food Delivery Application</a>
+                            <a href="#" class="sub-mega-item">Event Management</a>
+                            <a href="#" class="sub-mega-item">Finance Application</a>
+                        </div>
+
+                        <div class="mega-column">
+                            <div class="mega-title">📱 Mobile App Development</div>
+                            <a href="#" class="sub-mega-item">Android</a>
+                            <a href="#" class="sub-mega-item">iOS</a>
+                            <a href="#" class="sub-mega-item">Support</a>
+
+                            <div class="mega-title" style="margin-top: 20px;">📈 Marketing Services</div>
+                            <a href="#" class="sub-mega-item">Search Engine Optimization</a>
+                            <a href="#" class="sub-mega-item">Pay Per Click Advertisement</a>
+                            <a href="#" class="sub-mega-item">Social Media Marketing</a>
+                            <a href="#" class="sub-mega-item">Content Marketing</a>
+                            <a href="#" class="sub-mega-item">Email Marketing</a>
+                            <a href="#" class="sub-mega-item">Affiliate & Influencer Marketing</a>
+
+                            <div class="mega-title" style="margin-top: 20px;">🛡️ IT Products & Tools</div>
+                            <a href="endpoint.html" class="sub-mega-item">Endpoint Security</a>
+                            <a href="rmm.html" class="sub-mega-item">RMM Tools</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Industries
+                        <span class="arrow">▼</span>
+                    </a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">🍔 Food & Restaurants</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">✈️ Tourism & Travel</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">🚗 Automobile</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">🏠 Real Estate</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">🛒 Online Shopping / E-Commerce</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">🎉 Events & Entertainment</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">💰 Banking & Finance</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">💪 Health & Fitness</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">📚 Education & LMS</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Careers
+                        <span class="arrow">▼</span>
+                    </a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">Life at Niyan IT Solutions</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">Current Openings</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">Internship Opportunities</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">Apply Now</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        Case Studies
+                        <span class="arrow">▼</span>
+                    </a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">Web Projects</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">Mobile Applications</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">Digital Marketing Campaigns</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">IT Infrastructure Solutions</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+            
+            <a href="#" class="cta-button">Apply Now</a>
+        </div>
+    </nav>
+</body>
+</html>

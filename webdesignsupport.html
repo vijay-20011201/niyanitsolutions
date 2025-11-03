@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #ffffff 0%, #E8FAFF 60%, #D0F4FF 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -250px;
+            right: -200px;
+            animation: floatSlow 10s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -100px;
+            animation: floatSlow 12s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+                opacity: 0.5;
+            }
+            50% { 
+                transform: translate(30px, -40px) scale(1.1);
+                opacity: 0.7;
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #475569;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 560px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 44px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #06b6d4;
+            border: 2px solid #06b6d4;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.15);
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn-secondary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-secondary span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .btn-secondary:hover span {
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(6, 182, 212, 0.4);
+            border-color: transparent;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 40px 80px rgba(6, 182, 212, 0.25);
+            transition: transform 0.6s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        /* ==================== WHAT WE OFFER SECTION ==================== */
+        .services-section {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(6, 182, 212, 0.2);
+            border-color: #06b6d4;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:nth-child(1) { background: linear-gradient(145deg, #ffffff 0%, #f0fdff 100%); }
+        .service-card:nth-child(2) { background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%); }
+        .service-card:nth-child(3) { background: linear-gradient(145deg, #ffffff 0%, #eff6ff 100%); }
+        .service-card:nth-child(4) { background: linear-gradient(145deg, #ffffff 0%, #f5f3ff 100%); }
+
+        .service-icon {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg) scale(1.1);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.5);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== WHY SUPPORT MATTERS SECTION ==================== */
+        .why-support-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .support-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .support-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        .support-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(6, 182, 212, 0.2);
+            transition: transform 0.6s ease;
+        }
+
+        .support-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .support-text h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .support-text p {
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.9;
+        }
+
+        /* ==================== SUPPORT PROCESS SECTION ==================== */
+        .process-section {
+            padding: 120px 0;
+            background: linear-gradient(145deg, #E8FAFF 0%, #ffffff 100%);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-top: 70px;
+        }
+
+        .step-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.12);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(6, 182, 212, 0.25);
+        }
+
+        .step-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .step-number {
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card:hover .step-number {
+            transform: scale(1.3) rotate(360deg);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.6);
+        }
+
+        .step-card h3 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 14px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== PLATFORMS SECTION ==================== */
+        .platforms-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin-top: 70px;
+        }
+
+        .platform-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .platform-card:hover {
+            transform: scale(1.1) translateY(-8px);
+            border-color: #06b6d4;
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.2);
+            background: white;
+        }
+
+        .platform-icon {
+            font-size: 4rem;
+            margin-bottom: 14px;
+            filter: grayscale(0.5);
+            transition: all 0.4s ease;
+        }
+
+        .platform-card:hover .platform-icon {
+            filter: grayscale(0);
+            transform: scale(1.15);
+        }
+
+        .platform-card h4 {
+            font-size: 1.2rem;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        /* ==================== WHY CHOOSE SECTION ==================== */
+        .why-choose-section {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 70px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 35px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(12px);
+            box-shadow: 0 15px 45px rgba(6, 182, 212, 0.2);
+            border-color: #06b6d4;
+        }
+
+        .benefit-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .benefit-content h4 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .benefit-content p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* ==================== TESTIMONIALS SECTION ==================== */
+        .testimonials-section {
+            padding: 120px 0;
+            background: linear-gradient(145deg, #E8FAFF 0%, #D0F4FF 100%);
+        }
+
+        .testimonials-container {
+            max-width: 900px;
+            margin: 70px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 35px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 10rem;
+            color: rgba(6, 182, 212, 0.08);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(6, 182, 212, 0.25);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h5 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .author-info p {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        /* ==================== FINAL CTA SECTION ==================== */
+        .final-cta-section {
+            padding: 140px 0;
+            background: linear-gradient(135deg, #D0F4FF 0%, #E8FAFF 50%, #ffffff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            left: -150px;
+            animation: floatSlow 9s ease-in-out infinite;
+        }
+
+        .final-cta-section::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            animation: floatSlow 11s ease-in-out infinite reverse;
+        }
+
+        .cta-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-wrapper h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-wrapper p {
+            font-size: 1.4rem;
+            color: #475569;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .support-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .section-title h2,
+            .support-text h2,
+            .cta-wrapper h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .process-steps,
+            .platforms-grid,
+            .benefits-grid,
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-wrapper h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Reliable Website <span>Design Support</span> & Maintenance</h1>
+                    <p>We ensure your website stays updated, secure, and optimized — every day.</p>
+                    <div class="hero-buttons">
+                        <a href="#support" class="btn btn-primary"><span>Get Ongoing Support</span></a>
+                        <a href="#contact" class="btn btn-secondary"><span>Talk to Our Team</span></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Website Maintenance Dashboard" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHAT WE OFFER SECTION ==================== -->
+    <section id="support" class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>End-to-End Web Design Support Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Website Updates & Modifications</h3>
+                    <p>Regular updates for content, layout, and design improvements to keep your site fresh and engaging.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Performance Optimization</h3>
+                    <p>Speed tuning, image compression, and caching for faster load times and better user experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Security & Backup</h3>
+                    <p>Daily monitoring, backups, and malware protection for uninterrupted uptime and peace of mind.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Bug Fixing & Technical Assistance</h3>
+                    <p>Immediate resolution for design, display, or integration issues to keep your site running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY SUPPORT MATTERS SECTION ==================== -->
+    <section class="why-support-section">
+        <div class="container">
+            <div class="support-content">
+                <div class="support-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Website Analytics" />
+                </div>
+                <div class="support-text">
+                    <h2>Keep Your Website Running Smoothly</h2>
+                    <p>Your website is your digital identity — it needs consistent attention. We handle technical updates, plugin changes, and CMS improvements, ensuring your brand stays modern, secure, and aligned with evolving trends. Trust us to maintain your online presence while you focus on growing your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SUPPORT PROCESS SECTION ==================== -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Our Support Works</h2>
+                <p>A systematic approach to keeping your website in perfect condition</p>
+            </div>
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Initial Audit</h3>
+                    <p>Assess website performance and security to identify areas for improvement.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Plan & Implement</h3>
+                    <p>Apply improvements and updates based on audit findings and your goals.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Monitor & Maintain</h3>
+                    <p>Continuous checks for uptime and quality to ensure optimal performance.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Report & Review</h3>
+                    <p>Monthly reports with actionable insights and performance metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PLATFORMS SECTION ==================== -->
+    <section class="platforms-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>We Support All Major Platforms</h2>
+                <p>Expert maintenance across all popular CMS and website builders</p>
+            </div>
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">📘</div>
+                    <h4>WordPress</h4>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🛍️</div>
+                    <h4>Shopify</h4>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🌐</div>
+                    <h4>Wix</h4>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">⚡</div>
+                    <h4>Webflow</h4>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">🔷</div>
+                    <h4>Joomla</h4>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">💻</div>
+                    <h4>Custom HTML/PHP</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE SECTION ==================== -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Niyan IT Solutions</h2>
+                <p>Dedicated support that keeps your website performing at its best</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌟</div>
+                    <div class="benefit-content">
+                        <h4>24/7 Design & Tech Support</h4>
+                        <p>Round-the-clock assistance whenever you need help with your website.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-content">
+                        <h4>Quick Issue Resolution</h4>
+                        <p>Fast turnaround times to minimize downtime and disruption.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">👥</div>
+                    <div class="benefit-content">
+                        <h4>Experienced Team</h4>
+                        <p>Skilled designers and developers with years of expertise.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <h4>Affordable Maintenance Plans</h4>
+                        <p>Flexible pricing options that fit your budget and needs.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-content">
+                        <h4>Scalable Solutions</h4>
+                        <p>Services that grow with your business, from startups to enterprises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS SECTION ==================== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Real experiences from businesses we've helped succeed</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Niyan IT Solutions has been maintaining our e-commerce website flawlessly. Their team is proactive, quick, and reliable. We've seen significant improvements in site speed and security."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h5>Ravi Kumar</h5>
+                            <p>Retail Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The support team is exceptional! They respond within hours and solve issues before they become problems. Our website has never been more stable and performant."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div class="author-info">
+                            <h5>Priya Sharma</h5>
+                            <p>Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA SECTION ==================== -->
+    <section id="contact" class="final-cta-section">
+        <div class="container">
+            <div class="cta-wrapper">
+                <h2>Let's Keep Your Website Perfect</h2>
+                <p>Focus on your business — we'll handle your website.</p>
+                <a href="#" class="btn btn-primary"><span>Request Support Plan</span></a>
+            </div>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

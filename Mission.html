@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero-mission {
+            min-height: 75vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+        }
+
+        .hero-mission::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .hero-mission::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.03) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.03) 50%, transparent 52%);
+            background-size: 80px 80px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(80px, 80px); }
+        }
+
+        .hero-mission-content {
+            max-width: 1100px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .hero-mission-content h1 {
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-mission-content p {
+            font-size: 22px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== MISSION & VISION CARDS SECTION ==================== */
+        .mission-vision-section {
+            padding: 0;
+            background: #ffffff;
+            position: relative;
+            margin-top: -80px;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .mv-card {
+            background: white;
+            border-radius: 30px;
+            padding: 60px 50px;
+            box-shadow: 0 20px 70px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .mv-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+            transition: all 0.5s ease;
+        }
+
+        .mv-card:hover::after {
+            transform: translate(-20%, 20%) scale(1.2);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 90px rgba(102, 126, 234, 0.25);
+        }
+
+        .mv-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mv-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .mv-card:nth-child(2) .mv-icon {
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .mv-label {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            color: #667eea;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .mv-card h2 {
+            font-size: 38px;
+            color: #1a1a2e;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .mv-card p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        /* ==================== CORE OBJECTIVE SECTION ==================== */
+        .objective-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e3e8ef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .objective-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(102, 126, 234, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(118, 75, 162, 0.03) 0%, transparent 50%);
+        }
+
+        .objective-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .objective-content h2 {
+            font-size: 48px;
+            color: #1a1a2e;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .objective-content p {
+            font-size: 22px;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 50px;
+        }
+
+        .objective-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-box:hover::before {
+            opacity: 1;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25);
+        }
+
+        .feature-box > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-box:hover .feature-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .feature-box h3 {
+            font-size: 22px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            font-weight: 600;
+            transition: color 0.4s ease;
+        }
+
+        .feature-box:hover h3 {
+            color: white;
+        }
+
+        .feature-box p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            transition: color 0.4s ease;
+        }
+
+        .feature-box:hover p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* ==================== PHILOSOPHY SECTION ==================== */
+        .philosophy-section {
+            padding: 120px 20px;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .philosophy-visual {
+            position: relative;
+            height: 550px;
+        }
+
+        .philosophy-shape {
+            position: absolute;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 40px;
+            box-shadow: 0 20px 70px rgba(102, 126, 234, 0.3);
+        }
+
+        .philosophy-shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 0;
+            left: 0;
+            animation: shapeFloat1 6s ease-in-out infinite;
+        }
+
+        .philosophy-shape:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            animation: shapeFloat2 6s ease-in-out infinite;
+        }
+
+        @keyframes shapeFloat1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, 20px) rotate(10deg); }
+        }
+
+        @keyframes shapeFloat2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, -20px) rotate(-10deg); }
+        }
+
+        .philosophy-emoji {
+            position: absolute;
+            font-size: 80px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .philosophy-text h2 {
+            font-size: 48px;
+            color: #1a1a2e;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .philosophy-text h2 span {
+            font-size: 60px;
+        }
+
+        .philosophy-text p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .philosophy-values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+        }
+
+        .value-icon {
+            font-size: 35px;
+            flex-shrink: 0;
+        }
+
+        .value-text {
+            font-size: 16px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* ==================== FUTURE GOALS SECTION ==================== */
+        .goals-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goals-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+        }
+
+        .goals-section::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 30s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .goals-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .goals-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .goals-header h2 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .goals-header h2 span {
+            font-size: 65px;
+        }
+
+        .goals-header p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.9;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .goal-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 25px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .goal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .goal-card:hover::before {
+            opacity: 1;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.4);
+        }
+
+        .goal-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .goal-number {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .goal-icon {
+            font-size: 60px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .goal-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .goal-card p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .goal-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .goal-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .goal-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* ==================== COMMITMENT BANNER ==================== */
+        .commitment-banner {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commitment-banner::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: rotateBackground 40s linear infinite;
+        }
+
+        @keyframes rotateBackground {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .commitment-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .commitment-content h2 {
+            font-size: 46px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .commitment-content p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: #667eea;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1024px) {
+            .mv-grid,
+            .philosophy-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .philosophy-visual {
+                height: 400px;
+            }
+
+            .goals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .objective-features {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-values {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-mission-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-mission-content p {
+                font-size: 18px;
+            }
+
+            .mv-card {
+                padding: 40px 30px;
+            }
+
+            .mv-card h2 {
+                font-size: 28px;
+            }
+
+            .objective-content h2,
+            .philosophy-text h2,
+            .goals-header h2 {
+                font-size: 32px;
+            }
+
+            .commitment-content h2 {
+                font-size: 32px;
+            }
+
+            .goal-card {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-mission">
+        <div class="hero-mission-content">
+            <span class="hero-badge">Our Purpose</span>
+            <h1>Our Mission & Vision</h1>
+            <p>Driving digital transformation through innovation, excellence, and unwavering commitment to client success</p>
+        </div>
+    </section>
+
+    <!-- ==================== MISSION & VISION CARDS SECTION ==================== -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="mv-grid">
+                <!-- Mission Card -->
+                <div class="mv-card">
+                    <span class="mv-icon">🎯</span>
+                    <span class="mv-label">Our Mission</span>
+                    <h2>Empowering Global Success</h2>
+                    <p>To empower businesses globally by delivering innovative, secure, and scalable IT solutions that drive digital transformation and long-term success.</p>
+                </div>
+
+                <!-- Vision Card -->
+                <div class="mv-card">
+                    <span class="mv-icon">🔭</span>
+                    <span class="mv-label">Our Vision</span>
+                    <h2>Trusted Global Partner</h2>
+                    <p>To be recognized as a trusted global IT partner — setting new benchmarks in quality, creativity, and client satisfaction through continuous innovation and technology excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CORE OBJECTIVE SECTION ==================== -->
+    <section class="objective-section">
+        <div class="container">
+            <div class="objective-content">
+                <span class="section-badge">
+                    <span>⭐</span>
+                    Core Objective
+                </span>
+                <h2>Bridging People & Technology</h2>
+                <p>We aim to bridge the gap between people and technology by creating smarter, faster, and more reliable IT ecosystems.</p>
+
+                <div class="objective-features">
+                    <div class="feature-box">
+                        <span class="feature-icon">⚡</span>
+                        <h3>Smarter</h3>
+                        <p>Intelligent solutions powered by cutting-edge technology</p>
+                    </div>
+                    <div class="feature-box">
+                        <span class="feature-icon">🚀</span>
+                        <h3>Faster</h3>
+                        <p>Accelerated deployment and optimized performance</p>
+                    </div>
+                    <div class="feature-box">
+                        <span class="feature-icon">🛡️</span>
+                        <h3>Reliable</h3>
+                        <p>Rock-solid infrastructure with 24/7 support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PHILOSOPHY SECTION ==================== -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-visual">
+                    <div class="philosophy-shape"></div>
+                    <div class="philosophy-shape"></div>
+                    <div class="philosophy-emoji">🌱</div>
+                </div>
+
+                <div class="philosophy-text">
+                    <h2><span>🌱</span> Our Philosophy</h2>
+                    <p>At Niyan IT Solutions, our philosophy is rooted in continuous innovation and client-centric growth. We believe technology should simplify lives, enhance productivity, and open new possibilities for every business.</p>
+                    <p>Our approach is to create solutions that are not only advanced but also meaningful, enabling organizations to stay relevant in an ever-changing digital world.</p>
+
+                    <div class="philosophy-values">
+                        <div class="value-item">
+                            <span class="value-icon">💡</span>
+                            <span class="value-text">Continuous Innovation</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🤝</span>
+                            <span class="value-text">Client-Centric Growth</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">✨</span>
+                            <span class="value-text">Creative Excellence</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🎯</span>
+                            <span class="value-text">Results-Driven Mindset</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FUTURE GOALS SECTION ==================== -->
+    <section class="goals-section">
+        <div class="goals-content">
+            <div class="goals-header">
+                <h2><span>🚀</span> Our Future Goals</h2>
+                <p>As we look ahead, Niyan IT Solutions aims to expand its footprint globally, introducing smarter technologies, AI-driven systems, and sustainable digital solutions that empower industries to thrive.</p>
+            </div>
+
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <span class="goal-number">01</span>
+                    <span class="goal-icon">🤖</span>
+                    <h3>Intelligent Ecosystems</h3>
+                    <p>Building an ecosystem of intelligent IT infrastructure and automation.</p>
+                    <ul class="goal-list">
+                        <li>AI-powered automation</li>
+                        <li>Smart infrastructure</li>
+                        <li>Predictive analytics</li>
+                    </ul>
+                </div>
+
+                <div class="goal-card">
+                    <span class="goal-number">02</span>
+                    <span class="goal-icon">☁️</span>
+                    <h3>Global Cloud Security</h3>
+                    <p>Strengthening our cloud and cybersecurity services for global clients.</p>
+                    <ul class="goal-list">
+                        <li>Advanced cloud solutions</li>
+                        <li>Enterprise security</li>
+                        <li>Compliance management</li>
+                    </ul>
+                </div>
+
+                <div class="goal-card">
+                    <span class="goal-number">03</span>
+                    <span class="goal-icon">💎</span>
+                    <h3>Co-Creative Innovation</h3>
+                    <p>Partnering with businesses to co-create innovative digital experiences.</p>
+                    <ul class="goal-list">
+                        <li>Collaborative solutions</li>
+                        <li>Custom experiences</li>
+                        <li>Strategic partnerships</li>
+                    </ul>
+                </div>
+            </section>
+            <!-- ==================== CTA SECTION ==================== -->
+    <section class="commitment-banner">
+        <div class="commitment-content">
+            <h2>Ready to Start Your Digital Journey?</h2>
+            <p>Let's discuss how we can help transform your business with innovative IT solutions</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

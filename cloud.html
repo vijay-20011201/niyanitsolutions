@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==================== GLOBAL RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* ==================== HERO SECTION WITH ANIMATED GRADIENT & FLOATING ELEMENTS ==================== */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 15s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 20s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 22s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 17s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 19s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2s; animation-duration: 21s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4s; animation-duration: 16s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+            }
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 1000px;
+            padding: 0 20px;
+            animation: fadeInScale 1.2s ease;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-icon {
+            font-size: 90px;
+            margin-bottom: 25px;
+            animation: bounceIn 1.5s ease;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.2);
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* ==================== CLOUD MANAGEMENT SECTION WITH IMAGE GALLERY ==================== */
+        .management-section {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #e8f5e9 0%, #f1f8e9 100%);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .section-icon {
+            font-size: 70px;
+            margin-bottom: 25px;
+            color: #4caf50;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .section-description {
+            font-size: 1.18rem;
+            color: #546e7a;
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .content-text p {
+            font-size: 1.1rem;
+            color: #546e7a;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .feature-list i {
+            font-size: 28px;
+            color: #4caf50;
+        }
+
+        .feature-list span {
+            font-size: 1.05rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .content-image {
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+        }
+
+        .main-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.2);
+        }
+
+        /* ==================== SECURITY SECTION WITH FIXED PARALLAX BACKGROUND ==================== */
+        .security-section {
+            padding: 120px 20px;
+            background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .security-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(63, 81, 181, 0.92), rgba(33, 150, 243, 0.88));
+            z-index: 1;
+        }
+
+        .security-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .security-section .section-title,
+        .security-section .section-description {
+            color: white;
+        }
+
+        .security-section .section-icon {
+            color: #bbdefb;
+        }
+
+        .security-section .section-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .security-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .security-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .security-card i {
+            font-size: 55px;
+            color: #bbdefb;
+            margin-bottom: 25px;
+        }
+
+        .security-card h3 {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .security-card p {
+            color: #e3f2fd;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ==================== PERFORMANCE SECTION WITH VIDEO BACKGROUND ==================== */
+        .performance-section {
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .performance-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .performance-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 235, 238, 0.95), rgba(255, 205, 210, 0.92));
+            z-index: -1;
+        }
+
+        .performance-section .section-icon {
+            color: #d32f2f;
+        }
+
+        .performance-section .section-title {
+            color: #c62828;
+        }
+
+        .performance-section .section-badge {
+            background: rgba(211, 47, 47, 0.1);
+            color: #d32f2f;
+        }
+
+        .performance-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .showcase-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .showcase-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .showcase-card:hover .showcase-image {
+            transform: scale(1.1);
+        }
+
+        .showcase-content {
+            padding: 35px;
+        }
+
+        .showcase-content h3 {
+            font-size: 1.6rem;
+            color: #c62828;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .showcase-content p {
+            color: #546e7a;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .showcase-icon {
+            font-size: 40px;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+
+        /* ==================== SUPPORT SECTION WITH IMAGE BACKGROUND ==================== */
+        .support-section {
+            padding: 120px 20px;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .support-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.92), rgba(88, 24, 255, 0.88));
+            z-index: 1;
+        }
+
+        .support-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .support-section .section-title,
+        .support-section .section-description {
+            color: white;
+        }
+
+        .support-section .section-icon {
+            color: #e1bee7;
+        }
+
+        .support-section .section-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .support-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+            align-items: center;
+        }
+
+        .support-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .support-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+        }
+
+        .support-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+        }
+
+        .support-features {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .support-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .support-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(10px);
+        }
+
+        .support-item i {
+            font-size: 38px;
+            color: #e1bee7;
+            min-width: 38px;
+        }
+
+        .support-item-content h4 {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .support-item-content p {
+            color: #e1bee7;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* ==================== STATS SECTION WITH GRADIENT ==================== */
+        .stats-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+        }
+
+        .stat-icon {
+            font-size: 50px;
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #e67e22;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #546e7a;
+            font-weight: 500;
+        }
+
+        /* ==================== SUPPORT SECTION WITH PURPLE PARALLAX & 4-IMAGE GRID ==================== */
+        .support-section {
+            padding: 120px 20px;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .support-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.92), rgba(88, 24, 255, 0.88));
+            z-index: 1;
+        }
+
+        .support-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .support-section .section-title,
+        .support-section .section-description {
+            color: white;
+        }
+
+        .support-section .section-icon {
+            color: #e1bee7;
+        }
+
+        .support-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+            align-items: center;
+        }
+
+        .support-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .support-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            transition: all 0.5s ease;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .support-img:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .support-img:nth-child(1) {
+            animation: float1 6s ease-in-out infinite;
+        }
+
+        .support-img:nth-child(2) {
+            animation: float2 7s ease-in-out infinite;
+        }
+
+        .support-img:nth-child(3) {
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .support-img:nth-child(4) {
+            animation: float2 9s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        .support-features {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .support-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .support-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(15px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .support-item i {
+            font-size: 42px;
+            color: #e1bee7;
+            min-width: 42px;
+            transition: all 0.4s ease;
+        }
+
+        .support-item:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .support-item-content h4 {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .support-item-content p {
+            color: #e1bee7;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ==================== FINAL CTA SECTION ==================== */
+        .final-cta-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-cloud {
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+            animation: drift 30s infinite;
+        }
+
+        .cta-cloud:nth-child(1) { top: -50px; left: 10%; animation-delay: 0s; }
+        .cta-cloud:nth-child(2) { top: 50%; right: 10%; animation-delay: 5s; }
+        .cta-cloud:nth-child(3) { bottom: -50px; left: 50%; animation-delay: 10s; }
+
+        @keyframes drift {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(50px); }
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .final-cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+            padding: 20px 60px;
+            background: white;
+            color: #00b4db;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 968px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .content-grid,
+            .support-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .performance-showcase,
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .support-image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+
+    <!-- ==================== HERO SECTION WITH ANIMATED GRADIENT ==================== -->
+    <section class="hero-section">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-icon">☁️</div>
+            <h1 class="hero-title">Optimizing Cloud Infrastructure for Performance, Security & Reliability</h1>
+            <p class="hero-subtitle">Comprehensive cloud management solutions for modern businesses</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- ==================== CLOUD MANAGEMENT SECTION WITH IMAGES ==================== -->
+    <section class="management-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">COMPREHENSIVE SOLUTIONS</div>
+                <div class="section-icon">⚙️</div>
+                <h2 class="section-title">End-to-End Cloud Management & Monitoring</h2>
+                <p class="section-description">
+                    At Niyan IT Solutions, we deliver comprehensive cloud maintenance and management services that keep your cloud environment secure, efficient, and optimized for business growth. Our cloud specialists monitor your compute, storage, and network resources to ensure seamless operation, performance stability, and cost efficiency.
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-text">
+                    <p>
+                        We handle all aspects of cloud provisioning, scaling, and optimization, helping you get the most out of your cloud investments.
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-server"></i>
+                            <span>Compute Resource Management</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-database"></i>
+                            <span>Storage Optimization</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-network-wired"></i>
+                            <span>Network Configuration</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-line"></i>
+                            <span>Performance Analytics</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Cost Optimization</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="Cloud Infrastructure" class="main-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECURITY SECTION WITH FIXED PARALLAX ==================== -->
+    <section class="security-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">ENTERPRISE SECURITY</div>
+                <div class="section-icon">🔒</div>
+                <h2 class="section-title">Security & Compliance Management</h2>
+                <p class="section-description">
+                    Security in the cloud is critical — and we make it our top priority. Our services include continuous security audits, access control management, encryption policies, and compliance checks to protect your business data from unauthorized access or breaches.
+                </p>
+                <p class="section-description" style="margin-top: 20px;">
+                    We also implement identity and access management (IAM) best practices and multi-factor authentication (MFA) to enhance your overall cloud security posture.
+                </p>
+            </div>
+
+            <div class="security-grid">
+                <div class="security-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security Audits</h3>
+                    <p>Continuous monitoring and assessment of your cloud security infrastructure to identify vulnerabilities.</p>
+                </div>
+                <div class="security-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Access Control</h3>
+                    <p>Advanced IAM policies and MFA implementation to ensure only authorized access to resources.</p>
+                </div>
+                <div class="security-card">
+                    <i class="fas fa-key"></i>
+                    <h3>Encryption Management</h3>
+                    <p>End-to-end encryption for data at rest and in transit to protect sensitive information.</p>
+                </div>
+                <div class="security-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Compliance Checks</h3>
+                    <p>Regular compliance audits to ensure adherence to industry standards and regulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PERFORMANCE SECTION WITH VIDEO BACKGROUND ==================== -->
+    <section class="performance-section">
+        <video class="performance-video" autoplay muted loop playsinline>
+            <source src="https://cdn.coverr.co/videos/coverr-data-center-server-room-6632/1080p.mp4" type="video/mp4">
+        </video>
+        <div class="performance-overlay"></div>
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">PEAK PERFORMANCE</div>
+                <div class="section-icon">🚀</div>
+                <h2 class="section-title">Performance Optimization & Resource Utilization</h2>
+                <p class="section-description">
+                    We help you improve cloud performance by analyzing workloads, optimizing storage usage, and right-sizing resources to reduce unnecessary costs. Our cloud engineers use performance analytics and automation tools to ensure maximum uptime, faster response times, and optimal scalability.
+                </p>
+                <p class="section-description" style="margin-top: 20px;">
+                    Whether you're using AWS, Microsoft Azure, or Google Cloud, we ensure your cloud ecosystem runs at its best every day.
+                </p>
+            </div>
+
+            <div class="performance-showcase">
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600" alt="AWS Services" class="showcase-image">
+                    <div class="showcase-content">
+                        <div class="showcase-icon"><i class="fab fa-aws"></i></div>
+                        <h3>Amazon Web Services</h3>
+                        <p>Expert management and optimization of your AWS infrastructure for maximum performance and cost efficiency.</p>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600" alt="Azure Services" class="showcase-image">
+                    <div class="showcase-content">
+                        <div class="showcase-icon"><i class="fab fa-microsoft"></i></div>
+                        <h3>Microsoft Azure</h3>
+                        <p>Comprehensive Azure cloud management with advanced monitoring and resource optimization capabilities.</p>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600" alt="Google Cloud" class="showcase-image">
+                    <div class="showcase-content">
+                        <div class="showcase-icon"><i class="fab fa-google"></i></div>
+                        <h3>Google Cloud Platform</h3>
+                        <p>Leverage GCP's powerful infrastructure with our expert management and optimization services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STATS SECTION ==================== -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                <div class="stat-number">99.99%</div>
+                <div class="stat-label">Uptime Guarantee</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                <div class="stat-number">50%</div>
+                <div class="stat-label">Faster Performance</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                <div class="stat-number">35%</div>
+                <div class="stat-label">Cost Reduction</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Security Compliance</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SUPPORT SECTION WITH PURPLE PARALLAX & 4-IMAGE GRID ==================== -->
+    <section class="support-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">ALWAYS AVAILABLE</div>
+                <div class="section-icon">🕓</div>
+                <h2 class="section-title">24/7 Support and Backup Management</h2>
+                <p class="section-description">
+                    Our round-the-clock cloud maintenance team provides continuous monitoring, automated backups, and rapid incident response to keep your systems running smoothly. We also offer disaster recovery planning, cloud data replication, and failover management to ensure your business stays online even during unexpected disruptions.
+                </p>
+                <p class="section-description" style="margin-top: 20px;">
+                    With Niyan IT Solutions, you gain a trusted partner who keeps your cloud environment secure, stable, and future-ready — 24/7.
+                </p>
+            </div>
+
+            <div class="support-layout">
+                <div class="support-image-grid">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600" alt="24/7 Support Team" class="support-img">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600" alt="Cloud Monitoring" class="support-img">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600" alt="Technical Support" class="support-img">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600" alt="Cloud Operations" class="support-img">
+                </div>
+
+                <div class="support-features">
+                    <div class="support-item">
+                        <i class="fas fa-headset"></i>
+                        <div class="support-item-content">
+                            <h4>24/7 Monitoring</h4>
+                            <p>Continuous monitoring and instant alerts for any cloud infrastructure issues or anomalies.</p>
+                        </div>
+                    </div>
+                    <div class="support-item">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div class="support-item-content">
+                            <h4>Automated Backups</h4>
+                            <p>Regular automated backups with configurable retention policies to protect your critical data.</p>
+                        </div>
+                    </div>
+                    <div class="support-item">
+                        <i class="fas fa-life-ring"></i>
+                        <div class="support-item-content">
+                            <h4>Rapid Response</h4>
+                            <p>Quick incident response with average resolution time under 15 minutes for critical issues.</p>
+                        </div>
+                    </div>
+                    <div class="support-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <div class="support-item-content">
+                            <h4>Disaster Recovery</h4>
+                            <p>Comprehensive disaster recovery planning and failover management for business continuity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA SECTION WITH BLUE GRADIENT & FLOATING CLOUDS ==================== -->
+    <section class="final-cta-section">
+        <i class="fas fa-cloud cta-cloud"></i>
+        <i class="fas fa-cloud cta-cloud"></i>
+        <i class="fas fa-cloud cta-cloud"></i>
+        <i class="fas fa-cloud cta-cloud"></i>
+        
+        <div class="final-cta-content">
+            <div class="cta-top-icon">☁️</div>
+            <h2>Ready to Elevate Your Cloud Infrastructure?</h2>
+            <p>Let Niyan IT Solutions transform your cloud environment with expert management, security, and optimization services.</p>
+            <a href="#contact" class="final-cta-button">
+                <span>Schedule a Consultation</span>
+            </a>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

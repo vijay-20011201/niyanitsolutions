@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero-section {
+            background: linear-gradient(135deg, #ffffff 0%, #E8F5FF 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(147, 197, 253, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+
+        .btn-secondary:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ==================== PHILOSOPHY SECTION ==================== */
+        .philosophy-section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+            position: relative;
+        }
+
+        .philosophy-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-heading h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== SERVICES SECTION ==================== */
+        .services-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.2);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== PROCESS SECTION ==================== */
+        .process-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .process-step {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .process-step:hover {
+            border-color: #3b82f6;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==================== WHY CHOOSE SECTION ==================== */
+        .why-choose-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .why-choose-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .why-choose-text ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .why-choose-text li {
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.1rem;
+            color: #475569;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .why-choose-text li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .why-choose-image {
+            position: relative;
+        }
+
+        .why-choose-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ==================== PORTFOLIO SECTION ==================== */
+        .portfolio-section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 280px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .portfolio-card:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .portfolio-card:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .portfolio-card:nth-child(4) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .portfolio-card:nth-child(5) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .portfolio-card:nth-child(6) {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .portfolio-overlay .btn {
+            padding: 12px 30px;
+            font-size: 1rem;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #E8F5FF 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            color: #475569;
+            margin-bottom: 40px;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .hero-content,
+            .why-choose-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-heading h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .process-timeline,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Creative & <span>Responsive</span> Web Design Solutions</h1>
+                    <p>We design visually stunning, user-friendly, and business-focused websites that drive engagement and growth.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                        <a href="#portfolio" class="btn btn-secondary">View Our Work</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&h=600&fit=crop" alt="Web Design" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PHILOSOPHY SECTION ==================== -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Design Beyond Aesthetics</h2>
+            </div>
+            <div class="philosophy-content">
+                <p>At Niyan IT Solutions, web design isn't just about how it looks — it's about how it works. We create seamless user journeys that blend creativity with technology, ensuring every visitor turns into a customer. Our designs are responsive, accessible, and aligned with your business goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Key Design Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Crafting intuitive user interfaces that delight users and create memorable digital experiences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first designs that adapt beautifully to all devices and screen sizes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Landing Page Design</h3>
+                    <p>High-conversion pages optimized for marketing campaigns and lead generation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Website Redesign</h3>
+                    <p>Modernize outdated websites with a fresh new look and improved functionality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROCESS SECTION ==================== -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Creative Process</h2>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Research & Strategy</h3>
+                    <p>Understand your brand, audience, and objectives to create a solid foundation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Wireframing & Prototyping</h3>
+                    <p>Build structure before styling to ensure optimal user flow and functionality.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design & Development</h3>
+                    <p>Craft engaging visuals and interactions that bring your vision to life.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Testing & Launch</h3>
+                    <p>Optimize for speed, performance, and user experience before going live.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE SECTION ==================== -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Why Choose Niyan IT Solutions</h2>
+            </div>
+            <div class="why-choose-content">
+                <div class="why-choose-text">
+                    <ul>
+                        <li>Custom-tailored designs, not templates</li>
+                        <li>SEO-friendly structure for better visibility</li>
+                        <li>Continuous support after deployment</li>
+                        <li>Integration with CMS, CRM, and eCommerce platforms</li>
+                    </ul>
+                </div>
+                <div class="why-choose-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="Team collaboration" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PORTFOLIO SECTION ==================== -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Portfolio Highlights</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-overlay">
+                        <h3>Restaurant Website</h3>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-overlay">
+                        <h3>Real Estate Portal</h3>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-overlay">
+                        <h3>E-Commerce Store</h3>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-overlay">
+                        <h3>Travel Agency</h3>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-overlay">
+                        <h3>Fitness & Health Web App</h3>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-overlay">
+                        <h3>School Management Website</h3>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Online Presence?</h2>
+                <p>Let's bring your vision to life.</p>
+                <a href="#" class="btn btn-primary">Contact Our Design Team</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

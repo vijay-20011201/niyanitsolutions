@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero-about {
+            min-height: 70vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+        }
+
+        .hero-about::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            animation: heroFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(5deg); }
+        }
+
+        .hero-about::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, #ffffff 0%, transparent 100%);
+        }
+
+        .hero-about-content {
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-about-content h1 {
+            font-size: 58px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-about-content p {
+            font-size: 22px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== MAIN INTRODUCTION SECTION ==================== */
+        .intro-section {
+            padding: 100px 20px;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(180deg, #f8f9fa 0%, transparent 100%);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .intro-text h2 {
+            font-size: 42px;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.3;
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .intro-text p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .intro-visual {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+        }
+
+        .intro-visual::before {
+            content: '💡';
+            font-size: 120px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .floating-icon {
+            position: absolute;
+            background: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: floatAround 4s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            font-size: 30px;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            bottom: 15%;
+            left: 10%;
+            font-size: 35px;
+            animation-delay: 1s;
+        }
+
+        .floating-icon:nth-child(3) {
+            top: 50%;
+            left: 5%;
+            font-size: 28px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ==================== OUR APPROACH SECTION ==================== */
+        .approach-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            color: #1a1a2e;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 19px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .approach-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .approach-card:hover::before {
+            opacity: 1;
+        }
+
+        .approach-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25);
+        }
+
+        .approach-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .approach-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .approach-card:hover .approach-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .approach-card h3 {
+            font-size: 20px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            font-weight: 600;
+            transition: color 0.4s ease;
+        }
+
+        .approach-card:hover h3 {
+            color: white;
+        }
+
+        .approach-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            transition: color 0.4s ease;
+        }
+
+        .approach-card:hover p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* ==================== OUR JOURNEY SECTION ==================== */
+        .journey-section {
+            padding: 100px 20px;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .journey-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .journey-text h2 {
+            font-size: 48px;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .journey-text h2 span {
+            font-size: 60px;
+        }
+
+        .journey-text p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .journey-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .journey-timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            position: relative;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item h4 {
+            font-size: 18px;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ==================== OUR COMMITMENT SECTION ==================== */
+        .commitment-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commitment-section::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 25s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .commitment-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .commitment-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .commitment-header h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .commitment-header h2 span {
+            font-size: 60px;
+        }
+
+        .commitment-header p {
+            font-size: 19px;
+            color: rgba(255,255,255,0.85);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .commitment-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 45px 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commitment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .commitment-card:hover::before {
+            opacity: 1;
+        }
+
+        .commitment-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+
+        .commitment-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .commitment-icon {
+            font-size: 55px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .commitment-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .commitment-card p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        .commitment-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .commitment-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 15px;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .commitment-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: rotateBg 30s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 35px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: #667eea;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1024px) {
+            .intro-content,
+            .journey-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .commitment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-about-content h1 {
+                font-size: 38px;
+            }
+
+            .hero-about-content p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .intro-text h2,
+            .journey-text h2,
+            .commitment-header h2 {
+                font-size: 32px;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-about">
+        <div class="hero-about-content">
+            <h1>Empowering Businesses Through Innovative IT Solutions</h1>
+            <p>At Niyan IT Solutions, we are a dynamic team of professionals committed to transforming businesses with smart, secure, and scalable IT solutions.</p>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN INTRODUCTION SECTION ==================== -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>Who We Are</h2>
+                    <p>With a focus on quality, performance, and reliability, we deliver end-to-end technology services that help organizations achieve digital excellence.</p>
+                    <p>We specialize in a wide range of IT capabilities including web development, app design, digital marketing, cloud services, and IT infrastructure management. Our mission is to help businesses of all sizes embrace technology with confidence and achieve sustainable growth.</p>
+                </div>
+                <div class="intro-visual">
+                    <div class="floating-icon">💻</div>
+                    <div class="floating-icon">🚀</div>
+                    <div class="floating-icon">⚡</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OUR APPROACH SECTION ==================== -->
+    <section class="approach-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Methodology</span>
+                <h2 class="section-title">Our Approach</h2>
+                <p class="section-description">We believe in understanding your business from the ground up — ensuring every solution we design aligns perfectly with your goals. From strategy and design to deployment and support, we handle every phase with precision and care.</p>
+            </div>
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <span class="approach-icon">🎯</span>
+                    <h3>Strategy</h3>
+                    <p>Understanding your vision and creating a roadmap for success</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">✨</span>
+                    <h3>Design</h3>
+                    <p>Crafting intuitive and visually stunning user experiences</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">⚙️</span>
+                    <h3>Development</h3>
+                    <p>Building robust and scalable technology solutions</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">🛡️</span>
+                    <h3>Support</h3>
+                    <p>Providing continuous maintenance and expert assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OUR JOURNEY SECTION ==================== -->
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h2><span>🌍</span> Our Journey</h2>
+                    <p>Founded with a vision to redefine IT excellence, Niyan IT Solutions has grown from a small technology startup into a trusted global service provider. Over the years, we've partnered with clients across industries — from startups to enterprises — delivering solutions that drive growth and innovation.</p>
+                    <p>Our success story is built on consistent improvement, learning, and adapting to evolving technologies. Each milestone we've achieved reflects our commitment to empowering businesses through digital transformation.</p>
+                    
+                    <div class="journey-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="journey-timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">Foundation</span>
+                        <h4>Started with a Vision</h4>
+                        <p>Began our journey to transform businesses through innovative IT solutions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">Growth</span>
+                        <h4>Expanding Services</h4>
+                        <p>Broadened our capabilities to include web, mobile, and cloud solutions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">Innovation</span>
+                        <h4>Leading Digital Transformation</h4>
+                        <p>Pioneering cutting-edge technologies and delivering excellence globally</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">Today</span>
+                        <h4>Trusted Partner</h4>
+                        <p>Recognized as a reliable IT solutions provider across multiple industries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OUR COMMITMENT SECTION ==================== -->
+    <section class="commitment-section">
+        <div class="container">
+            <div class="commitment-content">
+                <div class="commitment-header">
+                    <h2><span>🤝</span> Our Commitment</h2>
+                    <p>We are dedicated to providing our clients with the highest level of service and support. At Niyan IT Solutions, every project is an opportunity to create lasting value — through reliability, transparency, and innovation.</p>
+                </div>
+                
+                <div class="commitment-grid">
+                    <div class="commitment-card">
+                        <span class="commitment-icon">🎯</span>
+                        <h3>Excellence</h3>
+                        <p>Delivering exceptional quality in every solution we create</p>
+                        <ul>
+                            <li>Industry best practices</li>
+                            <li>Quality assurance</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="commitment-card">
+                        <span class="commitment-icon">💼</span>
+                        <h3>Partnership</h3>
+                        <p>Building long-term relationships based on trust and mutual success</p>
+                        <ul>
+                            <li>Transparent communication</li>
+                            <li>Collaborative approach</li>
+                            <li>Dedicated support</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="commitment-card">
+                        <span class="commitment-icon">🚀</span>
+                        <h3>Innovation</h3>
+                        <p>Staying ahead with future-ready solutions and emerging technologies</p>
+                        <ul>
+                            <li>Cutting-edge technology</li>
+                            <li>Continuous learning</li>
+                            <li>Scalable solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Start Your Digital Journey?</h2>
+            <p>Let's discuss how we can help transform your business with innovative IT solutions</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

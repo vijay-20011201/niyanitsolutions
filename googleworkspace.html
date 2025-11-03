@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Google Sans', 'Roboto', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC04 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '📧';
+            position: absolute;
+            font-size: 180px;
+            top: 10%;
+            right: 8%;
+            opacity: 0.08;
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '☁️';
+            position: absolute;
+            font-size: 150px;
+            bottom: 15%;
+            right: 15%;
+            opacity: 0.08;
+            animation: heroFloat 7s ease-in-out infinite reverse;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: white;
+            color: #4285F4;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            background: #f1f3f4;
+        }
+
+        /* Floating Google icons animation */
+        .google-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .google-icon {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.15;
+            animation: floatIcons 15s ease-in-out infinite;
+        }
+
+        .icon-1 { top: 20%; left: 70%; animation-delay: 0s; }
+        .icon-2 { top: 40%; left: 80%; animation-delay: 3s; font-size: 50px; }
+        .icon-3 { top: 60%; left: 75%; animation-delay: 6s; font-size: 70px; }
+        .icon-4 { top: 30%; left: 85%; animation-delay: 9s; font-size: 55px; }
+
+        @keyframes floatIcons {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(-10px); }
+            50% { transform: translateY(-40px) translateX(10px); }
+            75% { transform: translateY(-20px) translateX(-5px); }
+        }
+
+        /* ============================================
+           SECTION 1: SETUP & MIGRATION SERVICES
+        ============================================ */
+        .section-migration {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: #202124;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #5f6368;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .migration-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.2);
+            border-color: #4285F4;
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: #202124;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #5f6368;
+            line-height: 1.6;
+        }
+
+        .migration-image {
+            text-align: center;
+            font-size: 300px;
+            filter: drop-shadow(0 15px 40px rgba(66, 133, 244, 0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+
+        /* ============================================
+           SECTION 2: COLLABORATION & PRODUCTIVITY TOOLS
+        ============================================ */
+        .section-tools {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #f7faff 0%, #eef5ff 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #202124;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: #5f6368;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(66, 133, 244, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 15px 45px rgba(66, 133, 244, 0.25);
+        }
+
+        .tool-card:hover::before {
+            opacity: 1;
+        }
+
+        .tool-card:nth-child(1) { border-top-color: #EA4335; }
+        .tool-card:nth-child(2) { border-top-color: #34A853; }
+        .tool-card:nth-child(3) { border-top-color: #FBBC04; }
+        .tool-card:nth-child(4) { border-top-color: #4285F4; }
+
+        .tool-card .tool-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover .tool-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .tool-card h3 {
+            font-size: 1.6rem;
+            color: #202124;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .tool-card p {
+            font-size: 1rem;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTION 3: SECURITY & ADMIN MANAGEMENT
+        ============================================ */
+        .section-security {
+            padding: 6rem 2rem;
+            background: #eef3ff;
+            position: relative;
+        }
+
+        .section-security::before {
+            content: '🔒';
+            position: absolute;
+            font-size: 250px;
+            top: 5%;
+            right: 5%;
+            opacity: 0.03;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .security-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4285F4, #34A853, #FBBC04, #EA4335);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .security-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(66, 133, 244, 0.2);
+        }
+
+        .security-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .security-card .security-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .security-card h3 {
+            font-size: 1.5rem;
+            color: #202124;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .security-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .security-card ul li {
+            font-size: 1rem;
+            color: #5f6368;
+            line-height: 2;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .security-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #34A853;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* ============================================
+           SECTION 4: SUPPORT & CONTINUOUS OPTIMIZATION
+        ============================================ */
+        .section-support {
+            padding: 6rem 2rem;
+            background: #4285F4;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-support::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.15; }
+        }
+
+        .support-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-image {
+            text-align: center;
+            font-size: 320px;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3));
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .support-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .support-content > p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .support-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .support-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .support-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .support-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .support-item h4::before {
+            content: '●';
+            color: #FBBC04;
+            font-size: 1.5rem;
+        }
+
+        .support-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .support-btn {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: white;
+            color: #4285F4;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .support-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: #f1f3f4;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title,
+            .section-header h2,
+            .support-content h2 {
+                font-size: 2rem;
+            }
+
+            .two-column,
+            .support-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .migration-image,
+            .support-image {
+                font-size: 200px;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .migration-features,
+            .support-features {
+                grid-template-columns: 1fr;
+            }
+
+            .support-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="google-icons">
+            <span class="google-icon icon-1">📧</span>
+            <span class="google-icon icon-2">📁</span>
+            <span class="google-icon icon-3">📊</span>
+            <span class="google-icon icon-4">💬</span>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Transform the Way You Work with Google Workspace</h1>
+                <p>Connect, collaborate, and create with the world's most powerful cloud-based productivity suite.</p>
+                <a href="#migration" class="hero-btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: SETUP & MIGRATION SERVICES
+    ============================================ -->
+    <section class="section-migration" id="migration">
+        <div class="container">
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">🧭 Setup & Migration Services</h2>
+                    <p class="section-subtitle">Migrate your business email, files, and calendars to Google Workspace effortlessly. Our certified experts ensure secure, zero-downtime migration with full data integrity.</p>
+                    
+                    <div class="migration-features">
+                        <div class="feature-card">
+                            <span class="icon">📨</span>
+                            <h4>Mail & Calendar Migration</h4>
+                            <p>Complete transfer of emails, contacts, and calendar events</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="icon">☁️</span>
+                            <h4>Drive Data Transfer</h4>
+                            <p>Secure migration of all your documents and files</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="icon">🌐</span>
+                            <h4>Domain & MX Setup</h4>
+                            <p>Complete DNS and MX record configuration</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="icon">👥</span>
+                            <h4>Account Provisioning</h4>
+                            <p>User account setup and permission management</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="migration-image">
+                    🔄
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: COLLABORATION & PRODUCTIVITY TOOLS
+    ============================================ -->
+    <section class="section-tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>⚙️ Collaboration & Productivity Tools</h2>
+                <p>Empower your teams to work smarter with Google's collaborative suite.</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <span class="tool-icon">📧</span>
+                    <h3>Gmail</h3>
+                    <p>Professional, secure business email hosting with powerful spam protection and 99.9% uptime.</p>
+                </div>
+
+                <div class="tool-card">
+                    <span class="tool-icon">🎥</span>
+                    <h3>Google Meet</h3>
+                    <p>HD video conferencing and team collaboration with screen sharing and recording.</p>
+                </div>
+
+                <div class="tool-card">
+                    <span class="tool-icon">📁</span>
+                    <h3>Google Drive</h3>
+                    <p>Secure cloud storage for all your files with easy sharing and collaboration features.</p>
+                </div>
+
+                <div class="tool-card">
+                    <span class="tool-icon">📝</span>
+                    <h3>Docs, Sheets & Slides</h3>
+                    <p>Real-time document collaboration and editing with automatic version control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: SECURITY & ADMIN MANAGEMENT
+    ============================================ -->
+    <section class="section-security">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔒 Security & Admin Management</h2>
+                <p>Keep your organization's data safe and under control with Google's built-in enterprise security features.</p>
+            </div>
+
+            <div class="security-grid">
+                <div class="security-card">
+                    <span class="security-icon">⚙️</span>
+                    <h3>Centralized Control</h3>
+                    <ul>
+                        <li>Admin Console for complete management</li>
+                        <li>User and group organization</li>
+                        <li>Device management policies</li>
+                        <li>Audit logs and reporting</li>
+                    </ul>
+                </div>
+
+                <div class="security-card">
+                    <span class="security-icon">🔐</span>
+                    <h3>Advanced Security</h3>
+                    <ul>
+                        <li>2-Step Verification</li>
+                        <li>Endpoint Management</li>
+                        <li>Security Key enforcement</li>
+                        <li>Mobile device protection</li>
+                    </ul>
+                </div>
+
+                <div class="security-card">
+                    <span class="security-icon">✅</span>
+                    <h3>Compliance & Privacy</h3>
+                    <ul>
+                        <li>Secure Data Encryption</li>
+                        <li>Access Control Policies</li>
+                        <li>GDPR Compliance</li>
+                        <li>ISO Standards certified</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: SUPPORT & CONTINUOUS OPTIMIZATION
+    ============================================ -->
+    <section class="section-support">
+        <div class="container">
+            <div class="support-layout">
+                <div class="support-image">
+                    🎧
+                </div>
+                <div class="support-content">
+                    <h2>💼 Support & Continuous Optimization</h2>
+                    <p>We offer 24/7 support and proactive guidance to help your teams maximize Google Workspace capabilities.</p>
+                    
+                    <div class="support-features">
+                        <div class="support-item">
+                            <h4>24/7 End-User Support</h4>
+                            <p>Round-the-clock assistance for all your team members</p>
+                        </div>
+                        <div class="support-item">
+                            <h4>CRM/ERP Integration</h4>
+                            <p>Seamless connection with your business tools</p>
+                        </div>
+                        <div class="support-item">
+                            <h4>Custom Training</h4>
+                            <p>Personalized training programs for your teams</p>
+                        </div>
+                        <div class="support-item">
+                            <h4>Performance Optimization</h4>
+                            <p>Continuous monitoring and optimization of services</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="support-btn">Contact Our Experts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

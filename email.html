@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Animated background pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 40px);
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        /* Floating envelope decorations */
+        .floating-envelopes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .envelope {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.1;
+            animation: floatEnvelope 15s ease-in-out infinite;
+        }
+
+        .env-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .env-2 { top: 20%; right: 15%; animation-delay: 3s; font-size: 50px; }
+        .env-3 { bottom: 20%; left: 20%; animation-delay: 6s; font-size: 45px; }
+        .env-4 { bottom: 15%; right: 10%; animation-delay: 9s; }
+        .env-5 { top: 50%; left: 5%; animation-delay: 12s; font-size: 35px; }
+
+        @keyframes floatEnvelope {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(5deg); }
+            50% { transform: translateY(-60px) rotate(-5deg); }
+            75% { transform: translateY(-30px) rotate(3deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.4);
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1.3rem 4rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+        }
+
+        /* ============================================
+           SECTION 1: EMAIL SETUP & CONFIGURATION
+        ============================================ */
+        .section-setup {
+            padding: 7rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: #64748b;
+            line-height: 1.9;
+            margin-bottom: 3rem;
+        }
+
+        .highlights-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 15px;
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateX(12px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+            border-left-width: 6px;
+        }
+
+        .highlight-item .bullet {
+            font-size: 1.8rem;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+
+        .highlight-item span {
+            font-size: 1.1rem;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        .setup-image {
+            text-align: center;
+            font-size: 320px;
+            filter: drop-shadow(0 20px 50px rgba(59, 130, 246, 0.2));
+            animation: setupFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes setupFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(2deg); }
+        }
+
+        /* ============================================
+           SECTION 2: TROUBLESHOOTING & ISSUE RESOLUTION
+        ============================================ */
+        .section-troubleshooting {
+            padding: 7rem 2rem;
+            background: linear-gradient(180deg, #E9F4FF 0%, #dbeafe 100%);
+            position: relative;
+        }
+
+        .section-troubleshooting::before {
+            content: '🔧';
+            position: absolute;
+            font-size: 200px;
+            top: 10%;
+            right: 5%;
+            opacity: 0.04;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.2rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .trouble-card {
+            background: white;
+            padding: 3.5rem 2.5rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trouble-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .trouble-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.25);
+        }
+
+        .trouble-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .trouble-card .card-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .trouble-card:hover .card-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .trouble-card h3 {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .trouble-card p {
+            font-size: 1.05rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           SECTION 3: BACKUP & SECURITY MANAGEMENT
+        ============================================ */
+        .section-security {
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        }
+
+        .security-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .security-image {
+            text-align: center;
+            font-size: 350px;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.15));
+            animation: securityPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes securityPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .security-content .security-features {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .security-feature {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-feature::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #06b6d4);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s ease;
+        }
+
+        .security-feature:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(59, 130, 246, 0.2);
+        }
+
+        .security-feature:hover::after {
+            transform: scaleY(1);
+        }
+
+        .security-feature .feature-icon {
+            font-size: 3.5rem;
+            flex-shrink: 0;
+        }
+
+        .security-feature h4 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .security-feature p {
+            font-size: 1.05rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTION 4: 24/7 HELPDESK SUPPORT
+        ============================================ */
+        .section-helpdesk {
+            padding: 7rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .helpdesk-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .support-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .support-card:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f6;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+            background: white;
+        }
+
+        .support-card .support-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .support-card h4 {
+            font-size: 1.3rem;
+            color: #1e293b;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .support-card p {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .support-cta {
+            text-align: center;
+        }
+
+        .support-btn {
+            display: inline-block;
+            padding: 1.3rem 4rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .support-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .section-title,
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .two-column,
+            .security-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .setup-image,
+            .security-image {
+                font-size: 220px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .security-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="floating-envelopes">
+            <span class="envelope env-1">📧</span>
+            <span class="envelope env-2">✉️</span>
+            <span class="envelope env-3">📨</span>
+            <span class="envelope env-4">📬</span>
+            <span class="envelope env-5">📮</span>
+        </div>
+        <div class="hero-content">
+            <h1>Reliable Email Support Services</h1>
+            <p>Ensure seamless communication, timely troubleshooting, and uninterrupted email access with Niyan IT Solutions.</p>
+            <a href="#setup" class="hero-btn">Get Assistance</a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: EMAIL SETUP & CONFIGURATION
+    ============================================ -->
+    <section class="section-setup" id="setup">
+        <div class="container">
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">📧 Email Setup & Configuration Assistance</h2>
+                    <p class="section-description">We assist businesses in setting up and configuring secure email environments — whether hosted on Office 365, Google Workspace, or custom mail servers. Our technicians handle DNS records, spam filters, and email routing to ensure safe, efficient communication.</p>
+                    
+                    <div class="highlights-list">
+                        <div class="highlight-item">
+                            <span class="bullet">●</span>
+                            <span>Domain & MX record setup with complete DNS configuration</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="bullet">●</span>
+                            <span>Email client configuration (Outlook, Thunderbird, Apple Mail)</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="bullet">●</span>
+                            <span>POP/IMAP & SMTP settings optimization</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="bullet">●</span>
+                            <span>Mail forwarding, aliases, and distribution lists</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="setup-image">
+                    💻
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: TROUBLESHOOTING & ISSUE RESOLUTION
+    ============================================ -->
+    <section class="section-troubleshooting">
+        <div class="container">
+            <div class="section-header">
+                <h2>🧩 Troubleshooting & Issue Resolution</h2>
+                <p>Facing delivery issues, spam, or syncing errors? We provide real-time diagnostics and quick fixes for all email-related problems.</p>
+            </div>
+
+            <div class="cards-container">
+                <div class="trouble-card">
+                    <span class="card-icon">📬</span>
+                    <h3>Delivery Failures</h3>
+                    <p>Identify and resolve bounce or delay issues with comprehensive email flow analysis and DNS troubleshooting.</p>
+                </div>
+
+                <div class="trouble-card">
+                    <span class="card-icon">🛡️</span>
+                    <h3>Spam & Phishing Control</h3>
+                    <p>Configure advanced filters to block threats and protect your inbox from malicious emails and phishing attempts.</p>
+                </div>
+
+                <div class="trouble-card">
+                    <span class="card-icon">🔄</span>
+                    <h3>Sync & Access Issues</h3>
+                    <p>Resolve login, IMAP/SMTP errors, password resets, and synchronization problems across all devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: BACKUP & SECURITY MANAGEMENT
+    ============================================ -->
+    <section class="section-security">
+        <div class="container">
+            <div class="security-layout">
+                <div class="security-image">
+                    🔐
+                </div>
+                <div class="security-content">
+                    <h2 class="section-title">🔒 Backup & Security Management</h2>
+                    <p class="section-description">Keep your data safe with our email backup, recovery, and security management services. We set up automatic cloud backups, retention policies, and spam protection to secure your communication network.</p>
+                    
+                    <div class="security-features">
+                        <div class="security-feature">
+                            <span class="feature-icon">💾</span>
+                            <div>
+                                <h4>Scheduled Email Backups</h4>
+                                <p>Automated daily backups with instant recovery options for critical data protection.</p>
+                            </div>
+                        </div>
+
+                        <div class="security-feature">
+                            <span class="feature-icon">🔐</span>
+                            <div>
+                                <h4>End-to-End Encryption</h4>
+                                <p>Military-grade encryption for all emails in transit and at rest for maximum security.</p>
+                            </div>
+                        </div>
+
+                        <div class="security-feature">
+                            <span class="feature-icon">📁</span>
+                            <div>
+                                <h4>Email Archiving Solutions</h4>
+                                <p>Compliance-ready archiving with long-term storage and easy retrieval capabilities.</p>
+                            </div>
+                        </div>
+
+                        <div class="security-feature">
+                            <span class="feature-icon">🛡️</span>
+                            <div>
+                                <h4>Malware & Phishing Protection</h4>
+                                <p>Advanced threat detection and real-time protection against cyber attacks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: 24/7 HELPDESK SUPPORT
+    ============================================ -->
+    <section class="section-helpdesk">
+        <div class="container">
+            <div class="helpdesk-content">
+                <h2 class="section-title">🕓 24/7 Helpdesk Support & Monitoring</h2>
+                <p class="section-description">Our dedicated helpdesk team provides round-the-clock monitoring and instant resolution for email issues — minimizing downtime and ensuring consistent reliability.</p>
+            </div>
+
+            <div class="support-grid">
+                <div class="support-card">
+                    <span class="support-icon">🎫</span>
+                    <h4>Ticket-Based Support</h4>
+                    <p>24/7 support system with priority handling and full tracking</p>
+                </div>
+
+                <div class="support-card">
+                    <span class="support-icon">📊</span>
+                    <h4>Proactive Monitoring</h4>
+                    <p>Real-time server and inbox monitoring for instant alerts</p>
+                </div>
+
+                <div class="support-card">
+                    <span class="support-icon">⚡</span>
+                    <h4>SLA Response Time</h4>
+                    <p>Guaranteed response times with service level agreements</p>
+                </div>
+
+                <div class="support-card">
+                    <span class="support-icon">🔧</span>
+                    <h4>Regular Maintenance</h4>
+                    <p>Periodic updates and system optimization for peak performance</p>
+                </div>
+            </div>
+
+            <div class="support-cta">
+                <a href="#contact" class="support-btn">Contact Support Team</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.75) 100%),
+                linear-gradient(45deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        /* Animated hexagon pattern background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(30deg, rgba(59, 130, 246, 0.05) 0px, transparent 2px, transparent 10px),
+                repeating-linear-gradient(150deg, rgba(59, 130, 246, 0.05) 0px, transparent 2px, transparent 10px);
+            animation: patternMove 30s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Floating security elements */
+        .security-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .security-icon {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.08;
+            animation: floatSecurity 20s ease-in-out infinite;
+        }
+
+        .sec-1 { top: 10%; right: 10%; animation-delay: 0s; }
+        .sec-2 { top: 25%; right: 25%; animation-delay: 4s; font-size: 50px; }
+        .sec-3 { bottom: 20%; right: 15%; animation-delay: 8s; font-size: 70px; }
+        .sec-4 { top: 60%; right: 8%; animation-delay: 12s; font-size: 55px; }
+        .sec-5 { bottom: 35%; right: 30%; animation-delay: 16s; font-size: 45px; }
+
+        @keyframes floatSecurity {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.08; }
+            25% { transform: translateY(-40px) translateX(-20px) rotate(5deg); opacity: 0.12; }
+            50% { transform: translateY(-80px) translateX(20px) rotate(-5deg); opacity: 0.15; }
+            75% { transform: translateY(-40px) translateX(-10px) rotate(3deg); opacity: 0.12; }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.8rem;
+            color: white;
+            margin-bottom: 1.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-shadow: 4px 6px 12px rgba(0, 0, 0, 0.5);
+            letter-spacing: -2px;
+        }
+
+        .hero-content p {
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3.5rem;
+            line-height: 1.8;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1.4rem 4.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 12px 35px rgba(59, 130, 246, 0.5);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 150%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.7s;
+        }
+
+        .hero-btn:hover::before {
+            left: 150%;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 18px 50px rgba(59, 130, 246, 0.7);
+        }
+
+        /* ============================================
+           SECTION 1: ADVANCED THREAT PROTECTION
+        ============================================ */
+        .section-threat {
+            padding: 8rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: #475569;
+            line-height: 2;
+            margin-bottom: 3.5rem;
+        }
+
+        .features-grid-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .feature-box:hover::before {
+            opacity: 1;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.25);
+            background: white;
+        }
+
+        .feature-box .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-box h4 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .feature-box p {
+            font-size: 1.05rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .threat-image {
+            text-align: center;
+            font-size: 350px;
+            filter: drop-shadow(0 25px 60px rgba(59, 130, 246, 0.3));
+            animation: shieldFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes shieldFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-35px) rotate(3deg); }
+        }
+
+        /* ============================================
+           SECTION 2: CENTRALIZED MANAGEMENT
+        ============================================ */
+        .section-management {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #F5FAFF 0%, #EFF6FF 100%);
+            position: relative;
+        }
+
+        .section-management::before {
+            content: '📊';
+            position: absolute;
+            font-size: 250px;
+            top: 8%;
+            left: 5%;
+            opacity: 0.03;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: #475569;
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        .management-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .mgmt-card {
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .mgmt-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3), 0 20px 60px rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+
+        .mgmt-card .card-icon {
+            font-size: 5.5rem;
+            margin-bottom: 2rem;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .mgmt-card:hover .card-icon {
+            transform: scale(1.25) rotate(360deg);
+        }
+
+        .mgmt-card h3 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 1.3rem;
+            font-weight: 800;
+        }
+
+        .mgmt-card p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.9;
+        }
+
+        /* ============================================
+           SECTION 3: DATA ENCRYPTION & DEVICE CONTROL
+        ============================================ */
+        .section-encryption {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .encryption-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .encryption-image {
+            text-align: center;
+            font-size: 380px;
+            filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.15));
+            animation: lockPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes lockPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .encryption-features {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .encryption-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 3rem;
+            border-radius: 22px;
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .encryption-item::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+
+        .encryption-item:hover {
+            transform: translateX(15px);
+            box-shadow: 0 15px 45px rgba(59, 130, 246, 0.2);
+            background: white;
+        }
+
+        .encryption-item:hover::after {
+            transform: scaleY(1);
+        }
+
+        .encryption-item .item-icon {
+            font-size: 4rem;
+            flex-shrink: 0;
+        }
+
+        .encryption-item h4 {
+            font-size: 1.7rem;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+        }
+
+        .encryption-item p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           SECTION 4: MAINTENANCE & SUPPORT
+        ============================================ */
+        .section-support {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #E8F3FF 0%, #DBEAFE 100%);
+            position: relative;
+        }
+
+        .section-support::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: supportPulse 10s ease-in-out infinite;
+        }
+
+        @keyframes supportPulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.15; }
+        }
+
+        .support-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-card {
+            background: white;
+            padding: 3.5rem 2.5rem;
+            border-radius: 22px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .support-card:hover {
+            transform: translateY(-12px) rotate(2deg);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.25);
+        }
+
+        .support-card .support-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.8rem;
+            display: block;
+        }
+
+        .support-card h4 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .support-card p {
+            font-size: 1.05rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .support-cta {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-btn {
+            display: inline-block;
+            padding: 1.4rem 4.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .support-btn:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 18px 50px rgba(59, 130, 246, 0.6);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+
+            .section-title,
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .two-column,
+            .encryption-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .threat-image,
+            .encryption-image {
+                font-size: 250px;
+            }
+
+            .management-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid-2x2 {
+                grid-template-columns: 1fr;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .encryption-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="security-elements">
+            <span class="security-icon sec-1">🛡️</span>
+            <span class="security-icon sec-2">🔒</span>
+            <span class="security-icon sec-3">🔐</span>
+            <span class="security-icon sec-4">🔑</span>
+            <span class="security-icon sec-5">🛡️</span>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Protect Every Device, Strengthen Every Endpoint</h1>
+                <p>Safeguard your organization's data, systems, and devices from evolving cyber threats with Niyan IT Solutions.</p>
+                <a href="#threat" class="hero-btn">Secure Your Business</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: ADVANCED THREAT PROTECTION
+    ============================================ -->
+    <section class="section-threat" id="threat">
+        <div class="container">
+            <div class="two-column">
+                <div>
+                    <h2 class="section-title">🧩 Advanced Threat Protection</h2>
+                    <p class="section-description">Our Endpoint Security Solutions deliver proactive defense mechanisms that identify, block, and neutralize threats in real time. Using next-gen antivirus and behavioral analysis, we ensure your endpoints remain safe from ransomware, malware, and phishing attacks.</p>
+                    
+                    <div class="features-grid-2x2">
+                        <div class="feature-box">
+                            <span class="icon">🤖</span>
+                            <h4>AI-Based Threat Detection</h4>
+                            <p>Machine learning algorithms identify and stop sophisticated attacks before they execute</p>
+                        </div>
+                        <div class="feature-box">
+                            <span class="icon">⚡</span>
+                            <h4>Real-Time Malware Protection</h4>
+                            <p>Continuous monitoring and instant quarantine of malicious software and processes</p>
+                        </div>
+                        <div class="feature-box">
+                            <span class="icon">🎯</span>
+                            <h4>Zero-Day Vulnerability Defense</h4>
+                            <p>Advanced heuristics protect against unknown exploits and emerging threats</p>
+                        </div>
+                        <div class="feature-box">
+                            <span class="icon">📊</span>
+                            <h4>Behavioral Analytics Monitoring</h4>
+                            <p>Track and analyze user behavior patterns to detect anomalies and insider threats</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="threat-image">
+                    🛡️
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: CENTRALIZED MANAGEMENT & MONITORING
+    ============================================ -->
+    <section class="section-management">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔒 Centralized Management & Monitoring</h2>
+                <p>Simplify your IT security operations with centralized endpoint management. Our monitoring dashboards offer complete visibility into device health, user activity, and security status — all in one place.</p>
+            </div>
+
+            <div class="management-cards">
+                <div class="mgmt-card">
+                    <span class="card-icon">🖥️</span>
+                    <h3>Unified Dashboard</h3>
+                    <p>Track all devices from a single console with comprehensive visibility and complete control over your entire network infrastructure.</p>
+                </div>
+
+                <div class="mgmt-card">
+                    <span class="card-icon">🚨</span>
+                    <h3>Real-Time Alerts</h3>
+                    <p>Instant notifications for potential risks with automated response protocols to minimize threat exposure and damage.</p>
+                </div>
+
+                <div class="mgmt-card">
+                    <span class="card-icon">⚙️</span>
+                    <h3>Policy Enforcement</h3>
+                    <p>Manage and enforce security policies organization-wide with granular controls and automated compliance checks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: DATA ENCRYPTION & DEVICE CONTROL
+    ============================================ -->
+    <section class="section-encryption">
+        <div class="container">
+            <div class="encryption-layout">
+                <div class="encryption-image">
+                    🔐
+                </div>
+                <div>
+                    <h2 class="section-title">🧠 Data Encryption & Device Control</h2>
+                    <p class="section-description">Protect your sensitive business data through robust encryption and access control policies. We implement encryption at both device and network levels, ensuring no unauthorized data transfer or USB access.</p>
+                    
+                    <div class="encryption-features">
+                        <div class="encryption-item">
+                            <span class="item-icon">💾</span>
+                            <div>
+                                <h4>Full-Disk & File-Level Encryption</h4>
+                                <p>Military-grade encryption for all data at rest and in transit, protecting against unauthorized access and data breaches.</p>
+                            </div>
+                        </div>
+
+                        <div class="encryption-item">
+                            <span class="item-icon">🔌</span>
+                            <div>
+                                <h4>USB & External Device Control</h4>
+                                <p>Granular control over external storage devices with whitelist/blacklist policies to prevent data exfiltration.</p>
+                            </div>
+                        </div>
+
+                        <div class="encryption-item">
+                            <span class="item-icon">🌐</span>
+                            <div>
+                                <h4>Secure VPN & Remote Access</h4>
+                                <p>Encrypted remote connections with multi-factor authentication for secure work-from-anywhere scenarios.</p>
+                            </div>
+                        </div>
+
+                        <div class="encryption-item">
+                            <span class="item-icon">🚫</span>
+                            <div>
+                                <h4>Data Loss Prevention (DLP)</h4>
+                                <p>Automated policies to detect and prevent unauthorized data transfers, ensuring compliance and data security.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: MAINTENANCE & SUPPORT
+    ============================================ -->
+    <section class="section-support">
+        <div class="container">
+            <div class="support-content">
+                <h2 class="section-title">👩‍💻 Endpoint Security Maintenance & Support</h2>
+                <p class="section-description">Our dedicated security experts continuously monitor your network to ensure all endpoints remain up to date and compliant. We handle updates, patching, and regular audits to maintain maximum protection.</p>
+            </div>
+
+            <div class="support-grid">
+                <div class="support-card">
+                    <span class="support-icon">🕐</span>
+                    <h4>24/7 Endpoint Monitoring</h4>
+                    <p>Round-the-clock surveillance of all endpoints with instant threat detection and response</p>
+                </div>
+
+                <div class="support-card">
+                    <span class="support-icon">🔧</span>
+                    <h4>Patch Management</h4>
+                    <p>Automated updates and security patches to keep systems protected against latest vulnerabilities</p>
+                </div>
+
+                <div class="support-card">
+                    <span class="support-icon">🚑</span>
+                    <h4>Incident Response</h4>
+                    <p>Rapid incident recovery support with forensic analysis and remediation guidance</p>
+                </div>
+
+                <div class="support-card">
+                    <span class="support-icon">📈</span>
+                    <h4>Security Reports</h4>
+                    <p>Monthly comprehensive security reports with actionable insights and recommendations</p>
+                </div>
+            </div>
+
+            <div class="support-cta">
+                <a href="#contact" class="support-btn">Contact Our Security Team</a>
+            </div>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

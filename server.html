@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===================================
+           GLOBAL RESET & BASE STYLES
+        =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #f8fafc;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        /* ===================================
+           HERO SECTION WITH VIDEO BACKGROUND
+        =================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Video Background Simulation with Animated Gradient */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
+            background-size: 400% 400%;
+            animation: gradientWave 15s ease infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientWave {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Server Rack Visual Effect */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("server.jpg") center center/cover no-repeat;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+            animation: subtleZoom 30s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes subtleZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+
+        /* Floating Particles Effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatParticle 20s linear infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 15s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 20s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 17s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 19s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 16s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 21s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 15s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 18s; }
+
+        @keyframes floatParticle {
+            0% {
+                bottom: -10%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+            animation: heroReveal 1.5s ease;
+        }
+
+        @keyframes heroReveal {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, #fbbf24, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 60px rgba(251, 191, 36, 0.5);
+            animation: titleShimmer 3s ease-in-out infinite;
+            line-height: 1.2;
+        }
+
+        @keyframes titleShimmer {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(251, 191, 36, 0.5)); }
+            50% { filter: brightness(1.3) drop-shadow(0 0 40px rgba(251, 191, 36, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            color: #fef3c7;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 2s ease;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e293b;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: all 0.4s;
+            box-shadow: 0 15px 50px rgba(251, 191, 36, 0.5);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 20px 70px rgba(251, 191, 36, 0.7);
+        }
+
+        /* ===================================
+           SECTION 1: SERVER HEALTH MONITORING (RED THEME)
+        =================================== */
+        .section-1 {
+            background: linear-gradient(180deg, #450a0a 0%, #7f1d1d 50%, #450a0a 100%);
+            padding: 140px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80') center center/cover no-repeat;
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        /* Digital Rain Effect */
+        .section-1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(0deg, transparent 0px, rgba(239, 68, 68, 0.03) 1px, transparent 2px, transparent 40px),
+                repeating-linear-gradient(90deg, transparent 0px, rgba(239, 68, 68, 0.03) 1px, transparent 2px, transparent 40px);
+            animation: digitalRain 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes digitalRain {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 40px; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: rotateIcon 4s ease-in-out infinite;
+        }
+
+        .section-1 .section-icon {
+            color: #ef4444;
+            filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.6));
+        }
+
+        @keyframes rotateIcon {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .section-1 h2 {
+            color: #fca5a5;
+        }
+
+        .section-intro {
+            font-size: 1.25rem;
+            max-width: 950px;
+            margin: 0 auto 4rem;
+            line-height: 1.9;
+            color: #fecaca;
+        }
+
+        .monitoring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .monitor-card {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(127, 29, 29, 0.15));
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .monitor-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.2) 0%, transparent 70%);
+            transition: all 0.6s;
+            transform: scale(0);
+        }
+
+        .monitor-card:hover::before {
+            transform: scale(1);
+        }
+
+        .monitor-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #ef4444;
+            box-shadow: 0 30px 80px rgba(239, 68, 68, 0.5);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(127, 29, 29, 0.25));
+        }
+
+        .monitor-card i {
+            font-size: 4.5rem;
+            color: #f87171;
+            margin-bottom: 1.8rem;
+            display: block;
+            transition: all 0.4s;
+        }
+
+        .monitor-card:hover i {
+            transform: scale(1.2) rotateY(360deg);
+            color: #fca5a5;
+        }
+
+        .monitor-card h3 {
+            font-size: 1.9rem;
+            color: #fecaca;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .monitor-card p {
+            color: #fecaca;
+            line-height: 1.9;
+            font-size: 1.08rem;
+            opacity: 0.95;
+        }
+
+        /* ===================================
+           SECTION 2: UPDATES & PATCH MANAGEMENT (FIXED BLUE THEME)
+        =================================== */
+        .section-2 {
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80') center center/cover fixed no-repeat;
+            padding: 140px 5%;
+            position: relative;
+            color: #fff;
+        }
+
+        .section-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.94), rgba(59, 130, 246, 0.94));
+            z-index: 0;
+        }
+
+        /* Wave Animation Overlay */
+        .section-2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+            animation: waveShift 10s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes waveShift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(30px) translateY(-30px); }
+        }
+
+        .section-2 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-2 .section-icon {
+            color: #93c5fd;
+            filter: drop-shadow(0 0 25px rgba(147, 197, 253, 0.6));
+        }
+
+        .section-2 h2 {
+            color: #dbeafe;
+        }
+
+        .section-2 .section-intro {
+            color: #bfdbfe;
+        }
+
+        .updates-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .update-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(147, 197, 253, 0.3);
+            border-radius: 30px;
+            padding: 3.5rem;
+            transition: all 0.5s;
+            position: relative;
+        }
+
+        .update-box::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 30px;
+            padding: 2px;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa, #3b82f6);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .update-box:hover::before {
+            opacity: 1;
+        }
+
+        .update-box:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 35px 90px rgba(59, 130, 246, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .update-box i {
+            font-size: 5rem;
+            color: #60a5fa;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .update-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1.3rem;
+            color: #dbeafe;
+            font-weight: 700;
+        }
+
+        .update-box p {
+            color: #bfdbfe;
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        .update-box ul {
+            list-style: none;
+            margin-top: 1.5rem;
+            padding-left: 0;
+        }
+
+        .update-box ul li {
+            padding: 0.8rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            color: #bfdbfe;
+            font-size: 1.05rem;
+        }
+
+        .update-box ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* ===================================
+           SECTION 3: DATA BACKUP & DISASTER RECOVERY (EMERALD THEME)
+        =================================== */
+        .section-3 {
+            background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #064e3b 100%);
+            padding: 140px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1920&q=80') center center/cover no-repeat;
+            opacity: 0.06;
+            z-index: 0;
+        }
+
+        /* Hexagon Particle Effect */
+        .section-3::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(60deg, transparent, transparent 70px, rgba(16, 185, 129, 0.05) 70px, rgba(16, 185, 129, 0.05) 140px),
+                repeating-linear-gradient(-60deg, transparent, transparent 70px, rgba(16, 185, 129, 0.05) 70px, rgba(16, 185, 129, 0.05) 140px);
+            animation: hexMove 30s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes hexMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(140px, 140px); }
+        }
+
+        .section-3 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-3 .section-icon {
+            color: #10b981;
+            filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.7));
+        }
+
+        .section-3 h2 {
+            color: #6ee7b7;
+        }
+
+        .section-3 .section-intro {
+            color: #a7f3d0;
+        }
+
+        .backup-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 5rem;
+            align-items: center;
+        }
+
+        .backup-visual {
+            position: relative;
+        }
+
+        .backup-circle {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+            border: 3px solid rgba(16, 185, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: pulse 3s ease-in-out infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 40px rgba(16, 185, 129, 0); }
+        }
+
+        .backup-circle i {
+            font-size: 8rem;
+            color: #10b981;
+        }
+
+        .orbit-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.8rem;
+            animation: orbit 10s linear infinite;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5);
+        }
+
+        .orbit-icon:nth-child(2) { animation-delay: -2.5s; }
+        .orbit-icon:nth-child(3) { animation-delay: -5s; }
+        .orbit-icon:nth-child(4) { animation-delay: -7.5s; }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(220px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(220px) rotate(-360deg); }
+        }
+
+        .backup-features {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .backup-feature {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.1));
+            border-left: 5px solid #10b981;
+            border-radius: 15px;
+            padding: 2.5rem;
+            transition: all 0.4s;
+        }
+
+        .backup-feature:hover {
+            transform: translateX(15px);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.2));
+            box-shadow: 0 15px 50px rgba(16, 185, 129, 0.4);
+        }
+
+        .backup-feature i {
+            font-size: 3rem;
+            color: #34d399;
+            margin-bottom: 1rem;
+        }
+
+        .backup-feature h3 {
+            font-size: 1.8rem;
+            color: #6ee7b7;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .backup-feature p {
+            color: #a7f3d0;
+            line-height: 1.9;
+            font-size: 1.08rem;
+        }
+
+        /* ===================================
+           SECTION 4: 24/7 SUPPORT (FIXED AMBER THEME)
+        =================================== */
+        .section-4 {
+            background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80') center center/cover fixed no-repeat;
+            padding: 140px 5%;
+            position: relative;
+            color: #fff;
+        }
+
+        .section-4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(180, 83, 9, 0.95), rgba(217, 119, 6, 0.95));
+            z-index: 0;
+        }
+
+        /* Spotlight Effect */
+        .spotlight {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, transparent 70%);
+            animation: spotlightMove 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .spotlight:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .spotlight:nth-child(2) { bottom: 10%; right: 10%; animation-delay: 10s; }
+
+        @keyframes spotlightMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.2); }
+        }
+
+        .section-4 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-4 .section-icon {
+            color: #fbbf24;
+            filter: drop-shadow(0 0 30px rgba(251, 191, 36, 0.8));
+        }
+
+        .section-4 h2 {
+            color: #fef3c7;
+        }
+
+        .section-4 .section-intro {
+            color: #fde68a;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .support-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .support-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.2);
+            transition: all 0.6s;
+            transform: translate(-50%, -50%);
+        }
+
+        .support-item:hover::before {
+            width: 500px;
+            height: 500px;
+        }
+
+        .support-item:hover {
+            transform: translateY(-15px) scale(1.05);
+            border-color: #fbbf24;
+            box-shadow: 0 30px 80px rgba(251, 191, 36, 0.6);
+        }
+
+        .support-item i {
+            font-size: 5rem;
+            color: #fcd34d;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fef3c7;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .support-item p {
+            color: #fde68a;
+            line-height: 1.9;
+            font-size: 1.08rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .platforms {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 5rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .platform-badge {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(217, 119, 6, 0.3));
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            border: 2px solid rgba(251, 191, 36, 0.5);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fef3c7;
+            transition: all 0.4s;
+        }
+
+        .platform-badge:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.5), rgba(217, 119, 6, 0.5));
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.5);
+        }
+
+        .final-cta {
+            margin-top: 5rem;
+            text-align: center;
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 3px solid rgba(251, 191, 36, 0.4);
+        }
+
+        .final-cta h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #fef3c7;
+            font-weight: 800;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            color: #fde68a;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e293b;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            transition: all 0.4s;
+            box-shadow: 0 15px 50px rgba(251, 191, 36, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 70px rgba(251, 191, 36, 0.8);
+        }
+
+        /* ===================================
+           RESPONSIVE DESIGN
+        =================================== */
+        @media (max-width: 1024px) {
+            .backup-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .backup-circle {
+                width: 350px;
+                height: 350px;
+            }
+
+            .updates-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .section-intro {
+                font-size: 1.1rem;
+            }
+
+            .monitoring-grid,
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-1,
+            .section-2,
+            .section-3,
+            .section-4 {
+                padding: 100px 5%;
+            }
+
+            .monitor-card,
+            .update-box,
+            .backup-feature,
+            .support-item {
+                padding: 2rem;
+            }
+
+            .backup-circle {
+                width: 280px;
+                height: 280px;
+            }
+
+            .backup-circle i {
+                font-size: 5rem;
+            }
+
+            .orbit-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+
+            .platforms {
+                gap: 1rem;
+            }
+
+            .platform-badge {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .final-cta {
+                padding: 3rem 2rem;
+            }
+
+            .final-cta h3 {
+                font-size: 2rem;
+            }
+
+            .final-cta p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    
+    <!-- ===================================
+         HERO SECTION WITH PARTICLE ANIMATION
+    =================================== -->
+    <section class="hero">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Reliable Server Maintenance for Uninterrupted Business Continuity</h1>
+            <p>Professional server management ensuring peak performance, security, and uptime 24/7</p>
+            <a href="#contact" class="hero-btn">Secure Your Servers Now</a>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SECTION 1: COMPREHENSIVE SERVER HEALTH MONITORING
+    =================================== -->
+    <section class="section-1">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h2>Comprehensive Server Health Monitoring</h2>
+                <p class="section-intro">At Niyan IT Solutions, we ensure your business servers perform at their best — 24/7. Our server maintenance services include continuous monitoring of CPU usage, disk health, memory utilization, and network performance, ensuring early detection of potential issues.</p>
+            </div>
+
+            <div class="monitoring-grid">
+                <div class="monitor-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>CPU Performance Tracking</h3>
+                    <p>Real-time monitoring of processor utilization, load balancing, and performance metrics to prevent bottlenecks and ensure optimal processing power.</p>
+                </div>
+                <div class="monitor-card">
+                    <i class="fas fa-hdd"></i>
+                    <h3>Disk Health Analysis</h3>
+                    <p>Continuous surveillance of storage systems, SMART data, and disk I/O to predict failures and maintain data integrity.</p>
+                </div>
+                <div class="monitor-card">
+                    <i class="fas fa-memory"></i>
+                    <h3>Memory Utilization</h3>
+                    <p>Advanced RAM monitoring to detect memory leaks, optimize allocation, and prevent system slowdowns or crashes.</p>
+                </div>
+                <div class="monitor-card">
+                    <i class="fas fa-ethernet"></i>
+                    <h3>Network Performance</h3>
+                    <p>Comprehensive network traffic analysis and bandwidth monitoring to ensure consistent connectivity and fast data transfer.</p>
+                </div>
+                <div class="monitor-card">
+                    <i class="fas fa-bell"></i>
+                    <h3>Proactive Alerts</h3>
+                    <p>Instant notifications and intelligent alerting systems that notify our team of anomalies before they impact operations.</p>
+                </div>
+                <div class="monitor-card">
+                    <i class="fas fa-chart-area"></i>
+                    <h3>Uptime Maximization</h3>
+                    <p>Strategic monitoring and maintenance protocols designed to maintain maximum uptime and system stability for your critical infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SECTION 2: REGULAR UPDATES AND PATCH MANAGEMENT
+    =================================== -->
+    <section class="section-2">
+        <div class="spotlight"></div>
+        <div class="spotlight"></div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h2>Regular Updates and Patch Management</h2>
+                <p class="section-intro">Keeping servers secure and up to date is essential for performance and compliance. We handle OS updates, security patches, firmware upgrades, and version control to protect your infrastructure from vulnerabilities and emerging threats.</p>
+            </div>
+
+            <div class="updates-container">
+                <div class="update-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security Patch Deployment</h3>
+                    <p>Our team ensures every update is tested and deployed seamlessly, minimizing downtime while maintaining server integrity and security.</p>
+                    <ul>
+                        <li>Critical security vulnerability patches</li>
+                        <li>Zero-day threat protection updates</li>
+                        <li>Compliance-driven security hardening</li>
+                        <li>Regular security audit implementation</li>
+                    </ul>
+                </div>
+                <div class="update-box">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>System Updates & Upgrades</h3>
+                    <p>Comprehensive management of operating system updates, firmware upgrades, and version control across your entire server infrastructure.</p>
+                    <ul>
+                        <li>OS kernel and system updates</li>
+                        <li>Firmware and BIOS upgrades</li>
+                        <li>Software version management</li>
+                        <li>Backward compatibility testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SECTION 3: DATA BACKUP AND DISASTER RECOVERY
+    =================================== -->
+    <section class="section-3">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h2>Data Backup and Disaster Recovery</h2>
+                <p class="section-intro">Data is the heart of your business — and we make sure it's protected. Our automated backup and disaster recovery solutions safeguard your business-critical data against loss, corruption, or hardware failure.</p>
+            </div>
+
+            <div class="backup-showcase">
+                <div class="backup-visual">
+                    <div class="backup-circle">
+                        <i class="fas fa-server"></i>
+                        <div class="orbit-icon"><i class="fas fa-cloud"></i></div>
+                        <div class="orbit-icon"><i class="fas fa-save"></i></div>
+                        <div class="orbit-icon"><i class="fas fa-lock"></i></div>
+                        <div class="orbit-icon"><i class="fas fa-history"></i></div>
+                    </div>
+                </div>
+
+                <div class="backup-features">
+                    <div class="backup-feature">
+                        <i class="fas fa-robot"></i>
+                        <h3>Automated Backup Systems</h3>
+                        <p>Scheduled automated backups that run seamlessly in the background, ensuring your data is always protected without manual intervention.</p>
+                    </div>
+                    <div class="backup-feature">
+                        <i class="fas fa-undo"></i>
+                        <h3>Rapid System Restoration</h3>
+                        <p>In the event of an outage, we enable rapid system restoration to ensure business continuity and minimal operational impact.</p>
+                    </div>
+                    <div class="backup-feature">
+                        <i class="fas fa-copy"></i>
+                        <h3>Redundant Storage Solutions</h3>
+                        <p>Multiple backup locations and redundant storage systems to protect against data loss from hardware failure, disasters, or cyber attacks.</p>
+                    </div>
+                    <div class="backup-feature">
+                        <i class="fas fa-file-shield"></i>
+                        <h3>Data Integrity Protection</h3>
+                        <p>Continuous verification of backup data integrity with checksums and validation protocols to ensure your backups are reliable and recoverable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================
+         SECTION 4: 24/7 TECHNICAL SUPPORT AND PERFORMANCE OPTIMIZATION
+    =================================== -->
+    <section class="section-4">
+        <div class="spotlight"></div>
+        <div class="spotlight"></div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-user-clock"></i>
+                </div>
+                <h2>24/7 Technical Support and Performance Optimization</h2>
+                <p class="section-intro">Our dedicated IT specialists are available round-the-clock to handle server issues, configuration changes, and performance optimization. We support a wide range of environments to keep your systems running at peak performance.</p>
+            </div>
+
+            <div class="support-grid">
+                <div class="support-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Round-the-Clock Support</h3>
+                    <p>24/7/365 availability ensures that expert assistance is always just a call away, no matter when issues arise.</p>
+                </div>
+                <div class="support-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Performance Tuning</h3>
+                    <p>Continuous optimization of server configurations, resource allocation, and system parameters for maximum efficiency.</p>
+                </div>
+                <div class="support-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Configuration Management</h3>
+                    <p>Expert handling of complex configuration changes, ensuring consistency and reliability across your infrastructure.</p>
+                </div>
+                <div class="support-item">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Rapid Issue Resolution</h3>
+                    <p>Quick diagnosis and resolution of server problems to minimize downtime and maintain business operations.</p>
+                </div>
+            </div>
+
+            <div class="platforms">
+                <div class="platform-badge">
+                    <i class="fab fa-windows"></i> Windows Server
+                </div>
+                <div class="platform-badge">
+                    <i class="fab fa-linux"></i> Linux
+                </div>
+                <div class="platform-badge">
+                    <i class="fas fa-cube"></i> VMware
+                </div>
+                <div class="platform-badge">
+                    <i class="fas fa-cloud"></i> Cloud Infrastructure
+                </div>
+            </div>
+
+            <div class="final-cta">
+                <h3>Keep Your Servers Running at Peak Performance</h3>
+                <p>With Niyan IT Solutions, your servers remain stable, secure, and optimized — ensuring your business runs smoothly every day. Let our experts handle the complexity while you focus on what matters most.</p>
+                <a href="#contact" class="final-cta-button">Get Expert Server Support</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+
+</body>
+</html>
