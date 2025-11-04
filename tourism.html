@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            background: 
+                linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(227, 242, 253, 0.9) 100%),
+                linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #0284c7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Animated clouds */
+        .clouds {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .cloud {
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.15;
+            animation: cloudFloat 40s linear infinite;
+        }
+
+        .cloud-1 { top: 15%; left: -10%; animation-delay: 0s; }
+        .cloud-2 { top: 35%; left: -15%; animation-delay: 10s; font-size: 100px; }
+        .cloud-3 { top: 60%; left: -12%; animation-delay: 20s; font-size: 70px; }
+        .cloud-4 { top: 25%; left: -8%; animation-delay: 30s; font-size: 90px; }
+
+        @keyframes cloudFloat {
+            from { transform: translateX(0); }
+            to { transform: translateX(120vw); }
+        }
+
+        /* Floating plane */
+        .plane {
+            position: absolute;
+            font-size: 60px;
+            top: 20%;
+            right: -100px;
+            animation: planefly 25s ease-in-out infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes planefly {
+            0% { transform: translateX(0) translateY(0) rotate(-15deg); opacity: 0.2; }
+            50% { transform: translateX(-80vw) translateY(-100px) rotate(-10deg); opacity: 0.3; }
+            100% { transform: translateX(-150vw) translateY(-50px) rotate(-15deg); opacity: 0.2; }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 5.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
+            letter-spacing: -2px;
+        }
+
+        .hero-content p {
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0284c7 0%, #075985 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.6);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 3px solid white;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.4));
+            transition: left 0.5s;
+        }
+
+        .btn-outline:hover::before {
+            left: 100%;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            transform: translateY(-5px);
+        }
+
+        /* ============================================
+           SECTION 1: COMPLETE TRAVEL ECOSYSTEM
+        ============================================ */
+        .section-ecosystem {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #F5FBFF 0%, #E0F2FE 100%);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 4rem;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        .ecosystem-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            perspective: 1000px;
+        }
+
+        .eco-card {
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-20px) rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 25px 60px rgba(14, 165, 233, 0.3);
+        }
+
+        .eco-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .eco-card .card-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: block;
+            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eco-card:hover .card-icon {
+            transform: scale(1.2) rotateZ(10deg);
+        }
+
+        .eco-card h3 {
+            font-size: 1.8rem;
+            color: #0f172a;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eco-card p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           SECTION 2: INTERACTIVE DASHBOARD
+        ============================================ */
+        .section-dashboard {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .dashboard-image {
+            text-align: center;
+            font-size: 400px;
+            filter: drop-shadow(0 25px 60px rgba(14, 165, 233, 0.25));
+            opacity: 0;
+            transform: translateX(-100px);
+            animation: slideInLeft 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: #475569;
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+
+        /* ============================================
+           SECTION 3: KEY MODULES
+        ============================================ */
+        .section-modules {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .module-card {
+            background: white;
+            padding: 3.5rem 2.5rem;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            transition: top 0.5s ease;
+        }
+
+        .module-card:hover::before {
+            top: 0;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(14, 165, 233, 0.25);
+        }
+
+        .module-card .module-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-card:hover .module-icon {
+            transform: translateY(-10px);
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-10px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .module-card h4 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .module-card p {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .module-card:hover h4,
+        .module-card:hover p {
+            color: white;
+        }
+
+        /* ============================================
+           SECTION 4: CUSTOMER EXPERIENCE
+        ============================================ */
+        .section-experience {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .experience-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .experience-image {
+            text-align: center;
+            font-size: 380px;
+            filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.15));
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-image:hover {
+            transform: scale(1.08);
+        }
+
+        /* Moving clouds effect on hover */
+        .experience-image::before,
+        .experience-image::after {
+            content: '☁️';
+            position: absolute;
+            font-size: 60px;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .experience-image::before {
+            top: 20%;
+            left: -50px;
+        }
+
+        .experience-image::after {
+            bottom: 30%;
+            right: -50px;
+            font-size: 50px;
+        }
+
+        .experience-image:hover::before {
+            opacity: 0.3;
+            left: 50px;
+        }
+
+        .experience-image:hover::after {
+            opacity: 0.3;
+            right: 50px;
+        }
+
+        /* ============================================
+           SECTION 5: WHY CHOOSE US
+        ============================================ */
+        .section-why {
+            padding: 8rem 2rem;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            position: relative;
+        }
+
+        .why-cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .why-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        .why-card:hover {
+            border-image: linear-gradient(135deg, #0ea5e9, #06b6d4) 1;
+            border-image-slice: 1;
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.5), 0 15px 45px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .why-card .why-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .why-card h4 {
+            font-size: 1.2rem;
+            color: #0f172a;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* ============================================
+           SECTION 6: INTEGRATIONS
+        ============================================ */
+        .section-integrations {
+            padding: 6rem 2rem;
+            background: white;
+            overflow: hidden;
+        }
+
+        .integration-logos {
+            display: flex;
+            gap: 4rem;
+            margin-top: 3rem;
+            animation: scrollLogos 30s linear infinite;
+        }
+
+        @keyframes scrollLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .integration-logos:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-item {
+            font-size: 3rem;
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.4);
+            background: white;
+        }
+
+        /* ============================================
+           SECTION 7: GET STARTED CTA
+        ============================================ */
+        .section-cta {
+            padding: 10rem 2rem;
+            background: 
+                linear-gradient(135deg, rgba(14, 165, 233, 0.9) 0%, rgba(6, 182, 212, 0.9) 100%),
+                linear-gradient(45deg, #0ea5e9, #06b6d4);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-cta::before {
+            content: '✈️';
+            position: absolute;
+            font-size: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.05;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 4rem;
+            background: white;
+            color: #0ea5e9;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta .icon {
+            font-size: 1.8rem;
+            transition: transform 0.5s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.6), 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-cta:hover .icon {
+            transform: translateX(10px);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title,
+            .section-header h2,
+            .cta-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .ecosystem-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-layout,
+            .experience-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .dashboard-image,
+            .experience-image {
+                font-size: 250px;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .experience-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .why-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="clouds">
+            <span class="cloud cloud-1">☁️</span>
+            <span class="cloud cloud-2">☁️</span>
+            <span class="cloud cloud-3">☁️</span>
+            <span class="cloud cloud-4">☁️</span>
+        </div>
+        <span class="plane">✈️</span>
+        
+        <div class="hero-content">
+            <h1>Smart Tourism Management Solutions</h1>
+            <p>Empowering travel agencies, tour operators, and hotels with intelligent digital automation.</p>
+            <div class="hero-buttons">
+                <a href="#ecosystem" class="btn-primary">Explore Features</a>
+                <a href="#cta" class="btn-outline">Get a Free Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: COMPLETE TRAVEL ECOSYSTEM
+    ============================================ -->
+    <section class="section-ecosystem" id="ecosystem">
+        <div class="container">
+            <div class="section-header">
+                <h2>🧭 Complete Travel Ecosystem</h2>
+                <p>Manage every aspect of your travel business with our comprehensive digital platform</p>
+            </div>
+
+            <div class="ecosystem-cards">
+                <div class="eco-card">
+                    <span class="card-icon">📦</span>
+                    <h3>Tour Package Management</h3>
+                    <p>Create, edit, and display packages dynamically with real-time pricing and availability updates.</p>
+                </div>
+
+                <div class="eco-card">
+                    <span class="card-icon">📅</span>
+                    <h3>Booking & Reservation</h3>
+                    <p>Handle real-time bookings and cancellations with automated confirmation and payment processing.</p>
+                </div>
+
+                <div class="eco-card">
+                    <span class="card-icon">👥</span>
+                    <h3>Customer CRM Portal</h3>
+                    <p>Manage leads, follow-ups, and personalized offers with intelligent customer relationship tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: INTERACTIVE DASHBOARD
+    ============================================ -->
+    <section class="section-dashboard">
+        <div class="container">
+            <div class="dashboard-layout">
+                <div class="dashboard-image">
+                    📊
+                </div>
+                <div>
+                    <h2 class="section-title">🏕️ Interactive Dashboard</h2>
+                    <p class="section-description">Track customer engagement, bookings, and revenue insights in real time. Analyze performance and manage destinations, agents, and seasonal offers efficiently.</p>
+                    <p class="section-description">Get comprehensive analytics on booking trends, customer preferences, and revenue forecasting to make data-driven decisions for your travel business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: KEY MODULES
+    ============================================ -->
+    <section class="section-modules">
+        <div class="container">
+            <div class="section-header">
+                <h2>📦 Key Modules</h2>
+                <p>Powerful features designed to streamline your tourism operations</p>
+            </div>
+
+            <div class="modules-grid">
+                <div class="module-card">
+                    <span class="module-icon">🏨</span>
+                    <h4>Hotel & Transport Management</h4>
+                    <p>Comprehensive booking and inventory control</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">💱</span>
+                    <h4>Multi-Currency & Language</h4>
+                    <p>Global reach with real-time conversion</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">🗺️</span>
+                    <h4>Tour Planner & Itinerary</h4>
+                    <p>Build custom travel experiences easily</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">💳</span>
+                    <h4>Payment Gateway Integration</h4>
+                    <p>Secure transactions with multiple options</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">⭐</span>
+                    <h4>Feedback & Rating System</h4>
+                    <p>Collect and showcase customer reviews</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">🤝</span>
+                    <h4>Affiliate Partner Integration</h4>
+                    <p>Expand reach through partner networks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: SEAMLESS CUSTOMER EXPERIENCE
+    ============================================ -->
+    <section class="section-experience">
+        <div class="container">
+            <div class="experience-layout">
+                <div>
+                    <h2 class="section-title">🏖️ Seamless Customer Experience</h2>
+                    <p class="section-description">Deliver seamless booking experiences with responsive design, live availability, and secure payment gateways. Customers can explore destinations, book instantly, and manage trips — all from one place.</p>
+                    <p class="section-description">Our platform ensures a smooth, intuitive user journey from browsing to booking, with mobile-optimized interfaces and instant confirmations.</p>
+                </div>
+                <div class="experience-image">
+                    📱
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: WHY CHOOSE US
+    ============================================ -->
+    <section class="section-why">
+        <div class="container">
+            <div class="section-header">
+                <h2>🧭 Why Choose Our Tourism System</h2>
+                <p>Built for the modern travel industry with cutting-edge technology</p>
+            </div>
+
+            <div class="why-cards">
+                <div class="why-card">
+                    <span class="why-icon">🕐</span>
+                    <h4>24/7 Support & Maintenance</h4>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">🏢</span>
+                    <h4>Multi-Agency Management</h4>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">☁️</span>
+                    <h4>Cloud-Based & Mobile Ready</h4>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">💰</span>
+                    <h4>Real-Time Currency Conversion</h4>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">🔒</span>
+                    <h4>Secure & Scalable Infrastructure</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: INTEGRATIONS
+    ============================================ -->
+    <section class="section-integrations">
+        <div class="container">
+            <div class="section-header">
+                <h2>🕓 Seamless Integration with Leading Platforms</h2>
+            </div>
+
+            <div class="integration-logos">
+                <div class="logo-item">🌐 Expedia</div>
+                <div class="logo-item">🗺️ Google Maps</div>
+                <div class="logo-item">🏨 Booking.com</div>
+                <div class="logo-item">✈️ TripAdvisor</div>
+                <div class="logo-item">💳 PayPal</div>
+                <div class="logo-item">💰 Stripe</div>
+                <!-- Duplicate for seamless loop -->
+                <div class="logo-item">🌐 Expedia</div>
+                <div class="logo-item">🗺️ Google Maps</div>
+                <div class="logo-item">🏨 Booking.com</div>
+                <div class="logo-item">✈️ TripAdvisor</div>
+                <div class="logo-item">💳 PayPal</div>
+                <div class="logo-item">💰 Stripe</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7: GET STARTED CTA
+    ============================================ -->
+    <section class="section-cta" id="cta">
+        <div class="cta-content">
+            <h2>Let's take your travel business to the next destination.</h2>
+            <a href="#contact" class="btn-cta">
+                Request a Free Demo
+                <span class="icon">✈️</span>
+            </a>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
