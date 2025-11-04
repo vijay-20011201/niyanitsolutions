@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==========================================
+           GLOBAL STYLES & RESET
+        ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ==========================================
+           HERO SECTION - Smart Learning Starts Here
+        ========================================== */
+        .hero {
+            background: linear-gradient(135deg, #EEF3FF 0%, #E0F7FA 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+        }
+
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 2px solid #00BCD4;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape1 { width: 100px; height: 100px; top: 10%; left: 10%; animation-delay: 0s; }
+        .shape2 { width: 150px; height: 150px; top: 60%; left: 80%; animation-delay: 2s; }
+        .shape3 { width: 80px; height: 80px; top: 40%; left: 5%; animation-delay: 4s; }
+        .shape4 { width: 120px; height: 120px; top: 20%; left: 85%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a237e;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #455a64;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2196F3, #00BCD4);
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.5);
+            background: linear-gradient(135deg, #1976D2, #0097A7);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #2196F3;
+            padding: 16px 40px;
+            border: 2px solid #2196F3;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: #2196F3;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ==========================================
+           SECTION 1 - Core LMS Features
+        ========================================== */
+        .features {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #1a237e;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(33, 150, 243, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 20px rgba(33, 150, 243, 0.6));
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #546e7a;
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           SECTION 2 - User Roles & Permissions
+        ========================================== */
+        .user-roles {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .user-roles .section-heading {
+            color: white;
+        }
+
+        .roles-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .role-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            width: 320px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-15px);
+            background: linear-gradient(135deg, #00BCD4, #2196F3);
+            border-color: white;
+        }
+
+        .role-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .role-card h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .role-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           SECTION 3 - Key Modules
+        ========================================== */
+        .key-modules {
+            padding: 100px 20px;
+            background: #ffffff;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .module-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .module-card:hover {
+            background: linear-gradient(135deg, #2196F3, #00BCD4);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(33, 150, 243, 0.3);
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .module-card:hover .module-icon {
+            transform: rotate(5deg) scale(1.15);
+        }
+
+        .module-card h4 {
+            color: #1a237e;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover h4 {
+            color: white;
+        }
+
+        /* ==========================================
+           SECTION 4 - Personalized Learning
+        ========================================== */
+        .personalized-learning {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #EEF3FF 0%, #E0F7FA 100%);
+        }
+
+        .content-split {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text h2 {
+            font-size: 2.5rem;
+            color: #1a237e;
+            margin-bottom: 25px;
+        }
+
+        .content-text p {
+            font-size: 1.1rem;
+            color: #546e7a;
+            line-height: 1.8;
+        }
+
+        .content-image {
+            flex: 1;
+        }
+
+        .content-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s ease;
+        }
+
+        .content-image img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(33, 150, 243, 0.3);
+        }
+
+        /* ==========================================
+           SECTION 5 - Integrations
+        ========================================== */
+        .integrations {
+            padding: 100px 20px;
+            background: #1a237e;
+        }
+
+        .integrations .section-heading {
+            color: white;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .logo-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .logo-card:hover {
+            background: white;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-card span {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logo-card:hover span {
+            color: #1a237e;
+        }
+
+        /* ==========================================
+           SECTION 6 - Analytics & Progress Tracking
+        ========================================== */
+        .analytics {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .analytics .content-split {
+            flex-direction: row-reverse;
+        }
+
+        /* ==========================================
+           SECTION 7 - Why Choose Niyan IT Solutions
+        ========================================== */
+        .why-choose {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            border: 3px solid transparent;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card:hover {
+            border-image: linear-gradient(135deg, #2196F3, #00BCD4) 1;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.3);
+        }
+
+        .benefit-card h3 {
+            color: #1a237e;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #546e7a;
+            line-height: 1.7;
+        }
+
+        /* ==========================================
+           SECTION 8 - CTA Section
+        ========================================== */
+        .cta-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #00C9FF 0%, #92FE9D 100%);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-cta {
+            background: white;
+            color: #00C9FF;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN
+        ========================================== */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-split {
+                flex-direction: column;
+            }
+
+            .analytics .content-split {
+                flex-direction: column;
+            }
+
+            .section-heading {
+                font-size: 2rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==========================================
+         HERO SECTION
+    ========================================== -->
+    <section class="hero">
+        <div class="geometric-bg">
+            <div class="geometric-shape shape1"></div>
+            <div class="geometric-shape shape2"></div>
+            <div class="geometric-shape shape3"></div>
+            <div class="geometric-shape shape4"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Empower Education Through Technology</h1>
+                <p>A comprehensive Learning Management System (LMS) for schools, corporates, and training institutes to manage, deliver, and track learning efficiently.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Request Demo</button>
+                    <button class="btn-secondary">▶ Watch in Action</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" alt="LMS Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 1 - CORE LMS FEATURES
+    ========================================== -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-heading">Everything You Need to Power Online Learning</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Course Creation & Management</h3>
+                    <p>Create and manage multimedia courses with ease using our intuitive course builder.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Live Classes & Video Hosting</h3>
+                    <p>Host interactive live sessions and record lessons for on-demand viewing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Assessments & Quizzes</h3>
+                    <p>Build tests, track results, and provide instant feedback to learners.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics & Reports</h3>
+                    <p>Monitor learning progress and course performance with detailed insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2 - USER ROLES & PERMISSIONS
+    ========================================== -->
+    <section class="user-roles">
+        <div class="container">
+            <h2 class="section-heading">Built for Every Learning Role</h2>
+            <div class="roles-grid">
+                <div class="role-card">
+                    <div class="role-icon">👨‍💼</div>
+                    <h3>Admin Panel</h3>
+                    <p>Manage users, courses, and access rights with comprehensive administrative controls.</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon">👩‍🏫</div>
+                    <h3>Instructor Panel</h3>
+                    <p>Upload content, track students, and grade assignments efficiently.</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon">🎓</div>
+                    <h3>Student Portal</h3>
+                    <p>Learn anytime, anywhere with personalized dashboards and progress tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3 - KEY MODULES
+    ========================================== -->
+    <section class="key-modules">
+        <div class="container">
+            <h2 class="section-heading">Powerful Modules for Complete Learning</h2>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-icon">🏗️</div>
+                    <h4>Course Builder</h4>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">📹</div>
+                    <h4>Video Conferencing</h4>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">🏆</div>
+                    <h4>Certification Generator</h4>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">🎮</div>
+                    <h4>Gamified Learning</h4>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">💬</div>
+                    <h4>Discussion Forum</h4>
+                </div>
+                <div class="module-card">
+                    <div class="module-icon">☁️</div>
+                    <h4>Cloud Storage</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4 - PERSONALIZED LEARNING
+    ========================================== -->
+    <section class="personalized-learning">
+        <div class="content-split">
+            <div class="content-text">
+                <h2>Personalized Learning Experience</h2>
+                <p>Deliver personalized learning journeys with adaptive content suggestions based on user performance. Our LMS supports multilingual courses, gamification, and progress-based recommendations to keep learners motivated and engaged throughout their educational journey.</p>
+            </div>
+            <div class="content-image">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700" alt="Personalized Learning">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5 - INTEGRATIONS
+    ========================================== -->
+    <section class="integrations">
+        <div class="container">
+            <h2 class="section-heading">Integrates with All Your Favorite Tools</h2>
+            <div class="logo-grid">
+                <div class="logo-card"><span>Google Classroom</span></div>
+                <div class="logo-card"><span>Zoom</span></div>
+                <div class="logo-card"><span>Microsoft Teams</span></div>
+                <div class="logo-card"><span>Moodle API</span></div>
+                <div class="logo-card"><span>PayPal</span></div>
+                <div class="logo-card"><span>AWS</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6 - ANALYTICS & PROGRESS TRACKING
+    ========================================== -->
+    <section class="analytics">
+        <div class="content-split">
+            <div class="content-text">
+                <h2>Measure Success, Not Just Completion</h2>
+                <p>Track learner engagement, test results, and overall progress using visual dashboards. Export detailed reports, monitor completion rates, and identify knowledge gaps with advanced analytics to ensure continuous improvement.</p>
+            </div>
+            <div class="content-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700" alt="Analytics Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 7 - WHY CHOOSE NIYAN IT SOLUTIONS
+    ========================================== -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-heading">Why Choose Niyan IT Solutions</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🚀 Scalable Solution</h3>
+                    <p>Perfect for schools, corporates, and training academies of all sizes.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>☁️ Cloud-Hosted & Mobile-Friendly</h3>
+                    <p>Access from anywhere, anytime on any device with seamless synchronization.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🌍 Multi-Language Support</h3>
+                    <p>Full branding customization and multilingual content support.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🛠️ 24/7 Technical Assistance</h3>
+                    <p>Round-the-clock support to ensure your learning never stops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 8 - CTA SECTION
+    ========================================== -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Redefine how you deliver learning — smarter, faster, better.</h2>
+            <button class="btn-cta">Book a Free Demo →</button>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

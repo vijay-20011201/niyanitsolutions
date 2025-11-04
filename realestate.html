@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #e5e5e5;
+            overflow-x: hidden;
+            background: #0a0a0a;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+                linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        /* Animated tracing line */
+        .tracing-line {
+            position: absolute;
+            bottom: 15%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            animation: traceLine 8s linear infinite;
+        }
+
+        @keyframes traceLine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Parallax background effect */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(90deg, rgba(255, 215, 0, 0.03) 0px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(0deg, rgba(255, 215, 0, 0.03) 0px, transparent 1px, transparent 50px);
+            animation: parallaxMove 20s linear infinite;
+        }
+
+        @keyframes parallaxMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 5.5rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            line-height: 1.05;
+            text-shadow: 5px 7px 20px rgba(0, 0, 0, 0.8);
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #ffffff 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.7rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3.5rem;
+            line-height: 1.8;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 1.4rem 4rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 15px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-outline-gold {
+            display: inline-block;
+            padding: 1.4rem 4rem;
+            background: transparent;
+            color: #FFD700;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            border: 3px solid #FFD700;
+            transition: all 0.5s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-outline-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            transition: left 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn-outline-gold:hover::before {
+            left: 0;
+        }
+
+        .btn-outline-gold:hover {
+            color: #1a1a1a;
+            border-color: #FFA500;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+        }
+
+        /* ============================================
+           SECTION 1: CORE FEATURES
+        ============================================ */
+        .section-features {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #121212 0%, #1B1B1B 100%);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            border-color: #FFD700;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card .feature-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: translateY(-10px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+        }
+
+        .feature-card p {
+            font-size: 1.05rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           SECTION 2: SMART DASHBOARD
+        ============================================ */
+        .section-dashboard {
+            padding: 8rem 2rem;
+            background: #1a1a1a;
+        }
+
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .dashboard-image {
+            text-align: center;
+            font-size: 450px;
+            filter: drop-shadow(0 30px 70px rgba(255, 215, 0, 0.3));
+            animation: dashboardFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes dashboardFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-30px) rotate(2deg); }
+        }
+
+        .section-title {
+            font-size: 3.8rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+        }
+
+        .section-subtitle {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+
+        /* ============================================
+           SECTION 3: KEY MODULES
+        ============================================ */
+        .section-modules {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 4rem 3rem;
+            border-radius: 22px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 0 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .module-card .module-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: block;
+            transition: all 0.5s ease;
+        }
+
+        .module-card:hover .module-icon {
+            transform: rotate(15deg);
+            filter: drop-shadow(0 0 20px #FFD700);
+        }
+
+        .module-card h4 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .module-card p {
+            font-size: 1.05rem;
+            color: #b0b0b0;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTION 4: BUILDER PORTAL
+        ============================================ */
+        .section-builder {
+            padding: 8rem 2rem;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)),
+                repeating-linear-gradient(45deg, #f0f0f0 0px, #f0f0f0 10px, #e5e5e5 10px, #e5e5e5 20px);
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .section-builder .section-title,
+        .section-builder .section-description {
+            color: #1a1a1a;
+        }
+
+        .builder-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ============================================
+           SECTION 5: CUSTOMER PORTAL
+        ============================================ */
+        .section-customer {
+            padding: 8rem 2rem;
+            background: #1a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Auto-scrolling property cards in background */
+        .property-cards-bg {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            display: flex;
+            gap: 2rem;
+            animation: scrollProperties 40s linear infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes scrollProperties {
+            0% { transform: translateX(0) translateY(-50%); }
+            100% { transform: translateX(-50%) translateY(-50%); }
+        }
+
+        .property-card-bg {
+            width: 200px;
+            height: 250px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        .customer-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .customer-image {
+            text-align: center;
+            font-size: 400px;
+            filter: drop-shadow(0 25px 60px rgba(255, 215, 0, 0.2));
+        }
+
+        /* ============================================
+           SECTION 6: WHY CHOOSE US
+        ============================================ */
+        .section-why {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #0a0a0a 0%, #121212 100%);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 3px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .why-card:hover {
+            border-width: 4px;
+            border-color: #FFD700;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+            transform: translateY(-10px);
+        }
+
+        .why-card .why-icon {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .why-card h4 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            font-weight: 800;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           SECTION 7: SCHEDULE DEMO CTA
+        ============================================ */
+        .section-cta {
+            padding: 10rem 2rem;
+            background: linear-gradient(135deg, #0C0C0C 0%, #1F1F1F 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glowing skyline animation */
+        .skyline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, rgba(255, 215, 0, 0.1), transparent);
+            animation: skylineGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes skylineGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 4.5rem;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            font-weight: 900;
+            text-shadow: 4px 6px 15px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
+        }
+
+        .btn-demo {
+            display: inline-block;
+            padding: 1.6rem 5rem;
+            background: white;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.4rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-demo:hover {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title,
+            .section-header h2,
+            .cta-content h2 {
+                font-size: 2.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .dashboard-layout,
+            .customer-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .dashboard-image,
+            .customer-image {
+                font-size: 280px;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .customer-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .features-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="tracing-line"></div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Next-Gen Real Estate Management Solutions</h1>
+                <p>Empowering realtors, builders, and property managers with automation, analytics, and control.</p>
+                <div class="hero-buttons">
+                    <a href="#demo" class="btn-gold">Request Demo</a>
+                    <a href="#features" class="btn-outline-gold">View Solutions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: CORE FEATURES
+    ============================================ -->
+    <section class="section-features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>💡 Core Property Management Features</h2>
+                <p>Comprehensive tools to manage every aspect of your real estate business</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🏘️</span>
+                    <h3>Property Listings</h3>
+                    <p>Upload, edit, and publish property data easily with bulk import and real-time updates</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">👨‍💼</span>
+                    <h3>Agent & Broker Control</h3>
+                    <p>Manage roles, commissions, and sales pipelines with comprehensive performance tracking</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">💸</span>
+                    <h3>Lead Management</h3>
+                    <p>Capture, track, and convert leads efficiently with automated follow-ups and nurturing</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>Analytics & Reports</h3>
+                    <p>Visual dashboards for sales, revenue, and occupancy with predictive insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: SMART DASHBOARD
+    ============================================ -->
+    <section class="section-dashboard">
+        <div class="container">
+            <div class="dashboard-layout">
+                <div class="dashboard-image">
+                    📊
+                </div>
+                <div>
+                    <h2 class="section-title">🧱 Smart Dashboard & Automation</h2>
+                    <p class="section-subtitle">Automate. Analyze. Achieve.</p>
+                    <p class="section-description">Our Real Estate Management dashboard provides real-time insights on inventory, customer engagement, and transaction status. You can automate property updates, track leads, and generate instant performance reports with a single click.</p>
+                    <p class="section-description">Gain complete visibility into your portfolio with interactive charts, customizable widgets, and AI-powered predictions for market trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: KEY MODULES
+    ============================================ -->
+    <section class="section-modules">
+        <div class="container">
+            <div class="section-header">
+                <h2>💡 Key Modules</h2>
+                <p>Powerful features designed for modern real estate operations</p>
+            </div>
+
+            <div class="modules-grid">
+                <div class="module-card">
+                    <span class="module-icon">📇</span>
+                    <h4>CRM & Lead Management</h4>
+                    <p>Comprehensive customer relationship tools</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">📦</span>
+                    <h4>Inventory Control</h4>
+                    <p>Real-time property tracking and updates</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">💳</span>
+                    <h4>Payment Scheduling</h4>
+                    <p>Automated payment plans and reminders</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">👤</span>
+                    <h4>Agent Portal</h4>
+                    <p>Dedicated workspace for sales teams</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">👥</span>
+                    <h4>Client Management</h4>
+                    <p>Complete customer lifecycle tracking</p>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-icon">📄</span>
+                    <h4>Property Documentation</h4>
+                    <p>Digital document management system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: BUILDER PORTAL
+    ============================================ -->
+    <section class="section-builder">
+        <div class="container">
+            <div class="builder-content">
+                <h2 class="section-title">🏗️ Developer & Builder Portal</h2>
+                <p class="section-description">Provide builders and developers with tools to list projects, manage agents, and track construction progress in real time. Generate digital brochures, showcase properties in 3D, and manage investor relationships — all in one system.</p>
+                <p class="section-description">Enable seamless collaboration between contractors, architects, and sales teams with integrated project management and milestone tracking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: CUSTOMER PORTAL
+    ============================================ -->
+    <section class="section-customer">
+        <div class="property-cards-bg">
+            <div class="property-card-bg"></div>
+            <div class="property-card-bg"></div>
+            <div class="property-card-bg"></div>
+            <div class="property-card-bg"></div>
+            <div class="property-card-bg"></div>
+            <div class="property-card-bg"></div>
+        </div>
+
+        <div class="container">
+            <div class="customer-layout">
+                <div>
+                    <h2 class="section-title">🏠 Customer Portal</h2>
+                    <p class="section-description">Empower customers with a transparent, digital-first experience. They can browse properties, filter by price/location, submit queries, and schedule site visits online.</p>
+                    <p class="section-description">Deliver personalized recommendations, virtual tours, and instant mortgage calculators to enhance the customer journey and accelerate decision-making.</p>
+                </div>
+                <div class="customer-image">
+                    📱
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: WHY CHOOSE US
+    ============================================ -->
+    <section class="section-why">
+        <div class="container">
+            <div class="section-header">
+                <h2>📊 Why Choose Niyan IT Solutions</h2>
+                <p>Built for excellence with industry-leading technology</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <span class="why-icon">☁️</span>
+                    <h4>100% Cloud-Based Infrastructure</h4>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">🔒</span>
+                    <h4>Data Security & Compliance</h4>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">📈</span>
+                    <h4>Scalable for Multiple Properties</h4>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">🕐</span>
+                    <h4>24/7 Technical Support</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7: SCHEDULE DEMO CTA
+    ============================================ -->
+    <section class="section-cta" id="demo">
+        <div class="skyline"></div>
+        
+        <div class="cta-content">
+            <h2>Experience the future of real estate management.</h2>
+            <a href="#contact" class="btn-demo">Book a Free Demo</a>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
