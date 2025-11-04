@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #10152A;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #10152A 0%, #1E2C46 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 80px 5%;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .float-icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.15;
+            animation: floatUp 15s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% { 
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { 
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-left h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-left p {
+            font-size: 1.3rem;
+            color: #A5B4CB;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+            color: white;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+                transform: scale(1.02);
+            }
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.8), 0 0 70px rgba(139, 92, 246, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            animation: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #A78BFA;
+            border: 2px solid #8B5CF6;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(139, 92, 246, 0.1);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+            border-color: #A78BFA;
+            color: #C4B5FD;
+        }
+
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard-mockup {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: rgba(139, 92, 246, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .stat-card h4 {
+            font-size: 0.9rem;
+            color: #A5B4CB;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #A78BFA;
+        }
+
+        /* ============================================
+           SECTION 1: CORE MODULES
+        ============================================ */
+        .modules-section {
+            padding: 120px 5%;
+            background: linear-gradient(180deg, #10152A 0%, #1A1F3A 100%);
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .module-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(167, 139, 250, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-image: linear-gradient(135deg, #8B5CF6, #A78BFA) 1;
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(167, 139, 250, 0.3);
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-card h3 {
+            font-size: 1.5rem;
+            color: #A78BFA;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-card p {
+            color: #A5B4CB;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           SECTION 2: WHY CHOOSE US
+        ============================================ */
+        .why-choose-section {
+            padding: 120px 5%;
+            background: #10152A;
+        }
+
+        .why-choose-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .why-choose-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .why-choose-text p {
+            font-size: 1.2rem;
+            color: #A5B4CB;
+            line-height: 1.8;
+        }
+
+        .why-choose-image {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            text-align: center;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .why-choose-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(167, 139, 250, 0.1));
+            transform: scale(1);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        .why-choose-image:hover::before {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .dashboard-illustration {
+            font-size: 8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           SECTION 3: KEY BENEFITS
+        ============================================ */
+        .benefits-section {
+            padding: 120px 5%;
+            background: linear-gradient(180deg, #10152A 0%, #1A1F3A 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: rotateY(5deg) translateY(-10px);
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.7) inset, 0 0 50px rgba(139, 92, 246, 0.4);
+            border-color: #8B5CF6;
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            color: #A78BFA;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #A5B4CB;
+            font-size: 1.05rem;
+        }
+
+        /* ============================================
+           SECTION 4: TECHNOLOGY STACK
+        ============================================ */
+        .tech-stack-section {
+            padding: 120px 5%;
+            background: #10152A;
+        }
+
+        .tech-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-badge {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 20px 35px;
+            border-radius: 50px;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #A78BFA;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .tech-badge:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: #06B6D4;
+            color: #67E8F9;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.5), 0 10px 20px rgba(6, 182, 212, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* ============================================
+           SECTION 5: INTEGRATION & ADD-ONS
+        ============================================ */
+        .integration-section {
+            padding: 120px 5%;
+            background: linear-gradient(180deg, #10152A 0%, #1A1F3A 100%);
+            transition: background 0.4s ease;
+        }
+
+        .integration-section:hover {
+            background: linear-gradient(180deg, #1A1F3A 0%, #2C3E5A 100%);
+        }
+
+        .integration-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .integration-image {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            padding: 60px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            text-align: center;
+            font-size: 10rem;
+        }
+
+        .integration-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .integration-text p {
+            font-size: 1.2rem;
+            color: #A5B4CB;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .integration-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .integration-tag {
+            background: rgba(139, 92, 246, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: #A78BFA;
+            font-weight: 600;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        /* ============================================
+           SECTION 6: TESTIMONIALS
+        ============================================ */
+        .testimonials-section {
+            padding: 120px 5%;
+            background: #10152A;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: #8B5CF6;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            color: #A5B4CB;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            color: #A78BFA;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-position {
+            color: #6B7280;
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* ============================================
+           SECTION 7: DEMO CTA
+        ============================================ */
+        .demo-cta-section {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, #16213E 0%, #1F4068 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-cta-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #06B6D4, transparent);
+            animation: edgeGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes edgeGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .demo-cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .demo-cta-section .btn-demo {
+            background: linear-gradient(135deg, #06B6D4, #0891B2);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+        }
+
+        .demo-cta-section .btn-demo:hover {
+            box-shadow: 0 0 60px rgba(6, 182, 212, 0.8), 0 0 80px rgba(6, 182, 212, 0.4);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 1024px) {
+            .hero-content, .why-choose-content, .integration-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-left h1 {
+                font-size: 2.5rem;
+            }
+
+            .integration-content {
+                grid-template-columns: 1fr;
+            }
+
+            .integration-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-left h1 {
+                font-size: 2rem;
+            }
+
+            .section-heading {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .modules-grid, .benefits-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-row {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="floating-icons" id="floatingIcons"></div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <h1>Smart, Scalable & Secure School Management System</h1>
+                <p>Empowering educational institutions with digital efficiency and seamless automation.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary">Request Demo</button>
+                    <button class="btn-secondary">Explore Features</button>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="dashboard-mockup">
+                    <div class="dashboard-header">
+                        <h3>School Dashboard</h3>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h4>Total Students</h4>
+                            <p>1,247</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Attendance Rate</h4>
+                            <p>94.5%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Active Teachers</h4>
+                            <p>87</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Fee Collection</h4>
+                            <p>₹45L</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: CORE MODULES
+    ============================================ -->
+    <section class="modules-section">
+        <h2 class="section-heading">Comprehensive School Management Features</h2>
+        <div class="modules-grid">
+            <div class="module-card">
+                <span class="module-icon">👨‍🎓</span>
+                <h3>Student Management</h3>
+                <p>Centralized student records and performance tracking with detailed analytics and progress monitoring.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">👩‍🏫</span>
+                <h3>Teacher Management</h3>
+                <p>Class scheduling, attendance, and payroll automation for seamless staff administration.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">✅</span>
+                <h3>Attendance Tracking</h3>
+                <p>Real-time digital attendance for students & staff with automated reporting and notifications.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">💳</span>
+                <h3>Fee Management</h3>
+                <p>Online payments, invoice generation, and reminders for hassle-free financial operations.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">👪</span>
+                <h3>Parent Portal</h3>
+                <p>Real-time access to progress reports and communication between parents and teachers.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-icon">📝</span>
+                <h3>Exam & Result Automation</h3>
+                <p>Simplified exam scheduling and report generation with instant result publishing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: WHY CHOOSE US
+    ============================================ -->
+    <section class="why-choose-section">
+        <div class="why-choose-content">
+            <div class="why-choose-text">
+                <h2>Simplify Every Aspect of School Administration</h2>
+                <p>Our School Management System integrates all daily operations into a unified, digital platform. From classrooms to cloud-based dashboards, it enhances communication, transparency, and productivity across the institution.</p>
+            </div>
+            <div class="why-choose-image">
+                <div class="dashboard-illustration">📊</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: KEY BENEFITS
+    ============================================ -->
+    <section class="benefits-section">
+        <h2 class="section-heading">Transforming Education Through Technology</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">☁️</span>
+                <h3>24/7 Cloud Access</h3>
+                <p>Manage from anywhere, anytime with secure cloud infrastructure.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🔐</span>
+                <h3>Multi-User Access Control</h3>
+                <p>Secure roles for teachers, parents, and admins with granular permissions.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🛡️</span>
+                <h3>Data Security</h3>
+                <p>Encrypted storage and secure backups protecting sensitive information.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">📈</span>
+                <h3>Scalable Infrastructure</h3>
+                <p>Suitable for schools, colleges, and institutions of all sizes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: TECHNOLOGY STACK
+    ============================================ -->
+    <section class="tech-stack-section">
+        <h2 class="section-heading">Powered by Modern Technology</h2>
+        <div class="tech-row">
+            <div class="tech-badge">HTML5</div>
+            <div class="tech-badge">CSS3</div>
+            <div class="tech-badge">JavaScript</div>
+            <div class="tech-badge">Node.js</div>
+            <div class="tech-badge">MySQL</div>
+            <div class="tech-badge">AWS Cloud</div>
+            <div class="tech-badge">REST APIs</div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: INTEGRATION & ADD-ONS
+    ============================================ -->
+    <section class="integration-section">
+        <div class="integration-content">
+            <div class="integration-image">
+                🧩
+            </div>
+            <div class="integration-text">
+                <h2>Integrate More. Achieve More.</h2>
+                <p>Easily integrate modules like Library, Hostel, Transportation, and Timetable Management. Add analytics dashboards, attendance biometrics, or payment gateways as per institutional needs.</p>
+                <div class="integration-list">
+                    <span class="integration-tag">Library Management</span>
+                    <span class="integration-tag">Hostel Management</span>
+                    <span class="integration-tag">Transport Tracking</span>
+                    <span class="integration-tag">Biometric Integration</span>
+                    <span class="integration-tag">Payment Gateway</span>
+                    <span class="integration-tag">Analytics Dashboard</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: TESTIMONIALS
+    ============================================ -->
+    <section class="testimonials-section">
+        <h2 class="section-heading">Trusted by Leading Educational Institutions</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p>The Niyan IT Solutions school ERP simplified everything — from attendance to fees. Teachers and parents love the transparency.</p>
+                <div class="testimonial-author">Dr. Ramesh Kumar</div>
+                <div class="testimonial-position">Principal, Sunrise International School</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p>Our administrative workload reduced by 60% after implementing this system. It's intuitive, powerful, and exactly what we needed.</p>
+                <div class="testimonial-author">Mrs. Priya Sharma</div>
+                <div class="testimonial-position">Administrator, Green Valley Academy</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p>Excellent support team and seamless integration. The parent portal feature has improved our communication significantly.</p>
+                <div class="testimonial-author">Mr. Anil Verma</div>
+                <div class="testimonial-position">Director, Excellence Public School</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7: DEMO CTA
+    ============================================ -->
+    <section class="demo-cta-section">
+        <h2>Reimagine your school operations with smart digital automation.</h2>
+        <button class="btn-demo">Book a Free Demo</button>
+    </section>
+
+    <!-- ============================================
+         JAVASCRIPT FOR ANIMATIONS
+    ============================================ -->
+    <script>
+        // Generate floating educational icons
+        const floatingContainer = document.getElementById('floatingIcons');
+        const icons = ['📚', '🎓', '💻', '✏️', '📝', '🏫', '🎒', '📖', '🖊️', '📐'];
+        
+        for (let i = 0; i < 15; i++) {
+            const icon = document.createElement('div');
+            icon.className = 'float-icon';
+            icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+            icon.style.left = Math.random() * 100 + '%';
+            icon.style.animationDelay = Math.random() * 15 + 's';
+            icon.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            floatingContainer.appendChild(icon);
+        }
+
+        // Smooth scroll behavior for buttons
+        document.querySelectorAll('button, a[href^="#"]').forEach(element => {
+            element.addEventListener('click', function (e) {
+                if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to cards
+        document.querySelectorAll('.module-card, .benefit-card, .testimonial-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add staggered animation delay
+        document.querySelectorAll('.modules-grid .module-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.benefits-grid .benefit-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.15}s`;
+        });
+
+        document.querySelectorAll('.testimonials-grid .testimonial-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Tech badges hover animation enhancement
+        document.querySelectorAll('.tech-badge').forEach(badge => {
+            badge.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.1)';
+            });
+            badge.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dashboard stats counter animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
+
+        // Observe dashboard to trigger counter animation
+        const dashboardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stats = entry.target.querySelectorAll('.stat-card p');
+                    stats[0].textContent = '0';
+                    stats[1].textContent = '0%';
+                    stats[2].textContent = '0';
+                    stats[3].textContent = '₹0';
+                    
+                    setTimeout(() => {
+                        stats[0].textContent = '1,247';
+                        stats[1].textContent = '94.5%';
+                        stats[2].textContent = '87';
+                        stats[3].textContent = '₹45L';
+                    }, 500);
+                    
+                    dashboardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const dashboardMockup = document.querySelector('.dashboard-mockup');
+        if (dashboardMockup) {
+            dashboardObserver.observe(dashboardMockup);
+        }
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Button click feedback
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Integration section background transition
+        const integrationSection = document.querySelector('.integration-section');
+        if (integrationSection) {
+            const integrationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.background = 'linear-gradient(180deg, #1A1F3A 0%, #2C3E5A 100%)';
+                    } else {
+                        entry.target.style.background = 'linear-gradient(180deg, #10152A 0%, #1A1F3A 100%)';
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            integrationObserver.observe(integrationSection);
+        }
+
+        // Add typing effect to hero heading
+        const heroHeading = document.querySelector('.hero-left h1');
+        if (heroHeading) {
+            const text = heroHeading.textContent;
+            heroHeading.textContent = '';
+            let charIndex = 0;
+            
+            function typeWriter() {
+                if (charIndex < text.length) {
+                    heroHeading.textContent += text.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Start typing after page load
+            setTimeout(typeWriter, 500);
+        }
+
+        // Add glow effect to demo button on scroll
+        const demoCTA = document.querySelector('.demo-cta-section .btn-demo');
+        if (demoCTA) {
+            const demoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        demoCTA.style.animation = 'pulse-glow 2s ease-in-out infinite';
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            demoObserver.observe(demoCTA);
+        }
+
+        // Card tilt effect on mouse move
+        document.querySelectorAll('.module-card, .benefit-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Enhance tech badge interactions
+        document.querySelectorAll('.tech-badge').forEach((badge, index) => {
+            badge.style.opacity = '0';
+            badge.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                badge.style.transition = 'all 0.5s ease';
+                badge.style.opacity = '1';
+                badge.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+
+        // Intersection observer for tech badges
+        const techObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.tech-badge').forEach((badge, index) => {
+                        setTimeout(() => {
+                            badge.style.opacity = '1';
+                            badge.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const techSection = document.querySelector('.tech-stack-section');
+        if (techSection) {
+            techObserver.observe(techSection);
+        }
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
