@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #FF8C68, #FF61A6, #7366FF, #00C9FF);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .floating-logos {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-logo {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.2;
+            animation: orbit 20s linear infinite;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+        }
+
+        .logo-1 { top: 15%; left: 10%; animation-delay: 0s; }
+        .logo-2 { top: 25%; right: 15%; animation-delay: -3s; }
+        .logo-3 { bottom: 20%; left: 20%; animation-delay: -6s; }
+        .logo-4 { bottom: 30%; right: 25%; animation-delay: -9s; }
+        .logo-5 { top: 45%; left: 8%; animation-delay: -12s; }
+        .logo-6 { top: 55%; right: 10%; animation-delay: -15s; }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            line-height: 1.2;
+            animation: typewriter 2s steps(40);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-gradient {
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #FFD700, #FF6B6B, #4ECDC4);
+            background-size: 200% 200%;
+            color: white;
+            transition: all 0.5s ease;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient::before {
+            content: '🥳';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 2rem;
+            transition: transform 0.4s ease;
+        }
+
+        .btn-gradient:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .btn-gradient:hover {
+            background-position: 100% 0;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(255,215,0,0.5);
+        }
+
+        .btn-outline {
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 4px solid white;
+            border-radius: 60px;
+            cursor: pointer;
+            background: transparent;
+            color: white;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(135deg, #FF61A6, #7366FF);
+            border-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(115,102,255,0.5);
+        }
+
+        /* ==================== SECTION 1: WHAT WE DO ==================== */
+        .what-we-do {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #0f0e17 0%, #1a1a2e 100%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 70px;
+            background: linear-gradient(135deg, #FF61A6, #7366FF, #00C9FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+
+        .creative-card {
+            background: linear-gradient(135deg, #2d2d44 0%, #1f1f2e 100%);
+            padding: 50px 35px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .creative-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #FF61A6, #7366FF, #00C9FF);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: 25px;
+            z-index: 0;
+        }
+
+        .creative-card:hover::before {
+            opacity: 1;
+        }
+
+        .creative-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 80px rgba(115,102,255,0.6);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: transform 0.5s ease;
+            filter: drop-shadow(0 5px 20px rgba(255,97,166,0.5));
+        }
+
+        .creative-card:hover .card-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .creative-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .creative-card p {
+            color: #b8b8d1;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* ==================== SECTION 2: STORYTELLING APPROACH ==================== */
+        .storytelling {
+            position: relative;
+            padding: 150px 20px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23FF61A6" opacity="0.1" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .storytelling::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,97,166,0.9), rgba(115,102,255,0.9));
+            z-index: 1;
+        }
+
+        .storytelling-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .storytelling-text {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.5;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            animation: fadeInScale 1.5s ease;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ==================== SECTION 3: SOCIAL CHANNELS ==================== */
+        .social-channels {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0e17 100%);
+        }
+
+        .solar-system {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 80px auto;
+        }
+
+        .brand-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #FF61A6, #7366FF);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 0 60px rgba(115,102,255,0.8);
+            z-index: 10;
+        }
+
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: rotateOrbit 30s linear infinite;
+        }
+
+        .orbit-1 { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
+        .orbit-2 { width: 450px; height: 450px; margin: -225px 0 0 -225px; animation-duration: 40s; }
+
+        @keyframes rotateOrbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .channel-icon {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2d2d44, #1f1f2e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        .channel-icon:hover {
+            transform: scale(1.3);
+            box-shadow: 0 15px 60px rgba(255,97,166,0.7);
+            border-color: #FF61A6;
+        }
+
+        .icon-pos-1 { top: 0; left: 50%; transform: translateX(-50%); }
+        .icon-pos-2 { top: 50%; right: 0; transform: translateY(-50%); }
+        .icon-pos-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .icon-pos-4 { top: 50%; left: 0; transform: translateY(-50%); }
+        .icon-pos-5 { top: 15%; right: 15%; }
+        .icon-pos-6 { bottom: 15%; left: 15%; }
+
+        /* ==================== SECTION 4: CAMPAIGN TYPES ==================== */
+        .campaign-types {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #0f0e17 0%, #1a1a2e 100%);
+        }
+
+        .campaign-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 70px;
+        }
+
+        .campaign-card {
+            background: linear-gradient(135deg, #FF8C68, #FF61A6);
+            padding: 60px 40px;
+            border-radius: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .campaign-card::after {
+            content: 'See Case Study';
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 30px;
+            background: white;
+            color: #FF61A6;
+            font-weight: 700;
+            border-radius: 30px;
+            transition: bottom 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .campaign-card:hover::after {
+            bottom: 20px;
+        }
+
+        .campaign-card:hover {
+            transform: scale(1.08) translateY(-10px);
+            box-shadow: 0 30px 80px rgba(255,97,166,0.6);
+        }
+
+        .campaign-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .campaign-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        /* ==================== SECTION 5: ANALYTICS DASHBOARD ==================== */
+        .analytics {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .analytics .section-title {
+            color: #1a1a2e;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 70px;
+        }
+
+        .analytics-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border-left: 5px solid #7366FF;
+        }
+
+        .analytics-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(115,102,255,0.3);
+        }
+
+        .analytics-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #7366FF;
+        }
+
+        .analytics-card h3 {
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .stat-bar {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF61A6, #7366FF);
+            border-radius: 15px;
+            animation: fillBar 2s ease-out;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        .fill-85 { width: 85%; }
+        .fill-92 { width: 92%; }
+        .fill-78 { width: 78%; }
+        .fill-88 { width: 88%; }
+
+        /* ==================== SECTION 6: WHY CHOOSE US ==================== */
+        .why-choose {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0e17 100%);
+        }
+
+        .why-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .why-points {
+            list-style: none;
+        }
+
+        .why-points li {
+            padding: 30px;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #2d2d44, #1f1f2e);
+            border-radius: 20px;
+            font-size: 1.4rem;
+            color: #ffffff;
+            border-left: 6px solid #FF61A6;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .why-points li:hover {
+            transform: translateX(15px);
+            box-shadow: 0 15px 50px rgba(255,97,166,0.4);
+            border-left-width: 10px;
+        }
+
+        .why-mockup {
+            position: relative;
+            text-align: center;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            max-width: 400px;
+            background: linear-gradient(135deg, #2d2d44, #1f1f2e);
+            padding: 50px 30px;
+            border-radius: 40px;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+            transition: all 0.5s ease;
+            display: inline-block;
+        }
+
+        .phone-mockup:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 40px 120px rgba(115,102,255,0.6);
+        }
+
+        .feed-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .feed-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #FF61A6, #7366FF);
+            border-radius: 10px;
+        }
+
+        /* ==================== SECTION 7: TESTIMONIALS ==================== */
+        .testimonials {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #7366FF, #FF61A6);
+        }
+
+        .testimonial-card {
+            max-width: 1000px;
+            margin: 70px auto 0;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            padding: 60px 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+            border-color: white;
+        }
+
+        .testimonial-text {
+            font-size: 2rem;
+            font-style: italic;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-role {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* ==================== SECTION 8: FINAL CTA ==================== */
+        .final-cta {
+            padding: 150px 20px;
+            background: linear-gradient(135deg, #FF61A6, #7366FF, #00C9FF);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            opacity: 0;
+        }
+
+        .final-cta:hover .confetti-piece {
+            animation: confettiFall 3s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translateY(-100px) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(600px) rotate(720deg);
+            }
+        }
+
+        .piece-1 { left: 10%; animation-delay: 0s; background: #FFD700; }
+        .piece-2 { left: 25%; animation-delay: 0.2s; background: #FF6B6B; }
+        .piece-3 { left: 40%; animation-delay: 0.4s; background: #4ECDC4; }
+        .piece-4 { left: 55%; animation-delay: 0.6s; background: #95E1D3; }
+        .piece-5 { left: 70%; animation-delay: 0.8s; background: #F38181; }
+        .piece-6 { left: 85%; animation-delay: 1s; background: #AA96DA; }
+
+        .final-cta h2 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .rainbow-btn {
+            padding: 25px 60px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            border: 5px solid transparent;
+            border-radius: 70px;
+            cursor: pointer;
+            background: white;
+            color: #7366FF;
+            transition: all 0.5s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            background-clip: padding-box;
+        }
+
+        .rainbow-btn::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(90deg, #FF6B6B, #FFD700, #4ECDC4, #95E1D3, #F38181, #AA96DA);
+            background-size: 300% 300%;
+            border-radius: 70px;
+            z-index: -1;
+            animation: rainbowMove 3s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .rainbow-btn:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rainbowMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .rainbow-btn:hover {
+            transform: scale(1.1) translateY(-8px);
+            box-shadow: 0 30px 80px rgba(115,102,255,0.6);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .why-content {
+                grid-template-columns: 1fr;
+            }
+
+            .solar-system {
+                width: 350px;
+                height: 350px;
+            }
+
+            .orbit-1 { width: 200px; height: 200px; margin: -100px 0 0 -100px; }
+            .orbit-2 { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
+
+            .storytelling-text {
+                font-size: 2rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="floating-logos">
+            <div class="social-logo logo-1">📘</div>
+            <div class="social-logo logo-2">📸</div>
+            <div class="social-logo logo-3">🐦</div>
+            <div class="social-logo logo-4">💼</div>
+            <div class="social-logo logo-5">📹</div>
+            <div class="social-logo logo-6">📌</div>
+        </div>
+        <div class="hero-content">
+            <h1>Engage Audiences. Build Communities. Grow Brands.</h1>
+            <p>We create meaningful social media experiences that connect your brand to millions of people — every day.</p>
+            <div class="hero-buttons">
+                <button class="btn-gradient">Let's Get Social</button>
+                <button class="btn-outline">View Campaigns</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 1: WHAT WE DO ==================== -->
+    <section class="what-we-do">
+        <div class="container">
+            <h2 class="section-title">Our Social Media Expertise</h2>
+            <div class="cards-grid">
+                <div class="creative-card">
+                    <div class="card-content">
+                        <div class="card-icon">🎯</div>
+                        <h3>Social Strategy & Branding</h3>
+                        <p>Building your digital personality with authentic storytelling and strategic positioning.</p>
+                    </div>
+                </div>
+                <div class="creative-card">
+                    <div class="card-content">
+                        <div class="card-icon">🎨</div>
+                        <h3>Creative Design & Content</h3>
+                        <p>Eye-catching posts, videos, and reels that stop the scroll and spark engagement.</p>
+                    </div>
+                </div>
+                <div class="creative-card">
+                    <div class="card-content">
+                        <div class="card-icon">🚀</div>
+                        <h3>Ad Campaigns & Targeting</h3>
+                        <p>Smart audience reach and conversions through precision-targeted advertising.</p>
+                    </div>
+                </div>
+                <div class="creative-card">
+                    <div class="card-content">
+                        <div class="card-icon">📊</div>
+                        <h3>Analytics & Optimization</h3>
+                        <p>Data that drives engagement and measurable business results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: STORYTELLING APPROACH ==================== -->
+    <section class="storytelling">
+        <div class="storytelling-content">
+            <p class="storytelling-text">
+                "We don't just post. We tell stories that spark conversation, emotion, and trust."
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: SOCIAL CHANNELS ==================== -->
+    <section class="social-channels">
+        <div class="container">
+            <h2 class="section-title">Social Media Channels We Manage</h2>
+            <div class="solar-system">
+                <div class="brand-center">🏢</div>
+                <div class="orbit orbit-1">
+                    <div class="channel-icon icon-pos-1">📘</div>
+                    <div class="channel-icon icon-pos-2">📸</div>
+                    <div class="channel-icon icon-pos-3">💼</div>
+                    <div class="channel-icon icon-pos-4">🐦</div>
+                </div>
+                <div class="orbit orbit-2">
+                    <div class="channel-icon icon-pos-5">📹</div>
+                    <div class="channel-icon icon-pos-6">📌</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 4: CAMPAIGN TYPES ==================== -->
+    <section class="campaign-types">
+        <div class="container">
+            <h2 class="section-title">Tailored Campaigns for Every Goal</h2>
+            <div class="campaign-slider">
+                <div class="campaign-card">
+                    <div class="campaign-icon">🚀</div>
+                    <h3>Product Launch Campaign</h3>
+                </div>
+                <div class="campaign-card" style="background: linear-gradient(135deg, #7366FF, #00C9FF);">
+                    <div class="campaign-icon">🎊</div>
+                    <h3>Festival Promotions</h3>
+                </div>
+                <div class="campaign-card" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);">
+                    <div class="campaign-icon">🤝</div>
+                    <h3>Influencer Collaborations</h3>
+                </div>
+                <div class="campaign-card" style="background: linear-gradient(135deg, #FA709A, #FEE140);">
+                    <div class="campaign-icon">🌍</div>
+                    <h3>Brand Awareness Ads</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 5: ANALYTICS DASHBOARD ==================== -->
+    <section class="analytics">
+        <div class="container">
+            <h2 class="section-title">Track. Measure. Improve.</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #666; margin-bottom: 20px;">We use real-time analytics to optimize every campaign.</p>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div class="analytics-icon">📈</div>
+                    <h3>Engagement Growth</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill fill-85"></div>
+                    </div>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-icon">👥</div>
+                    <h3>Follower Insights</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill fill-92"></div>
+                    </div>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-icon">🎯</div>
+                    <h3>Conversion Attribution</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill fill-78"></div>
+                    </div>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-icon">💰</div>
+                    <h3>Ad Spend Efficiency</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill fill-88"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 6: WHY CHOOSE US ==================== -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Niyan IT Solutions</h2>
+            <div class="why-content">
+                <div class="why-text">
+                    <ul class="why-points">
+                        <li>✅ Creative storytellers + data experts</li>
+                        <li>✅ 360° campaign management</li>
+                        <li>✅ Monthly reports & insights</li>
+                        <li>✅ Content + Ads + Growth in one place</li>
+                    </ul>
+                </div>
+                <div class="why-mockup">
+                    <div class="phone-mockup">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">📱</div>
+                        <h4 style="color: #FF61A6; margin-bottom: 15px; font-size: 1.5rem;">Social Feed Preview</h4>
+                        <div class="feed-grid">
+                            <div class="feed-item"></div>
+                            <div class="feed-item" style="background: linear-gradient(135deg, #00C9FF, #92FE9D);"></div>
+                            <div class="feed-item" style="background: linear-gradient(135deg, #FA709A, #FEE140);"></div>
+                            <div class="feed-item" style="background: linear-gradient(135deg, #FFD700, #FF6B6B);"></div>
+                            <div class="feed-item" style="background: linear-gradient(135deg, #4ECDC4, #556270);"></div>
+                            <div class="feed-item" style="background: linear-gradient(135deg, #F38181, #FCE38A);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 7: TESTIMONIALS ==================== -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Client Success Story</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "The Niyan IT Solutions team built our Instagram following and engagement by 300%! Their content is stunning."
+                </p>
+                <div class="testimonial-author">— Meera Nair</div>
+                <div class="testimonial-role">Lifestyle Brand Manager</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 8: FINAL CTA ==================== -->
+    <section class="final-cta">
+        <div class="confetti">
+            <div class="confetti-piece piece-1"></div>
+            <div class="confetti-piece piece-2"></div>
+            <div class="confetti-piece piece-3"></div>
+            <div class="confetti-piece piece-4"></div>
+            <div class="confetti-piece piece-5"></div>
+            <div class="confetti-piece piece-6"></div>
+        </div>
+        <div class="cta-content">
+            <h2>Let's make your brand trend-worthy.</h2>
+            <button class="rainbow-btn">Start a Campaign</button>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
