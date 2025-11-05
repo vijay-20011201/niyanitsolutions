@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1F3BB3, #673AB7, #E91E63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0 50px 0;
+            margin: 0;
+        }
+
+        .floating-icon {
+            position: absolute;
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .icon-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .icon-2 { top: 60%; left: 5%; animation-delay: 2s; }
+        .icon-3 { top: 30%; right: 15%; animation-delay: 4s; }
+        .icon-4 { bottom: 20%; right: 10%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(15deg); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00D9FF, #00A3CC);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 15px 50px rgba(0, 217, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #00D9FF, #E91E63);
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        .hero-mockup {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+            border-radius: 40px;
+            border: 8px solid #333;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            animation: phoneFloat 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #1F3BB3, #673AB7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        @keyframes phoneFloat {
+            0%, 100% { transform: translateY(0) rotateY(-5deg); }
+            50% { transform: translateY(-20px) rotateY(5deg); }
+        }
+
+        /* ============================================
+           SERVICES SECTION
+        ============================================ */
+        .services {
+            padding: 6rem 2rem;
+            background: #0a0a0a;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #00D9FF, #E91E63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(135deg, #00D9FF, #E91E63);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #00D9FF;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           ARCHITECTURE SECTION
+        ============================================ */
+        .architecture {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #0a0a0a, #1a1a2e);
+        }
+
+        .architecture-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .architecture-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .arch-layer {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .arch-layer:nth-child(1) { animation-delay: 0.1s; }
+        .arch-layer:nth-child(2) { animation-delay: 0.3s; }
+        .arch-layer:nth-child(3) { animation-delay: 0.5s; }
+        .arch-layer:nth-child(4) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .arch-layer h4 {
+            color: #00D9FF;
+            margin-bottom: 0.5rem;
+        }
+
+        .architecture-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #00D9FF, #E91E63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .architecture-text p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .architecture-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .architecture-text ul li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .architecture-text ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #00D9FF;
+            font-size: 1.3rem;
+        }
+
+        /* ============================================
+           KEY FEATURES SECTION
+        ============================================ */
+        .features {
+            padding: 6rem 2rem;
+            background: #0a0a0a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.4s ease;
+        }
+
+        .feature-item:hover .feature-icon {
+            animation: pulse 0.6s ease;
+            color: #00D9FF;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .feature-item h4 {
+            color: #E91E63;
+            margin-bottom: 0.8rem;
+            transition: color 0.4s ease;
+        }
+
+        .feature-item:hover h4 {
+            color: #00D9FF;
+        }
+
+        .feature-item p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           DEVELOPMENT PROCESS SECTION
+        ============================================ */
+        .process {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #0a0a0a, #1a1a2e);
+        }
+
+        .timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #1F3BB3, #E91E63);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            border-color: #00D9FF;
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.3);
+        }
+
+        .timeline-node {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1F3BB3, #E91E63);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 0 30px rgba(233, 30, 99, 0.6);
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover .timeline-node {
+            box-shadow: 0 0 50px rgba(0, 217, 255, 0.8);
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        .timeline-content h3 {
+            color: #00D9FF;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ============================================
+           TOOLS & TECHNOLOGIES SECTION
+        ============================================ */
+        .tools {
+            padding: 6rem 2rem;
+            background: #0a0a0a;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-item {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+        }
+
+        .tool-item:hover {
+            background: linear-gradient(135deg, #1F3BB3, #E91E63);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.5);
+        }
+
+        /* ============================================
+           WHY CHOOSE US SECTION
+        ============================================ */
+        .why-choose {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #0a0a0a, #1a1a2e);
+        }
+
+        .why-choose-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .why-choose-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-choose-text ul li {
+            padding: 1.2rem 0;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .why-choose-text ul li::before {
+            content: '✅';
+            font-size: 1.5rem;
+        }
+
+        .why-choose-mockup {
+            perspective: 1000px;
+        }
+
+        .rotating-phone {
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+            border-radius: 35px;
+            border: 6px solid #333;
+            margin: 0 auto;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+            transition: transform 0.6s ease;
+        }
+
+        .why-choose-mockup:hover .rotating-phone {
+            transform: rotateY(15deg) rotateX(5deg);
+        }
+
+        /* ============================================
+           CALL TO ACTION SECTION
+        ============================================ */
+        .cta {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #1F3BB3, #E91E63);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            animation: flare 8s ease-in-out infinite;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            animation: flare 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes flare {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.2); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-cta {
+            background: white;
+            color: #1F3BB3;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.5);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-content,
+            .architecture-content,
+            .why-choose-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                padding-left: 80px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-node {
+                left: 30px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="floating-icon icon-1">🤖</div>
+        <div class="floating-icon icon-2">⚙️</div>
+        <div class="floating-icon icon-3">&lt;/&gt;</div>
+        <div class="floating-icon icon-4">📱</div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Powerful Android Applications That Scale With You</h1>
+                <p>From concept to code, we build high-performing Android apps that engage users and grow businesses.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary">Start Your Project</button>
+                    <button class="btn-secondary">See Portfolio</button>
+                </div>
+            </div>
+            <div class="hero-mockup">
+                <div class="phone-mockup">
+                    <div class="phone-screen">📱</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SERVICES SECTION
+    ============================================ -->
+    <section class="services">
+        <h2 class="section-title">Custom Android Development Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">📱</span>
+                <h3>Native Android Apps</h3>
+                <p>Built with Kotlin & Java for top-tier performance and seamless integration with Android ecosystem.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔄</span>
+                <h3>Hybrid & Cross-Platform</h3>
+                <p>Flutter, React Native, or Ionic for efficiency and rapid deployment across platforms.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🎨</span>
+                <h3>UI/UX for Android</h3>
+                <p>Intuitive, Material Design-based user experiences that delight and engage users.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔧</span>
+                <h3>App Maintenance & Upgrades</h3>
+                <p>Version updates, performance tuning, and ongoing support to keep your app competitive.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ARCHITECTURE SECTION
+    ============================================ -->
+    <section class="architecture">
+        <h2 class="section-title">Android App Architecture</h2>
+        <div class="architecture-content">
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <h4>Presentation Layer</h4>
+                    <p>UI Components & ViewModels</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>Domain Layer</h4>
+                    <p>Business Logic & Use Cases</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>Data Layer</h4>
+                    <p>Repositories & Data Sources</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>Infrastructure</h4>
+                    <p>APIs, Database & Services</p>
+                </div>
+            </div>
+            <div class="architecture-text">
+                <h2>Scalable & Modular Design</h2>
+                <p>We design scalable and modular Android architectures using MVVM and Clean Architecture principles, ensuring performance and maintainability.</p>
+                <ul>
+                    <li>Jetpack Components</li>
+                    <li>Room Database</li>
+                    <li>LiveData & ViewModel</li>
+                    <li>Retrofit / REST API Integration</li>
+                    <li>Firebase Authentication & Push Notifications</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         KEY FEATURES SECTION
+    ============================================ -->
+    <section class="features">
+        <h2 class="section-title">Your App. Optimized for Every Device.</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h4>Seamless Performance</h4>
+                <p>Optimized code for lightning-fast response times</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h4>Secure Data Storage</h4>
+                <p>Enterprise-grade encryption and security</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔋</div>
+                <h4>Battery Optimization</h4>
+                <p>Efficient resource management for longer battery life</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">☁️</div>
+                <h4>Cloud Integration</h4>
+                <p>Seamless sync across devices and platforms</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <h4>Analytics & Crash Reporting</h4>
+                <p>Real-time insights and proactive issue resolution</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h4>Multi-Device Compatibility</h4>
+                <p>Perfect experience on phones, tablets, and wearables</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         DEVELOPMENT PROCESS SECTION
+    ============================================ -->
+    <section class="process">
+        <h2 class="section-title">Development Process</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Requirement Analysis</h3>
+                    <p>Understanding your vision, goals, and target audience to create a comprehensive project roadmap.</p>
+                </div>
+                <div class="timeline-node">1</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Wireframing & Design</h3>
+                    <p>Creating intuitive user flows and stunning visual designs that align with your brand identity.</p>
+                </div>
+                <div class="timeline-node">2</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Development</h3>
+                    <p>Building robust, scalable applications using cutting-edge technologies and best practices.</p>
+                </div>
+                <div class="timeline-node">3</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Testing & QA</h3>
+                    <p>Rigorous testing across devices to ensure flawless performance and user experience.</p>
+                </div>
+                <div class="timeline-node">4</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Launch & Maintenance</h3>
+                    <p>Successful deployment to Play Store with ongoing support and continuous improvements.</p>
+                </div>
+                <div class="timeline-node">5</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TOOLS & TECHNOLOGIES SECTION
+    ============================================ -->
+    <section class="tools">
+        <h2 class="section-title">Tools & Technologies</h2>
+        <div class="tools-grid">
+            <div class="tool-item">Android Studio</div>
+            <div class="tool-item">Kotlin</div>
+            <div class="tool-item">Java</div>
+            <div class="tool-item">Flutter</div>
+            <div class="tool-item">Firebase</div>
+            <div class="tool-item">SQLite</div>
+            <div class="tool-item">GitHub</div>
+            <div class="tool-item">AWS</div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHY CHOOSE US SECTION
+    ============================================ -->
+    <section class="why-choose">
+        <h2 class="section-title">Why Choose Niyan IT Solutions</h2>
+        <div class="why-choose-content">
+            <div class="why-choose-text">
+                <ul>
+                    <li>Experienced Android developers with proven track record</li>
+                    <li>Focus on scalability & security from day one</li>
+                    <li>Google Play Store optimization included</li>
+                    <li>Full-cycle development from idea to maintenance</li>
+                </ul>
+            </div>
+            <div class="why-choose-mockup">
+                <div class="rotating-phone"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CALL TO ACTION SECTION
+    ============================================ -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Let's Build an Android App That Makes an Impact</h2>
+            <button class="btn-cta">Get a Free Consultation</button>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

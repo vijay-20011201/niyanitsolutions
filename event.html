@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1a1a2e;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 80px 5%;
+        }
+
+        .wave-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            z-index: 1;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,70 C300,120 600,20 900,70 C1200,120 1500,20 1800,70 L1800,120 L0,120 Z' fill='rgba(255,255,255,0.3)'/%3E%3C/svg%3E");
+            background-size: 50% 100%;
+            animation: waveMove 15s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            opacity: 0.5;
+            animation-duration: 20s;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            font-weight: 800;
+            line-height: 1.15;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.35rem;
+            color: #444;
+            margin-bottom: 45px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn-gradient {
+            padding: 20px 45px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient::before {
+            content: '🎉';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 2rem;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .btn-gradient:hover::before {
+            transform: translate(-50%, -50%) scale(3);
+            opacity: 1;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(240, 147, 251, 0.6);
+        }
+
+        .btn-outline-play {
+            padding: 20px 45px;
+            background: transparent;
+            color: #764ba2;
+            border: 3px solid #764ba2;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .play-icon {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 12px solid currentColor;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            animation: playPulse 2s ease-in-out infinite;
+        }
+
+        .btn-outline-play:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border-color: transparent;
+            transform: translateY(-5px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: heroFloat 4s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 550px;
+            filter: drop-shadow(0 25px 50px rgba(0,0,0,0.15));
+        }
+
+        .floating-elements {
+            position: absolute;
+            font-size: 50px;
+            animation: elementFloat 5s ease-in-out infinite;
+        }
+
+        .elem-1 { top: 5%; right: -5%; animation-delay: 0s; }
+        .elem-2 { bottom: 10%; left: -10%; animation-delay: 1.5s; }
+        .elem-3 { top: 40%; left: -15%; animation-delay: 3s; }
+
+        /* ==================== CORE FEATURES SECTION ==================== */
+        .core-features {
+            padding: 120px 5%;
+            background: #f9fafb;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 3rem;
+            color: #1a1a2e;
+            margin-bottom: 70px;
+            font-weight: 800;
+            position: relative;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 45px;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 45px 35px;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box:nth-child(2) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .feature-box:nth-child(3) {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        }
+
+        .feature-box:nth-child(4) {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            transition: all 0.6s ease;
+        }
+
+        .feature-box:hover::before {
+            top: -50%;
+            left: -50%;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        .feature-icon {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: all 0.5s ease;
+        }
+
+        .feature-box:hover .feature-icon {
+            transform: scale(1.3) rotate(-10deg);
+            animation: iconBounce 0.6s ease;
+        }
+
+        .feature-box h3 {
+            color: #fff;
+            font-size: 1.7rem;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .feature-box p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== INTERACTIVE DASHBOARD SECTION ==================== */
+        .dashboard-section {
+            padding: 120px 5%;
+            background: #fff;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .dashboard-image {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .dashboard-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.5s ease;
+        }
+
+        .dashboard-image:hover img {
+            transform: translateY(-20px) rotateX(5deg);
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.4);
+        }
+
+        .dashboard-content h2 {
+            font-size: 3rem;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .dashboard-content p {
+            font-size: 1.25rem;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        .dashboard-features {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .dash-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .dash-feature-item:hover {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            transform: translateX(10px);
+        }
+
+        .check-icon {
+            font-size: 1.8rem;
+            color: #43e97b;
+        }
+
+        /* ==================== KEY MODULES SECTION ==================== */
+        .modules-section {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .modules-section .section-heading {
+            color: #fff;
+        }
+
+        .modules-section .section-heading::after {
+            background: #fff;
+        }
+
+        .modules-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+        }
+
+        .module-card {
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .module-icon-wrapper {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255,255,255,0.4);
+            position: relative;
+        }
+
+        .module-card:hover .module-icon-wrapper {
+            transform: scale(1.15) rotate(360deg);
+            background: rgba(255,255,255,0.35);
+            box-shadow: 0 0 40px rgba(255,255,255,0.6);
+        }
+
+        .module-card h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* ==================== EVENT TYPES SECTION ==================== */
+        .event-types {
+            padding: 120px 5%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Crect fill='%23667eea' width='1200' height='600'/%3E%3Ccircle fill='%23764ba2' cx='200' cy='150' r='80' opacity='0.3'/%3E%3Ccircle fill='%23f093fb' cx='600' cy='300' r='120' opacity='0.2'/%3E%3Ccircle fill='%2330cfd0' cx='1000' cy='200' r='100' opacity='0.25'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .event-types .section-heading {
+            color: #fff;
+        }
+
+        .event-types .section-heading::after {
+            background: #fff;
+        }
+
+        .event-types-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .event-cards-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
+        }
+
+        .event-type-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-type-card::before {
+            content: '✨';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 3rem;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .event-type-card:hover::before {
+            top: 10px;
+            right: 10px;
+            opacity: 1;
+            animation: sparkle 1s ease infinite;
+        }
+
+        .event-type-card:hover {
+            border-color: #f093fb;
+            box-shadow: 0 0 40px rgba(240, 147, 251, 0.6);
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .event-type-card h3 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .event-type-card h4 {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        /* ==================== INTEGRATIONS SECTION ==================== */
+        .integrations {
+            padding: 120px 5%;
+            background: #f9fafb;
+            position: relative;
+        }
+
+        .integrations::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Ccircle fill='%23B5FFFC' cx='100' cy='100' r='50' opacity='0.1'/%3E%3Ccircle fill='%23FFDEE9' cx='1100' cy='500' r='80' opacity='0.1'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .integrations-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .integrations-content h2 {
+            font-size: 3rem;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .integrations-content p {
+            font-size: 1.25rem;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 40px;
+        }
+
+        .integration-logos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .integration-logo {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .integration-logo:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .integration-logo-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+
+        .integration-logo:hover .integration-logo-icon {
+            animation: none;
+            transform: scale(1.2);
+        }
+
+        .integration-logo h5 {
+            color: #1a1a2e;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* ==================== WHY CHOOSE US SECTION ==================== */
+        .why-choose {
+            padding: 120px 5%;
+            background: #fff;
+        }
+
+        .benefits-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 45px;
+        }
+
+        .benefit-card {
+            background: #fff;
+            padding: 45px 35px;
+            border-radius: 25px;
+            border: 3px solid transparent;
+            background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #667eea, #764ba2);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '✨';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0;
+            transform: rotate(-45deg) scale(0);
+            transition: all 0.5s ease;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+            animation: sparkle 1s ease infinite;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+            background-image: linear-gradient(135deg, #ffecd2 0%, #fcb69f 20%, #fff 20%), linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .benefit-card h3 {
+            color: #1a1a2e;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== FINAL CTA SECTION ==================== */
+        .final-cta {
+            padding: 140px 5%;
+            background: linear-gradient(135deg, #B5FFFC 0%, #E0C3FC 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #f093fb;
+            opacity: 0;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        .confetti:nth-child(1) { left: 10%; animation-delay: 0s; background: #667eea; }
+        .confetti:nth-child(2) { left: 30%; animation-delay: 0.5s; background: #f5576c; }
+        .confetti:nth-child(3) { left: 50%; animation-delay: 1s; background: #43e97b; }
+        .confetti:nth-child(4) { left: 70%; animation-delay: 1.5s; background: #f093fb; }
+        .confetti:nth-child(5) { left: 90%; animation-delay: 2s; background: #30cfd0; }
+
+        .final-cta h2 {
+            font-size: 3.5rem;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            color: #444;
+            margin-bottom: 45px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-final {
+            padding: 22px 55px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-final:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes waveMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes elementFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        @keyframes playPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: scale(1.3) rotate(-10deg); }
+            50% { transform: scale(1.5) rotate(-15deg) translateY(-10px); }
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+        }
+
+        @keyframes confettiFall {
+            0% { top: -10%; opacity: 1; transform: rotate(0deg); }
+            100% { top: 110%; opacity: 0; transform: rotate(720deg); }
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 968px) {
+            .hero-container, .dashboard-container, .integrations-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .section-heading {
+                font-size: 2.3rem;
+            }
+
+            .dashboard-content h2 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.15rem;
+            }
+
+            .btn-gradient, .btn-outline-play {
+                padding: 16px 35px;
+                font-size: 1rem;
+            }
+
+            .section-heading {
+                font-size: 2rem;
+            }
+
+            .feature-box {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="wave-animation">
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Plan. Manage. Celebrate — All in One Platform.</h1>
+                <p>Simplify your event operations with a powerful digital management system that handles everything from planning to execution.</p>
+                <div class="hero-buttons">
+                    <button class="btn-gradient">Get Started</button>
+                    <button class="btn-outline-play">
+                        <span class="play-icon"></span>
+                        Watch Demo
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-elements elem-1">🎉</div>
+                <div class="floating-elements elem-2">📅</div>
+                <div class="floating-elements elem-3">🎊</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad1)' width='600' height='700' rx='40'/%3E%3Crect fill='%23fff' x='40' y='60' width='520' height='180' rx='20'/%3E%3Ctext x='300' y='160' font-size='80' text-anchor='middle'%3E🎭%3C/text%3E%3Crect fill='%23f9fafb' x='40' y='270' width='240' height='120' rx='15'/%3E%3Crect fill='%23f9fafb' x='320' y='270' width='240' height='120' rx='15'/%3E%3Crect fill='%23f9fafb' x='40' y='420' width='520' height='100' rx='15'/%3E%3Ccircle fill='%2343e97b' cx='80' cy='470' r='20'/%3E%3Crect fill='%23e0e0e0' x='120' y='460' width='200' height='15' rx='5'/%3E%3Crect fill='%23e0e0e0' x='120' y='485' width='150' height='12' rx='5'/%3E%3Crect fill='%23667eea' x='200' y='570' width='200' height='50' rx='25'/%3E%3C/svg%3E" alt="Event Management Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CORE FEATURES SECTION ==================== -->
+    <section class="core-features">
+        <h2 class="section-heading">End-to-End Event Planning at Your Fingertips</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon">🎤</div>
+                <h3>Event Creation & Scheduling</h3>
+                <p>Plan events, sessions, and speakers with an intuitive dashboard that makes organization effortless.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🧾</div>
+                <h3>Ticketing & Registration</h3>
+                <p>Manage bookings, generate QR codes, and process online payments seamlessly.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">👥</div>
+                <h3>Attendee Management</h3>
+                <p>Track participants, handle check-ins, and send personalized communications with ease.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">💼</div>
+                <h3>Vendor & Sponsor Portal</h3>
+                <p>Handle vendors, manage payments, and coordinate logistics from one unified platform.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE DASHBOARD SECTION ==================== -->
+    <section class="dashboard-section">
+        <div class="dashboard-container">
+            <div class="dashboard-image">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23f9fafb' width='800' height='600'/%3E%3Crect fill='%23fff' x='20' y='20' width='760' height='560' rx='15'/%3E%3Crect fill='%23667eea' x='40' y='40' width='720' height='80' rx='10'/%3E%3Ctext x='400' y='90' font-size='30' fill='%23fff' text-anchor='middle' font-weight='bold'%3EEvent Dashboard%3C/text%3E%3Crect fill='%23f5f5f5' x='40' y='140' width='340' height='180' rx='10'/%3E%3Ccircle fill='%2343e97b' cx='210' cy='200' r='40'/%3E%3Crect fill='%23e0e0e0' x='80' y='260' width='260' height='20' rx='5'/%3E%3Crect fill='%23e0e0e0' x='80' y='290' width='200' height='15' rx='5'/%3E%3Crect fill='%23f5f5f5' x='400' y='140' width='340' height='180' rx='10'/%3E%3Crect fill='%23667eea' x='440' y='170' width='100' height='100' rx='10'/%3E%3Crect fill='%23f093fb' x='560' y='170' width='100' height='100' rx='10'/%3E%3Crect fill='%2343e97b' x='680' y='170' width='40' height='100' rx='5'/%3E%3Crect fill='%23f5f5f5' x='40' y='340' width='720' height='200' rx='10'/%3E%3Cline x1='80' y1='380' x2='720' y2='380' stroke='%23e0e0e0' stroke-width='2'/%3E%3Cline x1='80' y1='420' x2='720' y2='420' stroke='%23e0e0e0' stroke-width='2'/%3E%3Cline x1='80' y1='460' x2='720' y2='460' stroke='%23e0e0e0' stroke-width='2'/%3E%3Cline x1='80' y1='500' x2='720' y2='500' stroke='%23e0e0e0' stroke-width='2'/%3E%3C/svg%3E" alt="Event Dashboard">
+            </div>
+            <div class="dashboard-content">
+                <h2>Everything Organized. Always.</h2>
+                <p>Our dynamic event dashboard helps you control every stage of the event — from guest registration and seat management to analytics and post-event reporting.</p>
+                <div class="dashboard-features">
+                    <div class="dash-feature-item">
+                        <span class="check-icon">✓</span>
+                        <span>Real-time event monitoring and updates</span>
+                    </div>
+                    <div class="dash-feature-item">
+                        <span class="check-icon">✓</span>
+                        <span>Comprehensive analytics and insights</span>
+                    </div>
+                    <div class="dash-feature-item">
+                        <span class="check-icon">✓</span>
+                        <span>Automated workflows and notifications</span>
+                    </div>
+                    <div class="dash-feature-item">
+                        <span class="check-icon">✓</span>
+                        <span>Multi-user collaboration tools</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KEY MODULES SECTION ==================== -->
+    <section class="modules-section">
+        <h2 class="section-heading">Key Modules</h2>
+        <div class="modules-grid">
+            <div class="module-card">
+                <div class="module-icon-wrapper">🏢</div>
+                <h4>Venue & Resource Booking</h4>
+            </div>
+            <div class="module-card">
+                <div class="module-icon-wrapper">🔔</div>
+                <h4>Automated Notifications</h4>
+            </div>
+            <div class="module-card">
+                <div class="module-icon-wrapper">🎙️</div>
+                <h4>Speaker Profiles</h4>
+            </div>
+            <div class="module-card">
+                <div class="module-icon-wrapper">📊</div>
+                <h4>Real-Time Analytics</h4>
+            </div>
+            <div class="module-card">
+                <div class="module-icon-wrapper">💬</div>
+                <h4>Feedback Collection</h4>
+            </div>
+            <div class="module-card">
+                <div class="module-icon-wrapper">🗓️</div>
+                <h4>Multi-Event Management</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EVENT TYPES SECTION ==================== -->
+    <section class="event-types">
+        <h2 class="section-heading">One Platform. Endless Possibilities.</h2>
+        <p class="event-types-subtitle">From live concerts to corporate meetings, our platform is flexible and scalable.</p>
+        <div class="event-cards-grid">
+            <div class="event-type-card">
+                <h3>🎶</h3>
+                <h4>Music & Entertainment</h4>
+            </div>
+            <div class="event-type-card">
+                <h3>🏢</h3>
+                <h4>Corporate Events</h4>
+            </div>
+            <div class="event-type-card">
+                <h3>💍</h3>
+                <h4>Weddings & Celebrations</h4>
+            </div>
+            <div class="event-type-card">
+                <h3>🎓</h3>
+                <h4>Educational & Cultural Programs</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTEGRATIONS SECTION ==================== -->
+    <section class="integrations">
+        <div class="integrations-container">
+            <div class="integrations-content">
+                <h2>Smart Notifications & Integrations</h2>
+                <p>Stay connected with your attendees through smart notifications, email, and SMS reminders. Integrate seamlessly with the tools you already use.</p>
+                <button class="btn-gradient">Explore Integrations</button>
+            </div>
+            <div class="integration-logos">
+                <div class="integration-logo">
+                    <div class="integration-logo-icon">📅</div>
+                    <h5>Google Calendar</h5>
+                </div>
+                <div class="integration-logo">
+                    <div class="integration-logo-icon">💳</div>
+                    <h5>PayPal</h5>
+                </div>
+                <div class="integration-logo">
+                    <div class="integration-logo-icon">💰</div>
+                    <h5>Stripe</h5>
+                </div>
+                <div class="integration-logo">
+                    <div class="integration-logo-icon">💬</div>
+                    <h5>WhatsApp Business</h5>
+                </div>
+                <div class="integration-logo">
+                    <div class="integration-logo-icon">🎥</div>
+                    <h5>Zoom</h5>
+                </div>
+                <div class="integration-logo">
+                    <div class="integration-logo-icon">📧</div>
+                    <h5>Email APIs</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE US SECTION ==================== -->
+    <section class="why-choose">
+        <h2 class="section-heading">Why Choose Niyan IT Solutions</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🤖</div>
+                <h3>AI-based Planning Assistance</h3>
+                <p>Leverage artificial intelligence to optimize event scheduling, resource allocation, and attendee engagement.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">📱</div>
+                <h3>Multi-Device Compatibility</h3>
+                <p>Access your event management platform seamlessly across desktop, tablet, and mobile devices.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">📈</div>
+                <h3>Real-Time Data Insights</h3>
+                <p>Make informed decisions with live analytics, attendance tracking, and performance metrics.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🌐</div>
+                <h3>24/7 Support & Scalability</h3>
+                <p>Round-the-clock technical support and infrastructure that grows with your event needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA SECTION ==================== -->
+    <section class="final-cta">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <h2>Host Incredible Events Powered by Smart Technology</h2>
+        <p>Transform your event management experience with our comprehensive platform.</p>
+        <button class="btn-final">Book a Free Demo</button>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

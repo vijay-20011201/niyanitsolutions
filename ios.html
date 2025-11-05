@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #F8F9FB 0%, #EDEDED 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-apple {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            animation: floatApple 8s ease-in-out infinite;
+        }
+
+        .apple-1 { top: 15%; left: 10%; animation-delay: 0s; }
+        .apple-2 { top: 70%; left: 8%; animation-delay: 3s; }
+        .apple-3 { top: 25%; right: 12%; animation-delay: 5s; }
+        .apple-4 { bottom: 15%; right: 15%; animation-delay: 2s; }
+
+        @keyframes floatApple {
+            0%, 100% { opacity: 0; transform: translateY(0); }
+            10%, 90% { opacity: 0.08; }
+            50% { opacity: 0.15; transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            max-width: 1400px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            color: #6e6e73;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #1d1d1f;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background: #000000;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1d1d1f;
+            padding: 1rem 2.5rem;
+            border: 2px solid #d2d2d7;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1d1d1f;
+            background: #f5f5f7;
+            transform: translateY(-2px);
+        }
+
+        .hero-mockup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1500px;
+        }
+
+        .iphone-mockup {
+            width: 320px;
+            height: 650px;
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            border-radius: 50px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+            position: relative;
+            animation: iphoneRotate 8s ease-in-out infinite;
+            border: 12px solid #1d1d1f;
+        }
+
+        .iphone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #f5f5f7, #e8e8ed);
+            border-radius: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            overflow: hidden;
+        }
+
+        .iphone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: #1d1d1f;
+            border-radius: 0 0 20px 20px;
+        }
+
+        @keyframes iphoneRotate {
+            0%, 100% { transform: rotateY(-8deg) rotateX(5deg); }
+            50% { transform: rotateY(8deg) rotateX(-5deg); }
+        }
+
+        /* ============================================
+           SERVICES SECTION
+        ============================================ */
+        .services {
+            padding: 8rem 2rem;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #6e6e73;
+            margin-bottom: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #f5f5f7;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: #f5f5f7;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #6e6e73;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           ARCHITECTURE SECTION
+        ============================================ */
+        .architecture {
+            padding: 8rem 2rem;
+            background: #f5f5f7;
+        }
+
+        .architecture-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .architecture-text h2 {
+            font-size: 2.8rem;
+            color: #1d1d1f;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .architecture-text p {
+            color: #6e6e73;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .architecture-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .architecture-text ul li {
+            color: #1d1d1f;
+            font-size: 1.1rem;
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .architecture-text ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #1d1d1f;
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .architecture-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .arch-layer {
+            background: #ffffff;
+            border: 2px solid #e5e5e5;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInArch 0.8s ease forwards;
+        }
+
+        .arch-layer:nth-child(1) { animation-delay: 0.1s; }
+        .arch-layer:nth-child(2) { animation-delay: 0.3s; }
+        .arch-layer:nth-child(3) { animation-delay: 0.5s; }
+        .arch-layer:nth-child(4) { animation-delay: 0.7s; }
+
+        @keyframes slideInArch {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .arch-layer h4 {
+            color: #1d1d1f;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .arch-layer p {
+            color: #6e6e73;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           KEY FEATURES SECTION
+        ============================================ */
+        .features {
+            padding: 8rem 2rem;
+            background: #ffffff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border: 2px solid #d2d2d7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+            color: #6e6e73;
+        }
+
+        .feature-item:hover .feature-icon {
+            background: #1d1d1f;
+            border-color: #1d1d1f;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .feature-item h4 {
+            color: #1d1d1f;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover h4 {
+            font-size: 1.3rem;
+        }
+
+        .feature-item p {
+            color: #6e6e73;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           TOOLS & FRAMEWORKS SECTION
+        ============================================ */
+        .tools {
+            padding: 8rem 2rem;
+            background: #f5f5f7;
+        }
+
+        .tools-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-logo {
+            font-size: 1.5rem;
+            color: #86868b;
+            font-weight: 600;
+            padding: 1.5rem 2.5rem;
+            background: #ffffff;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .tool-logo:hover {
+            color: #1d1d1f;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ============================================
+           WHY CHOOSE US SECTION
+        ============================================ */
+        .why-choose {
+            padding: 8rem 2rem;
+            background: #ffffff;
+        }
+
+        .why-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .why-text h2 {
+            font-size: 2.8rem;
+            color: #1d1d1f;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .why-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-text ul li {
+            padding: 1.2rem 0;
+            font-size: 1.2rem;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .why-text ul li::before {
+            content: '✓';
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #1d1d1f;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .why-showcase {
+            perspective: 1500px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .iphone-showcase {
+            width: 280px;
+            height: 570px;
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            border-radius: 45px;
+            border: 10px solid #1d1d1f;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2),
+                        0 0 0 1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.6s ease;
+        }
+
+        .why-showcase:hover .iphone-showcase {
+            transform: rotateY(15deg) rotateX(5deg);
+        }
+
+        .iphone-showcase::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 10%;
+            width: 80%;
+            height: 40px;
+            background: radial-gradient(ellipse, rgba(0, 0, 0, 0.2), transparent);
+            filter: blur(20px);
+        }
+
+        /* ============================================
+           DESIGN PHILOSOPHY SECTION
+        ============================================ */
+        .philosophy {
+            padding: 8rem 2rem;
+            background: #FAFAFA;
+            text-align: center;
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .philosophy-content h2 {
+            font-size: 2.8rem;
+            color: #1d1d1f;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .philosophy-content p {
+            font-size: 1.4rem;
+            color: #6e6e73;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .minimal-lines {
+            width: 200px;
+            height: 2px;
+            background: #d2d2d7;
+            margin: 3rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .minimal-lines::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #1d1d1f;
+            animation: drawLine 3s ease-in-out infinite;
+        }
+
+        @keyframes drawLine {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
+        /* ============================================
+           CALL TO ACTION SECTION
+        ============================================ */
+        .cta {
+            padding: 10rem 2rem;
+            background: linear-gradient(180deg, #F1F3F5 0%, #E5E7E9 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+            opacity: 0.5;
+            filter: blur(100px);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 3.2rem;
+            color: #1d1d1f;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .btn-cta {
+            background: #ffffff;
+            color: #1d1d1f;
+            padding: 1.3rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .btn-cta:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 968px) {
+            .hero-content,
+            .architecture-content,
+            .why-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .cta h2 {
+                font-size: 2.2rem;
+            }
+
+            .tools-row {
+                gap: 1.5rem;
+            }
+
+            .tool-logo {
+                font-size: 1.2rem;
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="floating-apple apple-1">🍎</div>
+        <div class="floating-apple apple-2">🍎</div>
+        <div class="floating-apple apple-3">🍎</div>
+        <div class="floating-apple apple-4">🍎</div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Crafting Exceptional iOS Experiences</h1>
+                <p>We design and build seamless, high-performance iOS apps that blend innovation with simplicity.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Get a Quote</button>
+                    <button class="btn-secondary">View Case Studies</button>
+                </div>
+            </div>
+            <div class="hero-mockup">
+                <div class="iphone-mockup">
+                    <div class="iphone-notch"></div>
+                    <div class="iphone-screen">📱</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SERVICES SECTION
+    ============================================ -->
+    <section class="services">
+        <h2 class="section-title">Complete iOS App Development Lifecycle</h2>
+        <p class="section-subtitle">From concept to App Store, we handle every stage of your iOS journey</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-number">01</span>
+                <h3>Custom iOS App Development</h3>
+                <p>Tailored native apps using Swift and SwiftUI, built for performance, security, and seamless user experience.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-number">02</span>
+                <h3>App Design & Prototyping</h3>
+                <p>Pixel-perfect, Apple Human Interface–compliant design that ensures consistency and elegance across all devices.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-number">03</span>
+                <h3>App Testing & Maintenance</h3>
+                <p>Comprehensive QA, performance optimization, and App Store submission support with ongoing maintenance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ARCHITECTURE SECTION
+    ============================================ -->
+    <section class="architecture">
+        <div class="architecture-content">
+            <div class="architecture-text">
+                <h2>iOS App Architecture</h2>
+                <p>We follow a structured and modular architecture that ensures scalability, maintainability, and top-tier performance for every iOS application we build.</p>
+                <ul>
+                    <li>Swift / SwiftUI frameworks</li>
+                    <li>MVVM Design Pattern</li>
+                    <li>CoreData, Realm, CloudKit storage</li>
+                    <li>REST & GraphQL APIs</li>
+                    <li>Push Notifications via APNs</li>
+                </ul>
+            </div>
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <h4>UI Layer</h4>
+                    <p>SwiftUI Views & Components</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>Logic Layer</h4>
+                    <p>ViewModels & Business Logic</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>Services Layer</h4>
+                    <p>API Calls & Data Management</p>
+                </div>
+                <div class="arch-layer">
+                    <h4>Database Layer</h4>
+                    <p>CoreData & CloudKit Sync</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         KEY FEATURES SECTION
+    ============================================ -->
+    <section class="features">
+        <h2 class="section-title">Key Features</h2>
+        <p class="section-subtitle">Built with Apple's ecosystem in mind</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🔐</div>
+                <h4>Face ID / Touch ID</h4>
+                <p>Secure biometric authentication</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💳</div>
+                <h4>In-App Purchases</h4>
+                <p>Seamless payment integration</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">☁️</div>
+                <h4>Cloud Sync</h4>
+                <p>iCloud integration for data</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📴</div>
+                <h4>Offline Mode</h4>
+                <p>Full functionality without internet</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🌙</div>
+                <h4>Dark Mode Support</h4>
+                <p>Adaptive system appearance</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">♿</div>
+                <h4>Accessibility Features</h4>
+                <p>VoiceOver and assistive tech</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TOOLS & FRAMEWORKS SECTION
+    ============================================ -->
+    <section class="tools">
+        <h2 class="section-title">Tools & Frameworks</h2>
+        <p class="section-subtitle">Industry-leading technologies</p>
+        <div class="tools-row">
+            <div class="tool-logo">Swift</div>
+            <div class="tool-logo">SwiftUI</div>
+            <div class="tool-logo">Xcode</div>
+            <div class="tool-logo">Firebase</div>
+            <div class="tool-logo">CoreData</div>
+            <div class="tool-logo">TestFlight</div>
+            <div class="tool-logo">CloudKit</div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHY CHOOSE US SECTION
+    ============================================ -->
+    <section class="why-choose">
+        <div class="why-content">
+            <div class="why-text">
+                <h2>Why iOS with Niyan IT Solutions</h2>
+                <ul>
+                    <li>Expert Swift developers</li>
+                    <li>Focus on UI excellence & speed</li>
+                    <li>App Store Optimization (ASO) support</li>
+                    <li>Ongoing updates & version management</li>
+                </ul>
+            </div>
+            <div class="why-showcase">
+                <div class="iphone-showcase"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         DESIGN PHILOSOPHY SECTION
+    ============================================ -->
+    <section class="philosophy">
+        <div class="philosophy-content">
+            <h2>Our Design Philosophy</h2>
+            <p>At Niyan IT Solutions, every iOS app is designed with clarity, precision, and emotion — the hallmarks of Apple's design principles. We prioritize usability, consistency, and delight in every interaction.</p>
+            <div class="minimal-lines"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CALL TO ACTION SECTION
+    ============================================ -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Let's turn your idea into a beautiful iOS experience</h2>
+            <button class="btn-cta">Request a Free Consultation</button>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
