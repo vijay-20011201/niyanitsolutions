@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 50%, #FF99AC 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 80px 20px;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.15;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .icon-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .icon-2 { top: 60%; left: 80%; animation-delay: 2s; }
+        .icon-3 { top: 40%; right: 15%; animation-delay: 4s; }
+        .icon-4 { bottom: 20%; left: 70%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: white;
+            color: #FF6A88;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #FF6A88, #FF3A5E);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,106,136,0.4);
+        }
+
+        .btn-secondary {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 3px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            background: transparent;
+            color: white;
+            transition: all 0.4s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #FF6A88;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .dashboard-mock {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: dashboardFloat 6s infinite ease-in-out;
+        }
+
+        @keyframes dashboardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            color: #333;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FF6A88;
+            animation: countUp 2s ease-out;
+        }
+
+        /* ==================== SECTION 1: PPC SERVICES ==================== */
+        .services {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1e 100%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #FF6A88, #FF99AC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #2d2d44 0%, #1f1f2e 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,106,136,0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scale(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(255,106,136,0.3);
+            border-color: #FF6A88;
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 5px 15px rgba(255,106,136,0.4));
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #FF99AC;
+        }
+
+        .service-card p {
+            color: #b8b8d1;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* ==================== SECTION 2: PPC PROCESS ==================== */
+        .process {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%);
+        }
+
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-circle {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #FF6A88, #FF99AC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
+            box-shadow: 0 15px 40px rgba(255,106,136,0.4);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .step-circle::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #FF6A88;
+            transform: scale(1.2);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .process-step:hover .step-circle {
+            transform: scale(1.1);
+        }
+
+        .process-step:hover .step-circle::after {
+            transform: scale(1.3);
+            opacity: 1;
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #FF99AC;
+        }
+
+        .process-step p {
+            color: #b8b8d1;
+            font-size: 1rem;
+        }
+
+        /* ==================== SECTION 3: OPTIMIZATION ==================== */
+        .optimization {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+        }
+
+        .split-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .opt-image {
+            position: relative;
+        }
+
+        .graph-mock {
+            background: linear-gradient(135deg, #2d2d44, #1f1f2e);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,106,136,0.2);
+        }
+
+        .graph-line {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, rgba(255,106,136,0.1) 0%, transparent 100%);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .line-animate {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6A88, #FF99AC);
+            animation: lineGrow 3s ease-in-out infinite;
+        }
+
+        @keyframes lineGrow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .opt-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #FF99AC;
+        }
+
+        .opt-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #b8b8d1;
+            margin-bottom: 20px;
+        }
+
+        .opt-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .opt-features li {
+            padding: 15px 0;
+            font-size: 1.1rem;
+            color: #d4d4e8;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .opt-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #FF6A88;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        /* ==================== SECTION 4: TOOLS & PLATFORMS ==================== */
+        .tools {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .tool-item {
+            background: linear-gradient(135deg, #2d2d44, #1f1f2e);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255,106,136,0.4);
+            border-color: #FF6A88;
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .tool-item h4 {
+            color: #FF99AC;
+            font-size: 1.2rem;
+        }
+
+        /* ==================== SECTION 5: KEY METRICS ==================== */
+        .metrics {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 60px auto 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #FF6A88, #FF99AC);
+            padding: 45px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(255,106,136,0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s ease;
+        }
+
+        .metric-card:hover::before {
+            transform: scale(1);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(255,106,136,0.5);
+        }
+
+        .metric-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* ==================== SECTION 6: WHY CHOOSE US ==================== */
+        .why-choose {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%);
+        }
+
+        .why-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .why-points {
+            list-style: none;
+        }
+
+        .why-points li {
+            padding: 25px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #2d2d44, #1f1f2e);
+            border-radius: 15px;
+            font-size: 1.3rem;
+            color: #d4d4e8;
+            border-left: 5px solid #FF6A88;
+            transition: all 0.4s ease;
+        }
+
+        .why-points li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(255,106,136,0.3);
+        }
+
+        .why-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .mockup-img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
+        }
+
+        .mockup-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(255,106,136,0.4);
+        }
+
+        /* ==================== SECTION 7: TESTIMONIAL ==================== */
+        .testimonial {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+        }
+
+        .testimonial-card {
+            max-width: 900px;
+            margin: 60px auto 0;
+            background: linear-gradient(135deg, #2d2d44, #1f1f2e);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,106,136,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(255,106,136,0.4);
+        }
+
+        .testimonial-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #d4d4e8;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-size: 1.3rem;
+            color: #FF99AC;
+            font-weight: 600;
+        }
+
+        .testimonial-role {
+            color: #b8b8d1;
+            font-size: 1.1rem;
+        }
+
+        .roi-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6A88, #FF99AC);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* ==================== SECTION 8: CTA SECTION ==================== */
+        .cta-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #FF7A18 0%, #AF002D 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-floating {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .click-icon {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.2;
+            animation: clickFloat 6s infinite ease-in-out;
+        }
+
+        .click-1 { top: 15%; left: 15%; animation-delay: 0s; }
+        .click-2 { top: 70%; left: 75%; animation-delay: 1.5s; }
+        .click-3 { top: 50%; right: 20%; animation-delay: 3s; }
+
+        @keyframes clickFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-25px) scale(1.2); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .cta-btn {
+            padding: 22px 55px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: white;
+            color: #AF002D;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(255,215,0,0.5);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .hero-content,
+            .split-content,
+            .why-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .process-flow {
+                flex-direction: column;
+            }
+
+            .cta-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="floating-icons">
+            <div class="floating-icon icon-1">🎯</div>
+            <div class="floating-icon icon-2">📊</div>
+            <div class="floating-icon icon-3">💡</div>
+            <div class="floating-icon icon-4">🚀</div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Maximize ROI with Precision PPC Campaigns</h1>
+                <p>We create data-backed ad campaigns that deliver measurable growth across Google, Meta, and beyond.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Start My Campaign</button>
+                    <button class="btn-secondary">View Case Studies</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="dashboard-mock">
+                    <div class="metric">
+                        <span>Impressions</span>
+                        <span class="metric-value">2.4M+</span>
+                    </div>
+                    <div class="metric">
+                        <span>Clicks</span>
+                        <span class="metric-value">145K+</span>
+                    </div>
+                    <div class="metric">
+                        <span>Conversions</span>
+                        <span class="metric-value">12.5K+</span>
+                    </div>
+                    <div class="metric">
+                        <span>CTR</span>
+                        <span class="metric-value">6.04%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 1: PPC SERVICES ==================== -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Comprehensive PPC Solutions</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Google Search Ads</h3>
+                    <p>Target high-intent keywords that convert. Dominate search results and capture customers at the moment they're ready to buy.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Display & Banner Ads</h3>
+                    <p>Build awareness through creative visuals. Reach millions across the web with stunning, attention-grabbing designs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Ads</h3>
+                    <p>Drive engagement across Facebook, Instagram, and LinkedIn. Connect with your audience where they spend their time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>Shopping & Video Ads</h3>
+                    <p>Showcase products with dynamic and interactive ads. Turn browsers into buyers with compelling visual storytelling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: PPC PROCESS ==================== -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Our 5-Step PPC Success Framework</h2>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-circle">1️⃣</div>
+                    <h4>Research & Analysis</h4>
+                    <p>Deep dive into competitors and market trends</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-circle">2️⃣</div>
+                    <h4>Campaign Setup</h4>
+                    <p>Strategic targeting and budget allocation</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-circle">3️⃣</div>
+                    <h4>Creative Design</h4>
+                    <p>Compelling ad copy and visuals</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-circle">4️⃣</div>
+                    <h4>Optimization</h4>
+                    <p>Continuous monitoring and improvements</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-circle">5️⃣</div>
+                    <h4>Reporting</h4>
+                    <p>Transparent insights and analytics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: OPTIMIZATION ==================== -->
+    <section class="optimization">
+        <div class="split-content">
+            <div class="opt-image">
+                <div class="graph-mock">
+                    <div class="graph-line">
+                        <div class="line-animate"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="opt-text">
+                <h2>Campaign Optimization Highlights</h2>
+                <p>We continuously optimize every campaign for better ROI, CPC, CTR, and conversions using smart automation tools and A/B testing.</p>
+                <ul class="opt-features">
+                    <li>Real-time performance monitoring</li>
+                    <li>AI-powered bid optimization</li>
+                    <li>Multi-variant A/B testing</li>
+                    <li>Advanced audience segmentation</li>
+                    <li>Conversion rate optimization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 4: TOOLS & PLATFORMS ==================== -->
+    <section class="tools">
+        <div class="container">
+            <h2 class="section-title">Tools & Platforms We Use</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-icon">🔴</div>
+                    <h4>Google Ads</h4>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">📘</div>
+                    <h4>Meta Ads</h4>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">💼</div>
+                    <h4>LinkedIn Ads</h4>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">🔵</div>
+                    <h4>Bing Ads</h4>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">📊</div>
+                    <h4>SEMrush</h4>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">📈</div>
+                    <h4>Google Analytics</h4>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">🔥</div>
+                    <h4>Hotjar</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 5: KEY METRICS ==================== -->
+    <section class="metrics">
+        <div class="container">
+            <h2 class="section-title">Performance You Can Measure</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">📈</div>
+                    <div class="metric-number">+220%</div>
+                    <div class="metric-label">Increase in Conversions</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">💰</div>
+                    <div class="metric-number">-35%</div>
+                    <div class="metric-label">Reduction in CPC</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🎯</div>
+                    <div class="metric-number">+180%</div>
+                    <div class="metric-label">CTR Improvement</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">⭐</div>
+                    <div class="metric-number">+95%</div>
+                    <div class="metric-label">Client Retention</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 6: WHY CHOOSE US ==================== -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Niyan IT Solutions for PPC</h2>
+            <div class="why-content">
+                <div class="why-text">
+                    <ul class="why-points">
+                        <li>✅ Google-Certified Experts</li>
+                        <li>✅ Data-Driven Campaign Optimization</li>
+                        <li>✅ Transparent Performance Reports</li>
+                        <li>✅ AI-Based Bidding Strategies</li>
+                    </ul>
+                </div>
+                <div class="why-image">
+                    <div class="mockup-img" style="background: linear-gradient(135deg, #2d2d44, #1f1f2e); padding: 40px; border-radius: 20px; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                        💻
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 7: TESTIMONIAL ==================== -->
+    <section class="testimonial">
+        <div class="container">
+            <h2 class="section-title">Client Success Story</h2>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "Niyan IT Solutions helped us double our conversion rate and cut ad costs in half within 3 months!"
+                </div>
+                <div class="testimonial-author">— Riya Sharma</div>
+                <div class="testimonial-role">E-commerce Owner</div>
+                <div class="roi-badge">ROI: +350%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 8: CTA SECTION ==================== -->
+    <section class="cta-section">
+        <div class="cta-floating">
+            <div class="click-icon click-1">👆</div>
+            <div class="click-icon click-2">🖱️</div>
+            <div class="click-icon click-3">✨</div>
+        </div>
+        <div class="cta-content">
+            <h2>Turn Clicks Into Customers — Let's Start Today</h2>
+            <button class="cta-btn">Get a Free PPC Strategy</button>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

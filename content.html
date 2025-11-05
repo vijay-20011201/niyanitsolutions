@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ========================================
+           GLOBAL STYLES & RESET
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFFDF8 0%, #E8EEF6 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 80px 5%;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .typewriter {
+            border-right: 3px solid #d4a574;
+            animation: blink 0.7s step-end infinite;
+            display: inline-block;
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #f5e6d3 0%, #d4a574 100%);
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #d4a574 0%, #8b6f47 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(212, 165, 116, 0.5);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            padding: 18px 40px;
+            background: transparent;
+            color: #2c3e50;
+            text-decoration: none;
+            border: 2px solid #d4a574;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #d4a574;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(212, 165, 116, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            font-size: 8rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ========================================
+           SECTION 1: POWER OF CONTENT
+        ======================================== */
+        .power-section {
+            padding: 120px 5%;
+            background: #fff;
+            transition: background 0.5s ease;
+        }
+
+        .power-section:hover {
+            background: #fafafa;
+        }
+
+        .power-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .power-text h2 {
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .power-text p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        .power-image {
+            background: linear-gradient(135deg, #E8EEF6 0%, #d4a574 100%);
+            height: 450px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        /* ========================================
+           SECTION 2: SERVICES CARDS
+        ======================================== */
+        .services-section {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, #f9f6ef 0%, #fff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            margin-bottom: 70px;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: #fffdf8;
+            padding: 50px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: perspective(1000px) rotateX(5deg) translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .service-card:hover h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #d4a574, #f5e6d3);
+            animation: underlineSlide 0.4s ease;
+        }
+
+        @keyframes underlineSlide {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        /* ========================================
+           SECTION 3: PHILOSOPHY QUOTE
+        ======================================== */
+        .philosophy-section {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, #f5e6d3 0%, #E8EEF6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy-section::before {
+            content: '"';
+            position: absolute;
+            top: 50px;
+            left: 5%;
+            font-size: 15rem;
+            color: rgba(212, 165, 116, 0.1);
+            font-family: Georgia, serif;
+        }
+
+        .philosophy-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .philosophy-quote {
+            font-size: 2.5rem;
+            font-style: italic;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-family: Georgia, serif;
+            opacity: 0;
+            animation: fadeInText 2s ease forwards;
+        }
+
+        @keyframes fadeInText {
+            to { opacity: 1; }
+        }
+
+        .philosophy-text {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           SECTION 4: WORKFLOW TIMELINE
+        ======================================== */
+        .workflow-section {
+            padding: 120px 5%;
+            background: #fff;
+        }
+
+        .workflow-timeline {
+            max-width: 1400px;
+            margin: 60px auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .workflow-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #d4a574, #E8EEF6);
+            z-index: 0;
+        }
+
+        .workflow-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .workflow-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #d4a574;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .workflow-step:hover .workflow-circle {
+            background: linear-gradient(135deg, #d4a574, #f5e6d3);
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        .workflow-label {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* ========================================
+           SECTION 5: TOOLS GRID
+        ======================================== */
+        .tools-section {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, #f9f6ef 0%, #fff 100%);
+        }
+
+        .tools-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-item {
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .tool-name {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* ========================================
+           SECTION 6: WHY CHOOSE US
+        ======================================== */
+        .why-section {
+            padding: 120px 5%;
+            background: #fff;
+        }
+
+        .why-grid {
+            max-width: 1400px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .why-card {
+            background: #f9f6ef;
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: 2px solid #d4a574;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.2),
+                        inset 0 2px 10px rgba(212, 165, 116, 0.1);
+        }
+
+        .why-card h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .why-card p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           SECTION 7: CALL TO ACTION
+        ======================================== */
+        .cta-section {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, #F9F6EF 0%, #E8EEF6 100%);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 50px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 20px 50px;
+            background: #2c3e50;
+            color: #f5e6d3;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+        }
+
+        .btn-cta:hover {
+            background: #1a252f;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(44, 62, 80, 0.5);
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .power-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .workflow-timeline {
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .section-title,
+            .power-text h2 {
+                font-size: 2rem;
+            }
+
+            .philosophy-quote {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1><span class="typewriter">Content That Connects, Engages & Converts.</span></h1>
+                <p>We craft words and visuals that build trust, drive SEO, and create lasting impressions.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Talk to Our Writers</a>
+                    <a href="#cases" class="btn-secondary">See Case Studies</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-illustration">🪶</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 1: POWER OF CONTENT
+    ======================================== -->
+    <section class="power-section">
+        <div class="power-content">
+            <div class="power-text">
+                <h2>Your Brand Has a Story. We Help You Tell It.</h2>
+                <p>Good content does more than inform — it inspires action. From web copy to full campaigns, we create stories that spark emotion, strengthen SEO, and turn readers into customers.</p>
+            </div>
+            <div class="power-image">📰</div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 2: OUR SERVICES
+    ======================================== -->
+    <section class="services-section">
+        <h2 class="section-title">Our Content Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📝</div>
+                <h3>Blog Writing & Articles</h3>
+                <p>Build authority with engaging storytelling that resonates with your audience and drives organic traffic.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Website Copywriting</h3>
+                <p>Persuasive text that reflects your brand tone and converts visitors into loyal customers.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Video & Script Writing</h3>
+                <p>Structured storytelling for motion content that captures attention and delivers your message.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>E-Books & Whitepapers</h3>
+                <p>Long-form pieces that educate and convert, establishing your expertise in the industry.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 3: PHILOSOPHY
+    ======================================== -->
+    <section class="philosophy-section">
+        <div class="philosophy-content">
+            <p class="philosophy-quote">Every sentence is crafted with intention — to inform, inspire, and influence.</p>
+            <p class="philosophy-text">We combine creativity with analytics. Our writing is guided by data and optimized for SEO — ensuring your content ranks high while sounding authentically human.</p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 4: WORKFLOW
+    ======================================== -->
+    <section class="workflow-section">
+        <h2 class="section-title">Content Workflow</h2>
+        <div class="workflow-timeline">
+            <div class="workflow-step">
+                <div class="workflow-circle">🔍</div>
+                <p class="workflow-label">Research & Topic Discovery</p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-circle">🎯</div>
+                <p class="workflow-label">Keyword Strategy</p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-circle">✍️</div>
+                <p class="workflow-label">Writing & Design Collaboration</p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-circle">✅</div>
+                <p class="workflow-label">Review & Edit</p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-circle">🚀</div>
+                <p class="workflow-label">Publish & Promote</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 5: TOOLS & SEO
+    ======================================== -->
+    <section class="tools-section">
+        <h2 class="section-title">Tools & SEO Integration</h2>
+        <div class="tools-grid">
+            <div class="tool-item">
+                <div class="tool-icon">📊</div>
+                <p class="tool-name">Google Trends</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">✏️</div>
+                <p class="tool-name">Grammarly</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">🔎</div>
+                <p class="tool-name">SEMrush</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">📱</div>
+                <p class="tool-name">WordPress</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">🎨</div>
+                <p class="tool-name">Canva</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">🤖</div>
+                <p class="tool-name">ChatGPT</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 6: WHY CHOOSE US
+    ======================================== -->
+    <section class="why-section">
+        <h2 class="section-title">Why Choose Niyan IT Solutions</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <h3>✅ Industry Expertise</h3>
+                <p>Industry-specific content expertise tailored to your niche and target audience.</p>
+            </div>
+            <div class="why-card">
+                <h3>✅ Creative + SEO Balance</h3>
+                <p>Perfect balance between creativity and SEO performance that ranks and resonates.</p>
+            </div>
+            <div class="why-card">
+                <h3>✅ Consistent Brand Voice</h3>
+                <p>Consistent tone across blogs, ads, and websites that strengthens brand identity.</p>
+            </div>
+            <div class="why-card">
+                <h3>✅ 100% Original Content</h3>
+                <p>100% original and plagiarism-free content that you can trust and be proud of.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 7: CALL TO ACTION
+    ======================================== -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's Write Your Brand's Story</h2>
+            <p>Let's turn your ideas into words that matter.</p>
+            <a href="#contact" class="btn-cta">Start Your Content Journey</a>
+        </div>
+    </section>
+
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
