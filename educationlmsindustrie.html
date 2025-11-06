@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1976D2 0%, #42A5F5 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: 10%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            bottom: 20%;
+            left: 15%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .float-icon {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.15;
+            animation: floatUp 15s infinite linear;
+        }
+
+        .float-icon:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .float-icon:nth-child(2) { left: 25%; animation-delay: 3s; }
+        .float-icon:nth-child(3) { left: 40%; animation-delay: 6s; }
+        .float-icon:nth-child(4) { left: 60%; animation-delay: 2s; }
+        .float-icon:nth-child(5) { left: 75%; animation-delay: 5s; }
+        .float-icon:nth-child(6) { left: 90%; animation-delay: 8s; }
+
+        @keyframes floatUp {
+            0% { bottom: -100px; transform: translateX(0) rotate(0deg); }
+            100% { bottom: 120%; transform: translateX(50px) rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .typing-text {
+            border-right: 3px solid white;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: white; }
+            51%, 100% { border-color: transparent; }
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            color: #1976D2;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            background: #f0f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1976D2;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.6s both;
+        }
+
+        .mockup-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .laptop-mockup {
+            width: 80%;
+            height: 250px;
+            background: #2c3e50;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 8px solid #34495e;
+        }
+
+        .laptop-screen {
+            width: 100%;
+            height: 85%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 3px;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .tablet-mockup {
+            width: 50%;
+            height: 300px;
+            background: white;
+            border-radius: 15px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            border: 10px solid #e0e0e0;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #1976D2, #42A5F5);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-top: 1.5rem;
+        }
+
+        /* Who We Serve */
+        .serve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .serve-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .serve-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(25,118,210,0.2);
+            border-bottom-color: #1976D2;
+        }
+
+        .serve-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .serve-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .serve-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* Features Grid */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            box-shadow: 0 8px 30px rgba(25,118,210,0.15);
+            transform: translateX(10px);
+        }
+
+        .feature-box .icon {
+            font-size: 2.5rem;
+            color: #1976D2;
+            min-width: 60px;
+        }
+
+        .feature-box h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .feature-box p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Visual Sections */
+        .visual-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-section::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .flow-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .flow-item {
+            background: rgba(255,255,255,0.15);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 150px;
+            transition: all 0.3s ease;
+        }
+
+        .flow-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.05);
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Analytics Section */
+        .analytics-visual {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 300px;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, #1976D2, #42A5F5);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.6s ease;
+            animation: growBar 1.5s ease-out forwards;
+        }
+
+        .chart-bar:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes growBar {
+            from { height: 0; }
+        }
+
+        .chart-bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
+        .chart-bar:nth-child(2) { height: 85%; animation-delay: 0.2s; }
+        .chart-bar:nth-child(3) { height: 45%; animation-delay: 0.3s; }
+        .chart-bar:nth-child(4) { height: 95%; animation-delay: 0.4s; }
+        .chart-bar:nth-child(5) { height: 70%; animation-delay: 0.5s; }
+
+        .chart-label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            white-space: nowrap;
+        }
+
+        /* Communication Section */
+        .chat-visual {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+
+        .chat-bubble {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 300px;
+            position: relative;
+            animation: floatBubble 3s ease-in-out infinite;
+        }
+
+        .chat-bubble:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .chat-bubble:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Integrations */
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .integration-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .integration-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(25,118,210,0.2);
+        }
+
+        .integration-item .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        /* Security Section */
+        .security-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 4rem;
+            border-radius: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .security-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(66,165,245,0.2) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: securityGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes securityGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        .security-icon {
+            font-size: 5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .security-item::before {
+            content: '✓';
+            font-size: 1.5rem;
+            color: #42A5F5;
+            font-weight: bold;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .pricing-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1976D2, #42A5F5);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(25,118,210,0.3);
+        }
+
+        .pricing-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .pricing-card .plan-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .pricing-card .best-for {
+            color: #1976D2;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card ul li {
+            padding: 0.7rem 0;
+            color: #7f8c8d;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .pricing-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1976D2;
+            font-weight: bold;
+        }
+
+        .pricing-card .price {
+            font-size: 1.3rem;
+            color: #1976D2;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card button {
+            width: 100%;
+            padding: 1rem;
+            background: #1976D2;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card button:hover {
+            background: #1565C0;
+            box-shadow: 0 5px 20px rgba(25,118,210,0.4);
+        }
+
+        /* Why Choose Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 35px rgba(25,118,210,0.2);
+        }
+
+        .benefit-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .benefit-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .benefit-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #42A5F5 0%, #2196F3 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            animation: float 10s infinite;
+        }
+
+        .cta-books {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+
+        .book {
+            width: 60px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 5px;
+            animation: slideUp 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .book:nth-child(1) { animation-delay: 0.1s; }
+        .book:nth-child(2) { animation-delay: 0.2s; height: 100px; }
+        .book:nth-child(3) { animation-delay: 0.3s; height: 90px; }
+        .book:nth-child(4) { animation-delay: 0.4s; height: 110px; }
+        .book:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .mockup-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-icons">
+            <span class="float-icon">📚</span>
+            <span class="float-icon">✏️</span>
+            <span class="float-icon">🎓</span>
+            <span class="float-icon">📖</span>
+            <span class="float-icon">🎯</span>
+            <span class="float-icon">💡</span>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="tagline"><span class="typing-text">Educate. Empower. Evolve.</span></p>
+                <h1>Digital Learning Solutions for a Smarter Generation</h1>
+                <p>We design next-generation education platforms that simplify learning, streamline management, and inspire growth.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Request a Demo</button>
+                    <button class="btn-secondary">Explore Features</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="mockup-container">
+                    <div class="laptop-mockup">
+                        <div class="laptop-screen"></div>
+                    </div>
+                    <div class="tablet-mockup"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Who We Serve -->
+    <section>
+        <div class="section-header">
+            <h2>Trusted by Educational Institutions Worldwide</h2>
+            <p>Tailored learning solutions for every segment.</p>
+        </div>
+        <div class="serve-grid">
+            <div class="serve-card">
+                <span class="icon">🎓</span>
+                <h3>Schools & Colleges</h3>
+                <p>Student portals, attendance tracking, exam management systems, and comprehensive academic monitoring tools.</p>
+            </div>
+            <div class="serve-card">
+                <span class="icon">🧑‍🏫</span>
+                <h3>Universities</h3>
+                <p>Multi-department learning management with advanced analytics, research collaboration, and administrative tools.</p>
+            </div>
+            <div class="serve-card">
+                <span class="icon">💻</span>
+                <h3>EdTech Companies</h3>
+                <p>Custom course applications, gamification features, subscription models, and interactive learning experiences.</p>
+            </div>
+            <div class="serve-card">
+                <span class="icon">📖</span>
+                <h3>Corporate Training Centers</h3>
+                <p>Employee upskilling programs, professional certification systems, and corporate learning management.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: LMS -->
+    <section>
+        <div class="section-header">
+            <h2>Powerful Learning, Simplified</h2>
+            <p>Complete Learning Management System for modern education.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-box">
+                <span class="icon">📝</span>
+                <div>
+                    <h4>Course Creation & Management</h4>
+                    <p>Build comprehensive courses with modules, lessons, and structured curriculum planning.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">👥</span>
+                <div>
+                    <h4>Enrollments & Progress Tracking</h4>
+                    <p>Monitor student enrollment and track learning progress with detailed analytics.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">🎥</span>
+                <div>
+                    <h4>Video Lessons, PDFs & Quizzes</h4>
+                    <p>Support multiple content formats for diverse learning styles and preferences.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">🏆</span>
+                <div>
+                    <h4>Certificates & Badges</h4>
+                    <p>Automated certificate generation and digital badges for course completion.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">📊</span>
+                <div>
+                    <h4>Multi-Role Dashboards</h4>
+                    <p>Customized dashboards for admins, teachers, and students with role-based access.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="visual-section">
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Learning Flow Architecture</h3>
+            <div class="flow-diagram">
+                <div class="flow-item">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👨‍🏫</div>
+                    <div>Teacher</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💻</div>
+                    <div>LMS Platform</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📈</div>
+                    <div>Student Progress</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Online Classroom & Exam -->
+    <section>
+        <div class="section-header">
+            <h2>Conduct Classes and Tests Seamlessly</h2>
+            <p>Integrated virtual classroom and examination management.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-box">
+                <span class="icon">🎥</span>
+                <div>
+                    <h4>Virtual Classroom Integration</h4>
+                    <p>Seamless integration with Zoom, Google Meet, and Microsoft Teams for live sessions.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">✅</span>
+                <div>
+                    <h4>Live Attendance Tracker</h4>
+                    <p>Automated attendance recording with real-time monitoring and reporting.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">📝</span>
+                <div>
+                    <h4>Online Exams & Auto-Grading</h4>
+                    <p>Create and conduct online assessments with intelligent auto-grading systems.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">📊</span>
+                <div>
+                    <h4>Report Card & Marks Analytics</h4>
+                    <p>Generate detailed report cards with performance analytics and insights.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">📄</span>
+                <div>
+                    <h4>Digital Assignment Submission</h4>
+                    <p>Online assignment portal with deadline tracking and plagiarism detection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Analytics & Performance -->
+    <section>
+        <div class="section-header">
+            <h2>Measure What Matters in Learning</h2>
+            <p>Data-driven insights for better educational outcomes.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-box">
+                <span class="icon">📈</span>
+                <div>
+                    <h4>Student Progress Reports</h4>
+                    <p>Comprehensive progress tracking with detailed performance metrics.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">🎯</span>
+                <div>
+                    <h4>Course Completion Analytics</h4>
+                    <p>Track course completion rates and identify areas for improvement.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">💡</span>
+                <div>
+                    <h4>Performance vs Engagement Data</h4>
+                    <p>Analyze correlation between engagement levels and academic performance.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">📊</span>
+                <div>
+                    <h4>Attendance Visualization</h4>
+                    <p>Visual dashboards showing attendance patterns and trends over time.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">🎓</span>
+                <div>
+                    <h4>Educator KPI Dashboards</h4>
+                    <p>Performance indicators for teaching effectiveness and student outcomes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="analytics-visual">
+            <h3 style="text-align: center; margin-bottom: 2rem; color: #2c3e50;">Performance Analytics Dashboard</h3>
+            <div class="chart-container">
+                <div class="chart-bar">
+                    <span class="chart-label">Week 1</span>
+                </div>
+                <div class="chart-bar">
+                    <span class="chart-label">Week 2</span>
+                </div>
+                <div class="chart-bar">
+                    <span class="chart-label">Week 3</span>
+                </div>
+                <div class="chart-bar">
+                    <span class="chart-label">Week 4</span>
+                </div>
+                <div class="chart-bar">
+                    <span class="chart-label">Week 5</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Communication & Collaboration -->
+    <section>
+        <div class="section-header">
+            <h2>Stay Connected Across Campuses</h2>
+            <p>Foster collaboration and communication in your learning community.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-box">
+                <span class="icon">💬</span>
+                <div>
+                    <h4>Discussion Forums</h4>
+                    <p>Create engaging discussion spaces for course-related conversations.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">👥</span>
+                <div>
+                    <h4>Group Chats & Live Q&A</h4>
+                    <p>Real-time messaging and interactive Q&A sessions with instructors.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">📢</span>
+                <div>
+                    <h4>Announcements & Circulars</h4>
+                    <p>Broadcast important updates and notifications to students and staff.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">👪</span>
+                <div>
+                    <h4>Parent-Teacher Messaging</h4>
+                    <p>Direct communication channel between parents and educators.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-visual">
+            <div class="chat-bubble">
+                <div style="font-weight: 600; color: #1976D2; margin-bottom: 0.5rem;">Student Question</div>
+                <p style="color: #7f8c8d; font-size: 0.9rem;">Can you explain the assignment deadline?</p>
+            </div>
+            <div class="chat-bubble">
+                <div style="font-weight: 600; color: #1976D2; margin-bottom: 0.5rem;">Teacher Response</div>
+                <p style="color: #7f8c8d; font-size: 0.9rem;">The assignment is due next Friday at 5 PM.</p>
+            </div>
+            <div class="chat-bubble">
+                <div style="font-weight: 600; color: #1976D2; margin-bottom: 0.5rem;">Parent Message</div>
+                <p style="color: #7f8c8d; font-size: 0.9rem;">Thank you for the progress update!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Integrations -->
+    <section>
+        <div class="section-header">
+            <h2>Connect Your Learning Ecosystem</h2>
+            <p>Seamless integration with popular educational platforms.</p>
+        </div>
+        <div class="integrations-grid">
+            <div class="integration-item">
+                <div class="logo">🎓</div>
+                <h4>Google Classroom</h4>
+            </div>
+            <div class="integration-item">
+                <div class="logo">📹</div>
+                <h4>Zoom</h4>
+            </div>
+            <div class="integration-item">
+                <div class="logo">💼</div>
+                <h4>Microsoft Teams</h4>
+            </div>
+            <div class="integration-item">
+                <div class="logo">📚</div>
+                <h4>Moodle API</h4>
+            </div>
+            <div class="integration-item">
+                <div class="logo">📺</div>
+                <h4>YouTube / Vimeo</h4>
+            </div>
+            <div class="integration-item">
+                <div class="logo">💳</div>
+                <h4>Payment Gateways</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Billing & Payments -->
+    <section>
+        <div class="section-header">
+            <h2>Monetize Learning the Smart Way</h2>
+            <p>Flexible payment solutions for educational institutions.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-box">
+                <span class="icon">🔒</span>
+                <div>
+                    <h4>Secure Payment Integration</h4>
+                    <p>Industry-standard encryption and secure payment processing.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">🔄</span>
+                <div>
+                    <h4>Subscription & Recurring Billing</h4>
+                    <p>Automated subscription management with recurring payment support.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">💰</span>
+                <div>
+                    <h4>Course-Based Pricing Models</h4>
+                    <p>Flexible pricing options for individual courses, bundles, and programs.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">🧾</span>
+                <div>
+                    <h4>Automated Invoices & Receipts</h4>
+                    <p>Professional invoicing with automatic receipt generation and tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Admin & Teacher Dashboard -->
+    <section>
+        <div class="section-header">
+            <h2>Manage Courses, Students & Reports with Ease</h2>
+            <p>Comprehensive administrative tools for efficient management.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-box">
+                <span class="icon">👨‍🏫</span>
+                <div>
+                    <h4>Teacher Management & Assignments</h4>
+                    <p>Assign teachers to courses, manage workloads, and track performance.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">🔐</span>
+                <div>
+                    <h4>Role-Based Access Control</h4>
+                    <p>Granular permissions for admins, teachers, students, and parents.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">📚</span>
+                <div>
+                    <h4>Course Library & Scheduling</h4>
+                    <p>Centralized content library with intelligent scheduling tools.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="icon">🔔</span>
+                <div>
+                    <h4>Notifications & Performance Tracking</h4>
+                    <p>Automated alerts and comprehensive performance monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Security & Privacy -->
+    <section>
+        <div class="security-section">
+            <div class="section-header" style="color: white;">
+                <h2 style="color: white;">Safe Learning for Every User</h2>
+                <p style="color: rgba(255,255,255,0.8);">Enterprise-grade security for educational data.</p>
+            </div>
+            <div class="security-icon">🔐</div>
+            <div class="security-features">
+                <div class="security-item">End-to-end data encryption</div>
+                <div class="security-item">Automated cloud backups</div>
+                <div class="security-item">Student data privacy (GDPR compliant)</div>
+                <div class="security-item">Role-based permissions system</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: Pricing -->
+    <section>
+        <div class="section-header">
+            <h2>Plans for Every Institution</h2>
+            <p>Flexible, affordable, and scalable for schools, universities, and training centers.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="plan-icon">🎓</div>
+                <h3>Edu Basic</h3>
+                <p class="best-for">Best for Schools & Small Institutes</p>
+                <ul>
+                    <li>Web Portal</li>
+                    <li>Online Classes</li>
+                    <li>Exam System</li>
+                    <li>Basic Analytics</li>
+                    <li>Standard Support</li>
+                </ul>
+                <div class="price">Starting at ₹39,999 / project</div>
+                <button>Get Quote</button>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-icon">🧑‍🏫</div>
+                <h3>LMS Pro</h3>
+                <p class="best-for">Ideal for Colleges & EdTech Startups</p>
+                <ul>
+                    <li>Complete LMS Platform</li>
+                    <li>Advanced Analytics</li>
+                    <li>Mobile App (Android/iOS)</li>
+                    <li>Third-Party Integrations</li>
+                    <li>Priority Support</li>
+                </ul>
+                <div class="price">Starting at ₹24,999 / month</div>
+                <button>Request Demo</button>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-icon">🏛️</div>
+                <h3>Enterprise Campus</h3>
+                <p class="best-for">Built for Universities & Training Groups</p>
+                <ul>
+                    <li>Multi-Campus Dashboard</li>
+                    <li>AI-Powered Analytics</li>
+                    <li>Cloud Hosting & Scaling</li>
+                    <li>Custom Branding & API</li>
+                    <li>24/7 Dedicated Support</li>
+                </ul>
+                <div class="price">Custom Pricing Available</div>
+                <button>Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 11: Why Choose Us -->
+    <section>
+        <div class="section-header">
+            <h2>Why Choose Niyan IT Solutions</h2>
+            <p>Building the future of education technology.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="icon">🎓</div>
+                <h4>Tailored for Every Model</h4>
+                <p>Custom platforms designed for K-12, higher education, corporate training, and online courses.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">☁️</div>
+                <h4>Cloud-Based & Scalable</h4>
+                <p>Grow from 100 to 100,000 users seamlessly with our scalable cloud infrastructure.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">🔗</div>
+                <h4>Integrated Ecosystem</h4>
+                <p>Connect all your educational tools in one unified, intelligent platform.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon">🛡️</div>
+                <h4>24/7 Support & Updates</h4>
+                <p>Continuous monitoring, regular feature upgrades, and dedicated technical support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's Build the Future of Digital Learning Together</h2>
+            <button class="btn-primary">Book a Demo</button>
+        </div>
+        <div class="cta-books">
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply fade-in animations
+        document.querySelectorAll('.serve-card, .feature-box, .pricing-card, .benefit-card, .integration-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Button ripple effect
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.width = ripple.style.height = '100px';
+                ripple.style.background = 'rgba(255,255,255,0.5)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s ease-out';
+                ripple.style.pointerEvents = 'none';
+                
+                const rect = btn.getBoundingClientRect();
+                ripple.style.left = e.clientX - rect.left - 50 + 'px';
+                ripple.style.top = e.clientY - rect.top - 50 + 'px';
+                
+                btn.style.position = 'relative';
+                btn.style.overflow = 'hidden';
+                btn.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Typing effect
+        const typingText = document.querySelector('.typing-text');
+        const text = 'Educate. Empower. Evolve.';
+        let index = 0;
+        
+        function type() {
+            if (index < text.length) {
+                typingText.textContent = text.substring(0, index + 1);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+        
+        setTimeout(type, 500);
+
+        // Add ripple animation style
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Chart bar animation on scroll
+        const chartObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.chart-bar').forEach(bar => {
+                        bar.style.animation = 'none';
+                        setTimeout(() => {
+                            bar.style.animation = '';
+                        }, 10);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const analyticsSection = document.querySelector('.analytics-visual');
+        if (analyticsSection) {
+            chartObserver.observe(analyticsSection);
+        }
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
