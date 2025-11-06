@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FF758C 0%, #FF7EB3 25%, #FEC163 75%, #F6D365 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 80px 20px;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .float-emoji {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.3;
+            animation: floatUp 8s infinite ease-in-out;
+        }
+
+        .emoji-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .emoji-2 { top: 60%; left: 15%; animation-delay: 1.5s; }
+        .emoji-3 { top: 30%; right: 10%; animation-delay: 3s; }
+        .emoji-4 { bottom: 25%; right: 20%; animation-delay: 4.5s; }
+        .emoji-5 { top: 70%; left: 70%; animation-delay: 6s; }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-40px) rotate(15deg); opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4.2rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.3);
+            line-height: 1.15;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-text p {
+            font-size: 1.4rem;
+            margin-bottom: 45px;
+            opacity: 0.95;
+            line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            padding: 20px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: white;
+            color: #FF758C;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hero-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF758C, #FF7EB3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .btn-hero-primary:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-hero-primary:hover {
+            color: white;
+            box-shadow: 0 20px 60px rgba(255,117,140,0.6);
+            transform: translateY(-5px);
+        }
+
+        .btn-hero-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-hero-secondary {
+            padding: 20px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 4px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            background: transparent;
+            color: white;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-hero-secondary:hover {
+            background: linear-gradient(135deg, #FEC163, #F6D365);
+            border-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(254,193,99,0.6);
+        }
+
+        .hero-visual {
+            position: relative;
+            text-align: center;
+            animation: slideInRight 1s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .phone-mockup-hero {
+            position: relative;
+            width: 350px;
+            height: 650px;
+            background: linear-gradient(135deg, #2d2d44, #1f1f2e);
+            border-radius: 40px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #FF7EB3, #FEC163);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #FF0000;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        .engagement-popup {
+            position: absolute;
+            background: rgba(255,255,255,0.95);
+            padding: 15px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: popIn 3s infinite ease-in-out;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .popup-1 { top: 100px; left: 20px; animation-delay: 0s; }
+        .popup-2 { top: 200px; right: 20px; animation-delay: 1s; }
+        .popup-3 { bottom: 100px; left: 30px; animation-delay: 2s; }
+
+        @keyframes popIn {
+            0%, 100% { opacity: 0; transform: scale(0.5) translateY(20px); }
+            25%, 75% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .follower-count {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: #FF758C;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: countUp 4s ease-in-out infinite;
+        }
+
+        @keyframes countUp {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        /* ==================== SECTION 1: WHAT WE OFFER ==================== */
+        .services-section {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #0f0e17 0%, #1a1a2e 100%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 70px;
+            background: linear-gradient(135deg, #FF758C, #FEC163);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 50px 35px;
+            border-radius: 25px;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,117,140,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .glass-card:hover::before {
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .glass-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: #FF758C;
+            box-shadow: 0 30px 80px rgba(255,117,140,0.5);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: transform 0.5s ease;
+            filter: drop-shadow(0 5px 20px rgba(255,117,140,0.5));
+        }
+
+        .glass-card:hover .card-icon {
+            transform: scale(1.2) rotate(10deg);
+            animation: iconPulse 1s infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1.2) rotate(10deg); }
+            50% { transform: scale(1.3) rotate(15deg); }
+        }
+
+        .glass-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #FF7EB3;
+        }
+
+        .glass-card p {
+            color: #d4d4e8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* ==================== SECTION 2: WHY IT WORKS ==================== */
+        .why-works {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .why-text h2 {
+            font-size: 3rem;
+            margin-bottom: 35px;
+            background: linear-gradient(135deg, #FEC163, #F6D365);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .why-text p {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            color: #d4d4e8;
+            margin-bottom: 25px;
+        }
+
+        .stat-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF758C, #FF7EB3);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 800;
+            margin: 0 5px;
+        }
+
+        .network-visual {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF758C, #FF7EB3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 40px rgba(255,117,140,0.5);
+            animation: nodePulse 3s infinite ease-in-out;
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .node-1 { top: 10%; left: 20%; animation-delay: 0s; }
+        .node-2 { top: 20%; right: 15%; animation-delay: 0.5s; }
+        .node-3 { top: 50%; left: 10%; animation-delay: 1s; }
+        .node-4 { top: 60%; right: 20%; animation-delay: 1.5s; }
+        .node-5 { bottom: 15%; left: 30%; animation-delay: 2s; }
+        .node-6 { bottom: 20%; right: 25%; animation-delay: 2.5s; }
+
+        .connection-line {
+            position: absolute;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(255,117,140,0.3), rgba(254,193,99,0.5));
+            transform-origin: left center;
+            animation: lineGlow 2s infinite ease-in-out;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .line-1 { top: 15%; left: 25%; width: 200px; transform: rotate(20deg); animation-delay: 0s; }
+        .line-2 { top: 35%; left: 15%; width: 180px; transform: rotate(-30deg); animation-delay: 0.5s; }
+        .line-3 { top: 55%; right: 25%; width: 150px; transform: rotate(45deg); animation-delay: 1s; }
+        .line-4 { bottom: 25%; left: 35%; width: 200px; transform: rotate(-15deg); animation-delay: 1.5s; }
+
+        /* ==================== SECTION 3: AFFILIATE WORKFLOW ==================== */
+        .workflow {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #0f0e17 0%, #1a1a2e 100%);
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 70px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon-wrapper {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #FF758C, #FEC163);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 3.5rem;
+            box-shadow: 0 15px 50px rgba(255,117,140,0.4);
+            transition: all 0.5s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .step-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid #FF758C;
+            transform: scale(1.3);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .workflow-step:hover .step-icon-wrapper {
+            transform: scale(1.15);
+            box-shadow: 0 20px 70px rgba(255,117,140,0.7);
+        }
+
+        .workflow-step:hover .step-icon-wrapper::after {
+            transform: scale(1.5);
+            opacity: 1;
+        }
+
+        .workflow-step h4 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #FEC163;
+        }
+
+        .workflow-step p {
+            color: #b8b8d1;
+            font-size: 1rem;
+        }
+
+        .arrow-connector {
+            font-size: 3rem;
+            color: #FF758C;
+            opacity: 0.5;
+            animation: arrowGlow 2s infinite ease-in-out;
+        }
+
+        @keyframes arrowGlow {
+            0%, 100% { opacity: 0.3; transform: translateX(0); }
+            50% { opacity: 1; transform: translateX(10px); }
+        }
+
+        /* ==================== SECTION 4: CAMPAIGN TYPES ==================== */
+        .campaign-types {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+        }
+
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 70px;
+        }
+
+        .campaign-thumbnail {
+            position: relative;
+            height: 350px;
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .campaign-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #FF758C, #FEC163);
+            transition: all 0.5s ease;
+        }
+
+        .campaign-thumbnail:nth-child(2)::before {
+            background: linear-gradient(135deg, #FF7EB3, #F6D365);
+        }
+
+        .campaign-thumbnail:nth-child(3)::before {
+            background: linear-gradient(135deg, #FEC163, #92FE9D);
+        }
+
+        .campaign-thumbnail:nth-child(4)::before {
+            background: linear-gradient(135deg, #FA709A, #FEE140);
+        }
+
+        .campaign-thumbnail:nth-child(5)::before {
+            background: linear-gradient(135deg, #4ECDC4, #556270);
+        }
+
+        .campaign-thumbnail:nth-child(6)::before {
+            background: linear-gradient(135deg, #F38181, #FCE38A);
+        }
+
+        .campaign-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .campaign-emoji {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .campaign-thumbnail:hover .campaign-emoji {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .campaign-content h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .campaign-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 3;
+        }
+
+        .campaign-thumbnail:hover .campaign-overlay {
+            opacity: 1;
+        }
+
+        .campaign-thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(255,117,140,0.6);
+        }
+
+        .overlay-btn {
+            padding: 15px 35px;
+            background: white;
+            color: #FF758C;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .overlay-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.4);
+        }
+
+        /* ==================== SECTION 5: ANALYTICS & INSIGHTS ==================== */
+        .analytics-insights {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .analytics-insights .section-title {
+            color: #1a1a2e;
+        }
+
+        .analytics-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 70px auto 0;
+        }
+
+        .dashboard-mockup {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.15);
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 300px;
+            margin-top: 30px;
+        }
+
+        .chart-bar {
+            width: 60px;
+            background: linear-gradient(180deg, #FF758C, #FEC163);
+            border-radius: 10px 10px 0 0;
+            animation: barRise 1.5s ease-out;
+            position: relative;
+        }
+
+        @keyframes barRise {
+            from { height: 0; }
+        }
+
+        .bar-1 { height: 65%; animation-delay: 0s; }
+        .bar-2 { height: 85%; animation-delay: 0.2s; }
+        .bar-3 { height: 55%; animation-delay: 0.4s; }
+        .bar-4 { height: 95%; animation-delay: 0.6s; }
+        .bar-5 { height: 75%; animation-delay: 0.8s; }
+
+        .kpi-list {
+            list-style: none;
+        }
+
+        .kpi-item {
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            color: #1a1a2e;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-left: 6px solid #FF758C;
+            transition: all 0.4s ease;
+        }
+
+        .kpi-item:hover {
+            transform: translateX(15px);
+            box-shadow: 0 15px 50px rgba(255,117,140,0.3);
+        }
+
+        .kpi-number {
+            display: block;
+            font-size: 2.5rem;
+            color: #FF758C;
+            margin-top: 10px;
+            animation: countUpAnim 2s ease-out;
+        }
+
+        @keyframes countUpAnim {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== SECTION 6: WHY CHOOSE US ==================== */
+        .why-choose-us {
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0e17 100%);
+        }
+
+        .curved-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 70px;
+        }
+
+        .curved-card {
+            background: linear-gradient(135deg, #2d2d44 0%, #1f1f2e 100%);
+            padding: 45px 35px;
+            border-radius: 30px;
+            border: 3px solid transparent;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curved-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #FF758C, #FEC163, #F6D365);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: rotateGradient 4s linear infinite;
+        }
+
+        @keyframes rotateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .curved-card:hover::before {
+            opacity: 0.15;
+        }
+
+        .curved-card:hover {
+            transform: translateY(-15px);
+            border-color: #FF758C;
+            box-shadow: 0 30px 80px rgba(255,117,140,0.6);
+        }
+
+        .curved-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #FEC163;
+            position: relative;
+            z-index: 1;
+        }
+
+        .curved-card p {
+            color: #d4d4e8;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ==================== SECTION 7: TESTIMONIALS ==================== */
+        .testimonials-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #FF7EB3 0%, #FEC163 100%);
+        }
+
+        .testimonials-section .section-title {
+            color: white;
+        }
+
+        .testimonial-carousel {
+            max-width: 1000px;
+            margin: 70px auto 0;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(30px);
+            padding: 60px 50px;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 30px 90px rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-carousel:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 120px rgba(0,0,0,0.5);
+        }
+
+        .influencer-profile {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #FF758C, #F6D365);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease;
+        }
+
+        .testimonial-carousel:hover .profile-avatar {
+            transform: scale(1.15);
+        }
+
+        .profile-info h4 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .profile-stats {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .testimonial-quote {
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-author {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .engagement-boost {
+            display: inline-block;
+            background: white;
+            color: #FF758C;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 800;
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* ==================== SECTION 8: FINAL CTA ==================== */
+        .final-cta-section {
+            padding: 150px 20px;
+            background: linear-gradient(135deg, #FEC163 0%, #DE4313 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart-emoji {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0;
+            animation: heartFloat 6s infinite ease-in-out;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) rotate(0deg);
+            }
+            25% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-800px) rotate(360deg);
+            }
+        }
+
+        .heart-1 { left: 10%; animation-delay: 0s; }
+        .heart-2 { left: 30%; animation-delay: 1.5s; }
+        .heart-3 { left: 50%; animation-delay: 3s; }
+        .heart-4 { left: 70%; animation-delay: 4.5s; }
+        .heart-5 { left: 90%; animation-delay: 6s; }
+
+        .star-emoji {
+            position: absolute;
+            font-size: 35px;
+            opacity: 0;
+            animation: starFloat 7s infinite ease-in-out;
+        }
+
+        @keyframes starFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.5);
+            }
+            20% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-900px) scale(1.5) rotate(720deg);
+            }
+        }
+
+        .star-1 { left: 20%; animation-delay: 0.5s; }
+        .star-2 { left: 60%; animation-delay: 2s; }
+        .star-3 { left: 80%; animation-delay: 3.5s; }
+
+        .cta-content-final {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content-final h2 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+            text-shadow: 0 5px 30px rgba(0,0,0,0.4);
+        }
+
+        .cta-buttons-final {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta-glow {
+            padding: 22px 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: white;
+            color: #DE4313;
+            transition: all 0.5s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .btn-cta-glow::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(90deg, #FF758C, #FEC163, #F6D365);
+            border-radius: 50px;
+            z-index: -1;
+            opacity: 0;
+            filter: blur(20px);
+            transition: opacity 0.5s ease;
+        }
+
+        .btn-cta-glow:hover::before {
+            opacity: 1;
+        }
+
+        .btn-cta-glow:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 30px 80px rgba(255,117,140,0.7);
+        }
+
+        .btn-cta-outline {
+            padding: 22px 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            border: 4px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            background: transparent;
+            color: white;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .btn-cta-outline:hover {
+            background: white;
+            color: #DE4313;
+            transform: translateY(-8px);
+            box-shadow: 0 25px 70px rgba(255,255,255,0.5);
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .hero-content,
+            .split-layout,
+            .analytics-split {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+            }
+
+            .arrow-connector {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+
+            .cta-content-final h2 {
+                font-size: 2.8rem;
+            }
+
+            .phone-mockup-hero {
+                width: 300px;
+                height: 550px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="float-emoji emoji-1">❤️</div>
+            <div class="float-emoji emoji-2">👍</div>
+            <div class="float-emoji emoji-3">⭐</div>
+            <div class="float-emoji emoji-4">💬</div>
+            <div class="float-emoji emoji-5">🔥</div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Connect Brands with Real Voices.</h1>
+                <p>We empower businesses to grow through authentic influencer partnerships and affiliate programs that drive conversions.</p>
+                <div class="hero-buttons">
+                    <button class="btn-hero-primary"><span>Launch a Campaign</span></button>
+                    <button class="btn-hero-secondary">Join as Partner</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup-hero">
+                    <div class="phone-screen">
+                        <div class="live-badge">🔴 LIVE</div>
+                        <div class="engagement-popup popup-1">❤️ 2.5K</div>
+                        <div class="engagement-popup popup-2">💬 458</div>
+                        <div class="engagement-popup popup-3">👍 1.8K</div>
+                        <div class="follower-count">125K Followers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 1: WHAT WE OFFER ==================== -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Affiliate & Influencer Services</h2>
+            <div class="glass-cards">
+                <div class="glass-card">
+                    <div class="card-icon">📦</div>
+                    <h3>Affiliate Program Setup</h3>
+                    <p>Build commission-based marketing models for your business with seamless integration and tracking.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Influencer Discovery</h3>
+                    <p>Find, vet, and match influencers by niche & engagement to ensure perfect brand alignment.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Campaign Management</h3>
+                    <p>Coordinate content, track conversions, and automate payouts with our comprehensive platform.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Analytics & ROI Tracking</h3>
+                    <p>Measure engagement, sales impact, and audience reach with real-time data insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: WHY IT WORKS ==================== -->
+    <section class="why-works">
+        <div class="container">
+            <div class="split-layout">
+                <div class="why-text">
+                    <h2>Why Influencer Marketing Works</h2>
+                    <p>Authenticity sells. <span class="stat-highlight">92%</span> of consumers trust recommendations from individuals over brands.</p>
+                    <p>We connect your brand with genuine creators who represent your voice — not just advertise your product.</p>
+                </div>
+                <div class="network-visual">
+                    <div class="connection-line line-1"></div>
+                    <div class="connection-line line-2"></div>
+                    <div class="connection-line line-3"></div>
+                    <div class="connection-line line-4"></div>
+                    <div class="network-node node-1">👤</div>
+                    <div class="network-node node-2">👤</div>
+                    <div class="network-node node-3">👤</div>
+                    <div class="network-node node-4">👤</div>
+                    <div class="network-node node-5">👤</div>
+                    <div class="network-node node-6">👤</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: AFFILIATE WORKFLOW ==================== -->
+    <section class="workflow">
+        <div class="container">
+            <h2 class="section-title">Our Proven Affiliate Process</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-icon-wrapper">3️⃣</div>
+                    <h4>Create Trackable Links</h4>
+                    <p>Generate unique URLs</p>
+                </div>
+                <div class="arrow-connector">→</div>
+                <div class="workflow-step">
+                    <div class="step-icon-wrapper">4️⃣</div>
+                    <h4>Monitor Performance</h4>
+                    <p>Track real-time metrics</p>
+                </div>
+                <div class="arrow-connector">→</div>
+                <div class="workflow-step">
+                    <div class="step-icon-wrapper">5️⃣</div>
+                    <h4>Automate Payouts</h4>
+                    <p>Seamless commissions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 4: CAMPAIGN TYPES ==================== -->
+    <section class="campaign-types">
+        <div class="container">
+            <h2 class="section-title">Influencer Campaign Types</h2>
+            <div class="campaign-grid">
+                <div class="campaign-thumbnail">
+                    <div class="campaign-content">
+                        <div class="campaign-emoji">🚀</div>
+                        <h3>Product Launches</h3>
+                    </div>
+                    <div class="campaign-overlay">
+                        <button class="overlay-btn">View Case Study</button>
+                    </div>
+                </div>
+                <div class="campaign-thumbnail">
+                    <div class="campaign-content">
+                        <div class="campaign-emoji">🤝</div>
+                        <h3>Brand Collaborations</h3>
+                    </div>
+                    <div class="campaign-overlay">
+                        <button class="overlay-btn">View Case Study</button>
+                    </div>
+                </div>
+                <div class="campaign-thumbnail">
+                    <div class="campaign-content">
+                        <div class="campaign-emoji">🎥</div>
+                        <h3>Review & Unboxing Videos</h3>
+                    </div>
+                    <div class="campaign-overlay">
+                        <button class="overlay-btn">View Case Study</button>
+                    </div>
+                </div>
+                <div class="campaign-thumbnail">
+                    <div class="campaign-content">
+                        <div class="campaign-emoji">📱</div>
+                        <h3>Sponsored Reels</h3>
+                    </div>
+                    <div class="campaign-overlay">
+                        <button class="overlay-btn">View Case Study</button>
+                    </div>
+                </div>
+                <div class="campaign-thumbnail">
+                    <div class="campaign-content">
+                        <div class="campaign-emoji">🎁</div>
+                        <h3>Discount & Giveaway Events</h3>
+                    </div>
+                    <div class="campaign-overlay">
+                        <button class="overlay-btn">View Case Study</button>
+                    </div>
+                </div>
+                <div class="campaign-thumbnail">
+                    <div class="campaign-content">
+                        <div class="campaign-emoji">🎄</div>
+                        <h3>Seasonal Promotions</h3>
+                    </div>
+                    <div class="campaign-overlay">
+                        <button class="overlay-btn">View Case Study</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 5: ANALYTICS & INSIGHTS ==================== -->
+    <section class="analytics-insights">
+        <div class="container">
+            <h2 class="section-title">Analytics & Insights</h2>
+            <div class="analytics-split">
+                <div class="dashboard-mockup">
+                    <h3 style="color: #1a1a2e; margin-bottom: 20px; font-size: 1.8rem;">Performance Dashboard</h3>
+                    <div class="chart-bars">
+                        <div class="chart-bar bar-1"></div>
+                        <div class="chart-bar bar-2"></div>
+                        <div class="chart-bar bar-3"></div>
+                        <div class="chart-bar bar-4"></div>
+                        <div class="chart-bar bar-5"></div>
+                    </div>
+                </div>
+                <div class="kpi-section">
+                    <ul class="kpi-list">
+                        <li class="kpi-item">
+                            Engagement Rate
+                            <span class="kpi-number">8.5%</span>
+                        </li>
+                        <li class="kpi-item">
+                            Reach & Impressions
+                            <span class="kpi-number">2.4M+</span>
+                        </li>
+                        <li class="kpi-item">
+                            Click-Through Rate
+                            <span class="kpi-number">12.3%</span>
+                        </li>
+                        <li class="kpi-item">
+                            Conversions per Influencer
+                            <span class="kpi-number">1,250</span>
+                        </li>
+                        <li class="kpi-item">
+                            ROI by Campaign
+                            <span class="kpi-number">450%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 6: WHY CHOOSE US ==================== -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Niyan IT Solutions</h2>
+            <div class="curved-cards">
+                <div class="curved-card">
+                    <h3>✅ Access to 10,000+ verified influencers</h3>
+                    <p>Connect with pre-vetted creators across every niche and platform for authentic partnerships.</p>
+                </div>
+                <div class="curved-card">
+                    <h3>✅ End-to-end affiliate & creator management</h3>
+                    <p>From discovery to payout, we handle every aspect of your influencer campaigns.</p>
+                </div>
+                <div class="curved-card">
+                    <h3>✅ Real-time analytics dashboard</h3>
+                    <p>Track performance metrics, engagement, and ROI with our comprehensive reporting tools.</p>
+                </div>
+                <div class="curved-card">
+                    <h3>✅ Transparent payouts & ROI reports</h3>
+                    <p>Automated commission tracking and crystal-clear financial reporting for all stakeholders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 7: TESTIMONIALS ==================== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Client Success Story</h2>
+            <div class="testimonial-carousel">
+                <div class="influencer-profile">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-info">
+                        <h4>Ananya Mehta</h4>
+                        <p class="profile-stats">Fashion Brand Manager | 50K+ Followers</p>
+                    </div>
+                </div>
+                <p class="testimonial-quote">
+                    "Niyan IT Solutions helped us find the perfect influencers for our new product — we saw a 250% boost in engagement!"
+                </p>
+                <p class="testimonial-author">— Ananya Mehta</p>
+                <div class="engagement-boost">+250% Engagement</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 8: FINAL CTA ==================== -->
+    <section class="final-cta-section">
+        <div class="floating-hearts">
+            <div class="heart-emoji heart-1">❤️</div>
+            <div class="heart-emoji heart-2">💖</div>
+            <div class="heart-emoji heart-3">💕</div>
+            <div class="heart-emoji heart-4">💗</div>
+            <div class="heart-emoji heart-5">💓</div>
+            <div class="star-emoji star-1">⭐</div>
+            <div class="star-emoji star-2">✨</div>
+            <div class="star-emoji star-3">🌟</div>
+        </div>
+        <div class="cta-content-final">
+            <h2>Turn Your Brand Into a Movement.</h2>
+            <div class="cta-buttons-final">
+                <button class="btn-cta-glow">Get Started</button>
+                <button class="btn-cta-outline">Join Our Influencer Network</button>
+            </div>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
