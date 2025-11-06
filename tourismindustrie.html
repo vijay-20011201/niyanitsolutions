@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 153, 204, 0.9), rgba(128, 222, 234, 0.85)), 
+                        url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .clouds {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 100px;
+            animation: float 60s infinite linear;
+        }
+
+        .cloud:nth-child(1) { width: 200px; height: 60px; top: 20%; left: -200px; animation-duration: 50s; }
+        .cloud:nth-child(2) { width: 150px; height: 50px; top: 40%; left: -150px; animation-duration: 70s; }
+        .cloud:nth-child(3) { width: 180px; height: 55px; top: 60%; left: -180px; animation-duration: 60s; }
+
+        @keyframes float {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(100vw + 200px)); }
+        }
+
+        .plane {
+            position: absolute;
+            font-size: 40px;
+            top: 15%;
+            left: -50px;
+            animation: fly 15s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fly {
+            0%, 100% { transform: translate(0, 0) rotate(-10deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { transform: translate(50vw, -20px) rotate(-5deg); }
+            90% { opacity: 0.8; }
+            100% { transform: translate(100vw, 0) rotate(0deg); opacity: 0; }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0099CC, #00BCD4);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 153, 204, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.5);
+            background: linear-gradient(135deg, #00BCD4, #80DEEA);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #0099CC;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .phone-mockup {
+            position: absolute;
+            right: 10%;
+            bottom: -50px;
+            width: 250px;
+            animation: floatPhone 3s ease-in-out infinite;
+        }
+
+        @keyframes floatPhone {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #0099CC;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0099CC, #80DEEA);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 153, 204, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #0099CC;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .card .cta {
+            margin-top: 20px;
+            color: #0099CC;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover .cta {
+            opacity: 1;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #E3F2FD, #ffffff);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #0099CC;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 153, 204, 0.15);
+        }
+
+        .feature-item h4 {
+            color: #0099CC;
+            margin-bottom: 10px;
+        }
+
+        /* Workflow */
+        .workflow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            position: relative;
+        }
+
+        .workflow-step::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 25px;
+            font-size: 2rem;
+            color: #80DEEA;
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .workflow-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0099CC, #80DEEA);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .workflow-step:hover .workflow-icon {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        /* Integrations */
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .integration-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .integration-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 153, 204, 0.2);
+        }
+
+        .integration-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        /* Pricing Cards */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #E3F2FD 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #00BCD4, #2196F3);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(33, 150, 243, 0.3);
+        }
+
+        .pricing-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            color: #0099CC;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .subtitle {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card .price {
+            font-size: 1.3rem;
+            color: #0099CC;
+            font-weight: 700;
+            margin: 25px 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #00BCD4, #2196F3);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-white {
+            background: white;
+            color: #0099CC;
+            border: none;
+        }
+
+        .btn-white:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Dashboard Mockup */
+        .dashboard-mockup {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            background: white;
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #0099CC, #00BCD4);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: #E3F2FD;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0099CC;
+        }
+
+        .stat-card h4 {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0099CC;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; }
+            .section-header h2 { font-size: 2rem; }
+            .phone-mockup { display: none; }
+            .workflow-step::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="clouds">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+        <div class="plane">✈️</div>
+        
+        <div class="hero-content">
+            <h1>Digitally Transforming the Way the World Travels</h1>
+            <p>From booking platforms to travel apps and route optimization — we help tourism businesses go digital effortlessly.</p>
+            <div class="hero-buttons">
+                <a href="#demo" class="btn btn-primary">Book a Demo</a>
+                <a href="#solutions" class="btn btn-outline">See Travel Solutions</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 1: Who We Work With -->
+    <section id="clients">
+        <div class="section-header">
+            <h2>Empowering Every Travel & Tourism Business</h2>
+            <p>We build technology for everyone in the travel ecosystem</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">🌍</div>
+                <h3>Travel Agencies</h3>
+                <p>Custom booking platforms and CRM systems designed to streamline operations and enhance customer experiences for travel agencies of all sizes.</p>
+                <div class="cta">Explore More →</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧳</div>
+                <h3>Tour Operators</h3>
+                <p>Comprehensive itinerary management, real-time booking systems, and automated workflows for seamless tour operations.</p>
+                <div class="cta">Explore More →</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏨</div>
+                <h3>Hospitality & Resort Chains</h3>
+                <p>Integrated property management systems with booking engines, guest management, and analytics dashboards.</p>
+                <div class="cta">Explore More →</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Website & App Development -->
+    <section id="solutions" style="background: linear-gradient(135deg, #E3F2FD, #ffffff); margin: 0; max-width: 100%; padding: 100px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <h2>Your Digital Travel Agency — Online & Mobile</h2>
+                <p>We design seamless travel booking websites and apps for global travelers</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>📸 Interactive Destination Catalogues</h4>
+                    <p>Stunning visual galleries with detailed information</p>
+                </div>
+                <div class="feature-item">
+                    <h4>⚡ Real-Time Booking & Availability</h4>
+                    <p>Instant confirmation and live updates</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🌐 Multi-Language & Multi-Currency</h4>
+                    <p>Global reach with localized experiences</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔒 Secure Payments & Instant Confirmation</h4>
+                    <p>PCI-compliant payment processing</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🗺️ Trip Planner & Wishlist</h4>
+                    <p>Save and organize dream destinations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Booking Engine -->
+    <section>
+        <div class="section-header">
+            <h2>Automate Bookings. Simplify Payments.</h2>
+            <p>Fast, secure, and easy transactions for flights, hotels, and tours</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h4>💰 Dynamic Package Pricing</h4>
+                <p>Smart pricing based on demand and availability</p>
+            </div>
+            <div class="feature-item">
+                <h4>📧 Instant Confirmation Emails & SMS</h4>
+                <p>Automated communication with customers</p>
+            </div>
+            <div class="feature-item">
+                <h4>🔌 Integration with Travel APIs</h4>
+                <p>Amadeus, Sabre, Galileo connectivity</p>
+            </div>
+            <div class="feature-item">
+                <h4>💳 Payment Gateways</h4>
+                <p>Razorpay • Stripe • PayPal • Paytm</p>
+            </div>
+        </div>
+        <div class="dashboard-mockup">
+            <div class="dashboard-header">
+                <h3>Booking Dashboard</h3>
+            </div>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h4>Today's Bookings</h4>
+                    <div class="value">47</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Pending Confirmations</h4>
+                    <div class="value">12</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Revenue</h4>
+                    <div class="value">₹2.4L</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Active Customers</h4>
+                    <div class="value">234</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Itinerary Management -->
+    <section style="background: #f9f9f9; margin: 0; max-width: 100%; padding: 100px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <h2>Make Every Journey Seamless</h2>
+                <p>Empower travelers with organized trip planners</p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Pre-Trip Planning Tools</h3>
+                    <p>Research, compare, and plan the perfect journey</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🕒</div>
+                    <h3>Itinerary Builder</h3>
+                    <p>Time & cost tracking with visual timeline</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎭</div>
+                    <h3>Add-On Activities</h3>
+                    <p>Discover local experiences and attractions</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>Expense & Booking Sync</h3>
+                    <p>All your travel info in one place</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Workflow -->
+    <section>
+        <div class="section-header">
+            <h2>How Our Travel Platform Works</h2>
+            <p>Simple, seamless journey from search to feedback</p>
+        </div>
+        <div class="workflow">
+            <div class="workflow-step">
+                <div class="workflow-icon">🔍</div>
+                <p><strong>Search Destination</strong></p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-icon">⚖️</div>
+                <p><strong>Compare & Book</strong></p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-icon">💳</div>
+                <p><strong>Payment</strong></p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-icon">✅</div>
+                <p><strong>Confirmation</strong></p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-icon">🗺️</div>
+                <p><strong>Trip Management</strong></p>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-icon">⭐</div>
+                <p><strong>Feedback</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Integrations -->
+    <section style="background: linear-gradient(135deg, #E3F2FD, #ffffff); margin: 0; max-width: 100%; padding: 100px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <h2>Seamless Integrations for the Travel Ecosystem</h2>
+                <p>Connect with leading travel platforms and services</p>
+            </div>
+            <div class="integrations-grid">
+                <div class="integration-item">
+                    <div style="font-size: 2.5rem;">🛫</div>
+                    <p><strong>Amadeus API</strong></p>
+                </div>
+                <div class="integration-item">
+                    <div style="font-size: 2.5rem;">🗺️</div>
+                    <p><strong>Google Maps</strong></p>
+                </div>
+                <div class="integration-item">
+                    <div style="font-size: 2.5rem;">🏨</div>
+                    <p><strong>Booking.com</strong></p>
+                </div>
+                <div class="integration-item">
+                    <div style="font-size: 2.5rem;">⭐</div>
+                    <p><strong>TripAdvisor</strong></p>
+                </div>
+                <div class="integration-item">
+                    <div style="font-size: 2.5rem;">💰</div>
+                    <p><strong>PayPal</strong></p>
+                </div>
+                <div class="integration-item">
+                    <div style="font-size: 2.5rem;">💬</div>
+                    <p><strong>WhatsApp</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Pricing -->
+    <section id="pricing">
+        <div class="section-header">
+            <h2>Flexible Packages for Every Travel Business</h2>
+            <p>Whether you're a local travel agency or a global tour operator — we have the right digital solution for you</p>
+        </div>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="pricing-icon">🧳</div>
+                <h3>Starter Explorer</h3>
+                <p class="subtitle">Perfect for small travel agencies</p>
+                <ul>
+                    <li>✅ Travel Website with Package Listings</li>
+                    <li>✅ Contact & Inquiry Forms</li>
+                    <li>✅ Basic Booking Engine</li>
+                    <li>✅ 1 Admin Dashboard</li>
+                    <li>✅ Basic Support</li>
+                </ul>
+                <div class="price">Starting at ₹50,000 / project</div>
+                <a href="#demo" class="btn btn-primary" style="width: 100%;">Get Quote</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-icon">🗺️</div>
+                <h3>Travel Pro</h3>
+                <p class="subtitle">Ideal for mid-sized tour operators</p>
+                <ul>
+                    <li>✅ Responsive Website + Android App</li>
+                    <li>✅ Automated Booking & Payment</li>
+                    <li>✅ CRM & Customer Database</li>
+                    <li>✅ Email/SMS Notifications</li>
+                    <li>✅ API Integration</li>
+                    <li>✅ Priority Support (9 AM – 9 PM)</li>
+                </ul>
+                <div class="price">Starting at ₹25,000 / month</div>
+                <a href="#demo" class="btn btn-primary" style="width: 100%;">Request Demo</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-icon">🌍</div>
+                <h3>Global Voyager</h3>
+                <p class="subtitle">Enterprise travel networks & OTAs</p>
+                <ul>
+                    <li>✅ Multi-Branch Access</li>
+                    <li>✅ Real-Time Analytics Dashboard</li>
+                    <li>✅ Multi-Currency, Multi-Language</li>
+                    <li>✅ Advanced API Integrations</li>
+                    <li>✅ AI-Powered Itinerary Suggestions</li>
+                    <li>✅ 24/7 Dedicated Support</li>
+                </ul>
+                <div class="price">Custom Pricing Available</div>
+                <a href="#demo" class="btn btn-primary" style="width: 100%;">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Why Choose Us -->
+    <section style="background: #f9f9f9; margin: 0; max-width: 100%; padding: 100px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <h2>Experience Meets Innovation</h2>
+                <p>Why travel businesses trust Niyan IT Solutions</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>✅ 100+ Tourism & Travel Clients Worldwide</h4>
+                </div>
+                <div class="feature-item">
+                    <h4>✅ Integrated Web + App Ecosystem</h4>
+                </div>
+                <div class="feature-item">
+                    <h4>✅ API-Driven Architecture</h4>
+                </div>
+                <div class="feature-item">
+                    <h4>✅ Custom UI/UX for Every Brand</h4>
+                </div>
+                <div class="feature-item">
+                    <h4>✅ Transparent Delivery & Costing</h4>
+                </div>
+                <div class="feature-item">
+                    <h4>✅ 24/7 Priority Support</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="demo" class="cta-section">
+        <h2>Let's Build the Next-Gen Travel Experience</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 30px;">Transform your travel business with cutting-edge technology</p>
+        <a href="#contact" class="btn btn-white">Schedule a Demo</a>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .feature-item, .pricing-card, .workflow-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Workflow step lighting animation
+        const workflowSteps = document.querySelectorAll('.workflow-step');
+        let currentStep = 0;
+
+        function animateWorkflow() {
+            workflowSteps.forEach((step, index) => {
+                if (index === currentStep) {
+                    step.querySelector('.workflow-icon').style.boxShadow = '0 0 30px rgba(0, 188, 212, 0.8)';
+                    step.querySelector('.workflow-icon').style.transform = 'scale(1.1)';
+                } else {
+                    step.querySelector('.workflow-icon').style.boxShadow = '';
+                    step.querySelector('.workflow-icon').style.transform = 'scale(1)';
+                }
+            });
+            currentStep = (currentStep + 1) % workflowSteps.length;
+        }
+
+        // Start workflow animation when section is visible
+        const workflowObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setInterval(animateWorkflow, 1500);
+                    workflowObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const workflowSection = document.querySelector('.workflow');
+        if (workflowSection) {
+            workflowObserver.observe(workflowSection);
+        }
+
+        // Pricing card animation
+        document.querySelectorAll('.pricing-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.btn').style.transform = 'scale(1.05)';
+                this.querySelector('.btn').style.boxShadow = '0 0 20px rgba(0, 188, 212, 0.5)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.btn').style.transform = 'scale(1)';
+                this.querySelector('.btn').style.boxShadow = '';
+            });
+        });
+
+        // Integration items pulse on hover
+        document.querySelectorAll('.integration-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.animation = 'pulse 0.5s ease';
+            });
+            item.addEventListener('animationend', function() {
+                this.style.animation = '';
+            });
+        });
+
+        // Add pulse animation to stylesheet
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html

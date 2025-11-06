@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(218,165,32,0.1) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8f9fa" width="1200" height="800"/><path fill="%23daa520" opacity="0.1" d="M0 400L50 420L100 380L150 440L200 400L250 460L300 420L350 480L400 440L450 500L500 460L550 520L600 480L650 540L700 500L750 560L800 520L850 580L900 540L950 600L1000 560L1050 620L1100 580L1150 640L1200 600V800H0Z"/></svg>') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(218,165,32,0.15) 0%, transparent 70%);
+            animation: shimmer 8s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 100px 0;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #8b6914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(218,165,32,0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #b8860b 0%, #8b6914 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(218,165,32,0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #daa520;
+            border: 2px solid #daa520;
+        }
+
+        .btn-secondary:hover {
+            background: #daa520;
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease 0.6s backwards;
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .mockup {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatIcon 4s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .icon-1 { top: 10%; left: -10%; animation-delay: 0s; }
+        .icon-2 { top: 50%; right: -10%; animation-delay: 1s; }
+        .icon-3 { bottom: 10%; left: -5%; animation-delay: 2s; }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Who We Serve */
+        .serve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .serve-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .serve-card:hover {
+            transform: translateY(-10px);
+            border-color: #daa520;
+            box-shadow: 0 15px 40px rgba(218,165,32,0.2), 0 0 30px rgba(218,165,32,0.1);
+        }
+
+        .serve-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .serve-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .serve-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .feature-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .feature-item:nth-child(even) .feature-visual {
+            order: -1;
+        }
+
+        .feature-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #daa520;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .feature-visual {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(218,165,32,0.3);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #daa520;
+            box-shadow: 0 15px 40px rgba(218,165,32,0.2);
+        }
+
+        .pricing-card.featured {
+            border-color: #daa520;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: #daa520;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #daa520;
+            margin: 20px 0;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .pricing-card ul li {
+            padding: 10px 0;
+            color: #555;
+        }
+
+        /* Why Choose */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .why-item .check {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            line-height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .why-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, rgba(218,165,32,0.1) 0%, rgba(184,134,11,0.15) 100%);
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200"><path fill="%23daa520" opacity="0.1" d="M0 150L50 140L100 145L150 135L200 140L250 130L300 135L350 125L400 130L450 120L500 125L550 115L600 120L650 110L700 115L750 105L800 110L850 100L900 105L950 95L1000 100L1050 90L1100 95L1150 85L1200 90V200H0Z"/></svg>') repeat-x bottom;
+            animation: skylineRise 2s ease forwards;
+        }
+
+        @keyframes skylineRise {
+            from { transform: translateY(200px); }
+            to { transform: translateY(0); }
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .feature-item {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-item:nth-child(even) .feature-visual {
+                order: 0;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Real Estate Sales with Smart Property Technology.</h1>
+                    <p>Create stunning online property experiences, automate sales pipelines, and convert leads faster.</p>
+                    <div class="hero-buttons">
+                        <a href="#pricing" class="btn btn-primary">Book Demo</a>
+                        <a href="#features" class="btn btn-secondary">View Solutions</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="mockup">
+                        <div style="background: linear-gradient(135deg, #daa520 0%, #b8860b 100%); height: 250px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🏢</div>
+                    </div>
+                    <div class="floating-icon icon-1">🏗️</div>
+                    <div class="floating-icon icon-2">🏘️</div>
+                    <div class="floating-icon icon-3">🏡</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Serve -->
+    <section id="serve">
+        <div class="container">
+            <div class="section-header">
+                <h2>Solutions Tailored for Every Real Estate Business</h2>
+            </div>
+            <div class="serve-grid">
+                <div class="serve-card">
+                    <div class="icon">🏗️</div>
+                    <h3>Property Builders</h3>
+                    <p>Project portfolios, lead automation, booking engine</p>
+                </div>
+                <div class="serve-card">
+                    <div class="icon">👔</div>
+                    <h3>Real Estate Agents</h3>
+                    <p>Listings hub, inquiries, CRM, client matching</p>
+                </div>
+                <div class="serve-card">
+                    <div class="icon">💼</div>
+                    <h3>Broker Networks</h3>
+                    <p>Multi-agent dashboards, commission tracking</p>
+                </div>
+                <div class="serve-card">
+                    <div class="icon">🏘️</div>
+                    <h3>Housing Communities</h3>
+                    <p>Resident portals, maintenance apps, visitor system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="feature-item">
+                <div class="feature-text">
+                    <h3>Showcase Properties Beautifully</h3>
+                    <ul class="feature-list">
+                        <li>Modern listing pages with filters</li>
+                        <li>HD image galleries & video tours</li>
+                        <li>360° virtual walkthroughs</li>
+                        <li>Google Maps & location highlights</li>
+                        <li>Live availability & floor plan preview</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">📸</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-text">
+                    <h3>Convert Leads into Closures</h3>
+                    <ul class="feature-list">
+                        <li>AI-based lead scoring</li>
+                        <li>Lead capture from website, WhatsApp, calls, walk-ins</li>
+                        <li>Auto-follow-ups & reminders</li>
+                        <li>Sales pipeline dashboard</li>
+                        <li>Staff assignment & performance tracking</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">📊</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-text">
+                    <h3>Sell and Collect Payments Online</h3>
+                    <ul class="feature-list">
+                        <li>Reservation tokens</li>
+                        <li>Property booking engine</li>
+                        <li>EMI & loan integration (bank partners)</li>
+                        <li>Digital contracts & e-signatures</li>
+                        <li>Invoice + GST + receipts</li>
+                    </ul>
+                    <p style="margin-top: 20px; color: #daa520; font-weight: 600;">💳 Razorpay • PayU • Stripe • UPI</p>
+                </div>
+                <div class="feature-visual">💳</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-text">
+                    <h3>Manage Projects Efficiently</h3>
+                    <ul class="feature-list">
+                        <li>Project stages & timelines</li>
+                        <li>Flats/plots inventory system</li>
+                        <li>Price matrix with auto update</li>
+                        <li>Customer documents management</li>
+                        <li>After-sales support tickets</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">🛠️</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-text">
+                    <h3>Deliver Premium Customer Experience</h3>
+                    <ul class="feature-list">
+                        <li>Registration & login portal</li>
+                        <li>Payment history & dues</li>
+                        <li>Document downloads</li>
+                        <li>Support ticket system</li>
+                        <li>SMS/Email/WhatsApp alerts</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">🤝</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-text">
+                    <h3>Insight-Driven Growth</h3>
+                    <ul class="feature-list">
+                        <li>Sales funnel view</li>
+                        <li>Agent performance reports</li>
+                        <li>Inventory heat maps</li>
+                        <li>Customer lifecycle insights</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">📈</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Flexible Solutions for Agents, Builders & Enterprises</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="icon">🧍‍♂️</div>
+                    <h3>Agent Basic</h3>
+                    <p>Best for Individual agents</p>
+                    <div class="price">Custom Quote</div>
+                    <ul>
+                        <li>✓ Website + listings</li>
+                        <li>✓ Basic CRM</li>
+                        <li>✓ Inquiry forms</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Get Quote</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="icon">🏗️</div>
+                    <h3>Builder Pro</h3>
+                    <p>Best for Builders & mid-sized developers</p>
+                    <div class="price">Custom Quote</div>
+                    <ul>
+                        <li>✓ App + CRM + payment</li>
+                        <li>✓ Project management</li>
+                        <li>✓ Lead automation</li>
+                        <li>✓ Analytics dashboard</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;">Request Demo</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="icon">🏢</div>
+                    <h3>Enterprise Realty Suite</h3>
+                    <p>Best for Groups, big builders & smart townships</p>
+                    <div class="price">Custom</div>
+                    <ul>
+                        <li>✓ Multi-project</li>
+                        <li>✓ Automation</li>
+                        <li>✓ API access</li>
+                        <li>✓ White-label app</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Contact Sales</a>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; color: #666; font-style: italic;">Custom branding & add-ons available.</p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Niyan IT Solutions?</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="check">✓</div>
+                    <h4>360° Tech Suite</h4>
+                </div>
+                <div class="why-item">
+                    <div class="check">✓</div>
+                    <h4>On-site & Remote Support</h4>
+                </div>
+                <div class="why-item">
+                    <div class="check">✓</div>
+                    <h4>Fast Delivery</h4>
+                </div>
+                <div class="why-item">
+                    <div class="check">✓</div>
+                    <h4>Secure Cloud</h4>
+                </div>
+                <div class="why-item">
+                    <div class="check">✓</div>
+                    <h4>Transparent Pricing</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Let's Build the Future of Real Estate Sales Together</h2>
+            <a href="#" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 50px;">Schedule Strategy Call</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.serve-card, .feature-item, .pricing-card, .why-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

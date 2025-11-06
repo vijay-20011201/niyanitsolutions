@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FF7A18 0%, #AF002D 50%, #6A11CB 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .float-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF7A18, #AF002D);
+            color: white;
+            box-shadow: 0 4px 20px rgba(255, 122, 24, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 122, 24, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #FF7A18, #AF002D);
+            border-color: transparent;
+            box-shadow: 0 8px 30px rgba(255, 122, 24, 0.6);
+        }
+
+        .hero-visual {
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .mockup-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .mockup {
+            width: 100%;
+            max-width: 800px;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .section-dark {
+            background: #0a0a0a;
+        }
+
+        .section-light {
+            background: #1a1a1a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FF7A18, #AF002D, #6A11CB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subheading {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(255, 122, 24, 0.3);
+            border-color: rgba(255, 122, 24, 0.5);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #FF7A18;
+        }
+
+        .card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Features List */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 122, 24, 0.1);
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: #FF7A18;
+        }
+
+        /* Integrations */
+        .integrations-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .integration-logo {
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .integration-logo:hover {
+            background: rgba(255, 122, 24, 0.2);
+            border-color: #FF7A18;
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 122, 24, 0.3);
+        }
+
+        /* Pricing Table */
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF7A18, #AF002D, #6A11CB);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: #FF7A18;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 122, 24, 0.3);
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #FF7A18;
+        }
+
+        .pricing-card .best-for {
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            opacity: 0.8;
+        }
+
+        .pricing-card li::before {
+            content: '✓ ';
+            color: #FF7A18;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Dashboard Visual */
+        .dashboard-mockup {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dashboard-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #FF7A18;
+        }
+
+        .dashboard-content {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #FF61A6, #7366FF, #00C9FF);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .cart-animation {
+            font-size: 3rem;
+            display: inline-block;
+            animation: cartRoll 2s ease-in-out infinite;
+        }
+
+        @keyframes cartRoll {
+            0%, 100% { transform: translateX(-20px); }
+            50% { transform: translateX(20px); }
+        }
+
+        /* Delivery Animation */
+        .delivery-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .delivery-truck {
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            animation: truckMove 8s linear infinite;
+        }
+
+        @keyframes truckMove {
+            0% { left: -5%; }
+            100% { left: 105%; }
+        }
+
+        /* Why Choose Icons */
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .why-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .why-item:hover .why-icon {
+            animation: iconBounce 0.5s ease;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .why-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-heading {
+                font-size: 1.8rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-icons">
+            <div class="float-icon" style="top: 10%; left: 10%;">🛒</div>
+            <div class="float-icon" style="top: 20%; right: 15%; animation-delay: 1s;">📦</div>
+            <div class="float-icon" style="top: 60%; left: 5%; animation-delay: 2s;">💳</div>
+            <div class="float-icon" style="top: 70%; right: 10%; animation-delay: 1.5s;">🏷️</div>
+            <div class="float-icon" style="top: 40%; left: 20%; animation-delay: 0.5s;">💰</div>
+            <div class="float-icon" style="top: 50%; right: 25%; animation-delay: 2.5s;">🚚</div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Empowering Online Stores with Smart Commerce Technology.</h1>
+            <p>From idea to checkout, we design complete e-commerce platforms that attract, convert, and retain customers.</p>
+            
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Start Your Store</a>
+                <a href="#" class="btn btn-secondary">View Demo</a>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="mockup-container">
+                    <svg class="mockup" viewBox="0 0 800 500" fill="none">
+                        <!-- Laptop -->
+                        <rect x="100" y="50" width="600" height="350" rx="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        <rect x="120" y="70" width="560" height="310" fill="rgba(0,0,0,0.5)"/>
+                        <!-- Mobile -->
+                        <rect x="500" y="150" width="200" height="320" rx="20" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        <rect x="520" y="180" width="160" height="260" fill="rgba(0,0,0,0.5)"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Who We Serve -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-heading">We Build for Every E-Commerce Business.</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Start-Ups & D2C Brands</h3>
+                    <p>Launch fast with scalable websites designed for rapid growth and customer acquisition.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🏪</div>
+                    <h3>Retail Stores</h3>
+                    <p>Take your offline business online with seamless integration and omnichannel capabilities.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📦</div>
+                    <h3>Wholesalers</h3>
+                    <p>Multi-vendor and bulk order platforms built for high-volume transactions.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Marketplaces</h3>
+                    <p>Full buyer-seller ecosystems with advanced matching and transaction management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Website & App Development -->
+    <section class="section-light">
+        <div class="container">
+            <h2 class="section-heading">Modern, Mobile-First Storefronts.</h2>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div>Responsive web + Android/iOS apps</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✏️</div>
+                    <div>Drag-and-drop CMS for product listings</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div>Custom UI/UX for each category</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛒</div>
+                    <div>Secure cart & wishlist system</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <div>Smart search & filters</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Billing & Payment Integration -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-heading">Simplify Checkout, Amplify Conversions.</h2>
+            <p class="section-subheading">Frictionless payment experiences your customers will love.</p>
+            
+            <div class="integrations-grid">
+                <div class="integration-logo">Razorpay</div>
+                <div class="integration-logo">Stripe</div>
+                <div class="integration-logo">PayPal</div>
+                <div class="integration-logo">PhonePe</div>
+                <div class="integration-logo">Amazon Pay</div>
+                <div class="integration-logo">Cashfree</div>
+            </div>
+            
+            <div class="features-list" style="margin-top: 3rem;">
+                <div class="feature-item">
+                    <div class="feature-icon">💳</div>
+                    <div>UPI, credit/debit, EMI, wallet payments</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div>One-click checkout</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📄</div>
+                    <div>Invoice & GST automation</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎟️</div>
+                    <div>Coupon & discount engine</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Product, Order & Inventory Management -->
+    <section class="section-light">
+        <div class="container">
+            <h2 class="section-heading">Control Your Store From a Single Dashboard.</h2>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div>Real-time stock updates</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏷️</div>
+                    <div>Auto SKU & barcode generation</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📦</div>
+                    <div>Order tracking & returns</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔗</div>
+                    <div>Supplier integration</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚠️</div>
+                    <div>Low-stock alerts</div>
+                </div>
+            </div>
+            
+            <div class="dashboard-mockup">
+                <div class="dashboard-header">
+                    <div class="dashboard-dot"></div>
+                    <div class="dashboard-dot" style="background: #FFB800;"></div>
+                    <div class="dashboard-dot" style="background: #00D9FF;"></div>
+                </div>
+                <div class="dashboard-content">
+                    📊 Live Order Notifications • Inventory Tracking • Analytics Dashboard
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Delivery & Logistics -->
+    <section class="section-dark delivery-section">
+        <div class="delivery-truck">🚚</div>
+        <div class="container">
+            <h2 class="section-heading">Deliver Happiness Faster.</h2>
+            
+            <div class="integrations-grid">
+                <div class="integration-logo">Shiprocket</div>
+                <div class="integration-logo">Delhivery</div>
+                <div class="integration-logo">BlueDart</div>
+                <div class="integration-logo">FedEx</div>
+            </div>
+            
+            <div class="features-list" style="margin-top: 3rem;">
+                <div class="feature-item">
+                    <div class="feature-icon">🏷️</div>
+                    <div>Auto-label & tracking ID</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🗺️</div>
+                    <div>Route optimization</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📍</div>
+                    <div>Real-time delivery status</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💵</div>
+                    <div>COD & RTO management</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Customer Engagement -->
+    <section class="section-light">
+        <div class="container">
+            <h2 class="section-heading">Engage. Retain. Grow.</h2>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">🔔</div>
+                    <div>Push notifications & abandoned-cart reminders</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎁</div>
+                    <div>Reward & referral programs</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <div>Integrated live chat & support</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <div>Feedback forms & review system</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Analytics & Reports -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-heading">Data That Drives Decisions.</h2>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <div>Real-time sales analytics</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div>Product performance tracking</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💹</div>
+                    <div>Conversion & retention reports</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div>Marketing ROI dashboard</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Integrations & Platforms -->
+    <section class="section-light">
+        <div class="container">
+            <h2 class="section-heading">Compatible With Leading Platforms.</h2>
+            
+            <div class="integrations-grid">
+                <div class="integration-logo">Shopify</div>
+                <div class="integration-logo">WooCommerce</div>
+                <div class="integration-logo">Magento</div>
+                <div class="integration-logo">BigCommerce</div>
+                <div class="integration-logo">Zoho Commerce</div>
+                <div class="integration-logo">Custom API</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Support & Maintenance -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-heading">Stay Online. Stay Secure.</h2>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">🕐</div>
+                    <div>24×7 tech support</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <div>Server monitoring & backups</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div>Security patching</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <div>Feature upgrades</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: Pricing -->
+    <section class="section-light">
+        <div class="container">
+            <h2 class="section-heading">Plans That Grow With You.</h2>
+            <p class="section-subheading">Choose a solution built for your business stage.</p>
+            
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h3>🛍️ Starter Shop</h3>
+                    <p class="best-for">Small sellers & boutiques</p>
+                    <div class="price">₹ XX,XXX / project</div>
+                    <ul>
+                        <li>E-commerce website</li>
+                        <li>Shopping cart system</li>
+                        <li>Basic payment integration</li>
+                        <li>Product management</li>
+                        <li>Mobile responsive</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">Get Quote</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>📦 Scale Pro</h3>
+                    <p class="best-for">Growing stores</p>
+                    <div class="price">₹ XX,XXX / month</div>
+                    <ul>
+                        <li>Website + Mobile App</li>
+                        <li>CRM integration</li>
+                        <li>Advanced analytics</li>
+                        <li>Shipping integration</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">Get Quote</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>🏬 Enterprise Retail</h3>
+                    <p class="best-for">Large marketplaces</p>
+                    <div class="price">Custom Pricing</div>
+                    <ul>
+                        <li>Multi-vendor platform</li>
+                        <li>Warehouse management</li>
+                        <li>ERP & API integrations</li>
+                        <li>24×7 dedicated support</li>
+                        <li>Custom development</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 11: Why Choose Us -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-heading">Why Choose Niyan IT Solutions</h2>
+            
+            <div class="why-choose-grid">
+                <div class="why-item">
+                    <div class="why-icon">⚙️</div>
+                    <h3>100% Customizable</h3>
+                    <p>Tech stack tailored to your needs</p>
+                </div>
+                
+                <div class="why-item">
+                    <div class="why-icon">🌐</div>
+                    <h3>Omni-channel</h3>
+                    <p>Web + App + POS integration</p>
+                </div>
+                
+                <div class="why-item">
+                    <div class="why-icon">🎯</div>
+                    <h3>Conversion-Optimized</h3>
+                    <p>UI/UX designed to sell</p>
+                </div>
+                
+                <div class="why-item">
+                    <div class="why-icon">🚀</div>
+                    <h3>SEO & Marketing Ready</h3>
+                    <p>Built for visibility and growth</p>
+                </div>
+                
+                <div class="why-item">
+                    <div class="why-icon">💎</div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden costs, clear support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cart-animation">🛒✨</div>
+            <h2>Let's Build Your Online Store — and Your Brand.</h2>
+            <a href="#" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.2rem 3rem;">Book a Free Demo</a>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
