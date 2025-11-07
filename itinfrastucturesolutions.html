@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #0D1B2A;
+            background: #F5F5F5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0D1B2A 0%, #1a2332 100%);
+            overflow: hidden;
+        }
+
+        .network-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .network-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, #007BFF, transparent);
+            animation: pulse 3s infinite;
+        }
+
+        .network-line:nth-child(1) {
+            width: 2px;
+            height: 100%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .network-line:nth-child(2) {
+            width: 100%;
+            height: 2px;
+            top: 30%;
+            animation-delay: 1s;
+        }
+
+        .network-line:nth-child(3) {
+            width: 2px;
+            height: 100%;
+            left: 60%;
+            animation-delay: 2s;
+        }
+
+        .network-line:nth-child(4) {
+            width: 100%;
+            height: 2px;
+            top: 70%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00C9FF, #007BFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #E0E0E0;
+            max-width: 800px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 123, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #007BFF;
+        }
+
+        .btn-secondary:hover {
+            background: #007BFF;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0D1B2A;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: #007BFF;
+            box-shadow: 0 8px 30px rgba(0, 123, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #0D1B2A;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            background: #0D1B2A;
+            color: white;
+        }
+
+        .case-studies .section-header h2,
+        .case-studies .section-header p {
+            color: white;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .case-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 123, 255, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 201, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .case-card:hover::before {
+            left: 100%;
+        }
+
+        .case-card:hover {
+            border-color: #00C9FF;
+            box-shadow: 0 8px 30px rgba(0, 201, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .case-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #00C9FF;
+        }
+
+        .case-card .case-type {
+            display: inline-block;
+            background: rgba(0, 123, 255, 0.2);
+            color: #00C9FF;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .case-card p {
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+
+        .case-link {
+            color: #00C9FF;
+            text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover .case-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Metrics Section */
+        .metrics {
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #0D1B2A;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+            color: #007BFF;
+        }
+
+        /* Challenges Section */
+        .challenges {
+            background: #F5F5F5;
+        }
+
+        .challenge-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .challenge-item {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .challenge-number {
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .challenge-content {
+            flex: 1;
+        }
+
+        .challenge-content h4 {
+            color: #0D1B2A;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .challenge-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .challenge-content strong {
+            color: #007BFF;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, #E0F7FF, #F5F5F5);
+        }
+
+        .testimonial-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #007BFF;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #0D1B2A;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: white;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #F5F5F5;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: #E0F7FF;
+            transform: translateX(10px);
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+        }
+
+        .benefit-text {
+            color: #0D1B2A;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #00C9FF, #0047AB);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .expertise-grid,
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="network-bg">
+            <div class="network-line"></div>
+            <div class="network-line"></div>
+            <div class="network-line"></div>
+            <div class="network-line"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Building the Backbone of Digital Transformation.</h1>
+            <p>From servers to the cloud — Niyan IT Solutions ensures your infrastructure is secure, scalable, and future-ready.</p>
+            <div class="btn-group">
+                <a href="#case-studies" class="btn btn-primary">Explore Case Studies</a>
+                <a href="#contact" class="btn btn-secondary">Request Infrastructure Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive IT Infrastructure Services.</h2>
+                <p>Secure, stable, and seamless systems for every business scale.</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="service-card">
+                    <h3>🧰 Desktop & End-User Support</h3>
+                    <p>Troubleshooting, patch management, and asset monitoring to keep your workforce productive.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🌐 Network Maintenance</h3>
+                    <p>LAN/WAN setup, routing, and performance optimization for seamless connectivity.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🖥️ Server Maintenance</h3>
+                    <p>Installation, monitoring, updates, and uptime assurance for critical systems.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🔒 Firewall & Security</h3>
+                    <p>Advanced firewall setup, intrusion detection, and VPN security solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>☁️ Cloud Migration</h3>
+                    <p>Migrate legacy systems to Azure, AWS, or GCP securely with zero downtime.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📧 Email & Collaboration</h3>
+                    <p>Office 365, Google Workspace, and secure mail servers for seamless communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Empowering Businesses Through Cloud Transformation.</h2>
+                <p>Real success stories from our cloud modernization projects.</p>
+            </div>
+            <div class="case-grid">
+                <div class="case-card">
+                    <h3>🏦 FinEdge Cloud Migration</h3>
+                    <span class="case-type">AWS Migration</span>
+                    <p>Migrated legacy finance applications to AWS; improved uptime by 99.9%, reduced costs by 28%.</p>
+                    <a href="#" class="case-link">View Detailed Case Study →</a>
+                </div>
+                <div class="case-card">
+                    <h3>🏫 EduCore Cloud Backup</h3>
+                    <span class="case-type">Azure Backup & Storage</span>
+                    <p>Automated backup for 15K student records; achieved 100% data recovery reliability.</p>
+                    <a href="#" class="case-link">View Detailed Case Study →</a>
+                </div>
+                <div class="case-card">
+                    <h3>🏭 AutoConnect Network Virtualization</h3>
+                    <span class="case-type">Private Cloud</span>
+                    <p>Created a secure virtual environment for automotive data and analytics with hypervisor setup.</p>
+                    <a href="#" class="case-link">View Detailed Case Study →</a>
+                </div>
+                <div class="case-card">
+                    <h3>🏢 ShopEase Multi-Server Deployment</h3>
+                    <span class="case-type">Hybrid Cloud</span>
+                    <p>Combined on-premises servers with Google Cloud for e-commerce scalability and redundancy.</p>
+                    <a href="#" class="case-link">View Detailed Case Study →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics">
+        <div class="container">
+            <div class="section-header">
+                <h2>Infrastructure at Scale — Proven Results.</h2>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value" data-target="99.98">0</div>
+                    <div class="metric-label">Uptime Achieved</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="100">0</div>
+                    <div class="metric-label">Data Migration Success</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="45">0</div>
+                    <div class="metric-label">Reduced IT Downtime</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="30">0</div>
+                    <div class="metric-label">Cost Optimization</div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; opacity: 0.9;">Our infrastructure solutions keep critical systems running — securely and efficiently.</p>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powered by Industry-Leading Tools.</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">Cisco</div>
+                <div class="tech-item">Fortinet</div>
+                <div class="tech-item">VMware</div>
+                <div class="tech-item">AWS</div>
+                <div class="tech-item">Azure</div>
+                <div class="tech-item">Google Cloud</div>
+                <div class="tech-item">Sophos</div>
+                <div class="tech-item">Zabbix</div>
+                <div class="tech-item">Veeam</div>
+                <div class="tech-item">Microsoft 365</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="challenges">
+        <div class="container">
+            <div class="section-header">
+                <h2>How We Overcome Infrastructure Challenges.</h2>
+            </div>
+            <div class="challenge-timeline">
+                <div class="challenge-item">
+                    <div class="challenge-number">1</div>
+                    <div class="challenge-content">
+                        <h4>Challenge: Frequent network drops in a multi-office setup.</h4>
+                        <p><strong>Solution:</strong> Implemented redundant network topology and auto-failover routers.</p>
+                    </div>
+                </div>
+                <div class="challenge-item">
+                    <div class="challenge-number">2</div>
+                    <div class="challenge-content">
+                        <h4>Challenge: On-premise servers lacked scalability.</h4>
+                        <p><strong>Solution:</strong> Shifted to AWS hybrid cloud with auto-scaling groups.</p>
+                    </div>
+                </div>
+                <div class="challenge-item">
+                    <div class="challenge-number">3</div>
+                    <div class="challenge-content">
+                        <h4>Challenge: High downtime due to hardware failures.</h4>
+                        <p><strong>Solution:</strong> Introduced proactive monitoring and scheduled hardware refresh cycles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Businesses That Rely on Us.</h2>
+                <p>Hear from clients who've experienced infrastructure excellence.</p>
+            </div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"Niyan IT helped us migrate to AWS without a single data loss. Their 24/7 monitoring is exceptional."</div>
+                    <div class="testimonial-author">— Sanjay Mehta, FinEdge</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"Firewall management and server uptime have never been smoother."</div>
+                    <div class="testimonial-author">— Aparna D, AutoConnect IT Manager</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tangible Business Benefits Delivered.</h2>
+            </div>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Improved security compliance (ISO & SOC)</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Faster cloud access and deployment time</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Reduced maintenance costs</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Centralized monitoring dashboard</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Scalable infrastructure for future growth</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cta-network">
+            <div class="network-line"></div>
+            <div class="network-line"></div>
+            <div class="network-line"></div>
+        </div>
+        <div class="container cta-content">
+            <h2>Ready to Upgrade Your IT Infrastructure?</h2>
+            <p>Let's build a secure, scalable foundation for your digital success.</p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary">Get Infrastructure Consultation</a>
+                <a href="#" class="btn btn-secondary">Start Cloud Migration</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Counter Animation
+        function animateCounter(element) {
+            const target = parseFloat(element.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                if (element.parentElement.querySelector('.metric-label').textContent.includes('Uptime')) {
+                    element.textContent = current.toFixed(2) + '%';
+                } else if (element.parentElement.querySelector('.metric-label').textContent.includes('Success')) {
+                    element.textContent = Math.floor(current) + '%';
+                } else if (element.parentElement.querySelector('.metric-label').textContent.includes('Downtime')) {
+                    element.textContent = '−' + Math.floor(current) + '%';
+                } else {
+                    element.textContent = 'Up to ' + Math.floor(current) + '%';
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for counters
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.metric-value');
+                    counters.forEach(counter => {
+                        if (counter.textContent === '0') {
+                            animateCounter(counter);
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.metrics').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

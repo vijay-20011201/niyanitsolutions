@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E3F2FD 0%, #FFFFFF 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-illustration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                repeating-linear-gradient(45deg, #007BFF 0px, #007BFF 2px, transparent 2px, transparent 10px),
+                repeating-linear-gradient(-45deg, #00C9FF 0px, #00C9FF 2px, transparent 2px, transparent 10px);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #007BFF;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #007BFF;
+            border: 2px solid #007BFF;
+        }
+
+        .btn-secondary:hover {
+            background: #007BFF;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Overview Section */
+        .overview {
+            padding: 6rem 2rem;
+            background: #F8F9FA;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #007BFF;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+        }
+
+        .steps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 1s ease;
+        }
+
+        .step-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover .step-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .step::after {
+            content: '···';
+            position: absolute;
+            top: 60px;
+            right: -3rem;
+            font-size: 2rem;
+            color: #00BCD4;
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        /* Projects Grid */
+        .projects {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .projects-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 123, 255, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 123, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .project-overlay a:hover {
+            background: white;
+            color: #007BFF;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-type {
+            display: inline-block;
+            background: #E3F2FD;
+            color: #007BFF;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Project Highlight */
+        .highlight {
+            padding: 6rem 2rem;
+            background: #F8F9FA;
+        }
+
+        .highlight-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .highlight-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .highlight-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight-content {
+            flex: 1;
+        }
+
+        .highlight-content h3 {
+            font-size: 2rem;
+            color: #007BFF;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-meta p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .highlight-meta strong {
+            color: #333;
+        }
+
+        .highlight-result {
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+
+        /* Technologies */
+        .technologies {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .tech-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tech-item {
+            background: #F8F9FA;
+            padding: 1.5rem 2.5rem;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #007BFF;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.1) rotate(2deg);
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .tech-subtext {
+            text-align: center;
+            max-width: 700px;
+            margin: 3rem auto 0;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+        }
+
+        .testimonials .section-title,
+        .testimonials .section-subtitle {
+            color: white;
+        }
+
+        .testimonials-carousel {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 2rem 0;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            scroll-snap-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #007BFF;
+            font-size: 1.1rem;
+        }
+
+        /* Why Choose */
+        .why-choose {
+            padding: 6rem 2rem;
+            background: #F8F9FA;
+        }
+
+        .features-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+        }
+
+        .feature-item::before {
+            content: '✅';
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item:hover::before {
+            animation: bounce 0.5s ease;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #00C9FF, #007BFF);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta .btn {
+            background: white;
+            color: #007BFF;
+            position: relative;
+            z-index: 1;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .cta .btn:hover {
+            background: #F8F9FA;
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            .steps-container { flex-direction: column; }
+            .step::after { display: none; }
+            .highlight-container { flex-direction: column; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-illustration"></div>
+        <div class="hero-content">
+            <h1>Crafting Scalable and Stunning Web Experiences.</h1>
+            <p>Explore how Niyan IT Solutions has delivered custom web solutions that empower businesses worldwide.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Our Portfolio</a>
+                <a href="#cta" class="btn btn-secondary">Let's Build Yours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <h2 class="section-title">Our Approach to Web Projects.</h2>
+        <p class="section-subtitle">From idea to deployment — we handle everything.</p>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-icon">🔍</div>
+                <h3>Strategy & Research</h3>
+                <p>We study your business, audience, and goals before writing a single line of code.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">🎨</div>
+                <h3>Design & Develop</h3>
+                <p>Our creative and technical teams collaborate to build beautiful, responsive websites.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">🚀</div>
+                <h3>Launch & Support</h3>
+                <p>We provide seamless go-live, analytics setup, and ongoing maintenance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">Selected Success Stories.</h2>
+        <p class="section-subtitle">A glimpse into our diverse portfolio.</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🍴
+                    <div class="project-overlay">
+                        <a href="#highlight">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-type">Restaurant Website</span>
+                    <h3>DineSmart</h3>
+                    <p>Built a responsive, dynamic site with menu management, online ordering, and table booking.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🏨
+                    <div class="project-overlay">
+                        <a href="#highlight">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-type">Tourism & Booking Platform</span>
+                    <h3>TravelGo</h3>
+                    <p>Developed a tour management system with dynamic itineraries, package filters, and secure payments.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🏠
+                    <div class="project-overlay">
+                        <a href="#highlight">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-type">Real Estate Website</span>
+                    <h3>UrbanEstate</h3>
+                    <p>Built a property listing and inquiry platform with map integration and virtual tours.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🏫
+                    <div class="project-overlay">
+                        <a href="#highlight">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-type">Education Platform</span>
+                    <h3>EduCore LMS</h3>
+                    <p>Custom LMS for course uploads, student tracking, exams, and payment gateway integration.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🛒
+                    <div class="project-overlay">
+                        <a href="#highlight">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-type">E-Commerce</span>
+                    <h3>ShopEase</h3>
+                    <p>Created an e-commerce portal with cart, checkout, Razorpay integration, and order management.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💳
+                    <div class="project-overlay">
+                        <a href="#highlight">View Case Study →</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-type">Finance Portal</span>
+                    <h3>FinEdge</h3>
+                    <p>Developed a secure loan application & EMI calculator site with real-time API integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Highlight -->
+    <section id="highlight" class="highlight">
+        <h2 class="section-title">Project Highlights & Impact.</h2>
+        <p class="section-subtitle">Deep dive into our success stories.</p>
+        
+        <div class="highlight-container">
+            <div class="highlight-image">
+                <img src="https://via.placeholder.com/600x400/007BFF/FFFFFF?text=ShopEase+Platform" alt="ShopEase">
+            </div>
+            <div class="highlight-content">
+                <h3>ShopEase</h3>
+                <div class="highlight-meta">
+                    <p><strong>Client Industry:</strong> E-commerce</p>
+                    <p><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, Python, MySQL</p>
+                    <p><strong>Objective:</strong> Simplify online retail for SMEs.</p>
+                </div>
+                <div class="highlight-result">
+                    <strong>Result:</strong> Increased conversion rate by 42%, improved site load time by 38%.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="technologies">
+        <h2 class="section-title">Tools & Technologies That Power Our Projects.</h2>
+        <div class="tech-grid">
+            <div class="tech-item">HTML5</div>
+            <div class="tech-item">CSS3</div>
+            <div class="tech-item">JavaScript</div>
+            <div class="tech-item">React</div>
+            <div class="tech-item">Python</div>
+            <div class="tech-item">PHP</div>
+            <div class="tech-item">SQL</div>
+            <div class="tech-item">WordPress</div>
+            <div class="tech-item">Node.js</div>
+            <div class="tech-item">AWS</div>
+        </div>
+        <p class="tech-subtext">We select technologies that suit the scale, speed, and budget of each client.</p>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Clients Say.</h2>
+        <div class="testimonials-carousel">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The Niyan IT team built our restaurant site exactly as we envisioned — fast, elegant, and mobile-friendly."</p>
+                <p class="testimonial-author">— Rajesh Kumar, Founder of DineSmart</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"We got a complete tourism platform in record time. The support was excellent."</p>
+                <p class="testimonial-author">— Divya M, TravelGo Owner</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose -->
+    <section class="why-choose">
+        <h2 class="section-title">Why Choose Niyan IT Solutions</h2>
+        <div class="features-grid">
+            <div class="feature-item">End-to-End Web Development</div>
+            <div class="feature-item">SEO-Friendly & Responsive Designs</div>
+            <div class="feature-item">Fast Load & Optimized Performance</div>
+            <div class="feature-item">Dedicated Post-Launch Support</div>
+            <div class="feature-item">Transparent Pricing & Process</div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="cta">
+        <h2>Ready to Build Your Next Web Project?</h2>
+        <p>Let's bring your ideas to life with cutting-edge web technology and creative design.</p>
+        <a href="#" class="btn">Start a Project</a>
+    </section>
+
+    <script>
+        // Scroll animation for highlight sections
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.highlight-container').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
