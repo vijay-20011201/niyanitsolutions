@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            background: linear-gradient(135deg, #007BFF 0%, #6A11CB 50%, #FF61A6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 2rem;
+            margin: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-icon {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 2.5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .icon-1 { left: 10%; top: 20%; animation-delay: 0s; }
+        .icon-2 { right: 20%; top: 30%; animation-delay: 1s; }
+        .icon-3 { left: 20%; bottom: 30%; animation-delay: 2s; }
+        .icon-4 { right: 15%; bottom: 35%; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subheading {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007BFF, #6A11CB);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(106, 17, 203, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(135deg, #007BFF, #6A11CB);
+            border-color: transparent;
+        }
+
+        .hero-subtitle {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            animation: fadeIn 2s ease 1s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Culture Cards */
+        .culture-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .culture-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #007BFF, #6A11CB);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
+        }
+
+        .culture-card:hover::before {
+            opacity: 0.95;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s ease;
+        }
+
+        .culture-card:hover .card-icon {
+            transform: scale(1.2);
+        }
+
+        .culture-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .culture-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .culture-card:hover h3,
+        .culture-card:hover p {
+            color: white;
+        }
+
+        .card-quote {
+            position: absolute;
+            bottom: 2rem;
+            left: 2.5rem;
+            right: 2.5rem;
+            font-style: italic;
+            color: white;
+            opacity: 0;
+            z-index: 2;
+            transition: opacity 0.4s ease;
+            font-size: 1.1rem;
+        }
+
+        .culture-card:hover .card-quote {
+            opacity: 1;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(106, 17, 203, 0.05));
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1.2) translateY(0); }
+            50% { transform: scale(1.2) translateY(-10px); }
+        }
+
+        .feature-box h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item span {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Growth Section */
+        .growth-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .growth-visual {
+            text-align: center;
+            font-size: 5rem;
+        }
+
+        .growth-list {
+            list-style: none;
+        }
+
+        .growth-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #007BFF;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .growth-list li:hover {
+            transform: translateX(10px);
+            border-left-color: #6A11CB;
+            box-shadow: 0 5px 20px rgba(106, 17, 203, 0.15);
+        }
+
+        /* Testimonials */
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #007BFF, #6A11CB);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #007BFF;
+            transform: scale(1.3);
+        }
+
+        /* Work-Life Balance */
+        .balance-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .balance-visual {
+            font-size: 8rem;
+            text-align: center;
+        }
+
+        .balance-list {
+            list-style: none;
+        }
+
+        .balance-list li {
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), rgba(255, 97, 166, 0.05));
+            border-radius: 10px;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .balance-list li:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(255, 97, 166, 0.1));
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: attr(data-quote);
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #007BFF, #6A11CB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-style: italic;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .value-card:hover::before {
+            opacity: 0.97;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #007BFF;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .value-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            min-width: 280px;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+        }
+
+        .timeline-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-time {
+            color: #007BFF;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Join Section */
+        .join-section {
+            background: linear-gradient(135deg, #6A11CB, #00C9FF);
+            border-radius: 30px;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .join-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .join-section h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .join-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+        }
+
+        .join-visual {
+            font-size: 6rem;
+            margin-top: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-subheading { font-size: 1.2rem; }
+            .section-header h2 { font-size: 2rem; }
+            .growth-container,
+            .balance-container {
+                grid-template-columns: 1fr;
+            }
+            .timeline {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-icon icon-1">💻</div>
+        <div class="floating-icon icon-2">🎉</div>
+        <div class="floating-icon icon-3">🌱</div>
+        <div class="floating-icon icon-4">🤝</div>
+        
+        <div class="hero-content">
+            <h1>Life at Niyan IT Solutions</h1>
+            <p class="hero-subheading">Where innovation meets passion — and people grow together.</p>
+            <div class="hero-buttons">
+                <a href="#join" class="btn btn-primary">Explore Open Roles</a>
+                <a href="#join" class="btn btn-outline">Join Our Team</a>
+            </div>
+        </div>
+        <p class="hero-subtitle">💬 We build technology. We build careers.</p>
+    </section>
+
+    <!-- Section 1: Our Culture -->
+    <section>
+        <div class="section-header">
+            <h2>A Culture of Collaboration, Growth, and Innovation</h2>
+            <p>We believe great ideas are born when people feel valued, trusted, and inspired.</p>
+        </div>
+        <div class="culture-cards">
+            <div class="culture-card">
+                <div class="card-icon">🤝</div>
+                <h3>Collaboration Over Competition</h3>
+                <p>We grow together through teamwork and mutual respect.</p>
+                <div class="card-quote">"Together, we create impact."</div>
+            </div>
+            <div class="culture-card">
+                <div class="card-icon">📚</div>
+                <h3>Learning Never Stops</h3>
+                <p>Continuous upskilling, mentorship, and access to learning resources.</p>
+                <div class="card-quote">"Every day is a learning opportunity."</div>
+            </div>
+            <div class="culture-card">
+                <div class="card-icon">💡</div>
+                <h3>Innovation with Impact</h3>
+                <p>Every idea counts — we love experimenting and building things that matter.</p>
+                <div class="card-quote">"Ideas that change the world."</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: What Makes Us Unique -->
+    <section style="background: white;">
+        <div class="section-header">
+            <h2>Why People Love Working Here</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon">🏠</div>
+                <h3>Flexible Work Environment</h3>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🚀</div>
+                <h3>Growth Opportunities</h3>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🧑‍🏫</div>
+                <h3>Mentorship from Experts</h3>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🌍</div>
+                <h3>Inclusive & Diverse Culture</h3>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🎊</div>
+                <h3>Celebrations & Team Activities</h3>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🏅</div>
+                <h3>Recognition & Rewards</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Moments That Matter -->
+    <section>
+        <div class="section-header">
+            <h2>Snapshots from Life at Niyan IT Solutions</h2>
+            <p>Every day is a story worth sharing.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <span>Team Meeting</span>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <span>Hackathon 2024</span>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <span>Training Session</span>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <span>Annual Tech Fest 2025</span>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <span>Weekend Team Meetup</span>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                <span>CSR Event</span>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <span>Innovation Lab</span>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                <span>Celebration Time</span>
+            </div>
+            <div class="gallery-item" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                <span>Mentorship Program</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Growth & Learning -->
+    <section style="background: white;">
+        <div class="section-header">
+            <h2>Your Growth is Our Priority</h2>
+            <p>We invest in our people — because their success is ours.</p>
+        </div>
+        <div class="growth-container">
+            <div class="growth-visual">
+                📊
+            </div>
+            <div>
+                <ul class="growth-list">
+                    <li>✅ Career mentoring programs</li>
+                    <li>✅ Certification sponsorships</li>
+                    <li>✅ Learning sessions & workshops</li>
+                    <li>✅ Internal promotion policy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Employee Testimonials -->
+    <section>
+        <div class="section-header">
+            <h2>What Our People Say</h2>
+            <p>Real voices from real experiences.</p>
+        </div>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <p class="testimonial-text">"Working at Niyan IT Solutions gave me the freedom to innovate. I've learned more here in a year than anywhere else."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">A</div>
+                    <div class="author-info">
+                        <h4>Aishwarya</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Work-Life Balance -->
+    <section style="background: white;">
+        <div class="section-header">
+            <h2>Work Hard. Celebrate Harder.</h2>
+            <p>We believe happiness fuels productivity.</p>
+        </div>
+        <div class="balance-container">
+            <div class="balance-visual">🎉</div>
+            <div>
+                <ul class="balance-list">
+                    <li>✅ Employee wellness programs</li>
+                    <li>✅ Fun Fridays & cultural events</li>
+                    <li>✅ Flexible hours & hybrid model</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Our Values -->
+    <section>
+        <div class="section-header">
+            <h2>Built on Values That Shape Our Future</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card" data-quote="Trust is our foundation.">
+                <div class="value-icon">🛡️</div>
+                <h3>Integrity</h3>
+                <p>We do the right thing, always.</p>
+            </div>
+            <div class="value-card" data-quote="Tomorrow starts today.">
+                <div class="value-icon">⚡</div>
+                <h3>Innovation</h3>
+                <p>We push boundaries to build better solutions.</p>
+            </div>
+            <div class="value-card" data-quote="Everyone matters.">
+                <div class="value-icon">❤️</div>
+                <h3>Respect</h3>
+                <p>We value every opinion and person.</p>
+            </div>
+            <div class="value-card" data-quote="Excellence is our habit.">
+                <div class="value-icon">⭐</div>
+                <h3>Excellence</h3>
+                <p>We aim to deliver quality in everything.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Life at Work -->
+    <section style="background: white;">
+        <div class="section-header">
+            <h2>A Day at Niyan IT Solutions</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-emoji">☕</div>
+                <div class="timeline-time">Morning</div>
+                <h3>Team standup & task planning</h3>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-emoji">💻</div>
+                <div class="timeline-time">Afternoon</div>
+                <h3>Brainstorming & development</h3>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-emoji">🎮</div>
+                <div class="timeline-time">Evening</div>
+                <h3>Knowledge sharing or fun zone</h3>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-emoji">🎊</div>
+                <div class="timeline-time">Weekend</div>
+                <h3>Training, trips, or celebrations</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Join the Team -->
+    <section id="join">
+        <div class="join-section">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>If you're passionate, driven, and ready to grow — we'd love to have you.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-outline">Explore Open Positions</a>
+                <a href="#" class="btn btn-primary">Apply Now</a>
+            </div>
+            <div class="join-visual">💼☕</div>
+        </div>
+    </section>
+
+    <script>
+        // Auto-rotate testimonials
+        const testimonials = [
+            {
+                text: "Working at Niyan IT Solutions gave me the freedom to innovate. I've learned more here in a year than anywhere else.",
+                name: "Aishwarya",
+                role: "Software Engineer",
+                avatar: "A"
+            },
+            {
+                text: "The culture here is supportive and full of energy — it feels like a second family.",
+                name: "Rahul",
+                role: "Network Specialist",
+                avatar: "R"
+            },
+            {
+                text: "Every day brings new challenges and growth opportunities.",
+                name: "Divya",
+                role: "UI/UX Designer",
+                avatar: "D"
+            }
+        ];
+
+        let currentTestimonial = 0;
+
+        function updateTestimonial() {
+            const testimonial = testimonials[currentTestimonial];
+            const testimonialEl = document.querySelector('.testimonial');
+            
+            testimonialEl.style.opacity = '0';
+            testimonialEl.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                document.querySelector('.testimonial-text').textContent = `"${testimonial.text}"`;
+                document.querySelector('.avatar').textContent = testimonial.avatar;
+                document.querySelector('.author-info h4').textContent = testimonial.name;
+                document.querySelector('.author-info p').textContent = testimonial.role;
+                
+                // Update dots
+                document.querySelectorAll('.dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentTestimonial);
+                });
+                
+                testimonialEl.style.opacity = '1';
+                testimonialEl.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        // Auto-rotate every 5 seconds
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateTestimonial();
+        }, 5000);
+
+        // Click on dots to change testimonial
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                updateTestimonial();
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+
+        // Hero section should be visible immediately
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.hero').style.transform = 'translateY(0)';
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
