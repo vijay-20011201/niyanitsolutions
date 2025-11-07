@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #00C9FF 0%, #92FE9D 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            width: 100%;
+            margin: 0;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .icon:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .icon:nth-child(2) { left: 70%; top: 30%; animation-delay: 2s; }
+        .icon:nth-child(3) { left: 30%; top: 60%; animation-delay: 4s; }
+        .icon:nth-child(4) { left: 80%; top: 70%; animation-delay: 1s; }
+        .icon:nth-child(5) { left: 50%; top: 40%; animation-delay: 3s; }
+        .icon:nth-child(6) { left: 15%; top: 80%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            25% { transform: translateY(-30px) translateX(20px) rotate(5deg); }
+            50% { transform: translateY(-60px) translateX(-20px) rotate(-5deg); }
+            75% { transform: translateY(-30px) translateX(20px) rotate(3deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,201,255,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,201,255,0.6);
+        }
+
+        .btn-outline {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #00C9FF;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 100%;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        section > * {
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Why Intern Section */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,201,255,0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 20px rgba(0,201,255,0.5));
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Internship Domains */
+        .domain-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .domain-icon {
+            font-size: 2.5rem;
+        }
+
+        .domain-title {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .domain-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .domain-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .detail-item {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #00C9FF;
+            font-size: 0.9rem;
+        }
+
+        .detail-value {
+            color: #333;
+            margin-top: 0.3rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .benefit-item:hover {
+            background: linear-gradient(135deg, rgba(0,201,255,0.1), rgba(146,254,157,0.1));
+            box-shadow: 0 10px 30px rgba(146,254,157,0.3);
+        }
+
+        .benefit-item::before {
+            content: '✅';
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 2rem 0;
+            overflow-x: auto;
+            gap: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00C9FF, #92FE9D);
+            z-index: 0;
+        }
+
+        .timeline-step {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-step:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,201,255,0.3);
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Form Section */
+        .form-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00C9FF;
+            box-shadow: 0 0 0 3px rgba(0,201,255,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,201,255,0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,201,255,0.6);
+        }
+
+        /* Success Stories */
+        .testimonial-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(0,201,255,0.2);
+            position: absolute;
+            top: 0;
+            left: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #00C9FF;
+        }
+
+        .testimonial-role {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #00C9FF 0%, #81C784 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .final-cta-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .cta-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rocket-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 3rem;
+            background: white;
+            color: #00C9FF;
+            border: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        .rocket-btn:hover {
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.3);
+        }
+
+        .rocket-btn:hover .rocket {
+            animation: rocketLiftoff 0.6s ease;
+        }
+
+        @keyframes rocketLiftoff {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(-10deg); }
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .gallery-placeholder {
+            font-size: 3rem;
+            color: white;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .timeline {
+                flex-direction: column;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #00C9FF;
+            transform: rotate(90deg);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0,201,255,0.1), rgba(146,254,157,0.1));
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-icons">
+            <div class="icon">💻</div>
+            <div class="icon">🎓</div>
+            <div class="icon">🚀</div>
+            <div class="icon">🌱</div>
+            <div class="icon">💡</div>
+            <div class="icon">⚡</div>
+        </div>
+        <div class="hero-content">
+            <h1>Start Your Career Journey with Niyan IT Solutions.</h1>
+            <p>Gain real-world experience, learn from experts, and turn your passion into a profession.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="openModal()">Apply for Internship</button>
+                <button class="btn-outline" onclick="document.getElementById('domains').scrollIntoView({behavior: 'smooth'})">Explore Roles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Intern Section -->
+    <section id="why-intern">
+        <div class="section-header">
+            <h2>An Internship That Builds More Than Just a Resume.</h2>
+            <p>We don't just train — we empower.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Learn by Doing</h3>
+                <p>Hands-on projects guided by professionals in live environments.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👨‍🏫</div>
+                <h3>Mentorship That Matters</h3>
+                <p>Every intern is paired with a mentor who helps them learn and grow.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Pathway to Employment</h3>
+                <p>Top performers get full-time opportunities at Niyan IT Solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Domains -->
+    <section id="domains">
+        <div class="section-header">
+            <h2>Explore Internship Roles That Match Your Passion.</h2>
+        </div>
+
+        <div class="domain-card">
+            <div class="domain-header">
+                <span class="domain-icon">🖥️</span>
+                <h3 class="domain-title">Technical Intern (IT Support / Desktop Engineer)</h3>
+            </div>
+            <p class="domain-description">Learn to troubleshoot systems, handle networks, and manage user support. Gain experience with hardware, OS, and service tickets.</p>
+            <div class="domain-details">
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value">3–6 months</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">Bangalore</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Preferred</div>
+                    <div class="detail-value">B.E / B.Tech / Diploma (IT, ECE, CSE)</div>
+                </div>
+            </div>
+            <div class="skills">
+                <span class="skill-tag">Windows</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Networking</span>
+                <span class="skill-tag">Communication</span>
+            </div>
+        </div>
+
+        <div class="domain-card">
+            <div class="domain-header">
+                <span class="domain-icon">🌐</span>
+                <h3 class="domain-title">Network Intern</h3>
+            </div>
+            <p class="domain-description">Work on real-world networking environments with routers, switches, and firewalls. Learn basics of LAN/WAN configuration and network documentation.</p>
+            <div class="domain-details">
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value">3–6 months</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">Bangalore</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Preferred</div>
+                    <div class="detail-value">Networking enthusiasts (CCNA basics a plus)</div>
+                </div>
+            </div>
+            <div class="skills">
+                <span class="skill-tag">CCNA</span>
+                <span class="skill-tag">IP Addressing</span>
+                <span class="skill-tag">VPN</span>
+                <span class="skill-tag">Firewalls</span>
+            </div>
+        </div>
+
+        <div class="domain-card">
+            <div class="domain-header">
+                <span class="domain-icon">📈</span>
+                <h3 class="domain-title">Digital Marketing Intern</h3>
+            </div>
+            <p class="domain-description">Assist in social media campaigns, SEO optimization, and content strategy. Work with Google Ads, analytics tools, and content teams.</p>
+            <div class="domain-details">
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value">3 months</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">Bangalore / Remote</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Preferred</div>
+                    <div class="detail-value">Marketing, Communication, or Business graduates</div>
+                </div>
+            </div>
+            <div class="skills">
+                <span class="skill-tag">SEO</span>
+                <span class="skill-tag">Google Ads</span>
+                <span class="skill-tag">Canva</span>
+                <span class="skill-tag">Meta Business Suite</span>
+            </div>
+        </div>
+
+        <div class="domain-card">
+            <div class="domain-header">
+                <span class="domain-icon">☕</span>
+                <h3 class="domain-title">Java Developer Intern</h3>
+            </div>
+            <p class="domain-description">Build small-scale web or desktop applications using Java & Spring Boot. Learn API integration and database handling.</p>
+            <div class="domain-details">
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value">4–6 months</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">Bangalore</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Preferred</div>
+                    <div class="detail-value">Computer Science or IT students</div>
+                </div>
+            </div>
+            <div class="skills">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">OOPs</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">REST APIs</span>
+            </div>
+        </div>
+
+        <div class="domain-card">
+            <div class="domain-header">
+                <span class="domain-icon">👥</span>
+                <h3 class="domain-title">HR Intern</h3>
+            </div>
+            <p class="domain-description">Support recruitment, onboarding, and employee engagement activities. Assist in resume screening and HR operations.</p>
+            <div class="domain-details">
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value">3 months</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">Bangalore</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Preferred</div>
+                    <div class="detail-value">MBA / BBA (HR specialization)</div>
+                </div>
+            </div>
+            <div class="skills">
+                <span class="skill-tag">Communication</span>
+                <span class="skill-tag">MS Excel</span>
+                <span class="skill-tag">People Handling</span>
+                <span class="skill-tag">Coordination</span>
+            </div>
+        </div>
+
+        <div class="domain-card">
+            <div class="domain-header">
+                <span class="domain-icon">💼</span>
+                <h3 class="domain-title">Business Development Intern</h3>
+            </div>
+            <p class="domain-description">Learn client communication, lead generation, and proposal management. Understand how IT solutions are presented to customers.</p>
+            <div class="domain-details">
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value">3–4 months</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">Bangalore</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Preferred</div>
+                    <div class="detail-value">BBA / MBA students</div>
+                </div>
+            </div>
+            <div class="skills">
+                <span class="skill-tag">Presentation</span>
+                <span class="skill-tag">CRM</span>
+                <span class="skill-tag">Communication</span>
+                <span class="skill-tag">Market Research</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits">
+        <div class="section-header">
+            <h2>What You'll Get at Niyan IT Solutions.</h2>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-item">Live Project Experience</div>
+            <div class="benefit-item">Internship Certificate</div>
+            <div class="benefit-item">Mentorship & Training</div>
+            <div class="benefit-item">Performance-based Stipend</div>
+            <div class="benefit-item">Job Placement Assistance</div>
+            <div class="benefit-item">Soft Skills & Career Workshops</div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section id="process">
+        <div class="section-header">
+            <h2>How to Apply</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-step">
+                <div class="step-number">📝</div>
+                <div class="step-title">Step 1: Submit Application Form</div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">🧠</div>
+                <div class="step-title">Step 2: Shortlisting & Online Assessment</div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">💬</div>
+                <div class="step-title">Step 3: Technical / HR Interview</div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">📄</div>
+                <div class="step-title">Step 4: Internship Offer Letter</div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">🚀</div>
+                <div class="step-title">Step 5: Start Your Journey</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life as an Intern -->
+    <section id="life">
+        <div class="section-header">
+            <h2>Intern. Learn. Build. Shine.</h2>
+            <p>Get real exposure, not just observation.</p>
+        </div>
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <div class="gallery-placeholder">📚</div>
+                <div class="gallery-caption">Code Camp 2025</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">💡</div>
+                <div class="gallery-caption">Digital Marketing Challenge</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">🎯</div>
+                <div class="gallery-caption">Career Growth Week</div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-placeholder">🤝</div>
+                <div class="gallery-caption">Team Collaboration</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section id="stories">
+        <div class="section-header">
+            <h2>From Intern to Innovator.</h2>
+            <p>Meet those who started their journey here.</p>
+        </div>
+        <div class="testimonial-carousel">
+            <div class="testimonial">
+                <p class="testimonial-text">"Started as a Java intern, now I'm a full-time Software Engineer at Niyan!"</p>
+                <div class="testimonial-author">— Priya R</div>
+                <div class="testimonial-role">Developer</div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"The mentorship and real project exposure made all the difference."</p>
+                <div class="testimonial-author">— Vikram S</div>
+                <div class="testimonial-role">Network Engineer</div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"Niyan gave me the platform to transform my skills into a rewarding career."</p>
+                <div class="testimonial-author">— Anjali M</div>
+                <div class="testimonial-role">Digital Marketing Specialist</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="final-cta-icons">
+            <div class="cta-icon" style="left: 10%; top: 20%;">🚀</div>
+            <div class="cta-icon" style="left: 80%; top: 30%;">📚</div>
+            <div class="cta-icon" style="left: 30%; top: 70%;">⭐</div>
+            <div class="cta-icon" style="left: 70%; top: 60%;">💼</div>
+        </div>
+        <h2>Kickstart your career with Niyan IT Solutions.</h2>
+        <button class="rocket-btn" onclick="openModal()">
+            <span class="rocket">🚀</span>
+            Apply for Internship
+        </button>
+    </section>
+
+    <!-- Application Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <h2 style="margin-bottom: 2rem; color: #333;">Apply for Internship</h2>
+            
+            <form id="applicationForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number *</label>
+                    <input type="tel" required placeholder="+91 XXXXX XXXXX">
+                </div>
+
+                <div class="form-group">
+                    <label>Select Internship Role *</label>
+                    <select required>
+                        <option value="">-- Choose a role --</option>
+                        <option value="technical">Technical Intern (IT Support / Desktop Engineer)</option>
+                        <option value="network">Network Intern</option>
+                        <option value="marketing">Digital Marketing Intern</option>
+                        <option value="java">Java Developer Intern</option>
+                        <option value="hr">HR Intern</option>
+                        <option value="bd">Business Development Intern</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>College / University Name *</label>
+                    <input type="text" required placeholder="Enter your college name">
+                </div>
+
+                <div class="form-group">
+                    <label>Duration Preferred *</label>
+                    <select required>
+                        <option value="">-- Select duration --</option>
+                        <option value="3">3 months</option>
+                        <option value="6">6 months</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Resume (PDF/DOC, max 2MB)</label>
+                    <input type="file" accept=".pdf,.doc,.docx">
+                </div>
+
+                <div class="form-group">
+                    <label>Tell us why you want to join</label>
+                    <textarea placeholder="Share your motivation and goals..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✅</div>
+                <h3>Thank you for applying!</h3>
+                <p>Our internship coordinator will contact you soon.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('applicationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('applicationModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('successMessage').classList.remove('active');
+            document.getElementById('applicationForm').style.display = 'block';
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('active');
+            
+            setTimeout(() => {
+                closeModal();
+                document.getElementById('applicationForm').reset();
+                document.getElementById('applicationForm').style.display = 'block';
+            }, 3000);
+        }
+
+        // Smooth scroll for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

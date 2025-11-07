@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0088ff 0%, #0066cc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #0088ff;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .required {
+            color: #ff0000;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            background: white;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0088ff;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 40px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 15px;
+            background: white;
+            border: 2px dashed #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #666;
+        }
+
+        .file-input-label:hover {
+            border-color: #0088ff;
+            background: #f0f8ff;
+        }
+
+        .file-name {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #0088ff 0%, #0066cc 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 136, 255, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error {
+            border-color: #ff0000 !important;
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .conditional-field {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <div class="form-container">
+        <h1>Apply Now — Join Niyan IT Solutions</h1>
+        <p class="subtitle">Submit your details and we'll get in touch soon.</p>
+        
+        <div class="success-message" id="successMessage">
+            Thank you for applying! We have received your application and will contact you soon.
+        </div>
+
+        <form id="applicationForm">
+            <div class="form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number <span class="required">*</span></label>
+                <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" maxlength="10" required>
+                <div class="error-message" id="mobileError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Position Applying For <span class="required">*</span></label>
+                <select id="position" name="position" required>
+                    <option value="">-- Select --</option>
+                    <option value="IT Support">IT Support</option>
+                    <option value="Desktop Engineer">Desktop Engineer</option>
+                    <option value="Network Engineer">Network Engineer</option>
+                    <option value="System Administrator">System Administrator</option>
+                    <option value="Software Developer">Software Developer</option>
+                    <option value="Web Developer">Web Developer</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Department <span class="required">*</span></label>
+                <select id="department" name="department" required>
+                    <option value="">-- Select --</option>
+                    <option value="IT Infrastructure">IT Infrastructure</option>
+                    <option value="Networking">Networking</option>
+                    <option value="Development">Development</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Internship">Internship</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Experience Level <span class="required">*</span></label>
+                <select id="experience" name="experience" required>
+                    <option value="">-- Select --</option>
+                    <option value="Fresher">Fresher</option>
+                    <option value="0-1 year">0-1 year</option>
+                    <option value="1-3 years">1-3 years</option>
+                    <option value="3+ years">3+ years</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Location <span class="required">*</span></label>
+                <input type="text" id="location" name="location" value="Bangalore" readonly style="background: #f0f0f0;">
+            </div>
+
+            <div class="form-group">
+                <label>Highest Qualification <span class="required">*</span></label>
+                <select id="qualification" name="qualification" required>
+                    <option value="">-- Select --</option>
+                    <option value="BE">BE</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="MBA">MBA</option>
+                    <option value="BSc">BSc</option>
+                    <option value="MCA">MCA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>College / University Name <span class="required" id="collegeRequired">*</span></label>
+                <input type="text" id="college" name="college" required>
+            </div>
+
+            <div class="form-group conditional-field" id="durationField">
+                <label>Preferred Duration <span class="required">*</span></label>
+                <select id="duration" name="duration">
+                    <option value="">-- Select --</option>
+                    <option value="3 months">3 months</option>
+                    <option value="6 months">6 months</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>LinkedIn Profile</label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+            </div>
+
+            <div class="form-group">
+                <label>Upload Resume / CV <span class="required">*</span></label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                    <label for="resume" class="file-input-label">
+                        📄 Choose file (PDF, DOC, DOCX - Max 2MB)
+                    </label>
+                </div>
+                <div class="file-name" id="fileName"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Short Message / Cover Letter</label>
+                <textarea id="message" name="message" placeholder="Tell us why you want to join Niyan IT Solutions"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/hide internship duration field
+        document.getElementById('position').addEventListener('change', function() {
+            const durationField = document.getElementById('durationField');
+            const durationSelect = document.getElementById('duration');
+            
+            if (this.value === 'Internship') {
+                durationField.style.display = 'block';
+                durationSelect.required = true;
+            } else {
+                durationField.style.display = 'none';
+                durationSelect.required = false;
+            }
+        });
+
+        // Update college requirement based on position
+        document.getElementById('position').addEventListener('change', function() {
+            const collegeRequired = document.getElementById('collegeRequired');
+            const collegeInput = document.getElementById('college');
+            
+            if (this.value === 'Internship') {
+                collegeRequired.style.display = 'inline';
+                collegeInput.required = true;
+            }
+        });
+
+        // File input handling
+        document.getElementById('resume').addEventListener('change', function() {
+            const fileName = document.getElementById('fileName');
+            const file = this.files[0];
+            
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('File size must be less than 2MB');
+                    this.value = '';
+                    fileName.textContent = '';
+                    return;
+                }
+                fileName.textContent = `Selected: ${file.name}`;
+            } else {
+                fileName.textContent = '';
+            }
+        });
+
+        // Mobile number validation
+        document.getElementById('mobile').addEventListener('input', function() {
+            const mobileError = document.getElementById('mobileError');
+            const value = this.value.replace(/\D/g, '');
+            this.value = value;
+            
+            if (value.length > 0 && value.length !== 10) {
+                mobileError.textContent = 'Mobile number must be 10 digits';
+            } else {
+                mobileError.textContent = '';
+            }
+        });
+
+        // Form submission
+        document.getElementById('applicationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Validate mobile number
+            const mobile = document.getElementById('mobile').value;
+            if (mobile.length !== 10) {
+                alert('Please enter a valid 10-digit mobile number');
+                return;
+            }
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Get resume file
+            const resumeFile = document.getElementById('resume').files[0];
+            
+            // Simulate saving resume to default folder
+            // In a real application, this would be handled by your backend
+            console.log('Resume would be saved to: /uploads/resumes/' + resumeFile.name);
+            
+            // Simulate email sending
+            // In a real application, this would be an API call to your backend
+            const emailData = {
+                to: 'vijayviki8106@gmail.com', // Your company email
+                subject: `New Application: ${data.position} - ${data.fullName}`,
+                body: `
+                    New job application received:
+                    
+                    Full Name: ${data.fullName}
+                    Email: ${data.email}
+                    Mobile: ${data.mobile}
+                    Position: ${data.position}
+                    Department: ${data.department}
+                    Experience: ${data.experience}
+                    Location: ${data.location}
+                    Qualification: ${data.qualification}
+                    College: ${data.college}
+                    ${data.duration ? 'Duration: ' + data.duration : ''}
+                    ${data.linkedin ? 'LinkedIn: ' + data.linkedin : ''}
+                    
+                    Cover Letter:
+                    ${data.message || 'N/A'}
+                    
+                    Resume: ${resumeFile.name}
+                `
+            };
+            
+            console.log('Email would be sent:', emailData);
+            console.log('Application data:', data);
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                document.getElementById('fileName').textContent = '';
+                
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Application';
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 1500);
+        });
+    </script>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    
+  </script>
+</body>
+</html>

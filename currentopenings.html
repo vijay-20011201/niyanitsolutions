@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #007BFF 0%, #00C9FF 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(106, 17, 203, 0.3);
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(106, 17, 203, 0.5), 0 0 30px rgba(37, 117, 252, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .filter-section {
+            background: white;
+            padding: 60px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filter-section h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .filter-section .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            background: #f0f0f0;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            border-color: #007BFF;
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #007BFF;
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.2);
+        }
+
+        .jobs-section {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.2);
+            border-color: #007BFF;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .job-responsibilities {
+            margin-bottom: 20px;
+        }
+
+        .job-responsibilities h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .job-responsibilities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-responsibilities li {
+            padding: 5px 0 5px 20px;
+            position: relative;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .job-responsibilities li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            padding: 6px 14px;
+            background: #e3f2fd;
+            color: #007BFF;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .apply-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #007BFF;
+        }
+
+        .modal h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #007BFF;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            border: 2px dashed #007BFF;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f0f8ff;
+        }
+
+        .file-upload-label:hover {
+            background: #e3f2fd;
+            border-color: #0056b3;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #007BFF, #00C9FF);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, #007BFF 0%, #00C9FF 100%);
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .benefits-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .final-cta {
+            position: relative;
+            background: linear-gradient(135deg, #6A11CB 0%, #00C9FF 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: floatIcon 20s infinite ease-in-out;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, -100px) rotate(90deg); }
+            50% { transform: translate(0, -200px) rotate(180deg); }
+            75% { transform: translate(-100px, -100px) rotate(270deg); }
+        }
+
+        .final-cta h2 {
+            position: relative;
+            z-index: 2;
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .final-cta .btn-primary {
+            background: white;
+            color: #6A11CB;
+        }
+
+        .final-cta .btn-primary:hover {
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .filters { flex-direction: column; }
+            .jobs-grid { grid-template-columns: 1fr; }
+            .filter-section h2, .benefits-section h2, .final-cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Be Part of Something Bigger.</h1>
+            <p>At Niyan IT Solutions, we're building the future of technology — and we're looking for passionate people to build it with us.</p>
+            <a href="#jobs" class="btn-primary">View All Open Roles</a>
+        </div>
+    </section>
+
+    <section class="filter-section" id="jobs">
+        <div class="container">
+            <h2>Find Your Role at Niyan IT Solutions</h2>
+            <p class="subtitle">All positions are currently open at our Bangalore office</p>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="All">All Departments</button>
+                <button class="filter-btn" data-filter="IT Support">IT Support</button>
+                <button class="filter-btn" data-filter="Networking">Networking</button>
+                <button class="filter-btn" data-filter="Marketing">Marketing</button>
+                <button class="filter-btn" data-filter="Development">Development</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search by role or keyword...">
+            </div>
+        </div>
+    </section>
+
+    <section class="jobs-section">
+        <div class="container">
+            <div class="jobs-grid" id="jobsGrid"></div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Grow Your Career at Niyan IT Solutions</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h3>Continuous Learning</h3>
+                    <p>Access to training programs and workshops</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <h3>Certification Sponsorships</h3>
+                    <p>We invest in your professional certifications</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏠</div>
+                    <h3>Hybrid Work Flexibility</h3>
+                    <p>Work-life balance with flexible arrangements</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎉</div>
+                    <h3>Team Events & Recognition</h3>
+                    <p>Regular celebrations and appreciation</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Transparent Growth Path</h3>
+                    <p>Clear career progression opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="floating-icons" id="floatingIcons"></div>
+        <h2>Your Future Starts Here — Join Niyan IT Solutions</h2>
+        <a href="#jobs" class="btn-primary">Apply Now</a>
+    </section>
+
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">✕</button>
+            <div id="formContainer">
+                <h2>Apply for This Position</h2>
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number *</label>
+                        <input type="tel" name="mobile" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Position Applied For</label>
+                        <input type="text" name="position" id="positionField" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Resume (PDF/DOC, Max 2MB) *</label>
+                        <div class="file-upload">
+                            <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx" required>
+                            <label for="resumeFile" class="file-upload-label">📎 Choose File</label>
+                        </div>
+                        <small id="fileName" style="color: #007BFF; margin-top: 5px; display: block;"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Short Cover Message (Optional)</label>
+                        <textarea name="message" placeholder="Tell us why you're interested..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+            <div id="successMessage" class="success-message">
+                <div class="success-icon">✓</div>
+                <h2>Thank You for Applying!</h2>
+                <p>Our HR team will get back to you soon.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const jobs = [
+            {
+                id: 1, title: 'IT Support Engineer', dept: 'IT Support', location: 'Bangalore',
+                type: 'Full-Time', exp: '0-2 years',
+                responsibilities: ['Troubleshoot software & hardware issues', 'Handle desktop support & ticket resolution', 'Support end-users and maintain system uptime', 'Log and document service requests'],
+                skills: ['Windows/Linux', 'Ticketing Tools', 'Networking Basics', 'Communication']
+            },
+            {
+                id: 2, title: 'Desktop Engineer', dept: 'IT Support', location: 'Bangalore',
+                type: 'Full-Time', exp: '0-2 years',
+                responsibilities: ['Install and maintain OS, software, and peripherals', 'Handle LAN/Wi-Fi troubleshooting', 'Support device configurations and antivirus management', 'Document system health checks and asset tracking'],
+                skills: ['Windows 10/11', 'LAN/Wi-Fi', 'Troubleshooting', 'Hardware Knowledge']
+            },
+            {
+                id: 3, title: 'Network Support Associate', dept: 'Networking', location: 'Bangalore',
+                type: 'Full-Time', exp: '0-2 years',
+                responsibilities: ['Monitor network uptime and performance', 'Support routers, switches, and firewalls', 'Log and escalate network incidents', 'Maintain documentation and reports'],
+                skills: ['LAN/WAN', 'VPN', 'Firewall Basics', 'CCNA Fundamentals', 'Troubleshooting']
+            },
+            {
+                id: 4, title: 'Network Engineer', dept: 'Networking', location: 'Bangalore',
+                type: 'Full-Time', exp: '2-4 years',
+                responsibilities: ['Manage enterprise network design & configuration', 'Configure routers, switches, and firewalls (Cisco/Fortinet)', 'Monitor security events and optimize bandwidth', 'Conduct preventive maintenance and reporting'],
+                skills: ['Cisco', 'Fortinet', 'Network Security', 'VLAN', 'TCP/IP', 'Monitoring Tools']
+            },
+            {
+                id: 5, title: 'Digital Marketing Executive', dept: 'Marketing', location: 'Bangalore',
+                type: 'Full-Time', exp: '0-3 years', badge: 'Creative Role',
+                responsibilities: ['Manage SEO, Google Ads, and social campaigns', 'Analyze metrics, generate reports, and track ROI', 'Coordinate creatives and copy with design teams', 'Execute email & influencer campaigns'],
+                skills: ['SEO', 'PPC', 'Google Analytics', 'Meta Ads', 'Content Marketing']
+            },
+            {
+                id: 6, title: 'Java Developer', dept: 'Development', location: 'Bangalore',
+                type: 'Full-Time', exp: '0-2 years',
+                responsibilities: ['Design and develop web applications using Java', 'Integrate REST APIs and databases (MySQL/PostgreSQL)', 'Collaborate with QA for testing & optimization', 'Maintain clean, documented code'],
+                skills: ['Java', 'Spring Boot', 'SQL', 'REST APIs', 'Git', 'Problem Solving']
+            }
+        ];
+
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.width = particle.style.height = Math.random() * 5 + 2 + 'px';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        const floatingIconsContainer = document.getElementById('floatingIcons');
+        const icons = ['💼', '💻', '🚀', '⚡', '🎯'];
+        for (let i = 0; i < 15; i++) {
+            const icon = document.createElement('div');
+            icon.className = 'floating-icon';
+            icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+            icon.style.left = Math.random() * 100 + '%';
+            icon.style.top = Math.random() * 100 + '%';
+            icon.style.animationDelay = Math.random() * 20 + 's';
+            floatingIconsContainer.appendChild(icon);
+        }
+
+        function renderJobs(jobsToRender) {
+            const jobsGrid = document.getElementById('jobsGrid');
+            jobsGrid.innerHTML = '';
+            jobsToRender.forEach(job => {
+                const jobCard = document.createElement('div');
+                jobCard.className = 'job-card';
+                jobCard.innerHTML = `
+                    ${job.badge ? `<span class="badge">${job.badge}</span>` : ''}
+                    <div class="job-header">
+                        <h3 class="job-title">${job.title}</h3>
+                        <div class="job-meta">
+                            <span class="meta-item">📍 ${job.location}</span>
+                            <span class="meta-item">⏰ ${job.type}</span>
+                            <span class="meta-item">📊 ${job.exp}</span>
+                        </div>
+                    </div>
+                    <div class="job-responsibilities">
+                        <h4>Responsibilities:</h4>
+                        <ul>${job.responsibilities.map(r => `<li>${r}</li>`).join('')}</ul>
+                    </div>
+                    <div class="skills">
+                        ${job.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
+                    </div>
+                    <button class="apply-btn" onclick="openModal('${job.title}')">Apply Now</button>
+                `;
+                jobsGrid.appendChild(jobCard);
+            });
+        }
+
+        renderJobs(jobs);
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+                let filtered = filter === 'All' ? jobs : jobs.filter(j => j.dept === filter);
+                if (searchQuery) {
+                    filtered = filtered.filter(j => 
+                        j.title.toLowerCase().includes(searchQuery) ||
+                        j.skills.some(s => s.toLowerCase().includes(searchQuery))
+                    );
+                }
+                renderJobs(filtered);
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchQuery = e.target.value.toLowerCase();
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+            let filtered = activeFilter === 'All' ? jobs : jobs.filter(j => j.dept === activeFilter);
+            if (searchQuery) {
+                filtered = filtered.filter(j => 
+                    j.title.toLowerCase().includes(searchQuery) ||
+                    j.skills.some(s => s.toLowerCase().includes(searchQuery))
+                );
+            }
+            renderJobs(filtered);
+        });
+
+        function openModal(position) {
+            const modal = document.getElementById('applicationModal');
+            document.getElementById('positionField').value = position;
+            document.getElementById('formContainer').style.display = 'block';
+            document.getElementById('successMessage').classList.remove('active');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('applicationModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('applicationForm').reset();
+            document.getElementById('fileName').textContent = '';
+        }
+
+        document.getElementById('applicationModal').addEventListener('click', (e) => {
+            if (e.target.id === 'applicationModal') closeModal();
+        });
+
+        document.getElementById('resumeFile').addEventListener('change', (e) => {
+            const fileName = e.target.files[0]?.name;
+            document.getElementById('fileName').textContent = fileName ? `Selected: ${fileName}` : '';
+        });
+
+        document.getElementById('applicationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('successMessage').classList.add('active');
+            setTimeout(() => closeModal(), 3000);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
