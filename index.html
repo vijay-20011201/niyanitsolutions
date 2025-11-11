@@ -303,7 +303,7 @@
 
         .capabilities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
@@ -376,10 +376,27 @@
         }
 
         .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* This will naturally give you 3 rows with 3 cards each,
+   which looks much more balanced and professional */
+
+@media (max-width: 768px) {
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .industries-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
         .industry-card {
             background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
@@ -467,154 +484,215 @@
         }
 
         /* Testimonials Section */
-        .testimonials {
-            background: #f8f9fa;
-        }
+.testimonials {
+    background: #f8f9fa;
+    overflow: hidden;
+    padding: 80px 0;
+}
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
+.testimonials-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden; /* This is critical */
+}
 
-        .testimonial-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            position: relative;
-            transition: all 0.3s ease;
-        }
+.testimonials-grid {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    width: 100%;
+}
 
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
+.testimonial-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    min-width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
 
-        .quote-icon {
-            font-size: 60px;
-            color: #667eea;
-            opacity: 0.2;
-            position: absolute;
-            top: 20px;
-            right: 30px;
-        }
+.testimonial-card:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
 
-        .rating {
-            color: #ffc107;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
+.quote-icon {
+    font-size: 60px;
+    color: #667eea;
+    opacity: 0.2;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    line-height: 1;
+}
 
-        .testimonial-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
+.rating {
+    color: #ffc107;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.testimonial-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 25px;
+    font-style: italic;
+}
 
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        .author-info h4 {
-            color: #1a1a2e;
-            margin-bottom: 5px;
-        }
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    flex-shrink: 0;
+}
 
-        .author-info p {
-            color: #999;
-            font-size: 14px;
-        }
+.author-info h4 {
+    color: #1a1a2e;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
 
+.author-info p {
+    color: #999;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Navigation dots */
+.testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.dot.active {
+    background: #667eea;
+    width: 30px;
+    border-radius: 6px;
+}
+
+.dot:hover {
+    background: #764ba2;
+}
+
+@media (max-width: 768px) {
+    .testimonials-container {
+        max-width: 90%;
+    }
+    
+    .testimonial-card {
+        padding: 30px 20px;
+    }
+    
+    .quote-icon {
+        font-size: 40px;
+    }
+}
         /* Case Studies Section */
-        .case-studies {
-            background: white;
-        }
+.case-studies {
+    background: white;
+}
+.case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+.case-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.case-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+.case-image {
+    height: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+.case-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+.case-content {
+    padding: 30px;
+}
+.case-tag {
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.case-content h3 {
+    font-size: 22px;
+    color: #1a1a2e;
+    margin-bottom: 15px;
+}
+.case-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
 
-        .case-studies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .case-studies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-        .case-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .case-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .case-image {
-            height: 250px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .case-image::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-
-        .case-content {
-            padding: 30px;
-        }
-
-        .case-tag {
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .case-content h3 {
-            font-size: 22px;
-            color: #1a1a2e;
-            margin-bottom: 15px;
-        }
-
-        .case-content p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+@media (max-width: 768px) {
+    .case-studies-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
         /* Contact CTA Section */
         .contact-cta {
@@ -917,12 +995,12 @@
             </div>
             <div class="features-grid">
                 <div class="feature-item">
-                    <div class="feature-number">10+</div>
+                    <div class="feature-number">2+</div>
                     <h3>Years of Excellence</h3>
                     <p>Decade-long track record of delivering successful IT solutions across industries</p>
                 </div>
                 <div class="feature-item">
-                    <div class="feature-number">500+</div>
+                    <div class="feature-number">100+</div>
                     <h3>Projects Completed</h3>
                     <p>Successfully delivered projects ranging from startups to enterprise solutions</p>
                 </div>
@@ -941,23 +1019,24 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Client Reviews</div>
-                <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-description">Hear from businesses that have transformed with our solutions</p>
-            </div>
-            <div class="testimonials-grid">
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-subtitle">Client Reviews</div>
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-description">Hear from businesses that have transformed with our solutions</p>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonials-grid" id="testimonials-slider">
                 <div class="testimonial-card">
                     <div class="quote-icon">"</div>
                     <div class="rating">⭐⭐⭐⭐⭐</div>
                     <p class="testimonial-text">Niyan IT Solutions transformed our entire IT infrastructure. Their team's expertise in cloud migration and ongoing support has been phenomenal. Highly recommend!</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">RK</div>
+                        <div class="author-avatar">NR</div>
                         <div class="author-info">
-                            <h4>Rajesh Kumar</h4>
-                            <p>CEO, TechVision Industries</p>
+                            <h4>Nageshwar Rao</h4>
+                            <p>CEO, SL Networks</p>
                         </div>
                     </div>
                 </div>
@@ -966,10 +1045,22 @@
                     <div class="rating">⭐⭐⭐⭐⭐</div>
                     <p class="testimonial-text">The mobile app they developed for our restaurant chain exceeded expectations. User-friendly, fast, and exactly what we needed. Excellent work!</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">PS</div>
+                        <div class="author-avatar">S</div>
                         <div class="author-info">
-                            <h4>Priya Sharma</h4>
-                            <p>Founder, FoodHub Network</p>
+                            <h4>Srinath</h4>
+                            <p>CEO, Isha Events</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">Outstanding web development service! They created a stunning e-commerce platform that boosted our sales by 200%. Professional team!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">NR</div>
+                        <div class="author-info">
+                            <h4>Nikhil Reddy</h4>
+                            <p>CEO, Trend Global Solutions Pvt.Ltd</p>
                         </div>
                     </div>
                 </div>
@@ -978,53 +1069,135 @@
                     <div class="rating">⭐⭐⭐⭐⭐</div>
                     <p class="testimonial-text">Their digital marketing strategies helped us triple our online presence. The SEO and social media campaigns delivered measurable results within months.</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">AM</div>
+                        <div class="author-avatar">N</div>
                         <div class="author-info">
-                            <h4>Amit Mehta</h4>
-                            <p>Director, GlobalTrade Solutions</p>
+                            <h4>Noorllah</h4>
+                            <p>CEO, Testo Code</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="testimonial-dots" id="testimonial-dots"></div>
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+    const slider = document.getElementById('testimonials-slider');
+    const dotsContainer = document.getElementById('testimonial-dots');
+    const cards = slider.querySelectorAll('.testimonial-card');
+    const totalCards = cards.length;
+    let currentIndex = 0;
+    let autoSlideInterval;
+    let isPaused = false;
+
+    // Create dots
+    for (let i = 0; i < totalCards; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    function updateSlider() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        if (!isPaused) {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateSlider();
+        }
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+        resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 2000); // 2 seconds
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+
+    // Pause on hover
+    slider.addEventListener('mouseenter', () => {
+        isPaused = true;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isPaused = false;
+    });
+
+    // Start auto-sliding
+    startAutoSlide();
+</script>
 
     <!-- Case Studies Section -->
-    <section class="case-studies">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Success Stories</div>
-                <h2 class="section-title">Featured Case Studies</h2>
-                <p class="section-description">Explore how we've helped businesses achieve their digital goals</p>
+<section class="case-studies">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-subtitle">Success Stories</div>
+            <h2 class="section-title">Featured Case Studies</h2>
+            <p class="section-description">Explore how we've helped businesses achieve their digital goals</p>
+        </div>
+        <div class="case-studies-grid">
+            <div class="case-card">
+                <div class="case-image">🏫</div>
+                <div class="case-content">
+                    <span class="case-tag">Education</span>
+                    <h3>School Management System</h3>
+                    <p>Developed a comprehensive school management platform handling admissions, attendance, grades, and parent communication for 50+ schools.</p>
+                    <a href="#" class="learn-more">View Case Study →</a>
+                </div>
             </div>
-            <div class="case-studies-grid">
-                <div class="case-card">
-                    <div class="case-image">🏫</div>
-                    <div class="case-content">
-                        <span class="case-tag">Education</span>
-                        <h3>School Management System</h3>
-                        <p>Developed a comprehensive school management platform handling admissions, attendance, grades, and parent communication for 50+ schools.</p>
-                        <a href="#" class="learn-more">View Case Study →</a>
-                    </div>
+            <div class="case-card">
+                <div class="case-image">🛒</div>
+                <div class="case-content">
+                    <span class="case-tag">E-Commerce</span>
+                    <h3>Multi-Vendor Marketplace</h3>
+                    <p>Built a scalable e-commerce platform with vendor management, payment gateway integration, and real-time inventory tracking.</p>
+                    <a href="#" class="learn-more">View Case Study →</a>
                 </div>
-                <div class="case-card">
-                    <div class="case-image">🛒</div>
-                    <div class="case-content">
-                        <span class="case-tag">E-Commerce</span>
-                        <h3>Multi-Vendor Marketplace</h3>
-                        <p>Built a scalable e-commerce platform with vendor management, payment gateway integration, and real-time inventory tracking.</p>
-                        <a href="#" class="learn-more">View Case Study →</a>
-                    </div>
+            </div>
+            <div class="case-card">
+                <div class="case-image">🏥</div>
+                <div class="case-content">
+                    <span class="case-tag">Healthcare</span>
+                    <h3>Hospital Management Solution</h3>
+                    <p>Created an integrated hospital management system with patient records, appointment scheduling, and billing automation.</p>
+                    <a href="#" class="learn-more">View Case Study →</a>
                 </div>
-                <div class="case-card">
-                    <div class="case-image">🏥</div>
-                    <div class="case-content">
-                        <span class="case-tag">Healthcare</span>
-                        <h3>Hospital Management Solution</h3>
-                        <p>Created an integrated hospital management system with patient records, appointment scheduling, and billing automation.</p>
-                        <a href="#" class="learn-more">View Case Study →</a>
-                    </div>
-                </section>
+            </div>
+            <div class="case-card">
+                <div class="case-image">🏭</div>
+                <div class="case-content">
+                    <span class="case-tag">Manufacturing</span>
+                    <h3>Smart Factory Management</h3>
+                    <p>Implemented an end-to-end manufacturing solution with inventory control, production tracking, quality assurance, and supply chain optimization.</p>
+                    <a href="#" class="learn-more">View Case Study →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Contact CTA Section -->
 <section class="contact-cta" id="contact">
@@ -1033,7 +1206,7 @@
         <p>Let's discuss how we can help you achieve your digital transformation goals. Get in touch with our team today.</p>
         <div class="cta-buttons">
             <a href="#" class="btn-primary">Get Started</a>
-            <a href="#" class="btn-secondary">Schedule a Call</a>
+            
         </div>
     </div>
 </section>

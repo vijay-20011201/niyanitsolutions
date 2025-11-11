@@ -269,12 +269,12 @@
         }
 
         .approach-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
 
         .approach-card {
             background: white;
@@ -347,6 +347,19 @@
         .approach-card:hover p {
             color: rgba(255,255,255,0.9);
         }
+
+        /* Responsive breakpoints */
+@media (max-width: 992px) {
+    .approach-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
         /* ==================== OUR JOURNEY SECTION ==================== */
         .journey-section {
@@ -747,29 +760,39 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">Our Methodology</span>
-                <h2 class="section-title">Our Approach</h2>
+                <h2 class="section-title">Our Approach 6-D Process</h2>
                 <p class="section-description">We believe in understanding your business from the ground up — ensuring every solution we design aligns perfectly with your goals. From strategy and design to deployment and support, we handle every phase with precision and care.</p>
             </div>
             <div class="approach-grid">
                 <div class="approach-card">
-                    <span class="approach-icon">🎯</span>
-                    <h3>Strategy</h3>
-                    <p>Understanding your vision and creating a roadmap for success</p>
+                    <span class="approach-icon">1</span>
+                    <h3>Discover</h3>
+                    <p>We begin by understanding your business goals, challenges, and requirements. This helps us discover what truly matters — so we can design solutions that make an impact.</p>
                 </div>
                 <div class="approach-card">
-                    <span class="approach-icon">✨</span>
+                    <span class="approach-icon">2</span>
+                    <h3>Define</h3>
+                    <p>In this phase, we define the project scope, objectives, and deliverables. We create a clear roadmap that ensures alignment between your vision and our execution.</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">3</span>
                     <h3>Design</h3>
-                    <p>Crafting intuitive and visually stunning user experiences</p>
+                    <p>Our creative and technical teams collaborate to design visually appealing and user-friendly interfaces, ensuring your digital presence looks great and performs even better.</p>
                 </div>
                 <div class="approach-card">
-                    <span class="approach-icon">⚙️</span>
-                    <h3>Development</h3>
-                    <p>Building robust and scalable technology solutions</p>
+                    <span class="approach-icon">4</span>
+                    <h3>Develop</h3>
+                    <p>We turn designs into functional, high-performing solutions using the latest technologies. Our focus is on building secure, scalable, and efficient systems that deliver real results.</p>
                 </div>
                 <div class="approach-card">
-                    <span class="approach-icon">🛡️</span>
-                    <h3>Support</h3>
-                    <p>Providing continuous maintenance and expert assistance</p>
+                    <span class="approach-icon">5</span>
+                    <h3>Deploy</h3>
+                    <p>Once development and testing are complete, we deploy the solution in a live environment. We ensure a seamless launch with zero downtime and complete functionality.</p>
+                </div>
+                <div class="approach-card">
+                    <span class="approach-icon">6</span>
+                    <h3>Deliver</h3>
+                    <p>After deployment, we continue to support and monitor performance. We believe delivery isn’t the end — it’s the beginning of a long-term partnership focused on your success.</p>
                 </div>
             </div>
         </div>
@@ -786,15 +809,15 @@
                     
                     <div class="journey-stats">
                         <div class="stat-box">
-                            <div class="stat-number">10+</div>
+                            <div class="stat-number">2+</div>
                             <div class="stat-label">Years of Excellence</div>
                         </div>
                         <div class="stat-box">
-                            <div class="stat-number">500+</div>
+                            <div class="stat-number">100+</div>
                             <div class="stat-label">Projects Delivered</div>
                         </div>
                         <div class="stat-box">
-                            <div class="stat-number">200+</div>
+                            <div class="stat-number">70+</div>
                             <div class="stat-label">Happy Clients</div>
                         </div>
                         <div class="stat-box">

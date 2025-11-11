@@ -44,9 +44,10 @@
             display: flex;
             align-items: center;
             padding: 0 20px;
+            gap: 30px;
         }
 
-        .logo {
+        /*.logo {
             font-size: 24px;
             font-weight: bold;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -57,14 +58,38 @@
             white-space: nowrap;
         }
         .logo img {
-           height: 75px;           /* adjust as needed */
-           width: auto;            /* keeps aspect ratio */
-           display: block;         /* removes bottom gap */
+           height: 75px;            
+           width: auto;              
+           display: block;           
+        }*/
+        .logo {
+          font-size: 24px;
+          font-weight: bold;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          padding: 0; /* Remove padding */
+          margin-right: 30px;
+          white-space: nowrap;
+          display: flex; /* Add flex */
+          align-items: center; /* Center vertically */
+          line-height: 0; /* Remove line-height spacing */
+        }
+
+        .logo img {
+          height: 60px; /* Adjust height as needed */          
+          width: auto;              
+          display: block;
+          vertical-align: middle; /* Remove inline gap */
+          object-fit: contain; /* Prevent distortion */
         }
 
         .logo a {
            text-decoration: none;
-           display: inline-block;
+           display: flex;
+           align-items: center;
+           line-height: 0;
+
         }
 
         .nav-menu {
@@ -126,6 +151,7 @@
             color: #667eea;
             background: rgba(102, 126, 234, 0.15);
         }
+        
 
         .arrow {
             font-size: 10px;
@@ -360,7 +386,7 @@
   </a></div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <a href="index.html" class="nav-link">Home</a>
                 </li>
                  
 
@@ -376,9 +402,9 @@
                         <li class="dropdown-item">
                             <a href="Mission.html" class="dropdown-link">Mission & Vision</a>
                         </li>
-                        <li class="dropdown-item">
+                        <!--<li class="dropdown-item">
                             <a href="team.html" class="dropdown-link">Our Team</a>
-                        </li>
+                        </li>-->
                         <li class="dropdown-item">
                             <a href="values.html" class="dropdown-link">Our Values</a>
                         </li>
@@ -406,7 +432,7 @@
                             <div class="mega-title" style="margin-top: 20px;">📧 Email Solutions</div>
                             <a href="office365.html" class="sub-mega-item">Office 365</a>
                             <a href="googleworkspace.html" class="sub-mega-item">Google Workspace</a>
-                            <a href="email.html" class="sub-mega-item">Email Support</a>
+                            <a href="emailsupport.html" class="sub-mega-item">Email Support</a>
                         </div>
 
                         <div class="mega-column">
@@ -531,7 +557,7 @@
                 </li>
             </ul>
             
-            <a href="applynow.html" class="cta-button">Apply Now</a>
+            <!--<a href="applynow.html" class="cta-button">Login</a>-->
         </div>
     </nav>
 </body>
