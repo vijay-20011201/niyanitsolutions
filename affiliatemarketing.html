@@ -541,11 +541,17 @@
         }
 
         .campaign-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 70px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(3, auto);   /* 3 flexible rows (for 9 items total) */
+    gap: 30px;                             /* spacing between grid cells */
+    margin-top: 70px;                      /* spacing above the grid */
+    justify-items: center;                 /* centers each item horizontally */
+    align-items: start;                    /* aligns items vertically (use 'center' if you prefer) */
+    max-width: 1200px;                     /* keeps grid centered on large screens */
+    margin-left: auto;
+    margin-right: auto;
+}
 
         .campaign-thumbnail {
             position: relative;

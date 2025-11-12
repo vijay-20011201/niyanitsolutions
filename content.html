@@ -438,12 +438,15 @@
         }
 
         .why-grid {
-            max-width: 1400px;
-            margin: 60px auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
+    max-width: 1400px;                     /* keeps grid centered within page width */
+    margin: 60px auto 0;                   /* top spacing + centers the grid horizontally */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns */
+    grid-template-rows: repeat(2, auto);   /* 2 flexible rows (for 4 items total) */
+    gap: 40px;                             /* space between items */
+    justify-items: center;                 /* centers content horizontally */
+    align-items: start;                    /* aligns items vertically at the top */
+}
 
         .why-card {
             background: #f9f6ef;

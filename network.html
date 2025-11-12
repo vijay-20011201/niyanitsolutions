@@ -272,10 +272,11 @@
         }
 
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+           display: grid;
+           grid-template-columns: repeat(2, 1fr); /* 2 columns */
+           grid-template-rows: repeat(2, auto);   /* 2 rows */
+           gap: 2.5rem;                           /* spacing between items */
+           margin-top: 3rem;
         }
 
         .feature-box {
@@ -626,11 +627,12 @@
         }
 
         .support-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(3, auto);   /* 3 rows that adjust to content */
+    gap: 3rem;                             /* space between grid items */
+    margin-top: 4rem;
+}
 
         .support-box {
             background: rgba(255, 255, 255, 0.1);

@@ -103,6 +103,7 @@
             gap: 20px;
             justify-content: center;
             animation: fadeInUp 1.4s ease;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -142,24 +143,26 @@
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
 
-        .phone-mockup {
-            position: absolute;
-            right: 10%;
-            bottom: -50px;
-            width: 250px;
-            animation: floatPhone 3s ease-in-out infinite;
-        }
-
-        @keyframes floatPhone {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        /* Container for all sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
         }
 
         /* Section Styles */
         section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 80px 0;
+            width: 100%;
+        }
+
+        .section-bg {
+            background: linear-gradient(135deg, #E3F2FD, #ffffff);
+        }
+
+        .section-bg-alt {
+            background: #f9f9f9;
         }
 
         .section-header {
@@ -181,7 +184,7 @@
         /* Cards */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
@@ -247,11 +250,12 @@
         }
 
         .feature-item {
-            background: linear-gradient(135deg, #E3F2FD, #ffffff);
+            background: white;
             padding: 25px;
             border-radius: 15px;
             border-left: 4px solid #0099CC;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         .feature-item:hover {
@@ -262,41 +266,31 @@
         .feature-item h4 {
             color: #0099CC;
             margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* Workflow */
         .workflow {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 40px;
             margin-top: 40px;
         }
 
         .workflow-step {
-            flex: 1;
-            min-width: 150px;
             text-align: center;
             position: relative;
         }
 
-        .workflow-step::after {
-            content: '→';
-            position: absolute;
-            right: -30px;
-            top: 25px;
-            font-size: 2rem;
-            color: #80DEEA;
-        }
-
-        .workflow-step:last-child::after {
-            display: none;
-        }
-
         .workflow-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #0099CC, #80DEEA);
             border-radius: 50%;
             display: flex;
@@ -312,10 +306,15 @@
             transform: scale(1.1) rotate(360deg);
         }
 
+        .workflow-step p {
+            color: #333;
+            font-size: 0.95rem;
+        }
+
         /* Integrations */
         .integrations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -334,52 +333,27 @@
             box-shadow: 0 15px 40px rgba(0, 153, 204, 0.2);
         }
 
-        .integration-item img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
-        }
-
         /* Pricing Cards */
         .pricing-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
 
         .pricing-card {
-            background: linear-gradient(135deg, #E3F2FD 0%, #ffffff 100%);
+            background: white;
             border-radius: 20px;
             padding: 40px 30px;
-            border: 3px solid transparent;
-            background-clip: padding-box;
-            position: relative;
+            border: 3px solid #E3F2FD;
             transition: all 0.4s ease;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(135deg, #00BCD4, #2196F3);
-            border-radius: 20px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .pricing-card:hover::before {
-            opacity: 1;
         }
 
         .pricing-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 60px rgba(33, 150, 243, 0.3);
+            border-color: #00BCD4;
         }
 
         .pricing-icon {
@@ -407,6 +381,7 @@
         .pricing-card ul li {
             padding: 10px 0;
             border-bottom: 1px solid #e0e0e0;
+            color: #555;
         }
 
         .pricing-card ul li:last-child {
@@ -426,12 +401,15 @@
             color: white;
             text-align: center;
             padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
         }
 
         .cta-section h2 {
             font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
             margin-bottom: 30px;
         }
 
@@ -467,7 +445,7 @@
 
         .dashboard-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
         }
 
@@ -490,19 +468,66 @@
             color: #0099CC;
         }
 
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0099CC, #00BCD4);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 153, 204, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 153, 204, 0.5);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 1rem; }
-            .hero-buttons { flex-direction: column; }
-            .section-header h2 { font-size: 2rem; }
-            .phone-mockup { display: none; }
-            .workflow-step::after { display: none; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .hero-buttons .btn { width: 100%; max-width: 300px; }
+            .section-header h2 { font-size: 1.8rem; }
+            .section-header p { font-size: 1rem; }
+            section { padding: 60px 0; }
+            .cards { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .workflow { grid-template-columns: repeat(2, 1fr); }
+            .pricing-cards { grid-template-columns: 1fr; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .stat-card .value { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.5rem; }
+            .btn { padding: 12px 25px; font-size: 1rem; }
+            .card { padding: 30px 20px; }
+            .pricing-card { padding: 30px 20px; }
+            .workflow-icon { width: 60px; height: 60px; font-size: 1.5rem; }
+            .scroll-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
         }
     </style>
 </head>
 <body>
-
     <!-- Header Navigation (Loaded from header.html) -->
     <div id="header"></div>
     <!-- Hero Section -->
@@ -526,35 +551,37 @@
 
     <!-- Section 1: Who We Work With -->
     <section id="clients">
-        <div class="section-header">
-            <h2>Empowering Every Travel & Tourism Business</h2>
-            <p>We build technology for everyone in the travel ecosystem</p>
-        </div>
-        <div class="cards">
-            <div class="card">
-                <div class="card-icon">🌍</div>
-                <h3>Travel Agencies</h3>
-                <p>Custom booking platforms and CRM systems designed to streamline operations and enhance customer experiences for travel agencies of all sizes.</p>
-                <div class="cta">Explore More →</div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Empowering Every Travel & Tourism Business</h2>
+                <p>We build technology for everyone in the travel ecosystem</p>
             </div>
-            <div class="card">
-                <div class="card-icon">🧳</div>
-                <h3>Tour Operators</h3>
-                <p>Comprehensive itinerary management, real-time booking systems, and automated workflows for seamless tour operations.</p>
-                <div class="cta">Explore More →</div>
-            </div>
-            <div class="card">
-                <div class="card-icon">🏨</div>
-                <h3>Hospitality & Resort Chains</h3>
-                <p>Integrated property management systems with booking engines, guest management, and analytics dashboards.</p>
-                <div class="cta">Explore More →</div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Travel Agencies</h3>
+                    <p>Custom booking platforms and CRM systems designed to streamline operations and enhance customer experiences for travel agencies of all sizes.</p>
+                    <div class="cta">Explore More →</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧳</div>
+                    <h3>Tour Operators</h3>
+                    <p>Comprehensive itinerary management, real-time booking systems, and automated workflows for seamless tour operations.</p>
+                    <div class="cta">Explore More →</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏨</div>
+                    <h3>Hospitality & Resort Chains</h3>
+                    <p>Integrated property management systems with booking engines, guest management, and analytics dashboards.</p>
+                    <div class="cta">Explore More →</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section 2: Website & App Development -->
-    <section id="solutions" style="background: linear-gradient(135deg, #E3F2FD, #ffffff); margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section id="solutions" class="section-bg">
+        <div class="container">
             <div class="section-header">
                 <h2>Your Digital Travel Agency — Online & Mobile</h2>
                 <p>We design seamless travel booking websites and apps for global travelers</p>
@@ -586,56 +613,58 @@
 
     <!-- Section 3: Booking Engine -->
     <section>
-        <div class="section-header">
-            <h2>Automate Bookings. Simplify Payments.</h2>
-            <p>Fast, secure, and easy transactions for flights, hotels, and tours</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-item">
-                <h4>💰 Dynamic Package Pricing</h4>
-                <p>Smart pricing based on demand and availability</p>
+        <div class="container">
+            <div class="section-header">
+                <h2>Automate Bookings. Simplify Payments.</h2>
+                <p>Fast, secure, and easy transactions for flights, hotels, and tours</p>
             </div>
-            <div class="feature-item">
-                <h4>📧 Instant Confirmation Emails & SMS</h4>
-                <p>Automated communication with customers</p>
-            </div>
-            <div class="feature-item">
-                <h4>🔌 Integration with Travel APIs</h4>
-                <p>Amadeus, Sabre, Galileo connectivity</p>
-            </div>
-            <div class="feature-item">
-                <h4>💳 Payment Gateways</h4>
-                <p>Razorpay • Stripe • PayPal • Paytm</p>
-            </div>
-        </div>
-        <div class="dashboard-mockup">
-            <div class="dashboard-header">
-                <h3>Booking Dashboard</h3>
-            </div>
-            <div class="dashboard-stats">
-                <div class="stat-card">
-                    <h4>Today's Bookings</h4>
-                    <div class="value">47</div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>💰 Dynamic Package Pricing</h4>
+                    <p>Smart pricing based on demand and availability</p>
                 </div>
-                <div class="stat-card">
-                    <h4>Pending Confirmations</h4>
-                    <div class="value">12</div>
+                <div class="feature-item">
+                    <h4>📧 Instant Confirmation Emails & SMS</h4>
+                    <p>Automated communication with customers</p>
                 </div>
-                <div class="stat-card">
-                    <h4>Revenue</h4>
-                    <div class="value">₹2.4L</div>
+                <div class="feature-item">
+                    <h4>🔌 Integration with Travel APIs</h4>
+                    <p>Amadeus, Sabre, Galileo connectivity</p>
                 </div>
-                <div class="stat-card">
-                    <h4>Active Customers</h4>
-                    <div class="value">234</div>
+                <div class="feature-item">
+                    <h4>💳 Payment Gateways</h4>
+                    <p>Razorpay • Stripe • PayPal • Paytm</p>
+                </div>
+            </div>
+            <div class="dashboard-mockup">
+                <div class="dashboard-header">
+                    <h3>Booking Dashboard</h3>
+                </div>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h4>Today's Bookings</h4>
+                        <div class="value">47</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Pending Confirmations</h4>
+                        <div class="value">12</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Revenue</h4>
+                        <div class="value">₹2.4L</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Active Customers</h4>
+                        <div class="value">234</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section 4: Itinerary Management -->
-    <section style="background: #f9f9f9; margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section class="section-bg-alt">
+        <div class="container">
             <div class="section-header">
                 <h2>Make Every Journey Seamless</h2>
                 <p>Empower travelers with organized trip planners</p>
@@ -667,41 +696,43 @@
 
     <!-- Section 5: Workflow -->
     <section>
-        <div class="section-header">
-            <h2>How Our Travel Platform Works</h2>
-            <p>Simple, seamless journey from search to feedback</p>
-        </div>
-        <div class="workflow">
-            <div class="workflow-step">
-                <div class="workflow-icon">🔍</div>
-                <p><strong>Search Destination</strong></p>
+        <div class="container">
+            <div class="section-header">
+                <h2>How Our Travel Platform Works</h2>
+                <p>Simple, seamless journey from search to feedback</p>
             </div>
-            <div class="workflow-step">
-                <div class="workflow-icon">⚖️</div>
-                <p><strong>Compare & Book</strong></p>
-            </div>
-            <div class="workflow-step">
-                <div class="workflow-icon">💳</div>
-                <p><strong>Payment</strong></p>
-            </div>
-            <div class="workflow-step">
-                <div class="workflow-icon">✅</div>
-                <p><strong>Confirmation</strong></p>
-            </div>
-            <div class="workflow-step">
-                <div class="workflow-icon">🗺️</div>
-                <p><strong>Trip Management</strong></p>
-            </div>
-            <div class="workflow-step">
-                <div class="workflow-icon">⭐</div>
-                <p><strong>Feedback</strong></p>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="workflow-icon">🔍</div>
+                    <p><strong>Search Destination</strong></p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">⚖️</div>
+                    <p><strong>Compare & Book</strong></p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">💳</div>
+                    <p><strong>Payment</strong></p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">✅</div>
+                    <p><strong>Confirmation</strong></p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">🗺️</div>
+                    <p><strong>Trip Management</strong></p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">⭐</div>
+                    <p><strong>Feedback</strong></p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section 6: Integrations -->
-    <section style="background: linear-gradient(135deg, #E3F2FD, #ffffff); margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section class="section-bg">
+        <div class="container">
             <div class="section-header">
                 <h2>Seamless Integrations for the Travel Ecosystem</h2>
                 <p>Connect with leading travel platforms and services</p>
@@ -737,61 +768,63 @@
 
     <!-- Section 7: Pricing -->
     <section id="pricing">
-        <div class="section-header">
-            <h2>Flexible Packages for Every Travel Business</h2>
-            <p>Whether you're a local travel agency or a global tour operator — we have the right digital solution for you</p>
-        </div>
-        <div class="pricing-cards">
-            <div class="pricing-card">
-                <div class="pricing-icon">🧳</div>
-                <h3>Starter Explorer</h3>
-                <p class="subtitle">Perfect for small travel agencies</p>
-                <ul>
-                    <li>✅ Travel Website with Package Listings</li>
-                    <li>✅ Contact & Inquiry Forms</li>
-                    <li>✅ Basic Booking Engine</li>
-                    <li>✅ 1 Admin Dashboard</li>
-                    <li>✅ Basic Support</li>
-                </ul>
-                <div class="price">Starting at ₹50,000 / project</div>
-                <a href="#demo" class="btn btn-primary" style="width: 100%;">Get Quote</a>
+        <div class="container">
+            <div class="section-header">
+                <h2>Flexible Packages for Every Travel Business</h2>
+                <p>Whether you're a local travel agency or a global tour operator — we have the right digital solution for you</p>
             </div>
-            <div class="pricing-card">
-                <div class="pricing-icon">🗺️</div>
-                <h3>Travel Pro</h3>
-                <p class="subtitle">Ideal for mid-sized tour operators</p>
-                <ul>
-                    <li>✅ Responsive Website + Android App</li>
-                    <li>✅ Automated Booking & Payment</li>
-                    <li>✅ CRM & Customer Database</li>
-                    <li>✅ Email/SMS Notifications</li>
-                    <li>✅ API Integration</li>
-                    <li>✅ Priority Support (9 AM – 9 PM)</li>
-                </ul>
-                <div class="price">Starting at ₹25,000 / month</div>
-                <a href="#demo" class="btn btn-primary" style="width: 100%;">Request Demo</a>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-icon">🌍</div>
-                <h3>Global Voyager</h3>
-                <p class="subtitle">Enterprise travel networks & OTAs</p>
-                <ul>
-                    <li>✅ Multi-Branch Access</li>
-                    <li>✅ Real-Time Analytics Dashboard</li>
-                    <li>✅ Multi-Currency, Multi-Language</li>
-                    <li>✅ Advanced API Integrations</li>
-                    <li>✅ AI-Powered Itinerary Suggestions</li>
-                    <li>✅ 24/7 Dedicated Support</li>
-                </ul>
-                <div class="price">Custom Pricing Available</div>
-                <a href="#demo" class="btn btn-primary" style="width: 100%;">Contact Sales</a>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-icon">🧳</div>
+                    <h3>Starter Explorer</h3>
+                    <p class="subtitle">Perfect for small travel agencies</p>
+                    <ul>
+                        <li>✅ Travel Website with Package Listings</li>
+                        <li>✅ Contact & Inquiry Forms</li>
+                        <li>✅ Basic Booking Engine</li>
+                        <li>✅ 1 Admin Dashboard</li>
+                        <li>✅ Basic Support</li>
+                    </ul>
+                    <div class="price">Starting at ₹50,000 / project</div>
+                    <a href="#demo" class="btn btn-primary" style="width: 100%;">Get Quote</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-icon">🗺️</div>
+                    <h3>Travel Pro</h3>
+                    <p class="subtitle">Ideal for mid-sized tour operators</p>
+                    <ul>
+                        <li>✅ Responsive Website + Android App</li>
+                        <li>✅ Automated Booking & Payment</li>
+                        <li>✅ CRM & Customer Database</li>
+                        <li>✅ Email/SMS Notifications</li>
+                        <li>✅ API Integration</li>
+                        <li>✅ Priority Support (9 AM – 9 PM)</li>
+                    </ul>
+                    <div class="price">Starting at ₹25,000 / month</div>
+                    <a href="#demo" class="btn btn-primary" style="width: 100%;">Request Demo</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-icon">🌍</div>
+                    <h3>Global Voyager</h3>
+                    <p class="subtitle">Enterprise travel networks & OTAs</p>
+                    <ul>
+                        <li>✅ Multi-Branch Access</li>
+                        <li>✅ Real-Time Analytics Dashboard</li>
+                        <li>✅ Multi-Currency, Multi-Language</li>
+                        <li>✅ Advanced API Integrations</li>
+                        <li>✅ AI-Powered Itinerary Suggestions</li>
+                        <li>✅ 24/7 Dedicated Support</li>
+                    </ul>
+                    <div class="price">Custom Pricing Available</div>
+                    <a href="#demo" class="btn btn-primary" style="width: 100%;">Contact Sales</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section 8: Why Choose Us -->
-    <section style="background: #f9f9f9; margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section class="section-bg-alt">
+        <div class="container">
             <div class="section-header">
                 <h2>Experience Meets Innovation</h2>
                 <p>Why travel businesses trust Niyan IT Solutions</p>
@@ -822,9 +855,12 @@
     <!-- CTA Section -->
     <section id="demo" class="cta-section">
         <h2>Let's Build the Next-Gen Travel Experience</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 30px;">Transform your travel business with cutting-edge technology</p>
+        <p>Transform your travel business with cutting-edge technology</p>
         <a href="#contact" class="btn btn-white">Schedule a Demo</a>
     </section>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">↑</div>
 
     <script>
         // Smooth scrolling for anchor links
@@ -864,15 +900,17 @@
         // Workflow step lighting animation
         const workflowSteps = document.querySelectorAll('.workflow-step');
         let currentStep = 0;
+        let workflowInterval;
 
         function animateWorkflow() {
             workflowSteps.forEach((step, index) => {
+                const icon = step.querySelector('.workflow-icon');
                 if (index === currentStep) {
-                    step.querySelector('.workflow-icon').style.boxShadow = '0 0 30px rgba(0, 188, 212, 0.8)';
-                    step.querySelector('.workflow-icon').style.transform = 'scale(1.1)';
+                    icon.style.boxShadow = '0 0 30px rgba(0, 188, 212, 0.8)';
+                    icon.style.transform = 'scale(1.1)';
                 } else {
-                    step.querySelector('.workflow-icon').style.boxShadow = '';
-                    step.querySelector('.workflow-icon').style.transform = 'scale(1)';
+                    icon.style.boxShadow = '';
+                    icon.style.transform = 'scale(1)';
                 }
             });
             currentStep = (currentStep + 1) % workflowSteps.length;
@@ -882,7 +920,7 @@
         const workflowObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setInterval(animateWorkflow, 1500);
+                    workflowInterval = setInterval(animateWorkflow, 1500);
                     workflowObserver.disconnect();
                 }
             });
@@ -896,12 +934,18 @@
         // Pricing card animation
         document.querySelectorAll('.pricing-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.querySelector('.btn').style.transform = 'scale(1.05)';
-                this.querySelector('.btn').style.boxShadow = '0 0 20px rgba(0, 188, 212, 0.5)';
+                const btn = this.querySelector('.btn');
+                if (btn) {
+                    btn.style.transform = 'scale(1.05)';
+                    btn.style.boxShadow = '0 0 20px rgba(0, 188, 212, 0.5)';
+                }
             });
             card.addEventListener('mouseleave', function() {
-                this.querySelector('.btn').style.transform = 'scale(1)';
-                this.querySelector('.btn').style.boxShadow = '';
+                const btn = this.querySelector('.btn');
+                if (btn) {
+                    btn.style.transform = 'scale(1)';
+                    btn.style.boxShadow = '';
+                }
             });
         });
 
@@ -924,6 +968,7 @@
             }
         `;
         document.head.appendChild(style);
+
     </script>
      <!-- Scroll to Top Button -->
 <div class="scroll-top" id="scrollTop">
@@ -972,4 +1017,4 @@
       });
   </script>
 </body>
-</html
+</html>

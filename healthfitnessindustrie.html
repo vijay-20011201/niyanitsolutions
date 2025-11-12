@@ -23,6 +23,7 @@
         .hero {
             position: relative;
             height: 100vh;
+            min-height: 600px;
             background: linear-gradient(135deg, #C8E6C9, #A5D6A7, #81C784);
             display: flex;
             align-items: center;
@@ -155,16 +156,20 @@
             box-shadow: 0 10px 30px rgba(67, 160, 71, 0.3);
         }
 
-        /* Section Styles */
+        /* Section Styles - All fit to viewport height */
         section {
-            padding: 100px 20px;
-            max-width: 1200px;
+            min-height: 100vh;
+            padding: 80px 20px;
+            max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
@@ -178,11 +183,14 @@
             color: #666;
         }
 
-        /* Cards */
+        /* Cards - 2x2 Grid for 4 cards */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .card {
@@ -336,12 +344,15 @@
             color: #2E7D32;
         }
 
-        /* Fitness Cards */
+        /* Fitness Cards - 2x2 Grid */
         .fitness-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin-top: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .fitness-card {
@@ -490,11 +501,17 @@
 
         /* Pricing Cards */
         .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(1, auto);   /* 1 flexible row */
+    gap: 30px;                             /* space between cards */
+    margin-top: 40px;                      /* spacing above the section */
+    justify-items: center;                 /* centers each card horizontally */
+    align-items: start;                    /* aligns cards vertically at the top */
+    max-width: 1200px;                     /* limits total width of the grid */
+    margin-left: auto;                     /* centers the grid */
+    margin-right: auto;
+}
 
         .pricing-card {
             background: linear-gradient(135deg, #E8F5E9 0%, #ffffff 100%);
@@ -573,7 +590,11 @@
             background: linear-gradient(135deg, #E8F5E9, #ffffff);
             margin: 0;
             max-width: 100%;
-            padding: 100px 20px;
+            padding: 80px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .why-items {
@@ -628,6 +649,11 @@
             color: white;
             text-align: center;
             padding: 100px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
             overflow: hidden;
         }
@@ -667,12 +693,69 @@
             box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
         }
 
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #66BB6A, #43A047);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(67, 160, 71, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(67, 160, 71, 0.5);
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .cards, .fitness-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 1rem; }
             .section-header h2 { font-size: 2rem; }
             .video-participants { grid-template-columns: 1fr; }
+            
+            .cards, .fitness-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                min-height: auto;
+                padding: 60px 20px;
+            }
+            
+            .hero {
+                min-height: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.5rem; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
@@ -732,10 +815,9 @@
             </div>
         </div>
     </section>
-
     <!-- Section 2: Healthcare Management System -->
-    <section id="solutions" style="background: linear-gradient(135deg, #E8F5E9, #ffffff); margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section id="solutions" style="background: linear-gradient(135deg, #E8F5E9, #ffffff); margin: 0; max-width: 100%; padding: 80px 20px;">
+        <div style="max-width: 1400px; margin: 0 auto;">
             <div class="section-header">
                 <h2>Hospital & Clinic Management Made Simple</h2>
                 <p>Comprehensive solutions for modern healthcare facilities</p>
@@ -835,8 +917,8 @@
     </section>
 
     <!-- Section 4: Fitness & Wellness -->
-    <section style="background: #f9f9f9; margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section style="background: #f9f9f9; margin: 0; max-width: 100%; padding: 80px 20px;">
+        <div style="max-width: 1400px; margin: 0 auto;">
             <div class="section-header">
                 <h2>Empowering Fitness Through Technology</h2>
                 <p>Personalized platforms for gyms, studios, and fitness coaches</p>
@@ -932,8 +1014,8 @@
     </section>
 
     <!-- Section 6: Security & Compliance -->
-    <section style="background: linear-gradient(135deg, #E8F5E9, #ffffff); margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section style="background: linear-gradient(135deg, #E8F5E9, #ffffff); margin: 0; max-width: 100%; padding: 80px 20px;">
+        <div style="max-width: 1400px; margin: 0 auto;">
             <div class="section-header">
                 <h2>Protecting Every Record, Every Time</h2>
                 <p>HIPAA-compliant, secure, and encrypted systems</p>
@@ -999,8 +1081,8 @@
     </section>
 
     <!-- Section 8: Integrations -->
-    <section style="background: #f9f9f9; margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section style="background: #f9f9f9; margin: 0; max-width: 100%; padding: 80px 20px;">
+        <div style="max-width: 1400px; margin: 0 auto;">
             <div class="section-header">
                 <h2>Seamlessly Integrated Healthcare Systems</h2>
                 <p>Connect with leading healthcare platforms and services</p>
@@ -1077,15 +1159,15 @@
                 </div>
                 <div class="stat-card">
                     <h4>System Status</h4>
-                    <div class="value" style="color: #43A047;">●  Live</div>
+                    <div class="value" style="color: #43A047;">● Live</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section 10: Pricing -->
-    <section id="pricing" style="background: linear-gradient(135deg, #E8F5E9, #ffffff); margin: 0; max-width: 100%; padding: 100px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+    <section id="pricing" style="background: linear-gradient(135deg, #E8F5E9, #ffffff); margin: 0; max-width: 100%; padding: 80px 20px;">
+        <div style="max-width: 1400px; margin: 0 auto;">
             <div class="section-header">
                 <h2>Flexible Solutions for Every Healthcare Provider</h2>
                 <p>Affordable, scalable, and secure healthcare technology</p>
@@ -1141,7 +1223,7 @@
 
     <!-- Section 11: Why Choose Us -->
     <div class="why-choose">
-        <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="max-width: 1400px; margin: 0 auto;">
             <div class="section-header">
                 <h2>Why Choose Niyan IT Solutions</h2>
                 <p>Leading healthcare technology partner</p>
@@ -1187,6 +1269,11 @@
         <p>Transform your practice with cutting-edge healthcare technology</p>
         <a href="#contact" class="btn btn-white">Book a Free Demo</a>
     </section>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        ↑
+    </div>
 
     <script>
         // Smooth scrolling
@@ -1246,12 +1333,18 @@
         // Pricing card button effects
         document.querySelectorAll('.pricing-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.querySelector('.btn').style.transform = 'scale(1.05)';
-                this.querySelector('.btn').style.boxShadow = '0 0 20px rgba(67, 160, 71, 0.5)';
+                const btn = this.querySelector('.btn');
+                if (btn) {
+                    btn.style.transform = 'scale(1.05)';
+                    btn.style.boxShadow = '0 0 20px rgba(67, 160, 71, 0.5)';
+                }
             });
             card.addEventListener('mouseleave', function() {
-                this.querySelector('.btn').style.transform = 'scale(1)';
-                this.querySelector('.btn').style.boxShadow = '';
+                const btn = this.querySelector('.btn');
+                if (btn) {
+                    btn.style.transform = 'scale(1)';
+                    btn.style.boxShadow = '';
+                }
             });
         });
 
@@ -1323,3 +1416,5 @@
   </script>
 </body>
 </html>
+
+    

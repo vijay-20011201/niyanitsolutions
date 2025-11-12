@@ -287,12 +287,16 @@
         }
 
         .modules-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
-        }
+    max-width: 1200px;                     /* keeps grid nicely centered */
+    margin: 0 auto;                        /* centers the grid */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(3, auto);   /* 3 flexible rows (total 9 cells) */
+    gap: 40px;                             /* space between items */
+    justify-items: center;                 /* centers content horizontally in each cell */
+    align-items: start;                    /* aligns items at the top (use 'center' if preferred) */
+    margin-top: 40px;                      /* optional top spacing */
+}
 
         .module-item {
             text-align: center;

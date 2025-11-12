@@ -12,11 +12,25 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-purple: #6A11CB;
+            --primary-pink: #FF61A6;
+            --primary-orange: #FF9966;
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a2e;
+            --card-bg-alt: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8b8;
+            --text-muted: #8a8a8a;
+            --accent-green: #4CAF50;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
-            background: #0a0a0a;
-            color: #fff;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
         }
 
         /* Hero Section */
@@ -54,19 +68,6 @@
             75% { transform: translateY(-70px) translateX(20px) scale(1.05); }
         }
 
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #FFD700;
-            animation: fall 8s infinite linear;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-        }
-
         .hero-content {
             position: relative;
             z-index: 10;
@@ -79,6 +80,7 @@
             margin-bottom: 1.5rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.3);
             animation: fadeInUp 1s ease-out;
+            color: #ffffff;
         }
 
         .hero p {
@@ -86,6 +88,7 @@
             margin-bottom: 2.5rem;
             opacity: 0.95;
             animation: fadeInUp 1s ease-out 0.2s both;
+            color: #ffffff;
         }
 
         @keyframes fadeInUp {
@@ -121,14 +124,13 @@
 
         .btn-primary {
             background: white;
-            color: #6A11CB;
+            color: var(--primary-purple);
             box-shadow: 0 8px 30px rgba(255, 97, 166, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 40px rgba(255, 97, 166, 0.6);
-            background: linear-gradient(135deg, #FFB6D9, #FFF);
         }
 
         .btn-secondary {
@@ -139,7 +141,7 @@
 
         .btn-secondary:hover {
             background: white;
-            color: #6A11CB;
+            color: var(--primary-purple);
             transform: translateY(-3px);
         }
 
@@ -147,6 +149,10 @@
         section {
             padding: 6rem 2rem;
             position: relative;
+        }
+
+        .section-dark {
+            background: #0f0f1e;
         }
 
         .section-header {
@@ -157,15 +163,16 @@
         .section-header h2 {
             font-size: clamp(2rem, 4vw, 3.5rem);
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #6A11CB, #FF61A6);
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 700;
         }
 
         .section-header p {
             font-size: 1.2rem;
-            color: #aaa;
+            color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
         }
@@ -173,20 +180,21 @@
         /* Cards Grid */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .card {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.08) 0%, rgba(255, 97, 166, 0.08) 100%);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2.5rem;
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(106, 17, 203, 0.2);
         }
 
         .card::before {
@@ -196,14 +204,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(106, 17, 203, 0.1), rgba(255, 97, 166, 0.1));
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.15), rgba(255, 97, 166, 0.15));
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(106, 17, 203, 0.4);
+            box-shadow: 0 20px 60px rgba(106, 17, 203, 0.3);
+            border-color: var(--primary-pink);
         }
 
         .card:hover::before {
@@ -217,21 +226,23 @@
         }
 
         .card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
-            color: #fff;
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         .card p {
-            color: #ccc;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
 
-        /* Features Section */
+        /* Features List */
         .features-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
             max-width: 1400px;
             margin: 3rem auto;
         }
@@ -239,16 +250,18 @@
         .feature-item {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
+            gap: 1.2rem;
+            padding: 1.8rem;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.1), rgba(255, 97, 166, 0.05));
             border-radius: 15px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(106, 17, 203, 0.2);
         }
 
         .feature-item:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.15), rgba(255, 97, 166, 0.1));
             transform: translateX(10px);
+            border-color: var(--primary-pink);
         }
 
         .feature-icon {
@@ -256,22 +269,34 @@
             flex-shrink: 0;
         }
 
-        /* Pricing Table */
+        .feature-item h4 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Pricing Cards */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .pricing-card {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.1) 0%, rgba(255, 97, 166, 0.1) 100%);
             border-radius: 25px;
-            padding: 3rem 2rem;
+            padding: 3rem 2.5rem;
             text-align: center;
             position: relative;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(106, 17, 203, 0.3);
             transition: all 0.4s ease;
             overflow: hidden;
         }
@@ -283,7 +308,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 97, 166, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255, 97, 166, 0.2), transparent);
             transform: rotate(45deg);
             transition: all 0.6s ease;
         }
@@ -294,23 +319,26 @@
 
         .pricing-card:hover {
             transform: scale(1.05);
-            border-color: #FF61A6;
+            border-color: var(--primary-pink);
             box-shadow: 0 20px 60px rgba(255, 97, 166, 0.3);
         }
 
         .pricing-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
         }
 
         .pricing-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
         }
 
         .pricing-subtitle {
-            color: #aaa;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
 
         .pricing-features {
@@ -318,16 +346,18 @@
             margin: 2rem 0;
         }
 
-        .pricing-features li {
-            padding: 0.8rem 0;
+        .pricing-features p {
+            padding: 0.9rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 1.05rem;
         }
 
         .pricing-price {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: bold;
             margin: 2rem 0;
-            background: linear-gradient(135deg, #6A11CB, #FF61A6);
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -341,77 +371,73 @@
             overflow: hidden;
         }
 
-        .spotlight {
-            position: absolute;
-            width: 200px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.2);
-            filter: blur(60px);
-            animation: spotlight 6s infinite ease-in-out;
-        }
-
-        @keyframes spotlight {
-            0%, 100% { left: 10%; }
-            50% { left: 80%; }
-        }
-
         .cta-section h2 {
             font-size: clamp(2rem, 5vw, 4rem);
             margin-bottom: 2rem;
             position: relative;
             z-index: 10;
+            color: #ffffff;
+            font-weight: 800;
         }
 
         /* Checkmarks */
         .checklist {
-            max-width: 800px;
+            max-width: 900px;
             margin: 3rem auto;
-            text-align: left;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .check-item {
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 1rem;
-            margin: 1rem 0;
-            font-size: 1.2rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.08), rgba(255, 97, 166, 0.08));
+            border-radius: 12px;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            border: 1px solid rgba(106, 17, 203, 0.2);
+            color: var(--text-primary);
         }
 
         .check-item:hover {
             transform: translateX(10px);
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.12), rgba(255, 97, 166, 0.12));
+            border-color: var(--primary-pink);
         }
 
         .check-icon {
-            color: #4CAF50;
-            font-size: 1.5rem;
+            color: var(--accent-green);
+            font-size: 1.8rem;
+            flex-shrink: 0;
         }
 
         /* Mockup Styling */
         .mockup-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 3rem auto;
             position: relative;
         }
 
         .dashboard-mockup {
-            background: linear-gradient(135deg, #1e1e2e, #2d2d44);
+            background: linear-gradient(135deg, rgba(30, 30, 46, 0.95), rgba(45, 45, 68, 0.95));
             border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(106, 17, 203, 0.3);
         }
 
         .mockup-header {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
         }
 
         .mockup-dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: #FF5F56;
         }
@@ -421,22 +447,27 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
         }
 
         .stat-card {
-            background: rgba(106, 17, 203, 0.2);
-            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.2), rgba(255, 97, 166, 0.15));
+            padding: 2rem;
             border-radius: 15px;
             border: 1px solid rgba(255, 97, 166, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-pink);
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #FF61A6, #FEC163);
+            background: linear-gradient(135deg, var(--primary-pink), #FEC163);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: countUp 2s ease-out;
@@ -448,8 +479,9 @@
         }
 
         .stat-label {
-            color: #ccc;
+            color: var(--text-secondary);
             margin-top: 0.5rem;
+            font-size: 1.1rem;
         }
 
         /* Mobile Responsive */
@@ -466,6 +498,22 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .checklist {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -529,7 +577,7 @@
     </section>
 
     <!-- Section 2: Ticketing System -->
-    <section id="ticketing" style="background: #0f0f1e;">
+    <section id="ticketing" class="section-dark">
         <div class="section-header fade-in">
             <h2>Sell Tickets Smarter</h2>
         </div>
@@ -645,7 +693,7 @@
     </section>
 
     <!-- Section 4: Mobile Engagement -->
-    <section id="engagement" style="background: #0f0f1e;">
+    <section id="engagement" class="section-dark">
         <div class="section-header fade-in">
             <h2>Engage Your Audience in Real Time</h2>
         </div>
@@ -711,7 +759,7 @@
     </section>
 
     <!-- Section 6: Billing -->
-    <section id="billing" style="background: #0f0f1e;">
+    <section id="billing" class="section-dark">
         <div class="section-header fade-in">
             <h2>Simplify Ticketing & Payments</h2>
             <p>Fast, secure transactions with full transparency</p>
@@ -776,7 +824,7 @@
     </section>
 
     <!-- Section 8: Pricing -->
-    <section id="pricing" style="background: #0f0f1e;">
+    <section id="pricing" class="section-dark">
         <div class="section-header fade-in">
             <h2>Packages That Fit Every Stage</h2>
             <p>From single events to international festivals, choose what suits you best</p>
@@ -853,7 +901,7 @@
     </section>
 
     <!-- Section 10: Support -->
-    <section id="support" style="background: #0f0f1e;">
+    <section id="support" class="section-dark">
         <div class="section-header fade-in">
             <h2>24/7 Technical Support That Never Misses a Beat</h2>
         </div>
@@ -883,7 +931,6 @@
 
     <!-- CTA Section -->
     <section class="cta-section" id="demo">
-        <div class="spotlight"></div>
         <h2>Let's Make Every Event Unforgettable</h2>
         <a href="#contact" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.2rem 3rem;">Schedule a Demo</a>
     </section>
@@ -900,16 +947,6 @@
             circle.style.top = Math.random() * 100 + '%';
             circle.style.animationDelay = Math.random() * 10 + 's';
             bokehContainer.appendChild(circle);
-        }
-
-        // Create confetti
-        for (let i = 0; i < 30; i++) {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.animationDelay = Math.random() * 8 + 's';
-            confetti.style.background = ['#FFD700', '#FF61A6', '#6A11CB', '#FF9966'][Math.floor(Math.random() * 4)];
-            bokehContainer.appendChild(confetti);
         }
 
         // Scroll animations
@@ -929,37 +966,6 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-
-        // Add hover confetti effect to cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                for (let i = 0; i < 5; i++) {
-                    const particle = document.createElement('div');
-                    particle.style.position = 'absolute';
-                    particle.style.width = '8px';
-                    particle.style.height = '8px';
-                    particle.style.borderRadius = '50%';
-                    particle.style.background = '#FF61A6';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.top = '50%';
-                    particle.style.pointerEvents = 'none';
-                    particle.style.animation = 'particleBurst 1s ease-out forwards';
-                    this.appendChild(particle);
-                    
-                    setTimeout(() => particle.remove(), 1000);
-                }
-            });
-        });
-
-        // Add particle burst animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes particleBurst {
-                0% { transform: translate(0, 0) scale(1); opacity: 1; }
-                100% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) scale(0); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

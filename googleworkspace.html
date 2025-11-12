@@ -184,6 +184,8 @@
             border-radius: 16px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            position: relative;
+            overflow: visible; /* Changed from hidden to visible */
         }
 
         .feature-card:hover {
@@ -195,7 +197,13 @@
         .feature-card .icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            display: block;
+            display: inline-block; /* Changed from block to inline-block */
+            line-height: 1;
+            vertical-align: middle;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .feature-card h4 {
@@ -203,6 +211,7 @@
             color: #202124;
             margin-bottom: 0.5rem;
             font-weight: 600;
+            margin-top: 0.5rem;
         }
 
         .feature-card p {
@@ -213,14 +222,57 @@
 
         .migration-image {
             text-align: center;
-            font-size: 300px;
+            font-size: 200px;
             filter: drop-shadow(0 15px 40px rgba(66, 133, 244, 0.2));
             animation: float 6s ease-in-out infinite;
+            line-height: 1;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-25px); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .migration-features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .migration-image {
+                font-size: 150px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section-migration {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .migration-image {
+                font-size: 120px;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
         }
 
         /* ============================================
@@ -606,21 +658,22 @@
     <!-- ============================================
          SECTION 1: SETUP & MIGRATION SERVICES
     ============================================ -->
-    <section class="section-migration" id="migration">
+    <section class="section-migration">
         <div class="container">
             <div class="two-column">
                 <div>
-                    <h2 class="section-title">🧭 Setup & Migration Services</h2>
-                    <p class="section-subtitle">Migrate your business email, files, and calendars to Google Workspace effortlessly. Our certified experts ensure secure, zero-downtime migration with full data integrity.</p>
-                    
+                    <h2 class="section-title">Seamless Migration to Google Workspace</h2>
+                    <p class="section-subtitle">
+                        We handle the complete migration process from your existing email system to Google Workspace with zero downtime and data loss.
+                    </p>
                     <div class="migration-features">
                         <div class="feature-card">
-                            <span class="icon">📨</span>
+                            <span class="icon">📧</span>
                             <h4>Mail & Calendar Migration</h4>
                             <p>Complete transfer of emails, contacts, and calendar events</p>
                         </div>
                         <div class="feature-card">
-                            <span class="icon">☁️</span>
+                            <span class="icon">💾</span>
                             <h4>Drive Data Transfer</h4>
                             <p>Secure migration of all your documents and files</p>
                         </div>

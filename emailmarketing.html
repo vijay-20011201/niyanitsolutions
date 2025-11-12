@@ -453,12 +453,15 @@
         }
 
         .campaigns-slider {
-            max-width: 1400px;
-            margin: 60px auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-        }
+    max-width: 1400px;                     /* keeps the grid centered within page width */
+    margin: 60px auto 0;                   /* top spacing + horizontal centering */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(2, auto);   /* 2 flexible rows (for 6 items total) */
+    gap: 35px;                             /* spacing between grid items */
+    justify-items: center;                 /* centers each item horizontally */
+    align-items: start;                    /* aligns items vertically at the top */
+}
 
         .campaign-panel {
             background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
@@ -541,12 +544,15 @@
         }
 
         .metrics-grid {
-            max-width: 1400px;
-            margin: 60px auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
+    max-width: 1400px;                     /* keeps the grid centered within the page */
+    margin: 60px auto 0;                   /* top spacing + centers grid horizontally */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(2, auto);   /* 2 flexible rows (total 6 items) */
+    gap: 40px;                             /* space between grid items */
+    justify-items: center;                 /* centers each grid item horizontally */
+    align-items: start;                    /* aligns items vertically (top alignment) */
+}
 
         .metric-card {
             background: rgba(255,255,255,0.15);
@@ -591,12 +597,15 @@
         }
 
         .why-grid {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
+    max-width: 1200px;                     /* keeps the grid centered and limited in width */
+    margin: 60px auto 0;                   /* adds top spacing and centers grid horizontally */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns */
+    grid-template-rows: repeat(2, auto);   /* 2 flexible rows (for 4 items total) */
+    gap: 40px;                             /* space between grid items */
+    justify-items: center;                 /* centers items horizontally in each grid cell */
+    align-items: start;                    /* aligns items vertically (can be 'center' if preferred) */
+}
 
         .why-item {
             text-align: center;

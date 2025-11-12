@@ -179,10 +179,14 @@
         }
 
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns */
+    grid-template-rows: repeat(2, auto);   /* 2 rows that adjust to content */
+    gap: 30px;                             /* spacing between items */
+    justify-items: center;                 /* centers items horizontally (optional) */
+    align-items: start;                    /* aligns items vertically */
+    margin-top: 40px;                      /* optional spacing from top */
+}
 
         .feature-card {
             background: rgba(255, 255, 255, 0.7);
@@ -284,10 +288,14 @@
         }
 
         .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(3, auto);   /* 3 flexible rows (total 9 cells) */
+    gap: 30px;                             /* spacing between items */
+    justify-items: center;                 /* centers items horizontally */
+    align-items: start;                    /* aligns items vertically */
+    margin-top: 40px;                      /* optional spacing above grid */
+}
 
         .module-card {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -442,10 +450,14 @@
         }
 
         .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns */
+    grid-template-rows: repeat(2, auto);   /* 2 rows that adjust to content */
+    gap: 40px;                             /* space between items */
+    justify-items: center;                 /* centers items horizontally */
+    align-items: start;                    /* aligns items vertically */
+    margin-top: 40px;                      /* optional top spacing */
+}
 
         .benefit-card {
             background: white;

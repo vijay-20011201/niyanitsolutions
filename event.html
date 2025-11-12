@@ -375,12 +375,16 @@
         }
 
         .modules-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 50px;
-        }
+    max-width: 1200px;                     /* keeps grid nicely centered */
+    margin: 0 auto;                        /* centers the grid */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(3, auto);   /* 3 flexible rows (total 9 cells) */
+    gap: 40px;                             /* space between items */
+    justify-items: center;                 /* centers content horizontally in each cell */
+    align-items: start;                    /* aligns items at the top (use 'center' if preferred) */
+    margin-top: 40px;                      /* optional top spacing */
+}
 
         .module-card {
             text-align: center;
@@ -589,12 +593,16 @@
         }
 
         .benefits-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 45px;
-        }
+    max-width: 1400px;                     /* keeps grid centered within the page */
+    margin: 0 auto;                        /* centers the entire grid */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns */
+    grid-template-rows: repeat(2, auto);   /* 2 flexible rows (for 4 items total) */
+    gap: 45px;                             /* space between grid items */
+    justify-items: center;                 /* centers each grid item horizontally */
+    align-items: start;                    /* aligns items at the top (can be 'center') */
+    margin-top: 50px;                      /* optional spacing above the grid */
+}
 
         .benefit-card {
             background: #fff;

@@ -414,11 +414,17 @@
         }
 
         .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 35px;
-            margin-top: 60px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(3, auto);   /* 3 flexible rows (total 9 items) */
+    gap: 35px;                             /* space between items */
+    margin-top: 60px;                      /* space above the grid */
+    justify-items: center;                 /* centers items horizontally */
+    align-items: start;                    /* aligns items vertically at the top */
+    max-width: 1200px;                     /* keeps layout centered within container */
+    margin-left: auto;
+    margin-right: auto;
+}
 
         .metric-card {
             background: rgba(255, 255, 255, 0.15);
@@ -478,11 +484,17 @@
         }
 
         .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(3, auto);   /* 3 flexible rows (total 9 cells) */
+    gap: 30px;                             /* space between grid items */
+    margin-top: 60px;                      /* space above the grid */
+    justify-items: center;                 /* centers each item horizontally */
+    align-items: start;                    /* aligns items vertically (use 'center' for middle alignment) */
+    max-width: 1200px;                     /* keeps grid from stretching too wide */
+    margin-left: auto;                     /* centers the grid horizontally */
+    margin-right: auto;
+}
 
         .industry-card {
             text-align: center;

@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0A0F1F;
+            background: #0D1117;
             color: #fff;
             overflow-x: hidden;
         }
@@ -22,12 +22,13 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #0A0F1F 0%, #243B55 100%);
+            background: linear-gradient(135deg, #0D1117 0%, #1F2937 100%);
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            padding: 2rem;
         }
 
         .hero::before {
@@ -37,8 +38,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,200 600,300 T1200,300" fill="none" stroke="rgba(66,153,225,0.1)" stroke-width="2"/></svg>');
-            opacity: 0.3;
+            background: radial-gradient(circle at 30% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
             animation: drift 20s infinite linear;
         }
 
@@ -50,7 +51,6 @@
         .hero-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -64,7 +64,7 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            background: linear-gradient(135deg, #fff 0%, #4299E1 100%);
+            background: linear-gradient(135deg, #A78BFA 0%, #EC4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out;
@@ -72,7 +72,7 @@
 
         .hero-text p {
             font-size: 1.3rem;
-            color: #A0AEC0;
+            color: #9CA3AF;
             margin-bottom: 2.5rem;
             line-height: 1.6;
             animation: fadeInUp 1s ease-out 0.2s both;
@@ -86,7 +86,7 @@
 
         .btn-primary {
             padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #4299E1 0%, #3182CE 100%);
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
             border: none;
             border-radius: 50px;
             color: white;
@@ -94,20 +94,20 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(66,153,225,0.3);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 0 40px rgba(66,153,225,0.6);
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.7);
             transform: translateY(-2px);
         }
 
         .btn-secondary {
             padding: 1rem 2.5rem;
             background: transparent;
-            border: 2px solid #4299E1;
+            border: 2px solid #8B5CF6;
             border-radius: 50px;
-            color: #4299E1;
+            color: #8B5CF6;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
@@ -115,9 +115,9 @@
         }
 
         .btn-secondary:hover {
-            background: #4299E1;
+            background: #8B5CF6;
             color: white;
-            box-shadow: 0 0 30px rgba(66,153,225,0.4);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
         }
 
         .hero-visual {
@@ -129,7 +129,7 @@
             width: 100%;
             height: 400px;
             position: relative;
-            filter: drop-shadow(0 0 30px rgba(66,153,225,0.5));
+            filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.5));
         }
 
         .car-silhouette svg {
@@ -161,16 +161,23 @@
         }
 
         @keyframes carLight {
-            from { opacity: 0; filter: drop-shadow(0 0 0 rgba(66,153,225,0)); }
-            to { opacity: 1; filter: drop-shadow(0 0 30px rgba(66,153,225,0.8)); }
+            from { opacity: 0; filter: drop-shadow(0 0 0 rgba(139, 92, 246, 0)); }
+            to { opacity: 1; filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.8)); }
         }
 
         /* Section Styles */
         section {
+            min-height: 100vh;
             padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
+        }
+
+        .section-wrapper {
+            max-width: 1400px;
+            width: 100%;
         }
 
         .section-header {
@@ -181,17 +188,26 @@
         .section-header h2 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #4299E1 100%);
+            background: linear-gradient(135deg, #A78BFA 0%, #EC4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .section-header p {
             font-size: 1.2rem;
-            color: #A0AEC0;
+            color: #9CA3AF;
         }
 
-        /* Who We Serve */
+        /* Alternating Background Colors */
+        section:nth-child(odd) {
+            background: linear-gradient(135deg, #0D1117 0%, #1F2937 100%);
+        }
+
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+        }
+
+        /* Cards Grid */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -199,10 +215,10 @@
         }
 
         .service-card {
-            background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+            background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
             padding: 2.5rem;
             border-radius: 20px;
-            border: 1px solid rgba(66,153,225,0.2);
+            border: 1px solid rgba(139, 92, 246, 0.2);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -215,7 +231,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(66,153,225,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
             transition: left 0.5s ease;
         }
 
@@ -225,8 +241,8 @@
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(66,153,225,0.3);
-            border-color: #4299E1;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            border-color: #8B5CF6;
         }
 
         .service-card .icon {
@@ -242,7 +258,7 @@
         }
 
         .service-card p {
-            color: #A0AEC0;
+            color: #9CA3AF;
             line-height: 1.6;
         }
 
@@ -251,7 +267,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .feature-item {
@@ -259,19 +274,19 @@
             align-items: flex-start;
             gap: 1.5rem;
             padding: 1.5rem;
-            background: rgba(26,32,44,0.5);
+            background: rgba(31, 41, 55, 0.5);
             border-radius: 15px;
             transition: all 0.3s ease;
         }
 
         .feature-item:hover {
-            background: rgba(66,153,225,0.1);
+            background: rgba(139, 92, 246, 0.1);
             transform: translateX(10px);
         }
 
         .feature-item .icon {
             font-size: 2rem;
-            color: #4299E1;
+            color: #8B5CF6;
             min-width: 50px;
         }
 
@@ -281,7 +296,7 @@
         }
 
         .feature-item p {
-            color: #A0AEC0;
+            color: #9CA3AF;
             font-size: 0.95rem;
         }
 
@@ -290,14 +305,13 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
-            margin-top: 4rem;
         }
 
         .pricing-card {
-            background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+            background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
             padding: 3rem;
             border-radius: 20px;
-            border: 2px solid rgba(66,153,225,0.2);
+            border: 2px solid rgba(139, 92, 246, 0.2);
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
@@ -310,15 +324,15 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, #4299E1, #3182CE);
+            background: linear-gradient(90deg, #8B5CF6, #EC4899);
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
 
         .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 50px rgba(66,153,225,0.4);
-            border-color: #4299E1;
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.4);
+            border-color: #8B5CF6;
         }
 
         .pricing-card:hover::after {
@@ -336,7 +350,7 @@
         }
 
         .pricing-card .description {
-            color: #A0AEC0;
+            color: #9CA3AF;
             margin-bottom: 2rem;
             font-size: 1rem;
         }
@@ -348,7 +362,7 @@
 
         .pricing-card ul li {
             padding: 0.7rem 0;
-            color: #CBD5E0;
+            color: #D1D5DB;
             position: relative;
             padding-left: 1.5rem;
         }
@@ -357,13 +371,13 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: #4299E1;
+            color: #8B5CF6;
             font-weight: bold;
         }
 
         .pricing-card .price {
             font-size: 1.3rem;
-            color: #4299E1;
+            color: #8B5CF6;
             font-weight: 600;
             margin-bottom: 1.5rem;
         }
@@ -372,9 +386,9 @@
             width: 100%;
             padding: 1rem;
             background: transparent;
-            border: 2px solid #4299E1;
+            border: 2px solid #8B5CF6;
             border-radius: 50px;
-            color: #4299E1;
+            color: #8B5CF6;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
@@ -382,18 +396,18 @@
         }
 
         .pricing-card button:hover {
-            background: #4299E1;
+            background: #8B5CF6;
             color: white;
-            box-shadow: 0 0 30px rgba(66,153,225,0.5);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
         }
 
         /* Dashboard Visual */
         .dashboard-visual {
             margin-top: 4rem;
             padding: 3rem;
-            background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+            background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
             border-radius: 20px;
-            border: 1px solid rgba(66,153,225,0.3);
+            border: 1px solid rgba(139, 92, 246, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -411,19 +425,23 @@
             50% { transform: scale(1.05); }
         }
 
-        /* Why Choose Section */
+        @keyframes gaugeRotate {
+            0%, 100% { stroke-dashoffset: 110; }
+            50% { stroke-dashoffset: 330; }
+        }
+
+        /* Benefits Grid */
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .benefit-item {
             padding: 2rem;
-            background: rgba(26,32,44,0.5);
+            background: rgba(31, 41, 55, 0.5);
             border-radius: 15px;
-            border-left: 4px solid #4299E1;
+            border-left: 4px solid #8B5CF6;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -436,17 +454,17 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, #4299E1, transparent);
+            background: linear-gradient(90deg, #8B5CF6, transparent);
             animation: neonGlow 2s infinite;
         }
 
         @keyframes neonGlow {
             0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; box-shadow: 0 0 20px #4299E1; }
+            50% { opacity: 1; box-shadow: 0 0 20px #8B5CF6; }
         }
 
         .benefit-item:hover {
-            background: rgba(66,153,225,0.1);
+            background: rgba(139, 92, 246, 0.1);
             transform: translateX(10px);
         }
 
@@ -457,14 +475,13 @@
         }
 
         .benefit-item p {
-            color: #A0AEC0;
+            color: #9CA3AF;
             line-height: 1.6;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #0A0F1F 0%, #1E2A3B 100%);
-            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #0D1117 0%, #1F2937 100%);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -477,8 +494,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(66,153,225,0.1)" stroke-width="0.5"/></svg>');
-            opacity: 0.3;
+            background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
         }
 
         .cta-content {
@@ -489,7 +505,7 @@
         .cta-section h2 {
             font-size: 3rem;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, #fff 0%, #4299E1 100%);
+            background: linear-gradient(135deg, #A78BFA 0%, #EC4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -504,7 +520,7 @@
         .car-drive {
             width: 100px;
             height: 50px;
-            background: linear-gradient(135deg, #4299E1, #3182CE);
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
             clip-path: polygon(10% 100%, 0% 50%, 15% 30%, 35% 30%, 40% 0%, 60% 0%, 65% 30%, 85% 30%, 100% 50%, 90% 100%);
             position: absolute;
             bottom: 20px;
@@ -514,6 +530,30 @@
         @keyframes drive {
             from { left: -150px; }
             to { left: 110%; }
+        }
+
+        /* Integrations */
+        .integrations {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .integration-badge {
+            padding: 0.8rem 1.5rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            color: #8B5CF6;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .integration-badge:hover {
+            background: rgba(139, 92, 246, 0.2);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
 
         /* Responsive */
@@ -542,30 +582,11 @@
             .cta-section h2 {
                 font-size: 2rem;
             }
-        }
 
-        /* Integration Badges */
-        .integrations {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .integration-badge {
-            padding: 0.8rem 1.5rem;
-            background: rgba(66,153,225,0.1);
-            border: 1px solid rgba(66,153,225,0.3);
-            border-radius: 50px;
-            color: #4299E1;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .integration-badge:hover {
-            background: rgba(66,153,225,0.2);
-            box-shadow: 0 0 20px rgba(66,153,225,0.3);
+            section {
+                min-height: auto;
+                padding: 4rem 2rem;
+            }
         }
     </style>
 </head>
@@ -588,15 +609,15 @@
                     <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#4299E1;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#3182CE;stop-opacity:1" />
+                                <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#EC4899;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                        <path d="M 50 200 L 80 150 L 150 130 L 200 130 L 220 100 L 280 100 L 300 130 L 380 140 L 420 180 L 430 200 L 400 220 L 380 220 Q 380 240 360 240 Q 340 240 340 220 L 200 220 Q 200 240 180 240 Q 160 240 160 220 L 100 220 Q 90 210 50 200" fill="url(#carGrad)" stroke="#4299E1" stroke-width="2"/>
-                        <circle cx="180" cy="230" r="20" fill="#1A202C" stroke="#4299E1" stroke-width="2"/>
-                        <circle cx="360" cy="230" r="20" fill="#1A202C" stroke="#4299E1" stroke-width="2"/>
-                        <rect x="160" y="140" width="60" height="40" fill="#0A0F1F" opacity="0.8"/>
-                        <rect x="240" y="140" width="50" height="40" fill="#0A0F1F" opacity="0.8"/>
+                        <path d="M 50 200 L 80 150 L 150 130 L 200 130 L 220 100 L 280 100 L 300 130 L 380 140 L 420 180 L 430 200 L 400 220 L 380 220 Q 380 240 360 240 Q 340 240 340 220 L 200 220 Q 200 240 180 240 Q 160 240 160 220 L 100 220 Q 90 210 50 200" fill="url(#carGrad)" stroke="#8B5CF6" stroke-width="2"/>
+                        <circle cx="180" cy="230" r="20" fill="#1F2937" stroke="#8B5CF6" stroke-width="2"/>
+                        <circle cx="360" cy="230" r="20" fill="#1F2937" stroke="#8B5CF6" stroke-width="2"/>
+                        <rect x="160" y="140" width="60" height="40" fill="#0D1117" opacity="0.8"/>
+                        <rect x="240" y="140" width="50" height="40" fill="#0D1117" opacity="0.8"/>
                     </svg>
                 </div>
             </div>
@@ -605,74 +626,78 @@
 
     <!-- Section 1: Who We Serve -->
     <section>
-        <div class="section-header">
-            <h2>Driving Digital Success Across the Automotive Ecosystem</h2>
-            <p>Our expertise supports every corner of the auto industry.</p>
-        </div>
-        <div class="cards-grid">
-            <div class="service-card">
-                <span class="icon">🏭</span>
-                <h3>Manufacturers</h3>
-                <p>Comprehensive digital platforms for production tracking, supply chain management, and quality control systems.</p>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Driving Digital Success Across the Automotive Ecosystem</h2>
+                <p>Our expertise supports every corner of the auto industry.</p>
             </div>
-            <div class="service-card">
-                <span class="icon">🚘</span>
-                <h3>Dealerships</h3>
-                <p>Complete dealership management systems with inventory control, customer relationship tools, and sales tracking.</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">🧰</span>
-                <h3>Service Centers</h3>
-                <p>Streamlined service operations with booking systems, technician management, and customer communication tools.</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">🧩</span>
-                <h3>Auto Parts Retailers</h3>
-                <p>Advanced inventory systems, parts cataloging, and e-commerce solutions for automotive parts distribution.</p>
+            <div class="cards-grid">
+                <div class="service-card">
+                    <span class="icon">🏭</span>
+                    <h3>Manufacturers</h3>
+                    <p>Comprehensive digital platforms for production tracking, supply chain management, and quality control systems.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🚘</span>
+                    <h3>Dealerships</h3>
+                    <p>Complete dealership management systems with inventory control, customer relationship tools, and sales tracking.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🧰</span>
+                    <h3>Service Centers</h3>
+                    <p>Streamlined service operations with booking systems, technician management, and customer communication tools.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🧩</span>
+                    <h3>Auto Parts Retailers</h3>
+                    <p>Advanced inventory systems, parts cataloging, and e-commerce solutions for automotive parts distribution.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section 2: Website & App Solutions -->
     <section>
-        <div class="section-header">
-            <h2>Custom-Built Websites and Mobile Apps for Auto Businesses</h2>
-            <p>Showcase vehicles, manage leads, and track operations — all in one system.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-item">
-                <span class="icon">🚗</span>
-                <div>
-                    <h4>Vehicle Listing Portals</h4>
-                    <p>Showcase inventory with 360° views, detailed specifications, and high-resolution galleries.</p>
-                </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Custom-Built Websites and Mobile Apps</h2>
+                <p>Showcase vehicles, manage leads, and track operations — all in one system.</p>
             </div>
-            <div class="feature-item">
-                <span class="icon">📅</span>
-                <div>
-                    <h4>Test Drive Scheduling</h4>
-                    <p>Automated booking system with calendar integration and customer reminders.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">🚗</span>
+                    <div>
+                        <h4>Vehicle Listing Portals</h4>
+                        <p>Showcase inventory with 360° views, detailed specifications, and high-resolution galleries.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">📊</span>
-                <div>
-                    <h4>CRM-Integrated Lead Management</h4>
-                    <p>Track prospects from first contact to final sale with intelligent lead scoring.</p>
+                <div class="feature-item">
+                    <span class="icon">📅</span>
+                    <div>
+                        <h4>Test Drive Scheduling</h4>
+                        <p>Automated booking system with calendar integration and customer reminders.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">🔧</span>
-                <div>
-                    <h4>Online Service Booking</h4>
-                    <p>Customer-friendly scheduling with automated reminders and service history tracking.</p>
+                <div class="feature-item">
+                    <span class="icon">📊</span>
+                    <div>
+                        <h4>CRM-Integrated Lead Management</h4>
+                        <p>Track prospects from first contact to final sale with intelligent lead scoring.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">📍</span>
-                <div>
-                    <h4>Dealer Locator Maps</h4>
-                    <p>Interactive maps with real-time inventory availability and contact information.</p>
+                <div class="feature-item">
+                    <span class="icon">🔧</span>
+                    <div>
+                        <h4>Online Service Booking</h4>
+                        <p>Customer-friendly scheduling with automated reminders and service history tracking.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📍</span>
+                    <div>
+                        <h4>Dealer Locator Maps</h4>
+                        <p>Interactive maps with real-time inventory availability and contact information.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -680,151 +705,157 @@
 
     <!-- Section 3: Connected Vehicle & IoT -->
     <section>
-        <div class="section-header">
-            <h2>Smarter Vehicles, Smarter Insights</h2>
-            <p>We build IoT-powered platforms for real-time vehicle data monitoring.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-item">
-                <span class="icon">🛰️</span>
-                <div>
-                    <h4>GPS Tracking & Route Analytics</h4>
-                    <p>Real-time location monitoring with detailed route history and geofencing capabilities.</p>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Smarter Vehicles, Smarter Insights</h2>
+                <p>We build IoT-powered platforms for real-time vehicle data monitoring.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">🛰️</span>
+                    <div>
+                        <h4>GPS Tracking & Route Analytics</h4>
+                        <p>Real-time location monitoring with detailed route history and geofencing capabilities.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">⚡</span>
+                    <div>
+                        <h4>Engine Performance Diagnostics</h4>
+                        <p>Monitor engine health with live diagnostics and performance metrics.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🔔</span>
+                    <div>
+                        <h4>Maintenance Alerts</h4>
+                        <p>Proactive notifications via mobile app for scheduled and urgent maintenance needs.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">⛽</span>
+                    <div>
+                        <h4>Fuel Efficiency Monitoring</h4>
+                        <p>Track fuel consumption patterns and optimize driving behavior for cost savings.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🔮</span>
+                    <div>
+                        <h4>Predictive Service Reminders</h4>
+                        <p>AI-powered predictions for maintenance needs based on usage patterns.</p>
+                    </div>
                 </div>
             </div>
-            <div class="feature-item">
-                <span class="icon">⚡</span>
-                <div>
-                    <h4>Engine Performance Diagnostics</h4>
-                    <p>Monitor engine health with live diagnostics and performance metrics.</p>
+            <div class="dashboard-visual">
+                <div class="speedometer">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#8B5CF6" stroke-width="4" opacity="0.3"/>
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="#8B5CF6" stroke-width="8" stroke-dasharray="440" stroke-dashoffset="110" stroke-linecap="round" style="animation: gaugeRotate 3s infinite ease-in-out"/>
+                        <circle cx="100" cy="100" r="10" fill="#8B5CF6"/>
+                        <text x="100" y="110" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold">85</text>
+                        <text x="100" y="135" text-anchor="middle" fill="#9CA3AF" font-size="12">km/h</text>
+                    </svg>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">🔔</span>
-                <div>
-                    <h4>Maintenance Alerts</h4>
-                    <p>Proactive notifications via mobile app for scheduled and urgent maintenance needs.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">⛽</span>
-                <div>
-                    <h4>Fuel Efficiency Monitoring</h4>
-                    <p>Track fuel consumption patterns and optimize driving behavior for cost savings.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">🔮</span>
-                <div>
-                    <h4>Predictive Service Reminders</h4>
-                    <p>AI-powered predictions for maintenance needs based on usage patterns.</p>
-                </div>
-            </div>
-        </div>
-        <div class="dashboard-visual">
-            <div class="speedometer">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#4299E1" stroke-width="4" opacity="0.3"/>
-                    <circle cx="100" cy="100" r="70" fill="none" stroke="#4299E1" stroke-width="8" stroke-dasharray="440" stroke-dashoffset="110" stroke-linecap="round" style="animation: gaugeRotate 3s infinite ease-in-out"/>
-                    <circle cx="100" cy="100" r="10" fill="#4299E1"/>
-                    <text x="100" y="110" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold">85</text>
-                    <text x="100" y="135" text-anchor="middle" fill="#A0AEC0" font-size="12">km/h</text>
-                </svg>
             </div>
         </div>
     </section>
 
     <!-- Section 4: Billing & CRM -->
     <section>
-        <div class="section-header">
-            <h2>Simplify Operations. Strengthen Customer Relationships</h2>
-            <p>Integrated tools to manage billing, invoices, and customers.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-item">
-                <span class="icon">🧾</span>
-                <div>
-                    <h4>Auto-Generated Invoices</h4>
-                    <p>Professional invoicing with automated service records and tax calculations.</p>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Simplify Operations. Strengthen Relationships</h2>
+                <p>Integrated tools to manage billing, invoices, and customers.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">🧾</span>
+                    <div>
+                        <h4>Auto-Generated Invoices</h4>
+                        <p>Professional invoicing with automated service records and tax calculations.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📦</span>
+                    <div>
+                        <h4>Inventory & Parts Billing</h4>
+                        <p>Track stock levels, automate reordering, and manage parts pricing.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📈</span>
+                    <div>
+                        <h4>CRM Dashboard</h4>
+                        <p>Comprehensive sales tracking with pipeline visualization and performance metrics.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">💎</span>
+                    <div>
+                        <h4>Customer Retention Tools</h4>
+                        <p>Loyalty programs, reward points, and personalized engagement campaigns.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">💳</span>
+                    <div>
+                        <h4>Online Payments</h4>
+                        <p>Secure payment processing with UPI, cards, and EMI options.</p>
+                    </div>
                 </div>
             </div>
-            <div class="feature-item">
-                <span class="icon">📦</span>
-                <div>
-                    <h4>Inventory & Parts Billing</h4>
-                    <p>Track stock levels, automate reordering, and manage parts pricing.</p>
-                </div>
+            <div class="integrations">
+                <span class="integration-badge">Razorpay</span>
+                <span class="integration-badge">PayU</span>
+                <span class="integration-badge">Zoho Books</span>
+                <span class="integration-badge">QuickBooks</span>
             </div>
-            <div class="feature-item">
-                <span class="icon">📈</span>
-                <div>
-                    <h4>CRM Dashboard</h4>
-                    <p>Comprehensive sales tracking with pipeline visualization and performance metrics.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">💎</span>
-                <div>
-                    <h4>Customer Retention Tools</h4>
-                    <p>Loyalty programs, reward points, and personalized engagement campaigns.</p>
-                </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">💳</span>
-                <div>
-                    <h4>Online Payments</h4>
-                    <p>Secure payment processing with UPI, cards, and EMI options.</p>
-                </div>
-            </div>
-        </div>
-        <div class="integrations">
-            <span class="integration-badge">Razorpay</span>
-            <span class="integration-badge">PayU</span>
-            <span class="integration-badge">Zoho Books</span>
-            <span class="integration-badge">QuickBooks</span>
         </div>
     </section>
 
     <!-- Section 5: Dealer & Workshop Management -->
     <section>
-        <div class="section-header">
-            <h2>End-to-End Solutions for Dealers & Service Networks</h2>
-            <p>Digitally manage your showrooms and workshops.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-item">
-                <span class="icon">🏢</span>
-                <div>
-                    <h4>Multi-Dealer Control System</h4>
-                    <p>Centralized management dashboard for multiple locations and franchises.</p>
-                </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>End-to-End Solutions for Dealers</h2>
+                <p>Digitally manage your showrooms and workshops.</p>
             </div>
-            <div class="feature-item">
-                <span class="icon">📋</span>
-                <div>
-                    <h4>Service Booking & Status Tracking</h4>
-                    <p>Real-time updates on vehicle service progress with customer notifications.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">🏢</span>
+                    <div>
+                        <h4>Multi-Dealer Control System</h4>
+                        <p>Centralized management dashboard for multiple locations and franchises.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">👨‍🔧</span>
-                <div>
-                    <h4>Technician Scheduling</h4>
-                    <p>Optimize workforce allocation with skill-based task assignment.</p>
+                <div class="feature-item">
+                    <span class="icon">📋</span>
+                    <div>
+                        <h4>Service Booking & Status Tracking</h4>
+                        <p>Real-time updates on vehicle service progress with customer notifications.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">💬</span>
-                <div>
-                    <h4>Customer Feedback System</h4>
-                    <p>Collect, analyze, and respond to customer reviews and support tickets.</p>
+                <div class="feature-item">
+                    <span class="icon">👨‍🔧</span>
+                    <div>
+                        <h4>Technician Scheduling</h4>
+                        <p>Optimize workforce allocation with skill-based task assignment.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">📊</span>
-                <div>
-                    <h4>Workshop Analytics</h4>
-                    <p>Performance dashboards with revenue tracking and efficiency metrics.</p>
+                <div class="feature-item">
+                    <span class="icon">💬</span>
+                    <div>
+                        <h4>Customer Feedback System</h4>
+                        <p>Collect, analyze, and respond to customer reviews and support tickets.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📊</span>
+                    <div>
+                        <h4>Workshop Analytics</h4>
+                        <p>Performance dashboards with revenue tracking and efficiency metrics.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -832,37 +863,39 @@
 
     <!-- Section 6: Analytics & Reporting -->
     <section>
-        <div class="section-header">
-            <h2>Performance Insights That Drive Growth</h2>
-            <p>Access real-time analytics for sales, maintenance, and service data. Make data-backed decisions using intelligent dashboards and predictive insights.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-item">
-                <span class="icon">📊</span>
-                <div>
-                    <h4>Sales Performance Analytics</h4>
-                    <p>Track revenue trends, conversion rates, and sales team performance in real-time.</p>
-                </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Performance Insights That Drive Growth</h2>
+                <p>Access real-time analytics for sales, maintenance, and service data.</p>
             </div>
-            <div class="feature-item">
-                <span class="icon">🔧</span>
-                <div>
-                    <h4>Maintenance Trend Analysis</h4>
-                    <p>Identify patterns in service requests and optimize inventory management.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">📊</span>
+                    <div>
+                        <h4>Sales Performance Analytics</h4>
+                        <p>Track revenue trends, conversion rates, and sales team performance in real-time.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">📈</span>
-                <div>
-                    <h4>Revenue Forecasting</h4>
-                    <p>Predictive analytics to anticipate market demands and plan resources effectively.</p>
+                <div class="feature-item">
+                    <span class="icon">🔧</span>
+                    <div>
+                        <h4>Maintenance Trend Analysis</h4>
+                        <p>Identify patterns in service requests and optimize inventory management.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">🎯</span>
-                <div>
-                    <h4>Customer Behavior Insights</h4>
-                    <p>Understand purchasing patterns and service preferences for targeted marketing.</p>
+                <div class="feature-item">
+                    <span class="icon">📈</span>
+                    <div>
+                        <h4>Revenue Forecasting</h4>
+                        <p>Predictive analytics to anticipate market demands and plan resources effectively.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🎯</span>
+                    <div>
+                        <h4>Customer Behavior Insights</h4>
+                        <p>Understand purchasing patterns and service preferences for targeted marketing.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -870,37 +903,39 @@
 
     <!-- Section 7: Customer Feedback -->
     <section>
-        <div class="section-header">
-            <h2>Listen. Learn. Improve</h2>
-            <p>Boost satisfaction with automated feedback systems.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-item">
-                <span class="icon">⭐</span>
-                <div>
-                    <h4>Post-Service Rating System</h4>
-                    <p>Automated feedback requests sent after every service completion.</p>
-                </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Listen. Learn. Improve</h2>
+                <p>Boost satisfaction with automated feedback systems.</p>
             </div>
-            <div class="feature-item">
-                <span class="icon">🤖</span>
-                <div>
-                    <h4>AI Sentiment Analysis</h4>
-                    <p>Intelligent analysis of customer reviews to identify trends and issues.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">⭐</span>
+                    <div>
+                        <h4>Post-Service Rating System</h4>
+                        <p>Automated feedback requests sent after every service completion.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">📱</span>
-                <div>
-                    <h4>Review Management Dashboard</h4>
-                    <p>Centralized platform to monitor and respond to all customer feedback.</p>
+                <div class="feature-item">
+                    <span class="icon">🤖</span>
+                    <div>
+                        <h4>AI Sentiment Analysis</h4>
+                        <p>Intelligent analysis of customer reviews to identify trends and issues.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-item">
-                <span class="icon">🎁</span>
-                <div>
-                    <h4>Loyalty & Referral Tracking</h4>
-                    <p>Reward loyal customers and track referral program effectiveness.</p>
+                <div class="feature-item">
+                    <span class="icon">📱</span>
+                    <div>
+                        <h4>Review Management Dashboard</h4>
+                        <p>Centralized platform to monitor and respond to all customer feedback.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🎁</span>
+                    <div>
+                        <h4>Loyalty & Referral Tracking</h4>
+                        <p>Reward loyal customers and track referral program effectiveness.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -908,102 +943,108 @@
 
     <!-- Section 8: Support & Maintenance -->
     <section>
-        <div class="section-header">
-            <h2>Keep Your Digital Garage Running Smoothly</h2>
-        </div>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <h4>24/7 Technical Monitoring</h4>
-                <p>Round-the-clock system monitoring with proactive issue detection and resolution.</p>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Keep Your Digital Garage Running Smoothly</h2>
             </div>
-            <div class="benefit-item">
-                <h4>Cloud Hosting & Backup</h4>
-                <p>Secure cloud infrastructure with automated daily backups and disaster recovery.</p>
-            </div>
-            <div class="benefit-item">
-                <h4>API & Software Updates</h4>
-                <p>Regular updates to keep your systems current with the latest features and security patches.</p>
-            </div>
-            <div class="benefit-item">
-                <h4>Dedicated Account Manager</h4>
-                <p>Personal support from a dedicated account manager who understands your business needs.</p>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>24/7 Technical Monitoring</h4>
+                    <p>Round-the-clock system monitoring with proactive issue detection and resolution.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Cloud Hosting & Backup</h4>
+                    <p>Secure cloud infrastructure with automated daily backups and disaster recovery.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>API & Software Updates</h4>
+                    <p>Regular updates to keep your systems current with the latest features and security patches.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Dedicated Account Manager</h4>
+                    <p>Personal support from a dedicated account manager who understands your business needs.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section 9: Pricing -->
     <section>
-        <div class="section-header">
-            <h2>Flexible Plans for Every Automotive Business</h2>
-            <p>Choose the package that matches your growth journey.</p>
-        </div>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="plan-icon">🚗</div>
-                <h3>Garage Basic</h3>
-                <p class="description">Best for independent workshops or small dealerships.</p>
-                <ul>
-                    <li>Automotive Website</li>
-                    <li>Basic CRM Integration</li>
-                    <li>Digital Billing & Invoicing</li>
-                    <li>Customer Feedback Module</li>
-                    <li>Standard Email Support</li>
-                </ul>
-                <div class="price">Starting at ₹49,999 / project</div>
-                <button>Get Quote</button>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Flexible Plans for Every Business</h2>
+                <p>Choose the package that matches your growth journey.</p>
             </div>
-            <div class="pricing-card">
-                <div class="plan-icon">🧰</div>
-                <h3>Dealer Pro</h3>
-                <p class="description">Ideal for multi-branch dealers & service centers.</p>
-                <ul>
-                    <li>Web + Android App</li>
-                    <li>Inventory & Parts Management</li>
-                    <li>Technician Scheduler</li>
-                    <li>Integrated Payment Gateways</li>
-                    <li>Priority Support</li>
-                </ul>
-                <div class="price">Starting at ₹19,999 / month</div>
-                <button>Request Demo</button>
-            </div>
-            <div class="pricing-card">
-                <div class="plan-icon">🏭</div>
-                <h3>Enterprise Auto Hub</h3>
-                <p class="description">Built for large-scale manufacturers, distributors, and networks.</p>
-                <ul>
-                    <li>Multi-Dealer Dashboard</li>
-                    <li>IoT Integration & Telematics</li>
-                    <li>AI Predictive Maintenance</li>
-                    <li>24/7 Dedicated Support</li>
-                    <li>Custom API & Branding</li>
-                </ul>
-                <div class="price">Custom Pricing Available</div>
-                <button>Contact Sales</button>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-icon">🚗</div>
+                    <h3>Garage Basic</h3>
+                    <p class="description">Best for independent workshops or small dealerships.</p>
+                    <ul>
+                        <li>Automotive Website</li>
+                        <li>Basic CRM Integration</li>
+                        <li>Digital Billing & Invoicing</li>
+                        <li>Customer Feedback Module</li>
+                        <li>Standard Email Support</li>
+                    </ul>
+                    <div class="price">Starting at ₹49,999 / project</div>
+                    <button>Get Quote</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="plan-icon">🧰</div>
+                    <h3>Dealer Pro</h3>
+                    <p class="description">Ideal for multi-branch dealers & service centers.</p>
+                    <ul>
+                        <li>Web + Android App</li>
+                        <li>Inventory & Parts Management</li>
+                        <li>Technician Scheduler</li>
+                        <li>Integrated Payment Gateways</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <div class="price">Starting at ₹19,999 / month</div>
+                    <button>Request Demo</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="plan-icon">🏭</div>
+                    <h3>Enterprise Auto Hub</h3>
+                    <p class="description">Built for large-scale manufacturers and distributors.</p>
+                    <ul>
+                        <li>Multi-Dealer Dashboard</li>
+                        <li>IoT Integration & Telematics</li>
+                        <li>AI Predictive Maintenance</li>
+                        <li>24/7 Dedicated Support</li>
+                        <li>Custom API & Branding</li>
+                    </ul>
+                    <div class="price">Custom Pricing Available</div>
+                    <button>Contact Sales</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section 10: Why Choose Us -->
     <section>
-        <div class="section-header">
-            <h2>Why Choose Niyan IT Solutions</h2>
-        </div>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <h4>100% Scalable Automotive Software</h4>
-                <p>Our solutions grow with your business, from single location to enterprise networks.</p>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Why Choose Niyan IT Solutions</h2>
             </div>
-            <div class="benefit-item">
-                <h4>Cloud-Based Data & Security</h4>
-                <p>Enterprise-grade security with encrypted data storage and compliance with industry standards.</p>
-            </div>
-            <div class="benefit-item">
-                <h4>IoT & CRM Platform Integration</h4>
-                <p>Seamlessly integrate with existing systems and leverage cutting-edge IoT capabilities.</p>
-            </div>
-            <div class="benefit-item">
-                <h4>Future-Ready Technology</h4>
-                <p>Built on modern architecture with AI and machine learning capabilities for tomorrow's needs.</p>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>100% Scalable Automotive Software</h4>
+                    <p>Our solutions grow with your business, from single location to enterprise networks.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Cloud-Based Data & Security</h4>
+                    <p>Enterprise-grade security with encrypted data storage and compliance with industry standards.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>IoT & CRM Platform Integration</h4>
+                    <p>Seamlessly integrate with existing systems and leverage cutting-edge IoT capabilities.</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Future-Ready Technology</h4>
+                    <p>Built on modern architecture with AI and machine learning capabilities for tomorrow's needs.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1018,13 +1059,6 @@
             </div>
         </div>
     </section>
-
-    <style>
-        @keyframes gaugeRotate {
-            0%, 100% { stroke-dashoffset: 110; }
-            50% { stroke-dashoffset: 330; }
-        }
-    </style>
 
     <script>
         // Scroll animations
@@ -1049,7 +1083,7 @@
             observer.observe(el);
         });
 
-        // Button interactions
+        // Button interactions with ripple effect
         document.querySelectorAll('button').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const ripple = document.createElement('span');
@@ -1073,6 +1107,7 @@
             });
         });
 
+        // Add ripple animation
         const style = document.createElement('style');
         style.textContent = `
             @keyframes ripple {
@@ -1084,7 +1119,6 @@
         `;
         document.head.appendChild(style);
     </script>
-
      <!-- Scroll to Top Button -->
 <div class="scroll-top" id="scrollTop">
     ↑
