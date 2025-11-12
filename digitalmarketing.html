@@ -30,6 +30,7 @@
             position: relative;
             overflow: hidden;
             padding: 40px 20px;
+            width: 100%;
         }
 
         .floating-icon {
@@ -141,6 +142,10 @@
         /* Section Styling */
         section {
             padding: 100px 20px;
+            width: 100%;
+        }
+
+        .section-wrapper {
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -422,11 +427,17 @@
 
         /* Industries */
         .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+    grid-template-rows: repeat(4, auto);   /* 4 flexible rows (for 16 total items) */
+    gap: 30px;                             /* space between grid items */
+    margin-top: 60px;                      /* space above the grid */
+    justify-items: center;                 /* centers items horizontally */
+    align-items: start;                    /* aligns items vertically at the top */
+    max-width: 1600px;                     /* keeps grid neat on large screens */
+    margin-left: auto;
+    margin-right: auto;                    /* centers the grid container */
+}
 
         .industry-item {
             text-align: center;
@@ -525,6 +536,38 @@
             box-shadow: 0 0 40px rgba(255,255,255,0.5);
         }
 
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #6A11CB, #007BFF);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(106,17,203,0.3);
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(106,17,203,0.5);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -569,95 +612,99 @@
 
     <!-- Approach Section -->
     <section class="approach">
-        <div class="section-header">
-            <h2>Strategic, Creative, and Data-Driven.</h2>
-            <p>Every campaign starts with insights and ends with measurable success.</p>
-        </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Strategic, Creative, and Data-Driven.</h2>
+                <p>Every campaign starts with insights and ends with measurable success.</p>
+            </div>
 
-        <div class="process-steps">
-            <div class="step-card">
-                <div class="step-icon">🔍</div>
-                <h3>Plan & Research</h3>
-                <p>Market analysis, audience targeting, competitor benchmarking.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-icon">🎨</div>
-                <h3>Create & Execute</h3>
-                <p>Ad creatives, landing pages, copywriting, and multi-channel campaigns.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-icon">📈</div>
-                <h3>Measure & Optimize</h3>
-                <p>Real-time analytics, A/B testing, and continuous performance enhancement.</p>
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-icon">🔍</div>
+                    <h3>Plan & Research</h3>
+                    <p>Market analysis, audience targeting, competitor benchmarking.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">🎨</div>
+                    <h3>Create & Execute</h3>
+                    <p>Ad creatives, landing pages, copywriting, and multi-channel campaigns.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">📈</div>
+                    <h3>Measure & Optimize</h3>
+                    <p>Real-time analytics, A/B testing, and continuous performance enhancement.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Campaigns -->
     <section id="campaigns">
-        <div class="section-header">
-            <h2>Campaign Highlights That Made an Impact.</h2>
-            <p>A look into how we turned digital ideas into measurable success.</p>
-        </div>
-
-        <div class="campaigns-grid">
-            <div class="campaign-card">
-                <div class="campaign-icon">🛍️</div>
-                <div class="campaign-content">
-                    <span class="campaign-type">Social + PPC</span>
-                    <h3>ShopEase E-Commerce Launch</h3>
-                    <p>Achieved 2.3M impressions, 42K clicks, 8.5% CTR, and 3x ROI in the first month.</p>
-                    <span class="campaign-link">View Full Case Study →</span>
-                </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Campaign Highlights That Made an Impact.</h2>
+                <p>A look into how we turned digital ideas into measurable success.</p>
             </div>
 
-            <div class="campaign-card">
-                <div class="campaign-icon">🍴</div>
-                <div class="campaign-content">
-                    <span class="campaign-type">Local SEO + Google Ads</span>
-                    <h3>FoodFleet Restaurant Drive</h3>
-                    <p>Boosted foot traffic by 60%, generated 4.5K monthly leads.</p>
-                    <span class="campaign-link">View Full Case Study →</span>
+            <div class="campaigns-grid">
+                <div class="campaign-card">
+                    <div class="campaign-icon">🛍️</div>
+                    <div class="campaign-content">
+                        <span class="campaign-type">Social + PPC</span>
+                        <h3>ShopEase E-Commerce Launch</h3>
+                        <p>Achieved 2.3M impressions, 42K clicks, 8.5% CTR, and 3x ROI in the first month.</p>
+                        <span class="campaign-link">View Full Case Study →</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="campaign-card">
-                <div class="campaign-icon">🚗</div>
-                <div class="campaign-content">
-                    <span class="campaign-type">Influencer + Video Ads</span>
-                    <h3>AutoConnect Awareness Campaign</h3>
-                    <p>Partnered with 10+ micro-influencers, reached 1.8M users organically.</p>
-                    <span class="campaign-link">View Full Case Study →</span>
+                <div class="campaign-card">
+                    <div class="campaign-icon">🍴</div>
+                    <div class="campaign-content">
+                        <span class="campaign-type">Local SEO + Google Ads</span>
+                        <h3>FoodFleet Restaurant Drive</h3>
+                        <p>Boosted foot traffic by 60%, generated 4.5K monthly leads.</p>
+                        <span class="campaign-link">View Full Case Study →</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="campaign-card">
-                <div class="campaign-icon">🏋️‍♀️</div>
-                <div class="campaign-content">
-                    <span class="campaign-type">App Install Ads</span>
-                    <h3>FitPro App Promotion</h3>
-                    <p>120K installs in 90 days, average CPI ₹6.3, 4.8★ average rating.</p>
-                    <span class="campaign-link">View Full Case Study →</span>
+                <div class="campaign-card">
+                    <div class="campaign-icon">🚗</div>
+                    <div class="campaign-content">
+                        <span class="campaign-type">Influencer + Video Ads</span>
+                        <h3>AutoConnect Awareness Campaign</h3>
+                        <p>Partnered with 10+ micro-influencers, reached 1.8M users organically.</p>
+                        <span class="campaign-link">View Full Case Study →</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="campaign-card">
-                <div class="campaign-icon">🏨</div>
-                <div class="campaign-content">
-                    <span class="campaign-type">Content + PPC</span>
-                    <h3>TripMate Tourism Blast</h3>
-                    <p>Blog traffic increased 210%, bookings up by 37%.</p>
-                    <span class="campaign-link">View Full Case Study →</span>
+                <div class="campaign-card">
+                    <div class="campaign-icon">🏋️‍♀️</div>
+                    <div class="campaign-content">
+                        <span class="campaign-type">App Install Ads</span>
+                        <h3>FitPro App Promotion</h3>
+                        <p>120K installs in 90 days, average CPI ₹6.3, 4.8★ average rating.</p>
+                        <span class="campaign-link">View Full Case Study →</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="campaign-card">
-                <div class="campaign-icon">💳</div>
-                <div class="campaign-content">
-                    <span class="campaign-type">Email + LinkedIn Campaign</span>
-                    <h3>FinEdge Finance Ads</h3>
-                    <p>25% open rate, 17% CTR, 1,200 qualified B2B leads.</p>
-                    <span class="campaign-link">View Full Case Study →</span>
+                <div class="campaign-card">
+                    <div class="campaign-icon">🏨</div>
+                    <div class="campaign-content">
+                        <span class="campaign-type">Content + PPC</span>
+                        <h3>TripMate Tourism Blast</h3>
+                        <p>Blog traffic increased 210%, bookings up by 37%.</p>
+                        <span class="campaign-link">View Full Case Study →</span>
+                    </div>
+                </div>
+
+                <div class="campaign-card">
+                    <div class="campaign-icon">💳</div>
+                    <div class="campaign-content">
+                        <span class="campaign-type">Email + LinkedIn Campaign</span>
+                        <h3>FinEdge Finance Ads</h3>
+                        <p>25% open rate, 17% CTR, 1,200 qualified B2B leads.</p>
+                        <span class="campaign-link">View Full Case Study →</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -665,177 +712,189 @@
 
     <!-- Analytics Section -->
     <section class="analytics">
-        <div class="section-header">
-            <h2>Turning Data Into Growth.</h2>
-            <p>We believe in results you can measure.</p>
-        </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Turning Data Into Growth.</h2>
+                <p>We believe in results you can measure.</p>
+            </div>
 
-        <div class="metrics-panel">
-            <div class="metric-card">
-                <div class="metric-value" data-target="10000000">0</div>
-                <div class="metric-label">Total Impressions</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value" data-target="6.8">0</div>
-                <div class="metric-label">Average CTR</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value" data-target="75000">0</div>
-                <div class="metric-label">Conversions Generated</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value" data-target="3.4">0</div>
-                <div class="metric-label">Avg ROI Across Campaigns</div>
+            <div class="metrics-panel">
+                <div class="metric-card">
+                    <div class="metric-value" data-target="10000000">0</div>
+                    <div class="metric-label">Total Impressions</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="6.8">0</div>
+                    <div class="metric-label">Average CTR</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="75000">0</div>
+                    <div class="metric-label">Conversions Generated</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-target="3.4">0</div>
+                    <div class="metric-label">Avg ROI Across Campaigns</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Tools Section -->
     <section class="tools">
-        <div class="section-header">
-            <h2>Powered by the Best in the Business.</h2>
-            <p>Our team leverages cutting-edge platforms to plan, execute, and optimize campaigns effectively.</p>
-        </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Powered by the Best in the Business.</h2>
+                <p>Our team leverages cutting-edge platforms to plan, execute, and optimize campaigns effectively.</p>
+            </div>
 
-        <div class="tools-grid">
-            <div class="tool-logo">Google Ads</div>
-            <div class="tool-logo">Meta Ads</div>
-            <div class="tool-logo">HubSpot</div>
-            <div class="tool-logo">Mailchimp</div>
-            <div class="tool-logo">Canva</div>
-            <div class="tool-logo">Ahrefs</div>
-            <div class="tool-logo">SEMrush</div>
-            <div class="tool-logo">Google Analytics</div>
-            <div class="tool-logo">Hootsuite</div>
+            <div class="tools-grid">
+                <div class="tool-logo">Google Ads</div>
+                <div class="tool-logo">Meta Ads</div>
+                <div class="tool-logo">HubSpot</div>
+                <div class="tool-logo">Mailchimp</div>
+                <div class="tool-logo">Canva</div>
+                <div class="tool-logo">Ahrefs</div>
+                <div class="tool-logo">SEMrush</div>
+                <div class="tool-logo">Google Analytics</div>
+                <div class="tool-logo">Hootsuite</div>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section>
-        <div class="section-header">
-            <h2>What We Delivered in Each Campaign.</h2>
-        </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>What We Delivered in Each Campaign.</h2>
+            </div>
 
-        <div class="services-grid">
-            <div class="service-block">
-                <span class="service-icon">🔍</span>
-                <span>Search Engine Optimization (SEO)</span>
-            </div>
-            <div class="service-block">
-                <span class="service-icon">💰</span>
-                <span>Pay-Per-Click Advertising (PPC)</span>
-            </div>
-            <div class="service-block">
-                <span class="service-icon">📱</span>
-                <span>Social Media Marketing</span>
-            </div>
-            <div class="service-block">
-                <span class="service-icon">📝</span>
-                <span>Content Marketing</span>
-            </div>
-            <div class="service-block">
-                <span class="service-icon">✉️</span>
-                <span>Email Marketing</span>
-            </div>
-            <div class="service-block">
-                <span class="service-icon">⭐️</span>
-                <span>Affiliate & Influencer Campaigns</span>
+            <div class="services-grid">
+                <div class="service-block">
+                    <span class="service-icon">🔍</span>
+                    <span>Search Engine Optimization (SEO)</span>
+                </div>
+                <div class="service-block">
+                    <span class="service-icon">💰</span>
+                    <span>Pay-Per-Click Advertising (PPC)</span>
+                </div>
+                <div class="service-block">
+                    <span class="service-icon">📱</span>
+                    <span>Social Media Marketing</span>
+                </div>
+                <div class="service-block">
+                    <span class="service-icon">📝</span>
+                    <span>Content Marketing</span>
+                </div>
+                <div class="service-block">
+                    <span class="service-icon">✉️</span>
+                    <span>Email Marketing</span>
+                </div>
+                <div class="service-block">
+                    <span class="service-icon">⭐️</span>
+                    <span>Affiliate & Influencer Campaigns</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section class="testimonials">
-        <div class="section-header">
-            <h2>What Our Clients Say About Our Campaigns.</h2>
-        </div>
-
-        <div class="testimonial-carousel">
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "Niyan IT Solutions helped us reach our audience effectively — our ROI tripled within two months!"
-                </div>
-                <div class="testimonial-author">— Karthik R, ShopEase</div>
-                <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>What Our Clients Say About Our Campaigns.</h2>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "Their digital strategy was detailed and well executed — we saw real growth."
+
+            <div class="testimonial-carousel">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Niyan IT Solutions helped us reach our audience effectively — our ROI tripled within two months!"
+                    </div>
+                    <div class="testimonial-author">— Karthik R, ShopEase</div>
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
                 </div>
-                <div class="testimonial-author">— Preethi S, FoodFleet</div>
-                <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Their digital strategy was detailed and well executed — we saw real growth."
+                    </div>
+                    <div class="testimonial-author">— Preethi S, FoodFleet</div>
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Industries -->
     <section>
-        <div class="section-header">
-            <h2>Marketing Campaigns Across Multiple Sectors.</h2>
-        </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Marketing Campaigns Across Multiple Sectors.</h2>
+            </div>
 
-        <div class="industries-grid">
-            <div class="industry-item">
-                <div class="industry-icon">🏠</div>
-                <span>Real Estate</span>
-            </div>
-            <div class="industry-item">
-                <div class="industry-icon">🍔</div>
-                <span>Food & Restaurants</span>
-            </div>
-            <div class="industry-item">
-                <div class="industry-icon">🚗</div>
-                <span>Automobile</span>
-            </div>
-            <div class="industry-item">
-                <div class="industry-icon">🏨</div>
-                <span>Tourism</span>
-            </div>
-            <div class="industry-item">
-                <div class="industry-icon">🏋️‍♀️</div>
-                <span>Fitness</span>
-            </div>
-            <div class="industry-item">
-                <div class="industry-icon">💳</div>
-                <span>Finance</span>
-            </div>
-            <div class="industry-item">
-                <div class="industry-icon">🏫</div>
-                <span>Education</span>
-            </div>
-            <div class="industry-item">
-                <div class="industry-icon">🛒</div>
-                <span>E-Commerce</span>
+            <div class="industries-grid">
+                <div class="industry-item">
+                    <div class="industry-icon">🏠</div>
+                    <span>Real Estate</span>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">🍔</div>
+                    <span>Food & Restaurants</span>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">🚗</div>
+                    <span>Automobile</span>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">🏨</div>
+                    <span>Tourism</span>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">🏋️‍♀️</div>
+                    <span>Fitness</span>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">💳</div>
+                    <span>Finance</span>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">🏫</div>
+                    <span>Education</span>
+                </div>
+                <div class="industry-item">
+                    <div class="industry-icon">🛒</div>
+                    <span>E-Commerce</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose -->
     <section class="why-choose">
-        <div class="section-header">
-            <h2>Why Choose Niyan IT Solutions</h2>
-        </div>
+        <div class="section-wrapper">
+            <div class="section-header">
+                <h2>Why Choose Niyan IT Solutions</h2>
+            </div>
 
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <span class="check-icon">✅</span>
-                <span>Proven ROI-Based Strategies</span>
-            </div>
-            <div class="benefit-item">
-                <span class="check-icon">✅</span>
-                <span>Creative & Analytical Expertise</span>
-            </div>
-            <div class="benefit-item">
-                <span class="check-icon">✅</span>
-                <span>Transparent Reporting</span>
-            </div>
-            <div class="benefit-item">
-                <span class="check-icon">✅</span>
-                <span>Dedicated Campaign Managers</span>
-            </div>
-            <div class="benefit-item">
-                <span class="check-icon">✅</span>
-                <span>Full Funnel Digital Marketing</span>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="check-icon">✅</span>
+                    <span>Proven ROI-Based Strategies</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="check-icon">✅</span>
+                    <span>Creative & Analytical Expertise</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="check-icon">✅</span>
+                    <span>Transparent Reporting</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="check-icon">✅</span>
+                    <span>Dedicated Campaign Managers</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="check-icon">✅</span>
+                    <span>Full Funnel Digital Marketing</span>
+                </div>
             </div>
         </div>
     </section>
@@ -846,6 +905,13 @@
         <p>Ready to scale your brand online? We'll help you reach the right audience with the right message.</p>
         <a href="#" class="btn btn-primary">Start Your Campaign</a>
     </section>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        ↑
+    </div>
+
+    <div id="footer"></div>
 
     <script>
         // Animated Counter for Metrics
@@ -951,52 +1017,40 @@
             }
         `;
         document.head.appendChild(style);
-    </script>
-     <!-- Scroll to Top Button -->
-<div class="scroll-top" id="scrollTop">
-    ↑
-</div>
 
-<!-- JavaScript for Scroll Button -->
-<script>
-    // Get the scroll-to-top button
-    const scrollTopBtn = document.getElementById('scrollTop');
+        // Get the scroll-to-top button
+        const scrollTopBtn = document.getElementById('scrollTop');
 
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
-
-    // Scroll to top when button is clicked
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
         });
-    });
-</script>
 
-<div id="footer"></div>
+        // Scroll to top when button is clicked
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
-  <!-- Script to Load Header & Footer -->
-  <script>
-    // Load header
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header").innerHTML = data;
-      });
+        // Load header
+        fetch("header.html")
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById("header").innerHTML = data;
+          });
 
-    // Load footer
-    fetch("footer.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
-  </body>
+        // Load footer
+        fetch("footer.html")
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById("footer").innerHTML = data;
+          });
+    </script>
+</body>
 </html>
