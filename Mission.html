@@ -379,12 +379,12 @@
             height: 550px;
         }
 
-        .philosophy-shape {
-            position: absolute;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 40px;
-            box-shadow: 0 20px 70px rgba(102, 126, 234, 0.3);
-        }
+        .philosophy-shape img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* keeps proper cropping */
+    border-radius: 20px; /* optional */
+}
 
         .philosophy-shape:nth-child(1) {
             width: 300px;
@@ -837,9 +837,14 @@
         <div class="container">
             <div class="philosophy-content">
                 <div class="philosophy-visual">
-                    <div class="philosophy-shape"></div>
-                    <div class="philosophy-shape"></div>
-                    <div class="philosophy-emoji">🌱</div>
+                    <div class="philosophy-shape">
+    <img src="image1.jpg" alt="">
+</div>
+
+<div class="philosophy-shape">
+    <img src="image2.jpg" alt="">
+</div>
+                    <div class="philosophy-emoji"></div>
                 </div>
 
                 <div class="philosophy-text">

@@ -169,10 +169,13 @@
         }
 
         .intro-visual::before {
-            content: '💡';
-            font-size: 120px;
-            animation: pulse 3s ease-in-out infinite;
-        }
+    content: "";
+    display: block;
+    width: 550px;      /* adjust size */
+    height: 550px;     /* adjust size */
+    background: url("whoweimage.jpg") center/contain no-repeat;
+    animation: pulse 3s ease-in-out infinite;
+}
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }

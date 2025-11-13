@@ -20,157 +20,157 @@
             max-width: 100vw;
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            padding: 100px 20px 50px 20px;
-            margin: 0;
-            width: 100%;
-        }
+      /* Hero Section */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 100px 20px 50px 20px;
+    margin: 0;
+    width: 100%;
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 0;
+    object-fit: cover;
+}
 
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
 
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-            width: 100%;
-        }
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
 
-        .hero-text h1 {
-            font-size: 56px;
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            animation: fadeInUp 1s ease;
-        }
+.hero-text h1 {
+    font-size: 56px;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    animation: fadeInUp 1s ease;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    font-weight: 700;
+}
 
-        .hero-text p {
-            font-size: 20px;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 30px;
-            line-height: 1.6;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
+.hero-text p {
+    font-size: 20px;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease 0.2s backwards;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    font-weight: 400;
+}
 
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    animation: fadeInUp 1s ease 0.4s backwards;
+    justify-content: center;
+}
 
-        .btn-primary, .btn-secondary {
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
+.btn-primary, .btn-secondary {
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
 
-        .btn-primary {
-            background: white;
-            color: #667eea;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+.btn-primary {
+    background: white;
+    color: #667eea;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
 
-        .btn-secondary {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid white;
-            backdrop-filter: blur(10px);
-        }
+.btn-secondary {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid white;
+    backdrop-filter: blur(10px);
+}
 
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-        }
+.btn-secondary:hover {
+    background: white;
+    color: #667eea;
+}
 
-        .hero-visual {
-            position: relative;
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
+.hero-visual {
+    display: none;
+}
 
-        .hero-image {
-            width: 100%;
-            height: 500px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 120px;
-            position: relative;
-            overflow: hidden;
-        }
+.hero-image {
+    display: none;
+}
 
-        .floating-card {
-            position: absolute;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: float 3s ease-in-out infinite;
-        }
+.floating-card {
+    display: none;
+}
 
-        .floating-card:nth-child(2) {
-            top: 10%;
-            right: -10%;
-            animation-delay: 0s;
-        }
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
 
-        .floating-card:nth-child(3) {
-            bottom: 10%;
-            left: -10%;
-            animation-delay: 1s;
-        }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 36px;
+    }
+    
+    .hero-text p {
+        font-size: 16px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 200px;
+        text-align: center;
+    }
+}
 
         /*About Us */
         .about-section {
@@ -1119,6 +1119,24 @@
     <div id="header"></div>
 
     <!-- Hero Section -->
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4">
+        
+    </video>
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Empowering Digital Growth with Niyan IT Solutions</h1>
+            <p>Transform your business with cutting-edge technology solutions. From IT infrastructure to digital marketing, we deliver excellence at every step.</p>
+            <div class="hero-buttons">
+                <a href="weddev.html" class="btn-primary">Explore Services</a>
+                <a href="contactform.html" class="btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Hero Section 
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
@@ -1130,7 +1148,7 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-image">💻</div>
+                <div class="hero-image"><img src="Herosection.png" width="670px" alt=""></div>
                 <div class="floating-card">
                     <div style="font-size: 30px;">🚀</div>
                     <div style="font-weight: 600; margin-top: 10px;">500+ Projects</div>
@@ -1141,7 +1159,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- About Us-->
      <section class="about-section">
@@ -1152,7 +1170,9 @@
             <div class="about-content">
                 <h2>About Us</h2>
                 <p>We are a dedicated team committed to delivering excellence and innovation. With years of experience and a passion for what we do, we strive to provide the best solutions for our clients and create lasting relationships built on trust and quality.</p>
-                <button class="about-btn">Learn More</button>
+                <a href="whowe.html">
+        <button class="about-btn">Learn More</button>
+    </a>
             </div>
         </div>
     </section>
@@ -1170,37 +1190,37 @@
                     <div class="capability-icon">🖥️</div>
                     <h3>IT Infrastructure & Support</h3>
                     <p>Complete IT infrastructure management including network, server, cloud, and endpoint security solutions.</p>
-                    <a href="#" class="learn-more">Learn More →</a>
+                    <a href="desktop.html" class="learn-more">Learn More →</a>
                 </div>
                 <div class="capability-card">
                     <div class="capability-icon">🌐</div>
                     <h3>Web Development</h3>
                     <p>Custom web applications for education, healthcare, e-commerce, and enterprise management systems.</p>
-                    <a href="#" class="learn-more">Learn More →</a>
+                    <a href="webprojects.html" class="learn-more">Learn More →</a>
                 </div>
                 <div class="capability-card">
                     <div class="capability-icon">📱</div>
                     <h3>Mobile App Development</h3>
                     <p>Native and cross-platform mobile applications for Android and iOS with seamless user experiences.</p>
-                    <a href="#" class="learn-more">Learn More →</a>
+                    <a href="andriod.html" class="learn-more">Learn More →</a>
                 </div>
                 <div class="capability-card">
                     <div class="capability-icon">☁️</div>
                     <h3>Email Solutions</h3>
                     <p>Email migration, maintenance, and optimization services with Office 365 and Google Workspace integration.</p>
-                    <a href="#" class="learn-more">Learn More →</a>
+                    <a href="emailsupport.html" class="learn-more">Learn More →</a>
                 </div>
                 <div class="capability-card">
                     <div class="capability-icon">📈</div>
                     <h3>Digital Marketing</h3>
                     <p>Complete digital marketing services including SEO, PPC, social media, content, and influencer marketing.</p>
-                    <a href="#" class="learn-more">Learn More →</a>
+                    <a href="digitalmarketing.html" class="learn-more">Learn More →</a>
                 </div>
                 <div class="capability-card">
                     <div class="capability-icon">🛡️</div>
                     <h3>Cybersecurity</h3>
                     <p>Enterprise-grade security solutions with endpoint protection, firewall management, and monitoring tools.</p>
-                    <a href="#" class="learn-more">Learn More →</a>
+                    <a href="searchengine.html" class="learn-more">Learn More →</a>
                 </div>
             </div>
         </div>
@@ -1367,7 +1387,7 @@
                         <span class="case-tag">Education</span>
                         <h3>School Management System</h3>
                         <p>Developed a comprehensive school management platform handling admissions, attendance, grades, and parent communication for 50+ schools.</p>
-                        <a href="#" class="learn-more">View Case Study →</a>
+                        <a href="school.html" class="learn-more">View Case Study →</a>
                     </div>
                 </div>
                 <div class="case-card">
@@ -1376,7 +1396,7 @@
                         <span class="case-tag">E-Commerce</span>
                         <h3>Multi-Vendor Marketplace</h3>
                         <p>Built a scalable e-commerce platform with vendor management, payment gateway integration, and real-time inventory tracking.</p>
-                        <a href="#" class="learn-more">View Case Study →</a>
+                        <a href="ecommerceindustrie.html" class="learn-more">View Case Study →</a>
                     </div>
                 </div>
                 <div class="case-card">
@@ -1385,7 +1405,7 @@
                         <span class="case-tag">Healthcare</span>
                         <h3>Hospital Management Solution</h3>
                         <p>Created an integrated hospital management system with patient records, appointment scheduling, and billing automation.</p>
-                        <a href="#" class="learn-more">View Case Study →</a>
+                        <a href="hospital.html" class="learn-more">View Case Study →</a>
                     </div>
                 </div>
                 <div class="case-card">
@@ -1394,7 +1414,7 @@
                         <span class="case-tag">Manufacturing</span>
                         <h3>Smart Factory Management</h3>
                         <p>Implemented an end-to-end manufacturing solution with inventory control, production tracking, quality assurance, and supply chain optimization.</p>
-                        <a href="#" class="learn-more">View Case Study →</a>
+                        <a href="automobileindustrie.html" class="learn-more">View Case Study →</a>
                     </div>
                 </div>
             </div>
@@ -1407,7 +1427,7 @@
             <h2>Ready to Transform Your Business?</h2>
             <p>Let's discuss how we can help you achieve your digital transformation goals. Get in touch with our team today.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn-primary">Get Started</a>
+                <a href="contactform.html" class="btn-primary">Get Started</a>
             </div>
         </div>
     </section>
