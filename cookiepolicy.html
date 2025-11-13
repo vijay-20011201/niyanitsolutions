@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cookie Policy - Niyan IT Solutions</title>
+<style>
+body{
+  font-family:'Poppins',sans-serif;
+  background:#F8F9FA;
+  margin:0;
+  padding:0;
+  color:#333;
+}
+header{
+  background:linear-gradient(90deg,#007BFF,#00C9FF);
+  color:#fff;
+  text-align:center;
+  padding:60px 20px;
+}
+header h1{
+  margin:0;
+  font-size:34px;
+  letter-spacing:0.5px;
+}
+section{
+  max-width:1000px;
+  margin:50px auto;
+  background:#fff;
+  padding:40px 60px;
+  border-radius:10px;
+  box-shadow:0 4px 25px rgba(0,0,0,0.1);
+}
+h2{
+  color:#007BFF;
+  margin-top:30px;
+  font-size:22px;
+}
+p,li{
+  line-height:1.8;
+  color:#444;
+}
+ul{margin-left:20px;}
+footer{
+  background:#f1f1f1;
+  text-align:center;
+  padding:20px;
+  color:#555;
+  margin-top:60px;
+  font-size:14px;
+}
+@media(max-width:768px){
+  section{padding:25px;}
+  header h1{font-size:26px;}
+}
+</style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+
+<header>
+  <h1>Cookie Policy</h1>
+  <p>How cookies help enhance your experience on our website.</p>
+</header>
+
+<section>
+
+  <p><strong>Effective Date:</strong> November 2025</p>
+
+  <p>This Cookie Policy explains how <strong>Niyan IT Solutions</strong> (“we”, “our”, “us”) uses cookies and similar tracking technologies on our website.</p>
+
+  <h2>1. What Are Cookies?</h2>
+  <p>Cookies are small text files stored on your device to help websites function smoothly and improve user experience. Cookies do not store personal information such as your name, phone number, or passwords.</p>
+
+  <h2>2. Types of Cookies We Use</h2>
+
+  <ul>
+    <li><strong>Essential Cookies:</strong> Required for basic website functions such as page navigation and form submission.</li>
+    <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our website (Google Analytics, traffic reports).</li>
+    <li><strong>Functional Cookies:</strong> Improve website personalization, such as remembering user preferences.</li>
+    <li><strong>Advertising Cookies:</strong> Used to show relevant ads and measure ad performance (Google Ads, Meta Ads, etc.).</li>
+  </ul>
+
+  <h2>3. Why We Use Cookies</h2>
+  <ul>
+    <li>To ensure the website operates properly.</li>
+    <li>To improve speed, navigation, and user experience.</li>
+    <li>To analyze website traffic and performance.</li>
+    <li>To personalize marketing and advertising (when applicable).</li>
+  </ul>
+
+  <h2>4. Third-Party Cookies</h2>
+  <p>Some cookies are placed by third-party services we use, such as:</p>
+  <ul>
+    <li>Google Analytics</li>
+    <li>Meta (Facebook) Pixel</li>
+    <li>YouTube embedded content</li>
+    <li>Marketing tools and CRM platforms</li>
+  </ul>
+  <p>These providers may use cookies to track your interaction with our website.</p>
+
+  <h2>5. Managing Cookies</h2>
+  <p>You can control cookie settings through your browser:</p>
+  <ul>
+    <li>Accept or reject all cookies</li>
+    <li>Delete existing cookies</li>
+    <li>Block third-party cookies</li>
+    <li>Set custom preferences for individual websites</li>
+  </ul>
+
+  <p>Browsers like Chrome, Safari, Firefox, and Edge provide easy cookie management tools.</p>
+
+  <h2>6. Disabling Cookies</h2>
+  <p>If you choose to disable cookies, some features of our website may not work correctly, including:</p>
+  <ul>
+    <li>Form submissions</li>
+    <li>Page navigation</li>
+    <li>Media playback</li>
+  </ul>
+
+  <h2>7. Updates to This Cookie Policy</h2>
+  <p>We may update this Cookie Policy to reflect changes in technology or regulations. Updated versions will be posted on this page.</p>
+
+  <h2>8. Contact Us</h2>
+  <p>If you have any questions regarding this Cookie Policy, please contact us:</p>
+
+  <p><strong>Niyan IT Solutions</strong><br>
+  1st Floor, Manjunath Complex,<br>
+  Konappana Agrahara, Electronic City,<br>
+  Bengaluru, Karnataka – 560100<br><br>
+
+  ✉️ info@niyanitsolutions.com<br>
+  ✉️ support@niyanit.com<br>
+  📞 +91 1234567890 / +91 123 456 7891</p>
+
+</section>
+
+<footer>
+  © 2025 Niyan IT Solutions. All Rights Reserved.
+</footer>
+<div id="footer"></div>
+
+<!-- Script to Load Header & Footer -->
+<script>
+    // Load header
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+            // Initialize mobile menu after header loads
+            initializeMobileMenu();
+        });
+
+    // Load footer
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        });
+
+    // Mobile Menu Initialization Function
+    function initializeMobileMenu() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        // Check if elements exist
+        if (!menuToggle || !navMenu) {
+            setTimeout(initializeMobileMenu, 100);
+            return;
+        }
+        
+        // Remove any existing event listeners by cloning elements
+        const newMenuToggle = menuToggle.cloneNode(true);
+        menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+        
+        // Toggle mobile menu
+        newMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Handle dropdown clicks on mobile
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown, .mega-menu');
+            
+            if (dropdown) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        navItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        
+                        item.classList.toggle('active');
+                    }
+                });
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && 
+                !e.target.closest('.nav-container') && 
+                navMenu.classList.contains('active')) {
+                newMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                newMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

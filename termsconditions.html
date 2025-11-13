@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms & Conditions - Niyan IT Solutions</title>
+<style>
+body{
+  font-family:'Poppins',sans-serif;
+  background:#F8F9FA;
+  margin:0;
+  padding:0;
+  color:#333;
+}
+header{
+  background:linear-gradient(90deg,#007BFF,#00C9FF);
+  color:#fff;
+  text-align:center;
+  padding:60px 20px;
+}
+header h1{
+  margin:0;
+  font-size:34px;
+  letter-spacing:0.5px;
+}
+section{
+  max-width:1000px;
+  margin:50px auto;
+  background:#fff;
+  padding:40px 60px;
+  border-radius:10px;
+  box-shadow:0 4px 25px rgba(0,0,0,0.1);
+}
+h2{
+  color:#007BFF;
+  margin-top:30px;
+  font-size:22px;
+}
+p,li{
+  line-height:1.8;
+  color:#444;
+}
+ul{margin-left:20px;}
+footer{
+  background:#f1f1f1;
+  text-align:center;
+  padding:20px;
+  color:#555;
+  margin-top:60px;
+  font-size:14px;
+}
+@media(max-width:768px){
+  section{padding:25px;}
+  header h1{font-size:26px;}
+}
+</style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+
+<header>
+  <h1>Terms & Conditions</h1>
+  <p>Please read these terms carefully before using our website or services.</p>
+</header>
+
+<section>
+
+  <p><strong>Effective Date:</strong> November 2025</p>
+
+  <p>These Terms & Conditions govern your use of the website and services provided by <strong>Niyan IT Solutions</strong>. By accessing or using our website, you agree to comply with and be bound by these terms.</p>
+
+  <h2>1. Acceptance of Terms</h2>
+  <p>By visiting our website, submitting inquiries, or engaging with our services, you agree to follow these Terms & Conditions. If you do not agree, please discontinue use of our website immediately.</p>
+
+  <h2>2. Use of Website</h2>
+  <p>You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of others or restrict their use of the site.</p>
+  <ul>
+    <li>Do not submit false information.</li>
+    <li>Do not attempt unauthorized access to the website or servers.</li>
+    <li>Do not upload malicious code or harmful content.</li>
+  </ul>
+
+  <h2>3. Intellectual Property Rights</h2>
+  <p>All content on this website, including text, graphics, logos, icons, images, and software, is the property of Niyan IT Solutions or its partners. Unauthorized use, reproduction, or distribution is strictly prohibited.</p>
+
+  <h2>4. Service Information</h2>
+  <p>We provide information about our IT services, solutions, and offerings for general guidance. While we aim for accuracy, we do not guarantee that all content is always up-to-date or error-free.</p>
+
+  <h2>5. Third-Party Links</h2>
+  <p>Our website may include links to third-party websites for additional resources. We are not responsible for the content, privacy, or security practices of external websites.</p>
+
+  <h2>6. Limitation of Liability</h2>
+  <p>Niyan IT Solutions is not liable for any direct, indirect, incidental, or consequential damages resulting from:</p>
+  <ul>
+    <li>Use or inability to use our website</li>
+    <li>Errors, interruptions, or website downtime</li>
+    <li>Loss of data, revenue, or profits</li>
+  </ul>
+  <p>Use our website and services at your own discretion.</p>
+
+  <h2>7. Privacy & Data Protection</h2>
+  <p>All personal data you provide is handled according to our <a href="privacy-policy.html">Privacy Policy</a>. By using our website, you consent to our data practices.</p>
+
+  <h2>8. Contact Forms & Communication</h2>
+  <p>When you contact us or fill out a form, you agree that we may reach out via email, phone, or WhatsApp regarding your inquiry or services.</p>
+
+  <h2>9. Changes to Terms</h2>
+  <p>We may update these Terms & Conditions periodically. Updated versions will be posted on this page with the latest effective date.</p>
+
+  <h2>10. Governing Law</h2>
+  <p>These Terms & Conditions are governed by the laws of India. Any disputes will be handled under the jurisdiction of the courts in Bengaluru, Karnataka.</p>
+
+  <h2>11. Contact Us</h2>
+  <p>If you have questions regarding these Terms & Conditions, please reach out:</p>
+
+  <p><strong>Niyan IT Solutions</strong><br>
+  1st Floor, Manjunath Complex,<br>
+  Konappana Agrahara, Electronic City,<br>
+  Bengaluru, Karnataka – 560100<br><br>
+
+  ✉️ info@niyanitsolutions.com<br>
+  ✉️ support@niyanit.com<br>
+  📞 +91 1234567890 / +91 123 456 7891</p>
+
+</section>
+
+<footer>
+  © 2025 Niyan IT Solutions. All Rights Reserved.
+</footer>
+<div id="footer"></div>
+
+<!-- Script to Load Header & Footer -->
+<script>
+    // Load header
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+            // Initialize mobile menu after header loads
+            initializeMobileMenu();
+        });
+
+    // Load footer
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        });
+
+    // Mobile Menu Initialization Function
+    function initializeMobileMenu() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        // Check if elements exist
+        if (!menuToggle || !navMenu) {
+            setTimeout(initializeMobileMenu, 100);
+            return;
+        }
+        
+        // Remove any existing event listeners by cloning elements
+        const newMenuToggle = menuToggle.cloneNode(true);
+        menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+        
+        // Toggle mobile menu
+        newMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Handle dropdown clicks on mobile
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown, .mega-menu');
+            
+            if (dropdown) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        navItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        
+                        item.classList.toggle('active');
+                    }
+                });
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && 
+                !e.target.closest('.nav-container') && 
+                navMenu.classList.contains('active')) {
+                newMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                newMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
