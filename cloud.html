@@ -1138,22 +1138,91 @@
 
 <div id="footer"></div>
 
-  <!-- Script to Load Header & Footer -->
-  <script>
+<!-- Script to Load Header & Footer -->
+<script>
     // Load header
     fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header").innerHTML = data;
-      });
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+            // Initialize mobile menu after header loads
+            initializeMobileMenu();
+        });
 
     // Load footer
     fetch("footer.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        });
+
+    // Mobile Menu Initialization Function
+    function initializeMobileMenu() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        // Check if elements exist
+        if (!menuToggle || !navMenu) {
+            setTimeout(initializeMobileMenu, 100);
+            return;
+        }
+        
+        // Remove any existing event listeners by cloning elements
+        const newMenuToggle = menuToggle.cloneNode(true);
+        menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+        
+        // Toggle mobile menu
+        newMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Handle dropdown clicks on mobile
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown, .mega-menu');
+            
+            if (dropdown) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        navItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        
+                        item.classList.toggle('active');
+                    }
+                });
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && 
+                !e.target.closest('.nav-container') && 
+                navMenu.classList.contains('active')) {
+                newMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                newMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        });
+    }
+</script>
+
 
 </body>
 </html>

@@ -19,6 +19,7 @@
             padding: 0;
             width: 100%;
             margin: 0;
+            overflow-x: hidden;
         }
 
         nav {
@@ -28,14 +29,12 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             border-radius: 0;
             padding: 0;
-            position: fixed; /* optional, keeps header always visible */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            /*position: relative;*/
             z-index: 1000;
             margin: 0;
-            
         }
 
         .nav-container {
@@ -45,51 +44,68 @@
             align-items: center;
             padding: 0 20px;
             gap: 30px;
+            flex-wrap: wrap;
         }
 
-        /*.logo {
+        .logo {
             font-size: 24px;
             font-weight: bold;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            padding: 20px 20px 20px 0;
+            padding: 0;
             margin-right: 30px;
             white-space: nowrap;
-        }
-        .logo img {
-           height: 75px;            
-           width: auto;              
-           display: block;           
-        }*/
-        .logo {
-          font-size: 24px;
-          font-weight: bold;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          padding: 0; /* Remove padding */
-          margin-right: 30px;
-          white-space: nowrap;
-          display: flex; /* Add flex */
-          align-items: center; /* Center vertically */
-          line-height: 0; /* Remove line-height spacing */
+            display: flex;
+            align-items: center;
+            line-height: 0;
         }
 
         .logo img {
-          height: 60px; /* Adjust height as needed */          
-          width: auto;              
-          display: block;
-          vertical-align: middle; /* Remove inline gap */
-          object-fit: contain; /* Prevent distortion */
+            height: 60px;
+            width: auto;
+            display: block;
+            vertical-align: middle;
+            object-fit: contain;
         }
 
         .logo a {
-           text-decoration: none;
-           display: flex;
-           align-items: center;
-           line-height: 0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            line-height: 0;
+        }
 
+        /* Hamburger Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: auto;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .nav-menu {
@@ -151,7 +167,6 @@
             color: #667eea;
             background: rgba(102, 126, 234, 0.15);
         }
-        
 
         .arrow {
             font-size: 10px;
@@ -206,7 +221,7 @@
             padding-left: 25px;
         }
 
-        /* Nested Dropdown (Right Side) */
+        /* Nested Dropdown */
         .dropdown-nested {
             position: absolute;
             top: 0;
@@ -229,7 +244,7 @@
             transform: translateX(0);
         }
 
-        /* Mega Menu for Capabilities */
+        /* Mega Menu */
         .mega-menu {
             position: absolute;
             top: 100%;
@@ -278,6 +293,7 @@
             transition: all 0.3s ease;
             border-radius: 6px;
             font-size: 13px;
+            position: relative;
         }
 
         .mega-item:hover {
@@ -302,14 +318,6 @@
             padding-left: 25px;
         }
 
-        /* Icons */
-        .icon {
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-            opacity: 0.7;
-        }
-
         /* Highlight Effects */
         .dropdown-link::before,
         .mega-item::before {
@@ -330,50 +338,260 @@
             height: 70%;
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .mega-menu {
-                width: 800px;
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
+        /* ========================================
+           RESPONSIVE STYLES - TABLET (1024px)
+           ======================================== */
+        @media (max-width: 1024px) {
             .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
+                gap: 15px;
             }
 
             .logo {
-                margin-bottom: 10px;
+                margin-right: 15px;
             }
 
-            .nav-menu {
-                flex-direction: column;
-                width: 100%;
-                gap: 0;
+            .logo img {
+                height: 50px;
             }
 
-            .cta-button {
-                margin: 15px 0;
-                width: calc(100% - 40px);
-                text-align: center;
+            .nav-link {
+                padding: 15px 12px;
+                font-size: 14px;
             }
 
             .mega-menu {
-                width: 100%;
-                grid-template-columns: 1fr;
-                position: static;
-                transform: none;
+                width: 700px;
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .dropdown,
-            .dropdown-nested {
-                position: static;
+            .dropdown {
+                min-width: 240px;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE STYLES - MOBILE (768px)
+           ======================================== */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            .nav-container {
+                padding: 10px 15px;
+                gap: 10px;
+            }
+
+            .logo {
+                flex: 0 0 auto;
+                margin-right: 0;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            /* Show hamburger menu */
+            .menu-toggle {
+                display: flex !important;
+            }
+
+            /* Hide menu by default */
+            .nav-menu {
+                display: none;
+                flex-direction: column;
                 width: 100%;
-                box-shadow: none;
-                transform: none;
-                margin-left: 20px;
+                max-height: 70vh;
+                overflow-y: auto;
+                background: white;
+                border-radius: 12px;
+                margin-top: 10px;
+                padding: 10px 0;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                display: flex !important;
+            }
+
+            /* Navigation items */
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+
+            .nav-item:last-child {
+                border-bottom: none;
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 15px 20px;
+                border-radius: 0;
+                justify-content: space-between;
+            }
+
+            /* Make dropdowns collapsible */
+            .dropdown,
+            .dropdown-nested,
+            .mega-menu {
+                position: static !important;
+                width: 100% !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: rgba(102, 126, 234, 0.05) !important;
+                display: none !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                max-height: none !important;
+            }
+
+            /* Show when active */
+            .nav-item.active > .dropdown,
+            .nav-item.active > .mega-menu,
+            .dropdown-item.active > .dropdown-nested {
+                display: block !important;
+            }
+
+            /* Mega menu mobile layout */
+            .mega-menu {
+                grid-template-columns: 1fr !important;
+                gap: 0 !important;
+            }
+
+            .mega-column {
+                padding: 10px 15px !important;
+                background: transparent !important;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+
+            .mega-column:last-child {
+                border-bottom: none;
+            }
+
+            .mega-title {
+                font-size: 14px;
+                padding: 8px 0;
+                margin-bottom: 8px;
+            }
+
+            .mega-item,
+            .sub-mega-item {
+                padding: 10px 15px !important;
+                font-size: 13px;
+            }
+
+            .mega-item:hover,
+            .sub-mega-item:hover {
+                padding-left: 15px !important;
+            }
+
+            .dropdown-link {
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+
+            .dropdown-link:hover {
+                padding-left: 20px !important;
+            }
+
+            .dropdown-nested {
+                padding-left: 20px !important;
+            }
+
+            /* Arrow rotation */
+            .nav-item.active > .nav-link .arrow {
+                transform: rotate(180deg);
+            }
+
+            /* CTA Button */
+            .cta-button {
+                width: calc(100% - 30px);
+                margin: 10px 15px;
+                text-align: center;
+                display: block;
+            }
+
+            /* Remove hover effects */
+            .dropdown-link::before,
+            .mega-item::before {
+                display: none;
+            }
+
+            /* Scrollbar */
+            .nav-menu::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .nav-menu::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+
+            .nav-menu::-webkit-scrollbar-thumb {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 10px;
+            }
+        }
+
+        /* ========================================
+           SMALL MOBILE (480px)
+           ======================================== */
+        @media (max-width: 480px) {
+            .logo img {
+                height: 40px;
+            }
+
+            .menu-toggle span {
+                width: 22px;
+            }
+
+            .nav-link {
+                font-size: 13px;
+                padding: 12px 15px;
+            }
+
+            .dropdown-link {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+
+            .mega-title {
+                font-size: 13px;
+            }
+
+            .mega-item,
+            .sub-mega-item {
+                font-size: 12px;
+                padding: 8px 12px !important;
+            }
+
+            .cta-button {
+                font-size: 13px;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Accessibility */
+        @media (max-width: 768px) {
+            .nav-link,
+            .dropdown-link,
+            .mega-item,
+            .sub-mega-item {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-link:focus,
+            .dropdown-link:focus,
+            .cta-button:focus {
+                outline: 2px solid #667eea;
+                outline-offset: 2px;
             }
         }
     </style>
@@ -381,14 +599,22 @@
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo"><a href="index.html">
-    <img src="logo.png" alt="Niyan IT Solutions Logo">
-  </a></div>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Niyan IT Solutions Logo">
+                </a>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="index.html" class="nav-link">Home</a>
                 </li>
-                 
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -402,9 +628,6 @@
                         <li class="dropdown-item">
                             <a href="Mission.html" class="dropdown-link">Mission & Vision</a>
                         </li>
-                        <!--<li class="dropdown-item">
-                            <a href="team.html" class="dropdown-link">Our Team</a>
-                        </li>-->
                         <li class="dropdown-item">
                             <a href="values.html" class="dropdown-link">Our Values</a>
                         </li>
@@ -556,9 +779,59 @@
                     <a href="contact.html" class="nav-link">Contact Us</a>
                 </li>
             </ul>
-            
             <!--<a href="applynow.html" class="cta-button">Login</a>-->
         </div>
     </nav>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        // Toggle mobile menu
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Handle dropdown clicks on mobile
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown, .mega-menu');
+            
+            if (dropdown) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        navItems.forEach(otherItem => {
+                            if (otherItem !== item) otherItem.classList.remove('active');
+                        });
+                        item.classList.toggle('active');
+                    }
+                });
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && 
+                !e.target.closest('.nav-container') && 
+                navMenu.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            }
+        });
+    });
+    </script>
 </body>
 </html>
