@@ -8,45 +8,53 @@
 <!-- EmailJS CDN -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<!-- Firebase OTP Scripts -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-
 <style>
-/* YOUR SAME CSS — NO CHANGE */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    background: linear-gradient(to bottom right, #eef2ff, #e0e7ff);
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
 }
 
 /* Modal Overlay */
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
     display: none;
     justify-content: center;
     align-items: center;
     padding: 20px;
     z-index: 100;
+    backdrop-filter: blur(5px);
 }
 
 /* Modal Box */
 .modal-box {
-    background: #fff;
-    border-radius: 20px;
+    background: #ffffff;
+    border-radius: 0px;
     width: 100%;
-    max-width: 600px;
+    max-width: 650px;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    animation: fadeIn 0.3s ease-in-out;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideIn 0.4s ease-out;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+@keyframes slideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-50px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
 }
 
 /* Close Button */
@@ -54,91 +62,219 @@ body {
     position: absolute;
     right: 20px;
     top: 20px;
-    font-size: 26px;
-    color: #ddd;
+    font-size: 32px;
+    color: #fff;
     cursor: pointer;
     transition: 0.2s;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.2);
 }
-.close-btn:hover { color: #fff; }
+.close-btn:hover { 
+    background: rgba(255,255,255,0.3);
+    transform: rotate(90deg);
+}
 
-.form-container { padding: 30px; }
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 30px;
+    color: white;
+    text-align: center;
+}
+
+.modal-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.modal-header p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+.form-container { 
+    padding: 35px 30px; 
+}
 
 label {
     display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: #374151;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-input, select, textarea {
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    margin-bottom: 16px;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 0px;
+    margin-bottom: 20px;
     font-size: 15px;
+    transition: all 0.3s;
+    background: #f7fafc;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="tel"]:focus, 
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 textarea {
     height: 120px;
-    resize: none;
+    resize: vertical;
+    font-family: inherit;
 }
 
-.otp-row {
+/* Service Checkboxes */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.checkbox-item {
+    position: relative;
+}
+
+.checkbox-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-item label {
     display: flex;
-    gap: 10px;
-}
-
-.otp-btn {
-    background: #2563eb;
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
+    align-items: center;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 0px;
     cursor: pointer;
-    font-size: 15px;
+    transition: all 0.3s;
+    background: #f7fafc;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 500;
 }
 
-.otp-btn:hover {
-    background: #1e40af;
-}
-
-.timer-text {
-    font-size: 14px;
-    color: #e11d48;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.resend-btn {
-    display: none;
-    background: #16a34a;
+.checkbox-item input[type="checkbox"]:checked + label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
     color: white;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
+}
+
+.checkbox-item label:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.checkbox-item label::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cbd5e0;
+    border-radius: 0px;
+    margin-right: 10px;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.checkbox-item input[type="checkbox"]:checked + label::before {
+    background: white;
+    border-color: white;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .submit-btn {
-    background: #4f46e5;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
-    padding: 14px;
-    border-radius: 10px;
+    padding: 16px;
+    border-radius: 0px;
     border: none;
     width: 100%;
     font-size: 18px;
     cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
-.submit-btn:hover { background: #4338ca; }
+
+.submit-btn:hover { 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
 
 .success-box {
-    padding: 40px;
+    padding: 60px 40px;
     text-align: center;
     display: none;
 }
-.success-box h2 { font-size: 28px; color: #333; }
+
+.success-box h2 { 
+    font-size: 32px; 
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.success-box p {
+    font-size: 18px;
+    color: #718096;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 40px;
+    color: white;
+}
+
+/* Scrollbar styling */
+.modal-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal-box::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 4px;
+}
+
+.modal-box::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
 </style>
 </head>
 
@@ -151,8 +287,9 @@ textarea {
         <div class="close-btn" onclick="closeModal()">×</div>
 
         <div class="success-box" id="successBox">
-            <h2>✔ Message Sent Successfully!</h2>
-            <p>Thank you for contacting us!</p>
+            <div class="success-icon">✓</div>
+            <h2>Message Sent Successfully!</h2>
+            <p>Thank you for contacting us. We'll get back to you soon!</p>
         </div>
 
         <!-- Form -->
@@ -166,59 +303,49 @@ textarea {
                 <form id="quoteForm">
 
                     <label>Full Name *</label>
-                    <input type="text" name="name" required>
+                    <input type="text" name="name" required placeholder="Enter your full name">
 
                     <label>Email *</label>
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" required placeholder="your@email.com">
 
                     <label>Mobile *</label>
-                    <div class="otp-row">
-                        <input type="tel" id="mobile" name="mobile" required placeholder="Enter mobile number">
-                        <button type="button" class="otp-btn" id="sendOtpBtn" onclick="sendOTP()">Send OTP</button>
-                    </div>
-
-                    <div id="recaptcha-container"></div>
-
-                    <p id="timer" class="timer-text"></p>
-
-                    <button type="button" id="resendOtpBtn" class="resend-btn" onclick="resendOTP()">Resend OTP</button>
-
-                    <label>Enter OTP</label>
-                    <div class="otp-row">
-                        <input type="text" id="otpInput" placeholder="Enter OTP">
-                        <button type="button" class="otp-btn" onclick="verifyOTP()">Verify</button>
-                    </div>
-
-                    <p id="otpStatus" style="color:green; font-weight:bold;"></p>
+                    <input type="tel" name="mobile" required placeholder="Enter 10-digit mobile number">
 
                     <label>Company Name *</label>
-                    <input type="text" name="company" required>
+                    <input type="text" name="company" required placeholder="Enter company name">
 
-                    <label>Choose Service *</label>
-                    <select name="service" required>
-                        <option value="">Select a service...</option>
-                        <option>IT Support</option>
-                        <option>Web Services</option>
-                        <option>Web Application</option>
-                        <option>Android and ios App</option>
-                        <option>Digital Marketing</option>
-                        <option>Email Solutions</option>
-                    </select>
-
-                    <label>Choose Multiple Services (Optional)</label>
-                    <select name="services_multiple" multiple size="4">
-                        <option>IT Support</option>
-                        <option>Web Services</option>
-                        <option>Web Application</option>
-                        <option>Android and ios App</option>
-                        <option>Digital Marketing</option>
-                        <option>Email Solutions</option>
-                    </select>
+                    <label>Choose Services * (Select one or more)</label>
+                    <div class="services-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service1" name="services" value="IT Support">
+                            <label for="service1">IT Support</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service2" name="services" value="Web Services">
+                            <label for="service2">Web Services</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service3" name="services" value="Web Application">
+                            <label for="service3">Web Application</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service4" name="services" value="Android and iOS App">
+                            <label for="service4">Android & iOS App</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service5" name="services" value="Digital Marketing">
+                            <label for="service5">Digital Marketing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="service6" name="services" value="Email Solutions">
+                            <label for="service6">Email Solutions</label>
+                        </div>
+                    </div>
 
                     <label>Message</label>
-                    <textarea name="comment"></textarea>
+                    <textarea name="comment" placeholder="Tell us more about your requirements..."></textarea>
 
-                    <button type="submit" class="submit-btn" id="submitBtn" disabled>Submit</button>
+                    <button type="submit" class="submit-btn">Submit Request</button>
 
                 </form>
             </div>
@@ -229,92 +356,7 @@ textarea {
 </div>
 
 <script>
-/* ------------------ FIREBASE CONFIG ------------------ */
-var firebaseConfig = {
-    apiKey: "AIzaSyBNk1i_JgZShUcHqA33Vju2JPxIhTd5CEA",
-    authDomain: "niyan-it-solutions.firebaseapp.com",
-    projectId: "niyan-it-solutions",
-    storageBucket: "niyan-it-solutions.appspot.com",
-    messagingSenderId: "635399322266",
-    appId: "1:635399322266:web:c54d16872dca4a54fbfd23"
-};
-firebase.initializeApp(firebaseConfig);
-
-
-/* ---------------- OTP + TIMER + RESEND BUTTON ---------------- */
-
-let otpVerified = false;
-let timerInterval;
-let timeLeft = 30;
-
-function startTimer() {
-    timeLeft = 30;
-    document.getElementById("timer").innerHTML = "Resend OTP in " + timeLeft + "s";
-
-    timerInterval = setInterval(function () {
-        timeLeft--;
-        document.getElementById("timer").innerHTML = "Resend OTP in " + timeLeft + "s";
-
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            document.getElementById("timer").innerHTML = "";
-            document.getElementById("resendOtpBtn").style.display = "inline-block";
-            document.getElementById("sendOtpBtn").disabled = false;
-        }
-    }, 1000);
-}
-
-function sendOTP() {
-    let mobile = document.getElementById("mobile").value;
-
-    if (mobile.length !== 10) {
-        alert("Enter valid 10-digit mobile number");
-        return;
-    }
-
-    var number = "+91" + mobile;
-
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-
-    firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier)
-    .then(function (confirmationResult) {
-        window.confirmationResult = confirmationResult;
-        document.getElementById("otpStatus").innerHTML = "OTP Sent Successfully!";
-        
-        document.getElementById("sendOtpBtn").disabled = true;
-        document.getElementById("resendOtpBtn").style.display = "none";
-
-        startTimer();
-    })
-    .catch(function (error) {
-        alert(error.message);
-    });
-}
-
-function resendOTP() {
-    document.getElementById("resendOtpBtn").style.display = "none";
-    sendOTP(); // re-send
-}
-
-function verifyOTP() {
-    let otp = document.getElementById("otpInput").value;
-
-    confirmationResult.confirm(otp)
-    .then(function () {
-        otpVerified = true;
-        clearInterval(timerInterval);
-        document.getElementById("timer").innerHTML = "";
-        document.getElementById("otpStatus").innerHTML = "OTP Verified ✔";
-        document.getElementById("submitBtn").disabled = false;
-    })
-    .catch(function () {
-        document.getElementById("otpStatus").innerHTML = "Invalid OTP ❌";
-        otpVerified = false;
-    });
-}
-
 /* ------------------ EMAILJS SEND ---------------------- */
-
 emailjs.init("G5CrX0415IPB8S-e8");
 
 window.onload = function() {
@@ -332,10 +374,23 @@ function closeModal() {
 document.getElementById("quoteForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    if (!otpVerified) {
-        alert("Please verify OTP before submitting!");
+    // Collect selected services
+    const selectedServices = [];
+    document.querySelectorAll('input[name="services"]:checked').forEach(checkbox => {
+        selectedServices.push(checkbox.value);
+    });
+
+    if (selectedServices.length === 0) {
+        alert("Please select at least one service!");
         return;
     }
+
+    // Create a hidden input to send services as a single field
+    const servicesInput = document.createElement('input');
+    servicesInput.type = 'hidden';
+    servicesInput.name = 'selected_services';
+    servicesInput.value = selectedServices.join(', ');
+    this.appendChild(servicesInput);
 
     const serviceID = "service_nufk5yr";
     const templateID = "template_bnocmno";
@@ -347,7 +402,7 @@ document.getElementById("quoteForm").addEventListener("submit", function(e) {
 
         setTimeout(() => {
             window.location.href = "index.html";
-        }, 2000);
+        }, 3000);
     })
     .catch((err) => {
         alert("Failed: " + JSON.stringify(err));
