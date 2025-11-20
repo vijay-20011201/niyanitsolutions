@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyan IT Solutions - Empowering Digital Growth</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        /* About Section */
+        .about-clients {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Client Gallery */
+        .client-gallery {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .logo-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .logo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+            background: white;
+        }
+
+        .logo-card img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .logo-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .logo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation (Loaded from header.html) -->
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Our Valued Clients</h1>
+        <p>Delivering trusted solutions to industry leaders worldwide</p>
+    </section>
+
+    <!-- About Clients Section -->
+    <section class="about-clients">
+        <div class="container">
+            <h2 class="section-title">Trusted by Leading Brands</h2>
+            <div class="about-content">
+                <p>We are proud to partner with 21+ companies across various industries. Our commitment to quality, reliability, and innovation has helped us build long-term professional relationships with organizations of all sizes.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">21+</div>
+                    <div class="stat-label">Active Clients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Completed Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Dedicated Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logo Gallery -->
+    <section class="client-gallery">
+        <div class="container">
+            <h2 class="section-title">Our Clientele</h2>
+            
+            <div class="logo-grid">
+                <!-- Replace the src with your actual PNG logo paths -->
+                <div class="logo-card">
+                    <img src="images/Apana.png" alt="Client 1">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Astra.png" alt="Client 2">
+                </div>
+                <div class="logo-card">
+                    <img src="images/CareerBuild.png" alt="Client 3">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Chesa.png" alt="Client 4">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Coextrix.jpg" alt="Client 5">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Dive.png" alt="Client 6">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Easy.png" alt="Client 7">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Hayat.jpeg" alt="Client 8">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Helpline.png" alt="Client 9">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Isha Events.png" alt="Client 10">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Jerry.png" alt="Client 11">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Logo.png" alt="Client 12">
+                </div>
+                <div class="logo-card">
+                    <img src="images/MyZone.png" alt="Client 13">
+                </div>
+                <div class="logo-card">
+                    <img src="images/SLCloud.png" alt="Client 14">
+                </div>
+                <div class="logo-card">
+                    <img src="images/SLNetworks.png" alt="Client 15">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Testocode.png" alt="Client 16">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Tren.png" alt="Client 17">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Vedant Growth.png" alt="Client 18">
+                </div>
+                <div class="logo-card">
+                    <img src="images/Viscan.png" alt="Client 19">
+                </div>
+                <div class="logo-card">
+                    <img src="images/VR Global Technology.png" alt="Client 20">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Professional, fast, and high-quality service. They exceeded our expectations in every way."</p>
+                    <p class="testimonial-author">Nageshwar Rao</p>
+                    <p class="testimonial-role">CEO, SL Networks</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Reliable partner with excellent support. Their team is always responsive and dedicated."</p>
+                    <p class="testimonial-author">Srinath</p>
+                    <p class="testimonial-role">CEO, Isha Events</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Their solutions improved our workflow efficiency significantly. Highly recommend their services!"</p>
+                    <p class="testimonial-author">Nikhil Reddy</p>
+                    <p class="testimonial-role">CEO, Trend Global Solutions Pvt.Ltd</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Want to Work With Us?</h2>
+            <p>Let's build a partnership that drives growth and success</p>
+            <a href="contactform.html" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+     <!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    ↑
+</div>
+
+<!-- JavaScript for Scroll Button -->
+<script>
+    // Get the scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<div id="footer"></div>
+
+  <!-- Script to Load Header & Footer -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>

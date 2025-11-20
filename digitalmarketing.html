@@ -29,7 +29,7 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            padding: 40px 20px;
+            padding: 140px 20px 40px 20px;
             width: 100%;
         }
 
@@ -55,6 +55,7 @@
             z-index: 10;
             max-width: 900px;
             color: white;
+            margin-top: 20px;
         }
 
         .hero h1 {
@@ -62,13 +63,14 @@
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.6);
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 40px;
             opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero-buttons {
@@ -427,17 +429,17 @@
 
         /* Industries */
         .industries-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
-    grid-template-rows: repeat(4, auto);   /* 4 flexible rows (for 16 total items) */
-    gap: 30px;                             /* space between grid items */
-    margin-top: 60px;                      /* space above the grid */
-    justify-items: center;                 /* centers items horizontally */
-    align-items: start;                    /* aligns items vertically at the top */
-    max-width: 1600px;                     /* keeps grid neat on large screens */
-    margin-left: auto;
-    margin-right: auto;                    /* centers the grid container */
-}
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, auto);
+            gap: 30px;
+            margin-top: 60px;
+            justify-items: center;
+            align-items: start;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         .industry-item {
             text-align: center;
@@ -569,19 +571,73 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero { 
+                padding: 120px 20px 40px 20px;
+            }
+            .hero h1 { 
+                font-size: 2.8rem;
+                line-height: 1.3;
+            }
+            .hero p { font-size: 1.2rem; }
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
+            .hero { 
+                padding: 100px 20px 40px 20px;
+            }
+            .hero h1 { 
+                font-size: 2rem;
+                line-height: 1.3;
+                padding: 0 10px;
+            }
+            .hero p { 
+                font-size: 1rem;
+                padding: 0 10px;
+            }
             .section-header h2 { font-size: 2rem; }
             .campaigns-grid, .testimonial-carousel {
                 grid-template-columns: 1fr;
             }
             .final-cta h2 { font-size: 2rem; }
+            
+            .chart-animation {
+                height: 100px;
+            }
+            
+            .bar {
+                width: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero { 
+                padding: 90px 20px 40px 20px;
+            }
+            .hero h1 { 
+                font-size: 1.6rem;
+                line-height: 1.4;
+            }
+            .hero p { 
+                font-size: 0.95rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header Navigation (Loaded from header.html) -->
+    <!-- Header Navigation -->
     <div id="header"></div>
 
     <!-- Hero Section -->
