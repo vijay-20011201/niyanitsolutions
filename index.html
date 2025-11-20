@@ -455,6 +455,59 @@
             color: rgba(255,255,255,0.7);
             line-height: 1.6;
         }
+        /* Background Section */
+.client-slider-section {
+    padding: 40px 0;
+    background: linear-gradient(135deg, #0d1b2a, #1b263b, #2a3d66);
+    text-align: center;
+}
+
+.client-slider-section .section-title {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Slider Container */
+.slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Slide Track - Moving Row */
+.slide-track {
+    display: flex;
+    width: calc(200px * 40); /* adjust with total logos */
+    animation: scroll 35s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Individual Logo Cards */
+.slide {
+    width: 180px;
+    height: 110px;
+    margin: 0 15px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 
         /* Testimonials Section */
         .testimonials {
@@ -1308,6 +1361,61 @@
             </div>
         </div>
     </section>
+    <!-- Client Logo Slider Section -->
+<section class="client-slider-section">
+    <h2 class="section-title">Our Client</h2>
+
+    <div class="slider">
+        <div class="slide-track">
+            <!-- Duplicate logos 2 times for smooth infinite scroll -->
+            
+            <!-- ORIGINAL LIST -->
+            <div class="slide"><img src="images/Apana.png"></div>
+            <div class="slide"><img src="images/Astra.png"></div>
+            <div class="slide"><img src="images/CareerBuild.png"></div>
+            <div class="slide"><img src="images/Chesa.png"></div>
+            <div class="slide"><img src="images/Coextrix.jpg"></div>
+            <div class="slide"><img src="images/Dive.png"></div>
+            <div class="slide"><img src="images/Easy.png"></div>
+            <div class="slide"><img src="images/Hayat.jpeg"></div>
+            <div class="slide"><img src="images/Helpline.png"></div>
+            <div class="slide"><img src="images/Isha-Events.png"></div>
+            <div class="slide"><img src="images/Jerry.png"></div>
+            <div class="slide"><img src="images/Logo.png"></div>
+            <div class="slide"><img src="images/MyZone.png"></div>
+            <div class="slide"><img src="images/SLCloud.png"></div>
+            <div class="slide"><img src="images/SLNetworks.png"></div>
+            <div class="slide"><img src="images/Testocode.png"></div>
+            <div class="slide"><img src="images/Tren.png"></div>
+            <div class="slide"><img src="images/Vedant-Growth.png"></div>
+            <div class="slide"><img src="images/Viscan.png"></div>
+            <div class="slide"><img src="images/VR-Global-Technology.png"></div>
+
+            <!-- DUPLICATE LIST FOR LOOP -->
+            <div class="slide"><img src="images/Apana.png"></div>
+            <div class="slide"><img src="images/Astra.png"></div>
+            <div class="slide"><img src="images/CareerBuild.png"></div>
+            <div class="slide"><img src="images/Chesa.png"></div>
+            <div class="slide"><img src="images/Coextrix.jpg"></div>
+            <div class="slide"><img src="images/Dive.png"></div>
+            <div class="slide"><img src="images/Easy.png"></div>
+            <div class="slide"><img src="images/Hayat.jpeg"></div>
+            <div class="slide"><img src="images/Helpline.png"></div>
+            <div class="slide"><img src="images/Isha-Events.png"></div>
+            <div class="slide"><img src="images/Jerry.png"></div>
+            <div class="slide"><img src="images/Logo.png"></div>
+            <div class="slide"><img src="images/MyZone.png"></div>
+            <div class="slide"><img src="images/SLCloud.png"></div>
+            <div class="slide"><img src="images/SLNetworks.png"></div>
+            <div class="slide"><img src="images/Testocode.png"></div>
+            <div class="slide"><img src="images/Tren.png"></div>
+            <div class="slide"><img src="images/Vedant-Growth.png"></div>
+            <div class="slide"><img src="images/Viscan.png"></div>
+            <div class="slide"><img src="images/VR-Global-Technology.png"></div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Testimonials Section -->
     <section class="testimonials">
