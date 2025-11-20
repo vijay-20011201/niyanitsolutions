@@ -246,11 +246,14 @@
 
         /* Mega Menu */
         .mega-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
+            position: fixed;
+            top: 70px;
+            left: 20px;
+            right: 20px;
             background: white;
-            width: 1000px;
+            width: auto;
+            max-width: 1200px;
+            margin: 0 auto;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             opacity: 0;
@@ -258,7 +261,6 @@
             transform: translateY(-10px);
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             padding: 25px;
-            margin-top: 5px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
