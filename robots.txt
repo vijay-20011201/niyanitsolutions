@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Block system folders
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /temp/
+Disallow: /backup/
+
+# Sitemap location
+Sitemap: https://niyanitsolutions.com/sitemap.xml
